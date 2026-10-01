@@ -2,6 +2,8 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** y la evolución de la cooperación a través de un **juego rápido de aproximadamente 1 minuto** con estética moderna tipo Nintendo, fondo negro y gráficos circulares, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
+> **Versión 1.0.0 (Primera Versión)**: Lanzamiento oficial del juego de aprendizaje estilo Nintendo y el simulador toroidal espacial 2D.
+
 ---
 
 ## 🎮 1. Juego de Aprendizaje Rápido (Por Defecto · ~1 Minuto)

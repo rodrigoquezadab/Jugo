@@ -1,7 +1,9 @@
 # CONTEXTO DEL PROYECTO: EL DILEMA DEL PRISIONERO (APRENDIZAJE EN 1 MINUTO & SIMULADOR ESPACIAL 2D)
 
 ## 1. Visión General
-Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias:
+Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
+
+> **Versión del Proyecto:** `1.0.0` (Primera Versión Estable)
 
 1. **Juego de Aprendizaje en 1 Minuto (Modo Principal por Defecto):**
    * **Estética Nintendo Moderna:** Fondo negro puro (`#07080c`) con iluminaciones circulares difusas, tipografías redondeadas ('Fredoka' y 'Outfit'), botones 3D ultra-táctiles y jugosos.
