@@ -2,11 +2,23 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.8.2**: Reubicación de la caja narrativa de diálogo y comentarios en la parte superior del escenario (arriba de los personajes y de la barra de acciones central) para una lectura natural y óptima en la consola Nintendo Switch, junto con las placas de identidad de los 6 personajes y el soporte multijugador idéntico a 1P.
+> **Versión 1.8.3**: Cobertura del 100% de identificadores únicos (`id="..."`) en todos los elementos con clase de la aplicación (458 IDs únicos, 0 duplicados), permitiendo referenciar, apuntar y modificar con total precisión cualquier componente en Modo Historia, Multijugador, Arcade, Simulador 2D y Modales.
 
 ---
 
-## 📜 1. Texto de la Historia Arriba de los Personajes y Botones
+## 🎯 1. Identificadores Únicos (`id="..."`) en el 100% de Elementos de Clase
+Para facilitar la inspección, pruebas automatizadas y solicitudes de cambios puntuales sobre cualquier componente:
+* **Cobertura Total (367 de 367 elementos con clase en HTML estático y plantillas dinámicas):** Todos los contenedores, botones, tarjetas, badges, controles Joy-Con, etiquetas y filas cuentan ahora con su respectivo `id="..."` semántico único y descriptivo (458 IDs únicos sin duplicados en el DOM).
+* **Nomenclatura Semántica Predictiva:**
+  * **Chasis Switch & Joy-Cons:** `#switch-chassis`, `#joycon-l`, `#joycon-r`, `#dpad-cluster`, `#abxy-cluster`, `#switch-os-top-bar`, `#switch-user-pill`, `#switch-nav-tabs`, `#switch-sys-status`, `#battery-icon-svg`, `#battery-level-bar`, etc.
+  * **Modo Historia (1P):** `#story-header-bar`, `#story-chap-badge`, `#story-stats-pills`, `#story-stat-pill-coins`, `#story-stat-pill-trust`, `#story-dialogue-box`, `#story-actors-row`, `#story-center-clash`, `#story-attr-line-kindness`, etc.
+  * **Modo Multijugador (2P):** `#mp-header-bar`, `#mp-chap-badge`, `#mp-stats-pills`, `#mp-dialogue-box`, `#mp-actors-row`, `#mp-center-clash`, `#mp-action-group-p1`, `#mp-action-group-p2`, `#mp-matrix-badge`, etc.
+  * **Simulador 2D & Terminal:** `#terminal-container`, `#ascii-header-box`, `#ascii-mode-nav`, `#ascii-skin-nav`, `#brush-tools`, `#ascii-control-deck`, `#tut-lesson-btn-group`, `#tut-rules-table`, `#adv-matrix-grid`, etc.
+  * **Roster & Analítica:** `#roster-modal-sheet`, `#roster-card-${charId}`, `#btn-select-roster-${charId}`, `#mp-analytics-sheet`, `#mp-stat-card-${pId}`, etc.
+
+---
+
+## 📜 2. Texto de la Historia Arriba de los Personajes y Botones
 * **Lectura Natural Tipo RPG / Novela Visual:** La caja de diálogo y narrativa (`.story-rpg-dialogue-box`) en el **Modo Historia (1P)** y la caja de comentarios del árbitro (`.mp-dialogue-box`) en el **Modo Multijugador (2P)** ahora se posicionan en la **zona superior del escenario**, inmediatamente encima de los personajes y de la barra de acciones central.
 * **Jerarquía Visual Clara:**
   1. **Arriba:** Caja de diálogo con insignia de interlocutor (`.story-speaker-tag`), texto narrativo del capítulo y consejos estratégicos.

@@ -2188,21 +2188,21 @@
 
 <body>
 
-  <div class="ambient-room-glow"></div>
+  <div class="ambient-room-glow" id="ambient-room-glow"></div>
 
   <!-- CHASIS DE VIDEOCONSOLA PORTÁTIL NINTENDO SWITCH -->
   <div class="switch-console-chassis" id="switch-chassis">
 
     <!-- JOY-CON IZQUIERDO (NEON BLUE) -->
     <aside class="joycon-left" id="joycon-l">
-      <div class="joycon-top-bumper-l" title="Gatillo L"></div>
+      <div class="joycon-top-bumper-l" id="joycon-top-bumper-l" title="Gatillo L"></div>
       <div class="joycon-btn-minus" id="joy-btn-minus" title="Botón Menos (-)"></div>
 
       <div class="analog-stick-wrap" id="joy-stick-l" title="Stick Analógico">
-        <div class="analog-stick-cap"></div>
+        <div class="analog-stick-cap" id="joy-stick-cap-l"></div>
       </div>
 
-      <div class="dpad-cluster">
+      <div class="dpad-cluster" id="dpad-cluster">
         <div></div>
         <div class="dpad-btn" id="dpad-up" title="Capítulo Anterior">▲</div>
         <div></div>
@@ -2218,16 +2218,16 @@
     </aside>
 
     <!-- CHASIS CENTRAL & PANTALLA LCD -->
-    <main class="console-screen-bezel">
+    <main class="console-screen-bezel" id="console-screen-bezel">
 
       <!-- BARRA SWITCH OS -->
-      <header class="switch-os-top-bar" alt="Barra superior del sistema operativo Switch OS">
-        <div class="switch-user-pill" alt="Perfil del jugador activo">
-          <div class="user-avatar-small">🤠</div>
-          <span>El Viajero (1P)</span>
+      <header class="switch-os-top-bar" id="switch-os-top-bar" alt="Barra superior del sistema operativo Switch OS">
+        <div class="switch-user-pill" id="switch-user-pill" alt="Perfil del jugador activo">
+          <div class="user-avatar-small" id="user-avatar-small">🤠</div>
+          <span id="switch-user-name">El Viajero (1P)</span>
         </div>
 
-        <nav class="switch-nav-tabs">
+        <nav class="switch-nav-tabs" id="switch-nav-tabs">
           <button id="switch-tab-story" class="switch-tab-btn active" alt="Modo Historia 1 Jugador" title="Modo Historia 1 Jugador">
             <span>📖</span> HISTORIA (1P)
           </button>
@@ -2257,10 +2257,10 @@
           </button>
         </div>
 
-        <div class="switch-sys-status">
+        <div class="switch-sys-status" id="switch-sys-status">
           <button id="btn-sound-toggle" alt="Botón silenciar o activar efectos de sonido" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Sonido">🔊</button>
           <span id="switch-clock" alt="Reloj del sistema">12:00</span>
-          <div class="battery-icon-svg" title="Batería 100%" alt="Indicador de batería al 100%"><div class="battery-level"></div></div>
+          <div class="battery-icon-svg" id="battery-icon-svg" title="Batería 100%" alt="Indicador de batería al 100%"><div class="battery-level" id="battery-level-bar"></div></div>
           <button class="btn-toggle-viewmode" id="btn-toggle-viewmode" alt="Botón para maximizar pantalla" title="Maximizar pantalla">
             <span id="viewmode-icon">🖥️</span> <span id="viewmode-text">Maximizar</span>
           </button>
@@ -2268,7 +2268,7 @@
       </header>
 
       <!-- VIEWPORT DE PANTALLA LCD -->
-      <div class="switch-screen-viewport">
+      <div class="switch-screen-viewport" id="switch-screen-viewport">
 
         <!-- =========================================================
              MODO HISTORIA NARRATIVO PARA 1 JUGADOR (DEFAULT)
@@ -2276,8 +2276,8 @@
         <div id="switch-screen-story">
 
           <!-- BARRA DE SEGUIMIENTO DEL CAPÍTULO -->
-          <div class="story-header-bar" alt="Barra de información del capítulo">
-            <div class="story-chap-badge">
+          <div class="story-header-bar" id="story-header-bar" alt="Barra de información del capítulo">
+            <div class="story-chap-badge" id="story-chap-badge">
               <div class="story-chap-icon" id="story-chap-icon">🌾</div>
               <div>
                 <h4 class="story-chap-title" id="story-chap-title">Capítulo 1: El Mercado de la Buena Fe</h4>
@@ -2285,14 +2285,14 @@
               </div>
             </div>
 
-            <div class="story-stats-pills">
-              <div class="story-stat-pill coins">
+            <div class="story-stats-pills" id="story-stats-pills">
+              <div class="story-stat-pill coins" id="story-stat-pill-coins">
                 <span>🪙</span> <span id="story-coins-val">0</span>
               </div>
-              <div class="story-stat-pill trust">
+              <div class="story-stat-pill trust" id="story-stat-pill-trust">
                 <span>💙 Confianza:</span> <span id="story-trust-val">100%</span>
               </div>
-              <div class="story-stat-pill" style="color: #ffcc00; border-color: rgba(255,204,0,0.3);">
+              <div class="story-stat-pill" id="story-stat-pill-chapter" style="color: #ffcc00; border-color: rgba(255,204,0,0.3);">
                 <span>⭐ Cap:</span> <span id="story-step-indicator">1 / 5</span>
               </div>
             </div>
@@ -2303,7 +2303,7 @@
 
             
             <!-- CAJA DE DIÁLOGO RPG NINTENDO -->
-            <div class="story-rpg-dialogue-box" alt="Caja de diálogo y narrativa de la historia">
+            <div class="story-rpg-dialogue-box" id="story-dialogue-box" alt="Caja de diálogo y narrativa de la historia">
               <span class="story-speaker-tag" id="story-speaker-name">BUDDY EL GRANJERO</span>
               <p class="story-dialogue-text" id="story-text-body">
                 "¡Bienvenido a la aldea, forastero! Tengo un saco de trigo recién cosechado. Si me das tus manzanas, ambos prosperaremos (+3 monedas cada uno). ¿Cerramos el trato honestamente?"
@@ -2313,7 +2313,7 @@
               </p>
             </div>
 
-            <div class="story-actors-row">
+            <div class="story-actors-row" id="story-actors-row">
 
               <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON PLACA DE NOMBRE -->
               <div class="story-actor" id="story-actor-player" alt="Personaje: El Viajero">
@@ -2350,7 +2350,7 @@
               </div>
 
               <!-- CENTRO: BARRA DE ACCIONES EN MEDIO DE LA PANTALLA + RADAR ESTRATÉGICO -->
-              <div class="story-center-clash">
+              <div class="story-center-clash" id="story-center-clash">
 
                 <!-- TARJETA DEL RADAR ESTRATÉGICO DEL RIVAL -->
                 <div class="opp-dna-card" id="opp-dna-card" alt="Tarjeta de ADN estratégico y radar del contrincante" title="Radar de Conducta de Teoría de Juegos">
@@ -2359,21 +2359,21 @@
                   </div>
                   <div class="opp-dna-attributes" id="story-dna-attributes">
                     <div style="font-weight: 800; color: #ffcc00; font-size: 0.72rem; margin-bottom: 2px;" id="story-dna-title">ADN ESTRATÉGICO</div>
-                    <div class="opp-attr-line"><span>Bondad:</span> <span id="attr-kindness" style="color: #00e676;">100%</span></div>
-                    <div class="opp-attr-line"><span>Firmeza:</span> <span id="attr-retaliation" style="color: #38bdf8;">100%</span></div>
-                    <div class="opp-attr-line"><span>Perdón:</span> <span id="attr-forgiveness" style="color: #a855f7;">100%</span></div>
+                    <div class="opp-attr-line" id="story-attr-line-kindness"><span>Bondad:</span> <span id="attr-kindness" style="color: #00e676;">100%</span></div>
+                    <div class="opp-attr-line" id="story-attr-line-retaliation"><span>Firmeza:</span> <span id="attr-retaliation" style="color: #38bdf8;">100%</span></div>
+                    <div class="opp-attr-line" id="story-attr-line-forgiveness"><span>Perdón:</span> <span id="attr-forgiveness" style="color: #a855f7;">100%</span></div>
                   </div>
                 </div>
 
                 <!-- BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
                 <div class="story-choices-bar" id="story-choices-bar" alt="Barra de acciones de combate en medio de la pantalla">
                   <button class="story-choice-btn story-btn-coop" id="btn-story-coop" alt="Cumplir Pacto y Cooperar [Y/C]" title="Cooperar [Y/C]">
-                    <span class="btn-key-badge">[ Y / C ]</span>
+                    <span class="btn-key-badge" id="badge-key-story-coop">[ Y / C ]</span>
                     <span>🤝 CUMPLIR PACTO</span>
                   </button>
 
                   <button class="story-choice-btn story-btn-cheat" id="btn-story-cheat" alt="Atacar y Traicionar [X/T]" title="Atacar [X/T]">
-                    <span class="btn-key-badge">[ X / T ]</span>
+                    <span class="btn-key-badge" id="badge-key-story-cheat">[ X / T ]</span>
                     <span>🗡️ ATACAR / TRAICIONAR</span>
                   </button>
 
@@ -2434,7 +2434,7 @@
              MODAL DEL DIARIO DE LA CONFIANZA (CAPÍTULO COMPLETADO)
              ========================================================= -->
         <div class="story-modal-backdrop" id="story-journal-modal">
-          <div class="story-journal-sheet">
+          <div class="story-journal-sheet" id="story-journal-sheet">
             <div style="font-size: 38px;" id="story-modal-icon">📜</div>
             <h3 style="font-size: 1.45rem; color: #ffcc00; margin: 0;" id="story-modal-title">
               ¡Capítulo 1 Superado!
@@ -2470,23 +2470,23 @@
         <div id="switch-screen-multiplayer" style="display: none;" alt="Pantalla de Duelo Multijugador 1 vs 1">
 
           <!-- BARRA DE SEGUIMIENTO MULTIJUGADOR -->
-          <div class="story-header-bar mp-header-bar" alt="Barra de información del duelo multijugador">
-            <div class="story-chap-badge" alt="Insignia de duelo multijugador">
-              <div class="story-chap-icon" role="img" aria-label="Icono de espadas cruzadas" alt="Duelo Multijugador">⚔️</div>
+          <div class="story-header-bar mp-header-bar" id="mp-header-bar" alt="Barra de información del duelo multijugador">
+            <div class="story-chap-badge" id="mp-chap-badge" alt="Insignia de duelo multijugador">
+              <div class="story-chap-icon" id="mp-chap-icon" role="img" aria-label="Icono de espadas cruzadas" alt="Duelo Multijugador">⚔️</div>
               <div>
-                <h4 class="story-chap-title">Duelo Multijugador Local (1 vs 1)</h4>
-                <p class="story-chap-subtitle">Enfrentamiento táctico en la misma consola · Igual que el modo 1P</p>
+                <h4 class="story-chap-title" id="mp-chap-title">Duelo Multijugador Local (1 vs 1)</h4>
+                <p class="story-chap-subtitle" id="mp-chap-subtitle">Enfrentamiento táctico en la misma consola · Igual que el modo 1P</p>
               </div>
             </div>
 
-            <div class="story-stats-pills" alt="Marcadores de los jugadores">
-              <div class="story-stat-pill" style="color: #00d2ff; border-color: rgba(0, 210, 255, 0.4);" title="Puntos Jugador 1" alt="Puntos Jugador 1">
+            <div class="story-stats-pills" id="mp-stats-pills" alt="Marcadores de los jugadores">
+              <div class="story-stat-pill" id="mp-stat-pill-p1" style="color: #00d2ff; border-color: rgba(0, 210, 255, 0.4);" title="Puntos Jugador 1" alt="Puntos Jugador 1">
                 <span>🟦 P1:</span> <span id="mp-p1-score">0 pts</span>
               </div>
-              <div class="story-stat-pill" style="color: #ff2d55; border-color: rgba(255, 45, 85, 0.4);" title="Puntos Jugador 2" alt="Puntos Jugador 2">
+              <div class="story-stat-pill" id="mp-stat-pill-p2" style="color: #ff2d55; border-color: rgba(255, 45, 85, 0.4);" title="Puntos Jugador 2" alt="Puntos Jugador 2">
                 <span>🟥 P2:</span> <span id="mp-p2-score">0 pts</span>
               </div>
-              <div class="story-stat-pill" style="color: #ffcc00; border-color: rgba(255, 204, 0, 0.3);" title="Ronda Actual" alt="Ronda actual">
+              <div class="story-stat-pill" id="mp-stat-pill-round" style="color: #ffcc00; border-color: rgba(255, 204, 0, 0.3);" title="Ronda Actual" alt="Ronda actual">
                 <span>⭐ Ronda:</span> <span id="mp-round-indicator">1 / 5</span>
               </div>
             </div>
@@ -2497,7 +2497,7 @@
 
             
             <!-- CAJA DE COMENTARIOS RPG NINTENDO -->
-            <div class="story-rpg-dialogue-box mp-dialogue-box" alt="Comentarios del Árbitro de la Consola">
+            <div class="story-rpg-dialogue-box mp-dialogue-box" id="mp-dialogue-box" alt="Comentarios del Árbitro de la Consola">
               <span class="story-speaker-tag" id="mp-speaker-name" alt="Comentarista">ÁRBITRO DE LA CONSOLA</span>
               <p class="story-dialogue-text" id="mp-dialogue-text">
                 "¡Duelo Multijugador iniciado! Ambos jugadores eligen su estrategia: cooperar para prosperar juntos (+3/+3) o atacar a traición para llevarse el botín (+5/0)."
@@ -2507,7 +2507,7 @@
               </p>
             </div>
 
-            <div class="story-actors-row" alt="Fila de combatientes multijugador">
+            <div class="story-actors-row" id="mp-actors-row" alt="Fila de combatientes multijugador">
 
               <!-- JUGADOR 1 (AZUL) - AVATAR GIGANTE CON PLACA DE NOMBRE -->
               <div class="story-actor" id="mp-actor-p1" alt="Jugador 1">
@@ -2544,7 +2544,7 @@
               </div>
 
               <!-- CENTRO: BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
-              <div class="story-center-clash mp-center-clash" alt="Centro de decisiones de combate multijugador">
+              <div class="story-center-clash mp-center-clash" id="mp-center-clash" alt="Centro de decisiones de combate multijugador">
 
                 <!-- STATUS DE LA RONDA -->
                 <div class="mp-clash-status-card" id="mp-clash-status-card" title="Estado de la ronda" alt="Tarjeta de estado del duelo">
@@ -2560,14 +2560,14 @@
                 <!-- BARRA DE ACCIONES CENTRAL PARA P1 Y P2 -->
                 <div class="mp-choices-container" id="mp-choices-container" alt="Controles de acción multijugador">
                   <!-- Controles P1 -->
-                  <div class="mp-player-action-group" alt="Botones de acción de Jugador 1">
-                    <span style="font-size: 0.7rem; font-weight: 800; color: #00d2ff;">JUGADOR 1 (AZUL)</span>
+                  <div class="mp-player-action-group" id="mp-action-group-p1" alt="Botones de acción de Jugador 1">
+                    <span style="font-size: 0.7rem; font-weight: 800; color: #00d2ff;" id="mp-label-player1">JUGADOR 1 (AZUL)</span>
                     <div style="display: flex; gap: 6px; width: 100%;">
                       <button class="story-choice-btn story-btn-coop mp-btn" id="btn-mp-p1-coop" title="P1 Cooperar [W]" aria-label="Jugador 1 Cooperar" alt="P1 Cooperar">
-                        <span class="btn-key-badge">[ W ]</span> 🤝 COOP
+                        <span class="btn-key-badge" id="badge-key-mp-p1-coop">[ W ]</span> 🤝 COOP
                       </button>
                       <button class="story-choice-btn story-btn-cheat mp-btn" id="btn-mp-p1-cheat" title="P1 Atacar [S]" aria-label="Jugador 1 Atacar" alt="P1 Atacar">
-                        <span class="btn-key-badge">[ S ]</span> 🗡️ ATACAR
+                        <span class="btn-key-badge" id="badge-key-mp-p1-cheat">[ S ]</span> 🗡️ ATACAR
                       </button>
                     </div>
                   </div>
@@ -2575,14 +2575,14 @@
                   <div style="font-weight: 900; color: #ffcc00; font-size: 1.1rem; text-shadow: 0 0 10px rgba(255,204,0,0.5);">VS</div>
 
                   <!-- Controles P2 -->
-                  <div class="mp-player-action-group" alt="Botones de acción de Jugador 2">
-                    <span style="font-size: 0.7rem; font-weight: 800; color: #ff2d55;">JUGADOR 2 (ROJO)</span>
+                  <div class="mp-player-action-group" id="mp-action-group-p2" alt="Botones de acción de Jugador 2">
+                    <span style="font-size: 0.7rem; font-weight: 800; color: #ff2d55;" id="mp-label-player2">JUGADOR 2 (ROJO)</span>
                     <div style="display: flex; gap: 6px; width: 100%;">
                       <button class="story-choice-btn story-btn-coop mp-btn" id="btn-mp-p2-coop" title="P2 Cooperar [I / Flecha Arriba]" aria-label="Jugador 2 Cooperar" alt="P2 Cooperar">
-                        <span class="btn-key-badge">[ I ]</span> 🤝 COOP
+                        <span class="btn-key-badge" id="badge-key-mp-p2-coop">[ I ]</span> 🤝 COOP
                       </button>
                       <button class="story-choice-btn story-btn-cheat mp-btn" id="btn-mp-p2-cheat" title="P2 Atacar [K / Flecha Abajo]" aria-label="Jugador 2 Atacar" alt="P2 Atacar">
-                        <span class="btn-key-badge">[ K ]</span> 🗡️ ATACAR
+                        <span class="btn-key-badge" id="badge-key-mp-p2-cheat">[ K ]</span> 🗡️ ATACAR
                       </button>
                     </div>
                   </div>
@@ -2595,7 +2595,7 @@
 
                 <!-- BADGE DE MATRIZ DE PAGOS -->
                 <div style="display: flex; gap: 8px; align-items: center;" alt="Valores de pagos">
-                  <div class="story-matrix-badge" alt="Reglas de pagos de Teoría de Juegos">
+                  <div class="story-matrix-badge" id="mp-matrix-badge" alt="Reglas de pagos de Teoría de Juegos">
                     Mutua: (+3/+3) | Traición: (+5/0) | Conflicto: (+1/+1)
                   </div>
                 </div>
@@ -2643,28 +2643,28 @@
         <div id="nin-switch-main-stage">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
             <h4 style="margin: 0; color: #fff;">⚡ Duelo Libre Arcade (1 Minuto)</h4>
-            <div class="switch-opp-selector">
-              <button class="switch-opp-chip active" data-opp="kopy">🐱 Kopy</button>
-              <button class="switch-opp-chip" data-opp="sneaky">🦊 Sneaky</button>
-              <button class="switch-opp-chip" data-opp="buddy">🐶 Buddy</button>
-              <button class="switch-opp-chip" data-opp="grumpy">🐻 Grumpy</button>
-              <button class="switch-opp-chip" data-opp="detective">🦉 Detective</button>
+            <div class="switch-opp-selector" id="switch-opp-selector">
+              <button class="switch-opp-chip active" id="btn-opp-chip-kopy" data-opp="kopy">🐱 Kopy</button>
+              <button class="switch-opp-chip" id="btn-opp-chip-sneaky" data-opp="sneaky">🦊 Sneaky</button>
+              <button class="switch-opp-chip" id="btn-opp-chip-buddy" data-opp="buddy">🐶 Buddy</button>
+              <button class="switch-opp-chip" id="btn-opp-chip-grumpy" data-opp="grumpy">🐻 Grumpy</button>
+              <button class="switch-opp-chip" id="btn-opp-chip-detective" data-opp="detective">🦉 Detective</button>
             </div>
           </div>
           <!-- Tablero arcade -->
-          <div class="switch-duel-board" style="flex: 1;">
-            <div class="switch-char-block">
+          <div class="switch-duel-board" id="switch-duel-board" style="flex: 1;">
+            <div class="switch-char-block" id="switch-char-block-player">
               <div class="switch-char-avatar-ring avatar-ring-player" id="switch-p-ring">
                 <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#00d2ff"/><ellipse cx="38" cy="48" rx="5" ry="7" fill="#000"/><ellipse cx="62" cy="48" rx="5" ry="7" fill="#000"/><circle cx="40" cy="46" r="2" fill="#fff"/><circle cx="64" cy="46" r="2" fill="#fff"/><path d="M 42 60 Q 50 68 58 60" stroke="#000" stroke-width="3" fill="none"/></svg>
               </div>
               <h4 style="margin: 4px 0 0; color: #fff;">TÚ (P1)</h4>
               <span id="switch-player-score" style="color: #ffcc00; font-weight: 700;">0 pts</span>
             </div>
-            <div class="switch-center-hud">
+            <div class="switch-center-hud" id="switch-center-hud">
               <div class="switch-speech-bubble" id="switch-dialog-bubble">¡Duelo arcade listo!</div>
               <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 6px;">Pacto: +3/+3 | Traición: +5/0 | Conflicto: +1/+1</div>
             </div>
-            <div class="switch-char-block">
+            <div class="switch-char-block" id="switch-char-block-opp">
               <div class="switch-char-avatar-ring avatar-ring-opp" id="switch-o-ring">
                 <svg viewBox="0 0 100 100" id="switch-opp-svg"></svg>
               </div>
@@ -2672,7 +2672,7 @@
               <span id="switch-opp-score" style="color: #ffcc00; font-weight: 700;">0 pts</span>
             </div>
           </div>
-          <div class="switch-decision-bar" style="margin-top: 8px;">
+          <div class="switch-decision-bar" id="switch-decision-bar" style="margin-top: 8px;">
             <button class="switch-btn-action switch-btn-coop" id="btn-switch-coop">🤝 COOPERAR [ Y ]</button>
             <button class="switch-btn-action switch-btn-cheat" id="btn-switch-cheat">🗡️ ENGAÑAR [ X ]</button>
           </div>
@@ -2708,22 +2708,22 @@
             <button class="switch-opp-chip" id="btn-back-from-sim">⬅ Volver a la Historia</button>
           </div>
 
-<div class="terminal-container">
+<div class="terminal-container" id="terminal-container">
 
     <!-- CABECERA HUD CON ESTADÍSTICAS, MODOS Y SELECTOR DE SKIN -->
-    <header class="ascii-box">
-      <span class="ascii-title">SISTEMA TOROIDAL :: DILEMA DEL PRISIONERO EVOLUTIVO</span>
+    <header class="ascii-box" id="ascii-header-box">
+      <span class="ascii-title" id="ascii-header-title">SISTEMA TOROIDAL :: DILEMA DEL PRISIONERO EVOLUTIVO</span>
 
       <!-- Barra Superior: Selector de Modo de Juego & Selector de Skin Visual -->
-      <div class="nav-bar-row">
-        <div class="mode-nav">
+      <div class="nav-bar-row" id="ascii-nav-bar-row">
+        <div class="mode-nav" id="ascii-mode-nav">
           <button id="tab-tutorial" class="mode-tab active">[ 🎓 APRENDER / TUTORIAL ]</button>
           <button id="tab-sandbox" class="mode-tab">[ 🧪 LABORATORIO ]</button>
           <button id="tab-multiplayer" class="mode-tab">[ ⚔️ DUELO ]</button>
         </div>
 
-        <div class="skin-nav">
-          <span class="stat-label">SKIN VISUAL:</span>
+        <div class="skin-nav" id="ascii-skin-nav">
+          <span class="stat-label" id="label-skin-visual">SKIN VISUAL:</span>
           <button id="skin-df" class="skin-tab" data-skin="df">📜 DWARF FORTRESS</button>
           <button id="skin-mc" class="skin-tab active" data-skin="mc">⛏️ MINECRAFT</button>
         </div>
@@ -2733,27 +2733,27 @@
 
       <!-- HUD Modo Sandbox (Minecraft labels por defecto) -->
       <div id="hud-sandbox" class="hud-stats-grid">
-        <div class="stat-badge">
-          <span class="stat-label">GENERACIÓN / ÉPOCA</span>
+        <div class="stat-badge" id="stat-badge-gen">
+          <span class="stat-label" id="stat-label-gen">GENERACIÓN / ÉPOCA</span>
           <span id="stat-gen" class="stat-val">0</span>
         </div>
-        <div class="stat-badge">
-          <span class="stat-label">POBLACIÓN ACTIVA</span>
+        <div class="stat-badge" id="stat-badge-pop">
+          <span class="stat-label" id="stat-label-pop">POBLACIÓN ACTIVA</span>
           <span id="stat-pop" class="stat-val">0 / 0 (0%)</span>
         </div>
-        <div class="stat-badge">
+        <div class="stat-badge" id="stat-badge-coop">
           <span class="stat-label" id="label-coop">[C] BLOQUE ESMERALDA</span>
           <span id="stat-c" class="stat-val coop">0 (0.0%)</span>
         </div>
-        <div class="stat-badge">
+        <div class="stat-badge" id="stat-badge-traitor">
           <span class="stat-label" id="label-traitor">[T] BLOQUE TNT</span>
           <span id="stat-t" class="stat-val traitor">0 (0.0%)</span>
         </div>
-        <div class="stat-badge">
+        <div class="stat-badge" id="stat-badge-imitator">
           <span class="stat-label" id="label-imitator">[I] BLOQUE DIAMANTE</span>
           <span id="stat-i" class="stat-val imitator">0 (0.0%)</span>
         </div>
-        <div class="stat-badge">
+        <div class="stat-badge" id="stat-badge-empty">
           <span class="stat-label" id="label-empty">[.] CÉSPED / TIERRA</span>
           <span id="stat-empty" class="stat-val empty">0 (0.0%)</span>
         </div>
@@ -2761,28 +2761,28 @@
 
       <!-- HUD Modo Multijugador -->
       <div id="hud-multiplayer" class="hud-stats-grid" style="display: none;">
-        <div class="stat-badge">
-          <span class="stat-label">RONDA DEL DUELO</span>
+        <div class="stat-badge" id="mp-stat-badge-round">
+          <span class="stat-label" id="mp-stat-label-round">RONDA DEL DUELO</span>
           <span id="mp-stat-round" class="stat-val">1 / 15</span>
         </div>
-        <div class="stat-badge">
-          <span class="stat-label">JUGADOR 1 [ALPHA]</span>
+        <div class="stat-badge" id="mp-stat-badge-p1">
+          <span class="stat-label" id="mp-stat-label-p1">JUGADOR 1 [ALPHA]</span>
           <span id="mp-stat-p1" class="stat-val p1-token">0 celdas (0 pts)</span>
         </div>
-        <div class="stat-badge">
-          <span class="stat-label">JUGADOR 2 [OMEGA]</span>
+        <div class="stat-badge" id="mp-stat-badge-p2">
+          <span class="stat-label" id="mp-stat-label-p2">JUGADOR 2 [OMEGA]</span>
           <span id="mp-stat-p2" class="stat-val p2-token">0 celdas (0 pts)</span>
         </div>
         <div class="stat-badge" id="badge-p3" style="display: none;">
-          <span class="stat-label">JUGADOR 3 [GAMMA]</span>
+          <span class="stat-label" id="mp-stat-label-p3">JUGADOR 3 [GAMMA]</span>
           <span id="mp-stat-p3" class="stat-val p3-token">0 celdas (0 pts)</span>
         </div>
         <div class="stat-badge" id="badge-p4" style="display: none;">
-          <span class="stat-label">JUGADOR 4 [DELTA]</span>
+          <span class="stat-label" id="mp-stat-label-p4">JUGADOR 4 [DELTA]</span>
           <span id="mp-stat-p4" class="stat-val p4-token">0 celdas (0 pts)</span>
         </div>
-        <div class="stat-badge">
-          <span class="stat-label">TERRITORIO NEUTRAL</span>
+        <div class="stat-badge" id="mp-stat-badge-neutral">
+          <span class="stat-label" id="mp-stat-label-neutral">TERRITORIO NEUTRAL</span>
           <span id="mp-stat-neutral" class="stat-val empty">0 (0.0%)</span>
         </div>
       </div>
@@ -2795,14 +2795,14 @@
       </div>
 
       <!-- Barra de Distribución ASCII -->
-      <div class="ascii-bar-container">
+      <div class="ascii-bar-container" id="ascii-bar-container">
         <div id="bar-label" class="stat-label">CENSO DINÁMICO DE ESTRATEGIAS:</div>
         <div id="ascii-census-bar" class="ascii-bar">[............................................................]</div>
       </div>
     </header>
 
     <!-- ÁREA DE VISUALIZACIÓN DUAL: PREFORMATADO ASCII (DF) / CANVAS 2D (MINECRAFT) -->
-    <section class="ascii-box viewport-box">
+    <section class="ascii-box viewport-box" id="ascii-viewport-box">
       <span id="viewport-title" class="ascii-title">ESPACIO TOROIDAL (60 x 30) - MUNDO PIXEL MINECRAFT</span>
 
       <!-- 1. Renderizador Dwarf Fortress (ASCII Text) -->
@@ -2812,11 +2812,11 @@
       <canvas id="minecraft-canvas" width="960" height="480"></canvas>
 
       <!-- Selector de Pincel / Despliegue con etiquetas duales -->
-      <div class="brush-tools">
+      <div class="brush-tools" id="brush-tools">
         <span id="brush-header" class="param-label">HERRAMIENTA:</span>
-        <button class="brush-btn selected" data-brush="C"><span id="brush-c-label">🟩 Esmeralda</span></button>
-        <button class="brush-btn" data-brush="T"><span id="brush-t-label">🧨 TNT</span></button>
-        <button class="brush-btn" data-brush="I"><span id="brush-i-label">💎 Diamante</span></button>
+        <button class="brush-btn selected" id="brush-btn-c" data-brush="C"><span id="brush-c-label">🟩 Esmeralda</span></button>
+        <button class="brush-btn" id="brush-btn-t" data-brush="T"><span id="brush-t-label">🧨 TNT</span></button>
+        <button class="brush-btn" id="brush-btn-i" data-brush="I"><span id="brush-i-label">💎 Diamante</span></button>
         <button id="brush-clear-btn" class="brush-btn" data-brush="."><span id="brush-empty-label">🌱 Césped</span></button>
         <button id="brush-bomb-btn" class="brush-btn" data-brush="BOMB"
           style="display: none; border-color: #ff3344; color: #ff5566;">💥 Pulso Caos (2 PA)</button>
@@ -2826,23 +2826,23 @@
     </section>
 
     <!-- PANEL DE CONTROL Y PARÁMETROS -->
-    <div class="control-deck">
+    <div class="control-deck" id="ascii-control-deck">
 
       <!-- Panel de Control Izquierdo: Tutorial / Laboratorio / Multijugador -->
-      <div class="ascii-box">
+      <div class="ascii-box" id="ascii-left-control-box">
         <span id="left-box-title" class="ascii-title">GUÍA DIDÁCTICA: PASO A PASO</span>
 
         <!-- 1. Controles Modo Tutorial / Aprendizaje (Por defecto) -->
         <div id="controls-tutorial">
-          <div class="param-label" style="margin-bottom: 4px;">ELIGE UNA LECCIÓN INTERACTIVA:</div>
-          <div class="btn-group">
-            <button class="ascii-btn lesson-btn active" data-lesson="1">1. Cooperar</button>
-            <button class="ascii-btn lesson-btn" data-lesson="2">2. El Traidor</button>
-            <button class="ascii-btn lesson-btn" data-lesson="3">3. Tit for Tat</button>
-            <button class="ascii-btn lesson-btn" data-lesson="4">4. Colapso Traidor</button>
+          <div class="param-label" id="tut-label-choose-lesson" style="margin-bottom: 4px;">ELIGE UNA LECCIÓN INTERACTIVA:</div>
+          <div class="btn-group" id="tut-lesson-btn-group">
+            <button class="ascii-btn lesson-btn active" id="btn-lesson-1" data-lesson="1">1. Cooperar</button>
+            <button class="ascii-btn lesson-btn" id="btn-lesson-2" data-lesson="2">2. El Traidor</button>
+            <button class="ascii-btn lesson-btn" id="btn-lesson-3" data-lesson="3">3. Tit for Tat</button>
+            <button class="ascii-btn lesson-btn" id="btn-lesson-4" data-lesson="4">4. Colapso Traidor</button>
           </div>
 
-          <div class="tutorial-card">
+          <div class="tutorial-card" id="tut-card">
             <div id="tut-lesson-title" class="lesson-title">📖 LECCIÓN 1: EL PODER DE LA COOPERACIÓN</div>
             <div id="tut-lesson-desc" class="lesson-desc">
               Cuando dos cooperadores (Esmeraldas 🟩) se tocan, ambos reciben 3 puntos de recompensa (R). Al vivir juntos en comunidad, todos obtienen puntuaciones altas y protegen su territorio.
@@ -2852,23 +2852,23 @@
             </div>
           </div>
 
-          <div class="btn-group">
+          <div class="btn-group" id="tut-actions-btn-group">
             <button id="btn-tut-step" class="ascii-btn" style="background:#27ae60; color:#fff; border-color:#2ecc71; font-weight:bold;">[ ⏭ AVANZAR UN PASO ]</button>
             <button id="btn-tut-auto" class="ascii-btn">[ ▶ AUTO-EVOLUCIÓN ]</button>
             <button id="btn-tut-reset" class="ascii-btn">[ ↺ REINICIAR LECCIÓN ]</button>
             <button id="btn-tut-goto-lab" class="ascii-btn" style="color:#00ffff; border-color:#00ffff;">[ 🔬 LABORATORIO AVANZADO ]</button>
           </div>
 
-          <div class="param-label" style="margin-top: 10px;">ANÁLISIS DE LA JUGADA EN VIVO:</div>
+          <div class="param-label" id="tut-label-analysis" style="margin-top: 10px;">ANÁLISIS DE LA JUGADA EN VIVO:</div>
           <div id="tut-analysis-log" class="terminal-log">
-            <div class="log-entry">[EXPLICACIÓN]: Cuadrícula lista. Presiona "Avanzar un paso" para ver la interacción biológica.</div>
+            <div class="log-entry" id="tut-initial-log-entry">[EXPLICACIÓN]: Cuadrícula lista. Presiona "Avanzar un paso" para ver la interacción biológica.</div>
           </div>
         </div>
 
         <!-- 2. Controles Modo Sandbox / Laboratorio -->
         <div id="controls-sandbox" style="display: none;">
-          <div class="param-label" style="margin-bottom: 4px;">CONTROL DE SIMULACIÓN CONTINUA:</div>
-          <div class="btn-group">
+          <div class="param-label" id="sb-label-sim-control" style="margin-bottom: 4px;">CONTROL DE SIMULACIÓN CONTINUA:</div>
+          <div class="btn-group" id="sb-actions-btn-group">
             <button id="btn-toggle" class="ascii-btn">[ ▶ REANUDAR ]</button>
             <button id="btn-step" class="ascii-btn">[ ⏭ PASO A PASO ]</button>
             <button id="btn-reset" class="ascii-btn">[ ↺ REINICIAR ]</button>
@@ -2876,18 +2876,18 @@
             <button id="btn-clear" class="ascii-btn">[ ⌧ VACIAR ]</button>
           </div>
 
-          <div class="param-label" style="margin-top: 14px; margin-bottom: 4px;">ESCENARIOS HISTÓRICOS DE TEORÍA DE JUEGOS:</div>
-          <div class="btn-group">
-            <button class="ascii-btn preset-btn" data-preset="invasion">Invasión Traidora</button>
-            <button class="ascii-btn preset-btn" data-preset="bastion">Bastión TFT</button>
-            <button class="ascii-btn preset-btn" data-preset="gliders">Islas Nowak-May</button>
-            <button class="ascii-btn preset-btn" data-preset="equilibrado">Tríada Balanceada</button>
+          <div class="param-label" id="sb-label-presets" style="margin-top: 14px; margin-bottom: 4px;">ESCENARIOS HISTÓRICOS DE TEORÍA DE JUEGOS:</div>
+          <div class="btn-group" id="sb-presets-btn-group">
+            <button class="ascii-btn preset-btn" id="btn-preset-invasion" data-preset="invasion">Invasión Traidora</button>
+            <button class="ascii-btn preset-btn" id="btn-preset-bastion" data-preset="bastion">Bastión TFT</button>
+            <button class="ascii-btn preset-btn" id="btn-preset-gliders" data-preset="gliders">Islas Nowak-May</button>
+            <button class="ascii-btn preset-btn" id="btn-preset-equilibrado" data-preset="equilibrado">Tríada Balanceada</button>
           </div>
 
           <div style="margin-top: 12px;">
-            <div class="param-row">
-              <span class="param-label">VELOCIDAD (INTERVALO MS):</span>
-              <div class="param-control">
+            <div class="param-row" id="param-row-speed">
+              <span class="param-label" id="param-label-speed">VELOCIDAD (INTERVALO MS):</span>
+              <div class="param-control" id="param-control-speed">
                 <input type="range" id="input-speed" min="10" max="600" step="10" value="80">
                 <span id="val-speed" class="param-val-badge">80ms</span>
               </div>
@@ -2897,10 +2897,10 @@
 
         <!-- 3. Controles Modo Multijugador por Turnos -->
         <div id="controls-multiplayer" style="display: none;">
-          <div class="param-label" style="margin-bottom: 4px;">CONFIGURACIÓN DEL DUELO:</div>
-          <div class="param-row">
-            <span class="param-label">CANTIDAD DE JUGADORES:</span>
-            <div class="param-control">
+          <div class="param-label" id="mp-label-config" style="margin-bottom: 4px;">CONFIGURACIÓN DEL DUELO:</div>
+          <div class="param-row" id="mp-param-row-players">
+            <span class="param-label" id="mp-param-label-players">CANTIDAD DE JUGADORES:</span>
+            <div class="param-control" id="mp-param-control-players">
               <select id="mp-select-players"
                 style="background:#020502; color:var(--text-main); border:1px solid var(--text-dim); padding:2px 6px; font-family:var(--font-mono); font-size:11px;">
                 <option value="2" selected>2 Jugadores (P1 vs P2)</option>
@@ -2910,76 +2910,76 @@
             </div>
           </div>
 
-          <div class="param-row">
-            <span class="param-label">PUNTOS DE ACCIÓN / TURNO:</span>
-            <div class="param-control">
+          <div class="param-row" id="mp-param-row-ap">
+            <span class="param-label" id="mp-param-label-ap">PUNTOS DE ACCIÓN / TURNO:</span>
+            <div class="param-control" id="mp-param-control-ap">
               <input type="range" id="mp-input-ap" min="3" max="10" step="1" value="5">
               <span id="mp-val-ap" class="param-val-badge">5 PA</span>
             </div>
           </div>
 
-          <div class="param-row">
-            <span class="param-label">DURACIÓN (RONDAS TOTALES):</span>
-            <div class="param-control">
+          <div class="param-row" id="mp-param-row-rounds">
+            <span class="param-label" id="mp-param-label-rounds">DURACIÓN (RONDAS TOTALES):</span>
+            <div class="param-control" id="mp-param-control-rounds">
               <input type="range" id="mp-input-rounds" min="5" max="30" step="5" value="15">
               <span id="mp-val-rounds" class="param-val-badge">15 R</span>
             </div>
           </div>
 
-          <div class="param-row">
-            <span class="param-label">CICLOS EVOLUTIVOS / RONDA:</span>
-            <div class="param-control">
+          <div class="param-row" id="mp-param-row-epochs">
+            <span class="param-label" id="mp-param-label-epochs">CICLOS EVOLUTIVOS / RONDA:</span>
+            <div class="param-control" id="mp-param-control-epochs">
               <input type="range" id="mp-input-epochs" min="1" max="5" step="1" value="2">
               <span id="mp-val-epochs" class="param-val-badge">2</span>
             </div>
           </div>
 
-          <div class="btn-group" style="margin-top: 8px;">
+          <div class="btn-group" id="mp-actions-btn-group" style="margin-top: 8px;">
             <button id="mp-btn-newmatch" class="ascii-btn">[ ⚔️ NUEVA PARTIDA ]</button>
             <button id="mp-btn-autofill" class="ascii-btn">[ 🎲 COLONIZAR BASES ]</button>
           </div>
 
           <!-- Consola de Combate Multijugador -->
-          <div class="param-label" style="margin-top: 10px;">REGISTRO DE COMBATE EN TIEMPO REAL:</div>
+          <div class="param-label" id="mp-label-combat-log" style="margin-top: 10px;">REGISTRO DE COMBATE EN TIEMPO REAL:</div>
           <div id="mp-combat-log" class="terminal-log">
-            <div class="log-entry">[SISTEMA]: Modo Duelo Multijugador listo. Selecciona tus coordenadas tácticas.</div>
+            <div class="log-entry" id="mp-initial-log-entry">[SISTEMA]: Modo Duelo Multijugador listo. Selecciona tus coordenadas tácticas.</div>
           </div>
         </div>
 
       </div>
 
       <!-- Panel de Parámetros Matemáticos y Evolutivos -->
-      <div class="ascii-box">
+      <div class="ascii-box" id="ascii-right-box">
         <span id="right-box-title" class="ascii-title">TABLA DIDÁCTICA DE REGLAS</span>
 
         <!-- Guía Didáctica Simple de Pagos (Modo Tutorial por defecto) -->
         <div id="params-tutorial">
-          <div class="param-label" style="margin-bottom: 4px;">PUNTUACIÓN POR CADA ENCUENTRO ENTRE VECINOS:</div>
-          <table class="simple-rules-table">
+          <div class="param-label" id="tut-label-scoring" style="margin-bottom: 4px;">PUNTUACIÓN POR CADA ENCUENTRO ENTRE VECINOS:</div>
+          <table class="simple-rules-table" id="tut-rules-table">
             <tr>
               <td>🟩 Esmeralda con 🟩 Esmeralda</td>
-              <td class="rule-outcome" style="color: #55ff55;">+3 pts c/u (Amistad Mutua)</td>
+              <td class="rule-outcome" id="rule-outcome-cc" style="color: #55ff55;">+3 pts c/u (Amistad Mutua)</td>
             </tr>
             <tr>
               <td>🧨 TNT con 🟩 Esmeralda</td>
-              <td class="rule-outcome" style="color: #ff5555;">+5 pts para TNT | 0 para Esmeralda</td>
+              <td class="rule-outcome" id="rule-outcome-tc" style="color: #ff5555;">+5 pts para TNT | 0 para Esmeralda</td>
             </tr>
             <tr>
               <td>🧨 TNT con 🧨 TNT</td>
-              <td class="rule-outcome" style="color: #ffaa55;">+1 pt c/u (Castigo Destructivo)</td>
+              <td class="rule-outcome" id="rule-outcome-tt" style="color: #ffaa55;">+1 pt c/u (Castigo Destructivo)</td>
             </tr>
             <tr>
               <td>💎 Diamante con 🧨 TNT</td>
-              <td class="rule-outcome" style="color: #00ffff;">Replica traición (+1 pt y frena la plaga)</td>
+              <td class="rule-outcome" id="rule-outcome-it" style="color: #00ffff;">Replica traición (+1 pt y frena la plaga)</td>
             </tr>
             <tr>
               <td>💎 Diamante con 🟩 Esmeralda</td>
-              <td class="rule-outcome" style="color: #55ff55;">+3 pts c/u (Cooperan en paz)</td>
+              <td class="rule-outcome" id="rule-outcome-ic" style="color: #55ff55;">+3 pts c/u (Cooperan en paz)</td>
             </tr>
           </table>
 
-          <div class="tutorial-card" style="margin-top: 6px;">
-            <div class="lesson-title" style="color: #ffff55;">⭐ ¿CÓMO FUNCIONA LA EVOLUCIÓN?</div>
+          <div class="tutorial-card" id="tut-evolution-card" style="margin-top: 6px;">
+            <div class="lesson-title" id="tut-evolution-title" style="color: #ffff55;">⭐ ¿CÓMO FUNCIONA LA EVOLUCIÓN?</div>
             <div style="font-size: 11px; line-height: 1.4; color: var(--text-main);">
               1. <b>Fase de Juego:</b> Cada bloque juega contra sus vecinos y suma sus puntos.<br>
               2. <b>Fase Evolutiva:</b> Cada celda adopta la estrategia del vecino con <b>mayor puntuación</b>.
@@ -2989,49 +2989,49 @@
 
         <!-- Parámetros Avanzados de Matriz y Operadores (Modo Laboratorio) -->
         <div id="params-advanced" style="display: none;">
-          <div class="param-label" style="margin-bottom: 4px;">MATRIZ DE PAGOS DILEMA DEL PRISIONERO:</div>
-          <div class="matrix-grid">
-            <div class="param-row">
-              <span class="param-label">T (Tentación / Traición):</span>
-              <div class="param-control">
+          <div class="param-label" id="adv-label-matrix" style="margin-bottom: 4px;">MATRIZ DE PAGOS DILEMA DEL PRISIONERO:</div>
+          <div class="matrix-grid" id="adv-matrix-grid">
+            <div class="param-row" id="param-row-t">
+              <span class="param-label" id="param-label-t">T (Tentación / Traición):</span>
+              <div class="param-control" id="param-control-t">
                 <input type="range" id="input-t" min="1" max="10" step="0.5" value="5">
                 <span id="val-t" class="param-val-badge">5.0</span>
               </div>
             </div>
-            <div class="param-row">
-              <span class="param-label">R (Recompensa Cooperar):</span>
-              <div class="param-control">
+            <div class="param-row" id="param-row-r">
+              <span class="param-label" id="param-label-r">R (Recompensa Cooperar):</span>
+              <div class="param-control" id="param-control-r">
                 <input type="range" id="input-r" min="1" max="10" step="0.5" value="3">
                 <span id="val-r" class="param-val-badge">3.0</span>
               </div>
             </div>
-            <div class="param-row">
-              <span class="param-label">P (Castigo Mutuo):</span>
-              <div class="param-control">
+            <div class="param-row" id="param-row-p">
+              <span class="param-label" id="param-label-p">P (Castigo Mutuo):</span>
+              <div class="param-control" id="param-control-p">
                 <input type="range" id="input-p" min="0" max="6" step="0.5" value="1">
                 <span id="val-p" class="param-val-badge">1.0</span>
               </div>
             </div>
-            <div class="param-row">
-              <span class="param-label">S (Pérdida Estafado):</span>
-              <div class="param-control">
+            <div class="param-row" id="param-row-s">
+              <span class="param-label" id="param-label-s">S (Pérdida Estafado):</span>
+              <div class="param-control" id="param-control-s">
                 <input type="range" id="input-s" min="0" max="5" step="0.5" value="0">
                 <span id="val-s" class="param-val-badge">0.0</span>
               </div>
             </div>
           </div>
 
-          <div class="param-label" style="margin-top: 10px; margin-bottom: 4px;">OPERADORES EVOLUTIVOS & COLONIZACIÓN:</div>
-          <div class="param-row">
-            <span class="param-label">TASA MUTACIÓN ALEATORIA (&mu;):</span>
-            <div class="param-control">
+          <div class="param-label" id="adv-label-operators" style="margin-top: 10px; margin-bottom: 4px;">OPERADORES EVOLUTIVOS & COLONIZACIÓN:</div>
+          <div class="param-row" id="param-row-mutation">
+            <span class="param-label" id="param-label-mutation">TASA MUTACIÓN ALEATORIA (&mu;):</span>
+            <div class="param-control" id="param-control-mutation">
               <input type="range" id="input-mutation" min="0" max="10" step="0.2" value="0.6">
               <span id="val-mutation" class="param-val-badge">0.6%</span>
             </div>
           </div>
-          <div class="param-row">
-            <span class="param-label">COLONIZACIÓN TERRENO VACÍO:</span>
-            <div class="param-control">
+          <div class="param-row" id="param-row-colonize">
+            <span class="param-label" id="param-label-colonize">COLONIZACIÓN TERRENO VACÍO:</span>
+            <div class="param-control" id="param-control-colonize">
               <input type="range" id="input-colonize" min="5" max="100" step="5" value="65">
               <span id="val-colonize" class="param-val-badge">65%</span>
             </div>
@@ -3046,7 +3046,7 @@
              MODAL DE SELECCIÓN DE PERSONAJES (ROSTER DE 6 LUCHADORES)
              ========================================================= -->
         <div class="story-modal-backdrop" id="char-roster-modal" style="display: none;" alt="Modal de selección de personaje">
-          <div class="roster-modal-sheet" alt="Panel de selección de luchadores de Teoría de Juegos">
+          <div class="roster-modal-sheet" id="roster-modal-sheet" alt="Panel de selección de luchadores de Teoría de Juegos">
             <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 1.5px solid #28334b; padding-bottom: 8px;">
               <div>
                 <h3 style="margin: 0; color: #ffcc00; font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
@@ -3068,7 +3068,7 @@
 
     <!-- MODAL DE VICTORIA -->
     <div id="victory-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; padding: 14px;">
-      <div class="mp-analytics-sheet">
+      <div class="mp-analytics-sheet" id="mp-analytics-sheet">
         <div style="font-size: 40px; animation: trophySpin 0.8s ease-out;">🏆</div>
         <h2 id="victory-title" style="color: #ffcc00; margin: 0; font-family: 'Fredoka', cursive; font-size: 1.7rem;">¡VICTORIA MULTIJUGADOR!</h2>
         
@@ -3103,7 +3103,7 @@
     </div>
 
     <!-- PIE DE PÁGINA -->
-    <footer class="ascii-box">
+    <footer class="ascii-box" id="ascii-footer-box">
       <span>ATAJOS: [Espacio] Play/Pausa/Fin Turno | [M] Alternar Skin DF/Minecraft | [N] Paso Adelante | [R]
         Aleatorizar</span>
       <span>MOTOR: Spatial Prisoner's Dilemma Best-Takes-All | Vecindad Toroidal de Moore (8-vecinos)</span>
@@ -3121,11 +3121,11 @@
 
     <!-- JOY-CON DERECHO (NEON RED) -->
     <aside class="joycon-right" id="joycon-r">
-      <div class="joycon-top-bumper-r" title="Gatillo R"></div>
+      <div class="joycon-top-bumper-r" id="joycon-top-bumper-r" title="Gatillo R"></div>
       <div class="joycon-btn-plus" id="joy-btn-plus" title="Botón Más (+)"></div>
 
       <!-- Clúster Diamante ABXY Interactivos -->
-      <div class="abxy-cluster">
+      <div class="abxy-cluster" id="abxy-cluster">
         <div></div>
         <div class="abxy-btn btn-abxy-x" id="joy-btn-x" title="Botón X: 🗡️ TRAICIONAR">X</div>
         <div></div>
@@ -3138,7 +3138,7 @@
       </div>
 
       <div class="analog-stick-wrap" id="joy-stick-r" title="Stick Analógico">
-        <div class="analog-stick-cap"></div>
+        <div class="analog-stick-cap" id="joy-stick-cap-r"></div>
       </div>
 
       <div class="joycon-btn-home" id="joy-btn-home" title="Inicio (Home)">
@@ -3495,7 +3495,7 @@
       
       const log = document.getElementById('tut-analysis-log');
       if (log) {
-        log.innerHTML = `<div class="log-entry important">[LECCIÓN ${lessonNum} LISTA]: Cuadrícula configurada. Haz clic en "Avanzar un paso" para ver la dinámica.</div>`;
+        log.innerHTML = `<div class="log-entry important" id="tut-status-log-entry">[LECCIÓN ${lessonNum} LISTA]: Cuadrícula configurada. Haz clic en "Avanzar un paso" para ver la dinámica.</div>`;
       }
 
       render();
@@ -3751,7 +3751,7 @@
               css = `${css} ${PLAYER_COLORS[owner]}`;
             }
 
-            htmlBuffer += `<span class="${css}" data-idx="${idx}">${ch}</span>`;
+            htmlBuffer += `<span class="${css}" id="ascii-cell-${idx}" data-idx="${idx}">${ch}</span>`;
           }
           htmlBuffer += '\n';
         }
@@ -3819,9 +3819,9 @@
           const tChars = Math.round((traitorCount / activePop) * barLen);
           const iChars = Math.max(0, barLen - cChars - tChars);
 
-          const barString = `<span class="coop">${'█'.repeat(cChars)}</span>` +
-            `<span class="traitor">${'█'.repeat(tChars)}</span>` +
-            `<span class="imitator">${'█'.repeat(iChars)}</span>`;
+          const barString = `<span class="coop" id="census-bar-c">${'█'.repeat(cChars)}</span>` +
+            `<span class="traitor" id="census-bar-t">${'█'.repeat(tChars)}</span>` +
+            `<span class="imitator" id="census-bar-i">${'█'.repeat(iChars)}</span>`;
 
           asciiCensusBar.innerHTML = `[${barString}] C:${cPct}% | T:${tPct}% | I:${iPct}%`;
         }
@@ -3851,10 +3851,10 @@
           const p3Chars = mpState.numPlayers >= 3 ? Math.round((pCounts[3] / totalOwned) * barLen) : 0;
           const p4Chars = Math.max(0, barLen - p1Chars - p2Chars - p3Chars);
 
-          const barString = `<span class="p1-token">${'█'.repeat(p1Chars)}</span>` +
-            `<span class="p2-token">${'█'.repeat(p2Chars)}</span>` +
-            (mpState.numPlayers >= 3 ? `<span class="p3-token">${'█'.repeat(p3Chars)}</span>` : '') +
-            (mpState.numPlayers >= 4 ? `<span class="p4-token">${'█'.repeat(p4Chars)}</span>` : '');
+          const barString = `<span class="p1-token" id="census-bar-p1">${'█'.repeat(p1Chars)}</span>` +
+            `<span class="p2-token" id="census-bar-p2">${'█'.repeat(p2Chars)}</span>` +
+            (mpState.numPlayers >= 3 ? `<span class="p3-token" id="census-bar-p3">${'█'.repeat(p3Chars)}</span>` : '') +
+            (mpState.numPlayers >= 4 ? `<span class="p4-token" id="census-bar-p4">${'█'.repeat(p4Chars)}</span>` : '');
 
           asciiCensusBar.innerHTML = `[${barString}] P1:${Math.round((pCounts[1] / totalOwned) * 100)}% | P2:${Math.round((pCounts[2] / totalOwned) * 100)}%`;
         }
@@ -3897,10 +3897,10 @@
         document.getElementById('label-imitator').textContent = '[I] IMITADORES (TFT)';
         document.getElementById('label-empty').textContent = '[.] ESPACIO VACÍO';
 
-        document.getElementById('brush-c-label').innerHTML = '<span class="coop">C</span> Coop';
-        document.getElementById('brush-t-label').innerHTML = '<span class="traitor">T</span> Traidor';
-        document.getElementById('brush-i-label').innerHTML = '<span class="imitator">I</span> Imitador';
-        document.getElementById('brush-empty-label').innerHTML = '<span class="empty">.</span> Vacío';
+        document.getElementById('brush-c-label').innerHTML = '<span class="coop" id="brush-df-c">C</span> Coop';
+        document.getElementById('brush-t-label').innerHTML = '<span class="traitor" id="brush-df-t">T</span> Traidor';
+        document.getElementById('brush-i-label').innerHTML = '<span class="imitator" id="brush-df-i">I</span> Imitador';
+        document.getElementById('brush-empty-label').innerHTML = '<span class="empty" id="brush-df-empty">.</span> Vacío';
       }
       render();
     }
@@ -4091,28 +4091,28 @@
           }
 
           return `
-            <div class="mp-player-stat-card" style="border-left-color: ${borderColors[i]};">
-              <div class="mp-player-stat-header">
-                <span class="mp-player-stat-name" style="color: ${borderColors[i]};">${PLAYER_NAMES[p]} ${p === winner ? '👑' : ''}</span>
-                <span class="mp-player-badge" style="color: ${profileColor};">${profile}</span>
+            <div class="mp-player-stat-card" id="mp-sim-stat-card-${p}" style="border-left-color: ${borderColors[i]};">
+              <div class="mp-player-stat-header" id="mp-sim-stat-header-${p}">
+                <span class="mp-player-stat-name" id="mp-sim-stat-name-${p}" style="color: ${borderColors[i]};">${PLAYER_NAMES[p]} ${p === winner ? '👑' : ''}</span>
+                <span class="mp-player-badge" id="mp-sim-stat-badge-${p}" style="color: ${profileColor};">${profile}</span>
               </div>
-              <div class="mp-stat-row">
+              <div class="mp-stat-row" id="mp-sim-stat-row-coop-${p}">
                 <span>🤝 Cooperaciones (Esmeralda):</span>
                 <span>${coops}</span>
               </div>
-              <div class="mp-stat-row">
+              <div class="mp-stat-row" id="mp-sim-stat-row-cheat-${p}">
                 <span>🗡️ Infiltraciones TNT:</span>
                 <span>${cheats}</span>
               </div>
-              <div class="mp-stat-row">
+              <div class="mp-stat-row" id="mp-sim-stat-row-tft-${p}">
                 <span>💎 Centinelas TFT (Diamante):</span>
                 <span>${tfts}</span>
               </div>
-              <div class="mp-stat-row">
+              <div class="mp-stat-row" id="mp-sim-stat-row-bomb-${p}">
                 <span>💥 Pulsos de Caos:</span>
                 <span>${bombs}</span>
               </div>
-              <div class="mp-stat-row" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div class="mp-stat-row" id="mp-sim-stat-row-cells-${p}" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.1);">
                 <span>🏰 Territorio Conquistado:</span>
                 <span style="color: #ffcc00;">${cells} celdas (${pts} pts)</span>
               </div>
@@ -4712,10 +4712,10 @@
           <!-- Antifaz bandido -->
           <path d="M 16 46 Q 50 56 84 46 Q 84 36 50 42 Q 16 36 16 46 Z" fill="#11131a"/>
           <!-- Ojos picaros -->
-          <polygon points="32,44 42,42 38,48" fill="#ffd700" id="opp-eye-l"/>
-          <polygon points="68,44 58,42 62,48" fill="#ffd700" id="opp-eye-r"/>
+          <polygon points="32,44 42,42 38,48" fill="#ffd700" id="sneaky-eye-l"/>
+          <polygon points="68,44 58,42 62,48" fill="#ffd700" id="sneaky-eye-r"/>
           <!-- Dientito afilado -->
-          <path d="M 40 64 Q 50 68 60 62" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" id="opp-mouth"/>
+          <path d="M 40 64 Q 50 68 60 62" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" id="sneaky-mouth"/>
           <polygon points="48,64 52,64 50,70" fill="#ffffff"/>
           <!-- Cuernitos / Orejas zorrunas -->
           <polygon points="22,22 28,6 38,22" fill="#b81434"/>
@@ -4740,14 +4740,14 @@
           <path d="M 14 30 Q 8 60 22 70 Q 28 60 24 36 Z" fill="#c29b00"/>
           <path d="M 86 30 Q 92 60 78 70 Q 72 60 76 36 Z" fill="#c29b00"/>
           <!-- Ojos brillantes de felicidad -->
-          <circle cx="38" cy="46" r="6" fill="#07080c" id="opp-eye-l"/>
-          <circle cx="62" cy="46" r="6" fill="#07080c" id="opp-eye-r"/>
+          <circle cx="38" cy="46" r="6" fill="#07080c" id="buddy-eye-l"/>
+          <circle cx="62" cy="46" r="6" fill="#07080c" id="buddy-eye-r"/>
           <circle cx="40" cy="44" r="2.5" fill="#ffffff"/>
           <circle cx="64" cy="44" r="2.5" fill="#ffffff"/>
           <!-- Lengüita afuera -->
           <ellipse cx="50" cy="54" rx="4" ry="3" fill="#07080c"/>
           <path d="M 46 64 Q 50 74 54 64 Z" fill="#ff4d6d"/>
-          <path d="M 40 60 Q 50 66 60 60" stroke="#07080c" stroke-width="3" fill="none" id="opp-mouth"/>
+          <path d="M 40 60 Q 50 66 60 60" stroke="#07080c" stroke-width="3" fill="none" id="buddy-mouth"/>
         `
       },
       grumpy: {
@@ -4769,10 +4769,10 @@
           <line x1="28" y1="36" x2="44" y2="44" stroke="#4a154b" stroke-width="5" stroke-linecap="round"/>
           <line x1="72" y1="36" x2="56" y2="44" stroke="#4a154b" stroke-width="5" stroke-linecap="round"/>
           <!-- Ojos serios -->
-          <circle cx="36" cy="48" r="5" fill="#07080c" id="opp-eye-l"/>
-          <circle cx="64" cy="48" r="5" fill="#07080c" id="opp-eye-r"/>
+          <circle cx="36" cy="48" r="5" fill="#07080c" id="grumpy-eye-l"/>
+          <circle cx="64" cy="48" r="5" fill="#07080c" id="grumpy-eye-r"/>
           <!-- Boca severa recta o curva invertida -->
-          <path d="M 40 66 Q 50 58 60 66" stroke="#07080c" stroke-width="4" fill="none" stroke-linecap="round" id="opp-mouth"/>
+          <path d="M 40 66 Q 50 58 60 66" stroke="#07080c" stroke-width="4" fill="none" stroke-linecap="round" id="grumpy-mouth"/>
           <!-- Orejitas de oso -->
           <circle cx="22" cy="18" r="10" fill="#7e22ce"/>
           <circle cx="78" cy="18" r="10" fill="#7e22ce"/>
@@ -4800,13 +4800,13 @@
           <circle cx="64" cy="46" r="14" fill="rgba(255, 255, 255, 0.25)" stroke="#ffd700" stroke-width="3"/>
           <line x1="74" y1="56" x2="86" y2="76" stroke="#ffd700" stroke-width="2"/>
           <!-- Ojos analíticos -->
-          <ellipse cx="36" cy="46" rx="6" ry="7" fill="#07080c" id="opp-eye-l"/>
-          <ellipse cx="64" cy="46" rx="6" ry="7" fill="#07080c" id="opp-eye-r"/>
+          <ellipse cx="36" cy="46" rx="6" ry="7" fill="#07080c" id="detective-eye-l"/>
+          <ellipse cx="64" cy="46" rx="6" ry="7" fill="#07080c" id="detective-eye-r"/>
           <circle cx="38" cy="44" r="2" fill="#ffffff"/>
           <circle cx="66" cy="44" r="2" fill="#ffffff"/>
           <!-- Pico de búho -->
           <polygon points="46,52 54,52 50,60" fill="#f59e0b"/>
-          <path d="M 44 64 Q 50 67 56 64" stroke="#07080c" stroke-width="3" fill="none" id="opp-mouth"/>
+          <path d="M 44 64 Q 50 67 56 64" stroke="#07080c" stroke-width="3" fill="none" id="detective-mouth"/>
           <!-- Mechones de plumas superiores -->
           <polygon points="26,18 34,6 40,20" fill="#0369a1"/>
           <polygon points="60,20 66,6 74,18" fill="#0369a1"/>
@@ -5591,8 +5591,8 @@
           opp.color
         );
         return `
-          <div class="opp-gallery-full-card" style="border-color: ${opp.color}66;">
-            <div class="opp-gallery-avatar-large" style="border-color: ${opp.color}; box-shadow: 0 0 20px ${opp.color}55;">
+          <div class="opp-gallery-full-card" id="gallery-card-${k}" style="border-color: ${opp.color}66;">
+            <div class="opp-gallery-avatar-large" id="gallery-avatar-${k}" style="border-color: ${opp.color}; box-shadow: 0 0 20px ${opp.color}55;">
               <svg viewBox="0 0 100 100" alt="Avatar de ${opp.name}">
                 ${opp.svg}
               </svg>
@@ -5610,7 +5610,7 @@
               </div>
             </div>
 
-            <button class="switch-opp-chip" data-play-opp="${k}" style="width: 100%; justify-content: center; margin-top: 4px;">
+            <button class="switch-opp-chip" id="btn-gallery-challenge-${k}" data-play-opp="${k}" style="width: 100%; justify-content: center; margin-top: 4px;">
               ⚡ Desafiar en Duelo (1 Min)
             </button>
           </div>
@@ -5865,20 +5865,20 @@
             }
 
             return `
-              <div class="mp-player-stat-card" style="border-left-color: ${p.color};" alt="Ficha estadística de ${p.name}">
-                <div class="mp-player-stat-header">
-                  <span class="mp-player-stat-name" style="color: ${p.color};">${p.name} ${p.id === winner ? '👑' : ''}</span>
-                  <span class="mp-player-badge" style="color: ${profileColor};">${profile}</span>
+              <div class="mp-player-stat-card" id="mp-stat-card-${p.id}" style="border-left-color: ${p.color};" alt="Ficha estadística de ${p.name}">
+                <div class="mp-player-stat-header" id="mp-stat-header-${p.id}">
+                  <span class="mp-player-stat-name" id="mp-stat-name-${p.id}" style="color: ${p.color};">${p.name} ${p.id === winner ? '👑' : ''}</span>
+                  <span class="mp-player-badge" id="mp-stat-badge-${p.id}" style="color: ${profileColor};">${profile}</span>
                 </div>
-                <div class="mp-stat-row">
+                <div class="mp-stat-row" id="mp-stat-row-coop-${p.id}">
                   <span>🤝 Cooperaciones Cumplidas:</span>
                   <span style="color: #00e676;">${p.coops}</span>
                 </div>
-                <div class="mp-stat-row">
+                <div class="mp-stat-row" id="mp-stat-row-cheat-${p.id}">
                   <span>🗡️ Ataques / Traiciones:</span>
                   <span style="color: #ff2d55;">${p.cheats}</span>
                 </div>
-                <div class="mp-stat-row" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <div class="mp-stat-row" id="mp-stat-row-pts-${p.id}" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.1);">
                   <span>🏆 Puntos Totales Acumulados:</span>
                   <span style="color: #ffcc00; font-weight: 800; font-size: 1rem;">${p.pts} pts</span>
                 </div>
@@ -6110,16 +6110,16 @@
         // Renderizar cuadrícula con las 6 fichas
         grid.innerHTML = Object.values(ROSTER_CHARACTERS).map(char => {
           return `
-            <div class="roster-card" style="--card-color: ${char.color};" onclick="RosterManager.applySelection('${char.id}')" alt="Ficha del personaje ${char.name}">
-              <div class="roster-card-avatar" style="border-color: ${char.color};">
+            <div class="roster-card" id="roster-card-${char.id}" style="--card-color: ${char.color};" onclick="RosterManager.applySelection('${char.id}')" alt="Ficha del personaje ${char.name}">
+              <div class="roster-card-avatar" id="roster-avatar-${char.id}" style="border-color: ${char.color};">
                 <svg viewBox="0 0 100 100" alt="Avatar de ${char.name}">
                   ${char.svg}
                 </svg>
               </div>
-              <h4 class="roster-card-name" style="color: #fff;">${char.icon} ${char.name}</h4>
-              <p class="roster-card-role">${char.role}</p>
-              <p class="roster-card-desc">${char.tagline}</p>
-              <button class="btn-select-roster-char" type="button" alt="Seleccionar a ${char.name}">
+              <h4 class="roster-card-name" id="roster-name-${char.id}" style="color: #fff;">${char.icon} ${char.name}</h4>
+              <p class="roster-card-role" id="roster-role-${char.id}">${char.role}</p>
+              <p class="roster-card-desc" id="roster-desc-${char.id}">${char.tagline}</p>
+              <button class="btn-select-roster-char" id="btn-select-roster-${char.id}" type="button" alt="Seleccionar a ${char.name}">
                 ELEGIR ESTE
               </button>
             </div>
