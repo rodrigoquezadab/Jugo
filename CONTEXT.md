@@ -3,9 +3,24 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.5.0` (Barra de Acciones en Medio de la Pantalla · Actores Gigantes 140px · Animación Permanente Idle · Animaciones Reactivas Felicidad 😄 y Tristeza 😢)
+> **Versión del Proyecto:** `1.6.0` (Modo Multijugador Idéntico al Modo 1P · Simulador 2D Independiente y Alternativo · Atributos `alt` en Todas las Barras y Elementos)
 
-1. **Aprovechamiento Integral del Escenario, Barra de Acciones Central & Animaciones:**
+1. **Modo Multijugador (1 vs 1) Idéntico al Modo 1 Player:**
+   * Misma interfaz de videoconsola con dos combatientes cara a cara: Jugador 1 (Azul) y Jugador 2 (Rojo).
+   * Avatares gigantes (140px) con animación permanente *idle* de respiración y pulsación de neón desincronizada.
+   * Barra de acciones en medio de la pantalla con botones dedicados para P1 (`[W] COOP` / `[S] ATACAR`) y P2 (`[I] COOP` / `[K] ATACAR`).
+   * Animaciones reactivas diferenciadas de Felicidad 😄 y Tristeza 😢 en ambos jugadores según la resolución del dilema.
+   * Despliegue automático de la Pantalla de Estadísticas Finales con perfiles psicológicos honoríficos y revancha.
+
+2. **Simulador Espacial 2D (Minecraft & Dwarf Fortress) Independiente y Alternativo:**
+   * Módulo independiente ubicado en la pestaña `[ 🔬 SIMULADOR 2D ]`.
+   * Espacio toroidal $60 \times 30$, vecindad de Moore (8 vecinos) y reglas de Nowak & May (1992).
+   * Skins conmutables: Voxel Pixel Art en Canvas 2D (Minecraft) o Terminal CRT ASCII retro verde fósforo (Dwarf Fortress).
+
+3. **Accesibilidad Integral con Atributos `alt`:**
+   * Todas las barras de progreso, marcadores, avatares, gráficos SVG, botones Joy-Con y cajas de texto poseen sus correspondientes atributos `alt` y `aria-label` descriptivos.
+
+4. **Aprovechamiento Integral del Escenario, Barra de Acciones Central & Animaciones (Modo 1P):**
    * **Barra de Acciones en Medio:** Reubicada en el choque central (`.story-center-clash`), flanqueada por ambos contrincantes, eliminando saltos visuales hacia el borde inferior.
    * **Actores Gigantes (140px):** Mayor escala escénica con bordes luminosos y sombras dinámicas calculadas.
    * **Animación Permanente (Idle):** Ciclo continuo de oscilación vertical y pulso de brillo para dotar de vida a la escena.

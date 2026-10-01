@@ -1914,6 +1914,61 @@
       height: 76px;
     }
 
+
+    /* =========================================================
+       MODO MULTIJUGADOR IDÉNTICO AL MODO 1 PLAYER
+       ========================================================= */
+    #switch-screen-multiplayer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px 16px 12px;
+      gap: 8px;
+      height: 100%;
+      position: relative;
+    }
+
+    .mp-clash-status-card {
+      background: rgba(14, 18, 28, 0.92);
+      border: 1.5px solid #2e3850;
+      border-radius: 14px;
+      padding: 7px 16px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .mp-choices-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      margin: 2px 0;
+    }
+
+    .mp-player-action-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      background: rgba(10, 14, 24, 0.7);
+      border: 1.5px solid #252e42;
+      border-radius: 16px;
+      padding: 6px 10px;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .story-choice-btn.mp-btn {
+      padding: 9px 12px;
+      font-size: 0.82rem;
+      border-radius: 999px;
+      flex: 1;
+    }
+
   </style>
 </head>
 
@@ -1952,47 +2007,47 @@
     <main class="console-screen-bezel">
 
       <!-- BARRA SWITCH OS -->
-      <header class="switch-os-top-bar">
-        <div class="switch-user-pill">
+      <header class="switch-os-top-bar" alt="Barra superior del sistema operativo Switch OS">
+        <div class="switch-user-pill" alt="Perfil del jugador activo">
           <div class="user-avatar-small">🤠</div>
           <span>El Viajero (1P)</span>
         </div>
 
         <nav class="switch-nav-tabs">
-          <button id="switch-tab-story" class="switch-tab-btn active">
+          <button id="switch-tab-story" class="switch-tab-btn active" alt="Modo Historia 1 Jugador" title="Modo Historia 1 Jugador">
             <span>📖</span> HISTORIA (1P)
           </button>
-          <button id="switch-tab-multiplayer" class="switch-tab-btn" style="color: #ffaa00;">
+          <button id="switch-tab-multiplayer" class="switch-tab-btn" style="color: #ffaa00;" alt="Modo Multijugador 2 Jugadores" title="Modo Multijugador">
             <span>⚔️</span> MULTIJUGADOR (2-4P)
           </button>
-          <button id="switch-tab-arcade" class="switch-tab-btn">
+          <button id="switch-tab-arcade" class="switch-tab-btn" alt="Modo Duelo Arcade Rápido" title="Duelo Arcade">
             <span>⚡</span> DUELO ARCADE
           </button>
-          <button id="switch-tab-opponents" class="switch-tab-btn">
+          <button id="switch-tab-opponents" class="switch-tab-btn" alt="Torneo y Galería de Rivales" title="Torneo">
             <span>👥</span> TORNEO
           </button>
-          <button id="switch-tab-sim" class="switch-tab-btn sim-tab">
+          <button id="switch-tab-sim" class="switch-tab-btn sim-tab" alt="Simulador 2D Espacial (Minecraft y Dwarf Fortress)" title="Simulador 2D">
             <span>🔬</span> SIMULADOR 2D
           </button>
         </nav>
 
         <!-- BARRA DE BALANCE EN VIVO (COOPERACIONES VS ATAQUES) CON 1 CLIC PARA VERLA U OCULTARLA -->
-        <div class="live-balance-hud" id="live-balance-hud" title="Clic para ver u ocultar la barra de cooperaciones vs ataques">
-          <div class="live-balance-bar-wrap" id="live-balance-bar-wrap">
-            <div class="live-bar-segment coop" id="live-bar-coop" style="width: 50%;">🤝 50%</div>
-            <div class="live-bar-segment cheat" id="live-bar-cheat" style="width: 50%;">🗡️ 50%</div>
+        <div class="live-balance-hud" id="live-balance-hud" alt="Barra de balance en vivo entre cooperaciones y ataques" title="Clic para ver u ocultar la barra de cooperaciones vs ataques">
+          <div class="live-balance-bar-wrap" id="live-balance-bar-wrap" alt="Barra de proporción visual">
+            <div class="live-bar-segment coop" id="live-bar-coop" alt="Porcentaje de Cooperaciones" style="width: 50%;">🤝 50%</div>
+            <div class="live-bar-segment cheat" id="live-bar-cheat" alt="Porcentaje de Ataques y Traiciones" style="width: 50%;">🗡️ 50%</div>
           </div>
-          <button class="live-balance-toggle-btn" id="btn-toggle-live-bar" type="button">
+          <button class="live-balance-toggle-btn" id="btn-toggle-live-bar" alt="Alternar visibilidad de la barra de balance" type="button">
             <span id="live-bar-toggle-icon">👁️</span>
             <span id="live-bar-toggle-text">Ocultar Barra</span>
           </button>
         </div>
 
         <div class="switch-sys-status">
-          <button id="btn-sound-toggle" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Sonido">🔊</button>
-          <span id="switch-clock">12:00</span>
-          <div class="battery-icon-svg" title="Batería 100%"><div class="battery-level"></div></div>
-          <button class="btn-toggle-viewmode" id="btn-toggle-viewmode" title="Maximizar pantalla">
+          <button id="btn-sound-toggle" alt="Botón silenciar o activar efectos de sonido" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Sonido">🔊</button>
+          <span id="switch-clock" alt="Reloj del sistema">12:00</span>
+          <div class="battery-icon-svg" title="Batería 100%" alt="Indicador de batería al 100%"><div class="battery-level"></div></div>
+          <button class="btn-toggle-viewmode" id="btn-toggle-viewmode" alt="Botón para maximizar pantalla" title="Maximizar pantalla">
             <span id="viewmode-icon">🖥️</span> <span id="viewmode-text">Maximizar</span>
           </button>
         </div>
@@ -2007,7 +2062,7 @@
         <div id="switch-screen-story">
 
           <!-- BARRA DE SEGUIMIENTO DEL CAPÍTULO -->
-          <div class="story-header-bar">
+          <div class="story-header-bar" alt="Barra de información del capítulo">
             <div class="story-chap-badge">
               <div class="story-chap-icon" id="story-chap-icon">🌾</div>
               <div>
@@ -2035,8 +2090,8 @@
             <div class="story-actors-row">
 
               <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON EMOCIÓN -->
-              <div class="story-actor" id="story-actor-player">
-                <div class="actor-emotion-bubble" id="story-p-emotion">✨ Listo</div>
+              <div class="story-actor" id="story-actor-player" alt="Personaje: El Viajero">
+                <div class="actor-emotion-bubble" id="story-p-emotion" alt="Estado emocional de El Viajero">✨ Listo</div>
                 <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);">
                   <svg viewBox="0 0 100 100">
                     <!-- Sombra y Base -->
@@ -2069,8 +2124,8 @@
               <div class="story-center-clash">
 
                 <!-- TARJETA DEL RADAR ESTRATÉGICO DEL RIVAL -->
-                <div class="opp-dna-card" id="opp-dna-card" title="Radar de Conducta de Teoría de Juegos">
-                  <div class="opp-radar-svg-box" id="story-radar-svg-box">
+                <div class="opp-dna-card" id="opp-dna-card" alt="Tarjeta de ADN estratégico y radar del contrincante" title="Radar de Conducta de Teoría de Juegos">
+                  <div class="opp-radar-svg-box" id="story-radar-svg-box" alt="Gráfico de radar de Teoría de Juegos">
                     <!-- Inyectado dinámicamente -->
                   </div>
                   <div class="opp-dna-attributes" id="story-dna-attributes">
@@ -2082,18 +2137,18 @@
                 </div>
 
                 <!-- BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
-                <div class="story-choices-bar" id="story-choices-bar">
-                  <button class="story-choice-btn story-btn-coop" id="btn-story-coop">
+                <div class="story-choices-bar" id="story-choices-bar" alt="Barra de acciones de combate en medio de la pantalla">
+                  <button class="story-choice-btn story-btn-coop" id="btn-story-coop" alt="Cumplir Pacto y Cooperar [Y/C]" title="Cooperar [Y/C]">
                     <span class="btn-key-badge">[ Y / C ]</span>
                     <span>🤝 CUMPLIR PACTO</span>
                   </button>
 
-                  <button class="story-choice-btn story-btn-cheat" id="btn-story-cheat">
+                  <button class="story-choice-btn story-btn-cheat" id="btn-story-cheat" alt="Atacar y Traicionar [X/T]" title="Atacar [X/T]">
                     <span class="btn-key-badge">[ X / T ]</span>
                     <span>🗡️ ATACAR / TRAICIONAR</span>
                   </button>
 
-                  <button class="story-choice-btn story-btn-advance" id="btn-story-advance" style="display: none;">
+                  <button class="story-choice-btn story-btn-advance" id="btn-story-advance" alt="Abrir Diario del Sabio y Avanzar [A]" style="display: none;">
                     <span>📜 ABRIR DIARIO & AVANZAR ➔ [ A ]</span>
                   </button>
                 </div>
@@ -2111,8 +2166,8 @@
               </div>
 
               <!-- NPC CONTRINCANTE - AVATAR GIGANTE CON EMOCIÓN -->
-              <div class="story-actor" id="story-actor-npc">
-                <div class="actor-emotion-bubble" id="story-npc-emotion">🤝 Esperando trato</div>
+              <div class="story-actor" id="story-actor-npc" alt="Personaje: Contrincante">
+                <div class="actor-emotion-bubble" id="story-npc-emotion" alt="Estado emocional del contrincante">🤝 Esperando trato</div>
                 <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; --actor-glow: rgba(255, 204, 0, 0.7); animation-delay: -1.4s;">
                   <!-- Inyectado dinámicamente -->
                 </div>
@@ -2123,7 +2178,7 @@
             </div>
 
             <!-- CAJA DE DIÁLOGO RPG NINTENDO -->
-            <div class="story-rpg-dialogue-box">
+            <div class="story-rpg-dialogue-box" alt="Caja de diálogo y narrativa de la historia">
               <span class="story-speaker-tag" id="story-speaker-name">BUDDY EL GRANJERO</span>
               <p class="story-dialogue-text" id="story-text-body">
                 "¡Bienvenido a la aldea, forastero! Tengo un saco de trigo recién cosechado. Si me das tus manzanas, ambos prosperaremos (+3 monedas cada uno). ¿Cerramos el trato honestamente?"
@@ -2170,6 +2225,165 @@
             </button>
           </div>
         </div>
+
+        <!-- =========================================================
+             MODO MULTIJUGADOR LOCAL (1 VS 1 - IDÉNTICO AL MODO 1 PLAYER)
+             ========================================================= -->
+        <div id="switch-screen-multiplayer" style="display: none;" alt="Pantalla de Duelo Multijugador 1 vs 1">
+
+          <!-- BARRA DE SEGUIMIENTO MULTIJUGADOR -->
+          <div class="story-header-bar mp-header-bar" alt="Barra de información del duelo multijugador">
+            <div class="story-chap-badge" alt="Insignia de duelo multijugador">
+              <div class="story-chap-icon" role="img" aria-label="Icono de espadas cruzadas" alt="Duelo Multijugador">⚔️</div>
+              <div>
+                <h4 class="story-chap-title">Duelo Multijugador Local (1 vs 1)</h4>
+                <p class="story-chap-subtitle">Enfrentamiento táctico en la misma consola · Igual que el modo 1P</p>
+              </div>
+            </div>
+
+            <div class="story-stats-pills" alt="Marcadores de los jugadores">
+              <div class="story-stat-pill" style="color: #00d2ff; border-color: rgba(0, 210, 255, 0.4);" title="Puntos Jugador 1" alt="Puntos Jugador 1">
+                <span>🟦 P1:</span> <span id="mp-p1-score">0 pts</span>
+              </div>
+              <div class="story-stat-pill" style="color: #ff2d55; border-color: rgba(255, 45, 85, 0.4);" title="Puntos Jugador 2" alt="Puntos Jugador 2">
+                <span>🟥 P2:</span> <span id="mp-p2-score">0 pts</span>
+              </div>
+              <div class="story-stat-pill" style="color: #ffcc00; border-color: rgba(255, 204, 0, 0.3);" title="Ronda Actual" alt="Ronda actual">
+                <span>⭐ Ronda:</span> <span id="mp-round-indicator">1 / 5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ESCENARIO VISUAL RPG DE DUELO MULTIJUGADOR -->
+          <div class="story-stage-scene" id="mp-scene-box" alt="Escenario de combate de duelo multijugador">
+
+            <div class="story-actors-row" alt="Fila de combatientes multijugador">
+
+              <!-- JUGADOR 1 (AZUL) - AVATAR GIGANTE CON EMOCIÓN -->
+              <div class="story-actor" id="mp-actor-p1" alt="Jugador 1: El Viajero Azul">
+                <div class="actor-emotion-bubble" id="mp-p1-emotion" role="status" aria-label="Emoción de Jugador 1" alt="Estado Emocional Jugador 1">✨ Listo</div>
+                <div class="story-actor-avatar" id="mp-p1-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);" role="img" aria-label="Avatar Jugador 1" alt="Avatar Jugador 1">
+                  <svg viewBox="0 0 100 100" alt="Ilustración Jugador 1" role="img" aria-label="Jugador 1">
+                    <circle cx="50" cy="50" r="45" fill="#00d2ff"/>
+                    <path d="M 18 36 Q 50 10 82 36 L 94 38 Q 65 28 16 38 Z" fill="#ff2d55"/>
+                    <circle cx="50" cy="24" r="9" fill="#ffffff"/>
+                    <text x="50" y="28" font-family="Fredoka" font-size="11" font-weight="900" fill="#ff2d55" text-anchor="middle">T</text>
+                    <rect x="6" y="40" width="8" height="20" rx="4" fill="#1e293b"/>
+                    <rect x="86" y="40" width="8" height="20" rx="4" fill="#1e293b"/>
+                    <path d="M 10 40 Q 50 8 90 40" stroke="#1e293b" stroke-width="4" fill="none"/>
+                    <ellipse cx="37" cy="50" rx="6" ry="8" fill="#07080c"/>
+                    <ellipse cx="63" cy="50" rx="6" ry="8" fill="#07080c"/>
+                    <circle cx="39" cy="48" r="2.5" fill="#ffffff"/>
+                    <circle cx="65" cy="48" r="2.5" fill="#ffffff"/>
+                    <circle cx="28" cy="58" r="5" fill="rgba(255, 45, 85, 0.45)"/>
+                    <circle cx="72" cy="58" r="5" fill="rgba(255, 45, 85, 0.45)"/>
+                    <path d="M 40 62 Q 50 72 60 62" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <h4 class="story-actor-name" style="font-size: 1.05rem; margin-top: 4px; color: #00d2ff;">JUGADOR 1</h4>
+                <p class="story-actor-role">Joy-Con Azul (L) · Teclas [W / S]</p>
+              </div>
+
+              <!-- CENTRO: BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
+              <div class="story-center-clash mp-center-clash" alt="Centro de decisiones de combate multijugador">
+
+                <!-- STATUS DE LA RONDA -->
+                <div class="mp-clash-status-card" id="mp-clash-status-card" title="Estado de la ronda" alt="Tarjeta de estado del duelo">
+                  <div style="font-weight: 800; color: #ffcc00; font-size: 0.8rem; letter-spacing: 0.5px;" id="mp-status-headline">
+                    ¡ELIGE TU JUGADA EN LA CONSOLA!
+                  </div>
+                  <div style="display: flex; justify-content: center; gap: 14px; margin-top: 4px; font-size: 0.76rem;">
+                    <div id="mp-p1-lock-status" style="color: #38bdf8;">P1: Esperando jugada...</div>
+                    <div id="mp-p2-lock-status" style="color: #fb7185;">P2: Esperando jugada...</div>
+                  </div>
+                </div>
+
+                <!-- BARRA DE ACCIONES CENTRAL PARA P1 Y P2 -->
+                <div class="mp-choices-container" id="mp-choices-container" alt="Controles de acción multijugador">
+                  <!-- Controles P1 -->
+                  <div class="mp-player-action-group" alt="Botones de acción de Jugador 1">
+                    <span style="font-size: 0.7rem; font-weight: 800; color: #00d2ff;">JUGADOR 1 (AZUL)</span>
+                    <div style="display: flex; gap: 6px; width: 100%;">
+                      <button class="story-choice-btn story-btn-coop mp-btn" id="btn-mp-p1-coop" title="P1 Cooperar [W]" aria-label="Jugador 1 Cooperar" alt="P1 Cooperar">
+                        <span class="btn-key-badge">[ W ]</span> 🤝 COOP
+                      </button>
+                      <button class="story-choice-btn story-btn-cheat mp-btn" id="btn-mp-p1-cheat" title="P1 Atacar [S]" aria-label="Jugador 1 Atacar" alt="P1 Atacar">
+                        <span class="btn-key-badge">[ S ]</span> 🗡️ ATACAR
+                      </button>
+                    </div>
+                  </div>
+
+                  <div style="font-weight: 900; color: #ffcc00; font-size: 1.1rem; text-shadow: 0 0 10px rgba(255,204,0,0.5);">VS</div>
+
+                  <!-- Controles P2 -->
+                  <div class="mp-player-action-group" alt="Botones de acción de Jugador 2">
+                    <span style="font-size: 0.7rem; font-weight: 800; color: #ff2d55;">JUGADOR 2 (ROJO)</span>
+                    <div style="display: flex; gap: 6px; width: 100%;">
+                      <button class="story-choice-btn story-btn-coop mp-btn" id="btn-mp-p2-coop" title="P2 Cooperar [I / Flecha Arriba]" aria-label="Jugador 2 Cooperar" alt="P2 Cooperar">
+                        <span class="btn-key-badge">[ I ]</span> 🤝 COOP
+                      </button>
+                      <button class="story-choice-btn story-btn-cheat mp-btn" id="btn-mp-p2-cheat" title="P2 Atacar [K / Flecha Abajo]" aria-label="Jugador 2 Atacar" alt="P2 Atacar">
+                        <span class="btn-key-badge">[ K ]</span> 🗡️ ATACAR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- BOTÓN PARA SIGUIENTE RONDA / VER REPORTE -->
+                <button class="story-choice-btn story-btn-advance" id="btn-mp-next-round" style="display: none; width: 100%; max-width: 340px; margin: 4px 0;" title="Siguiente Ronda o Ver Reporte" aria-label="Continuar Duelo" alt="Continuar Duelo">
+                  <span>⚔️ SIGUIENTE RONDA ➔</span>
+                </button>
+
+                <!-- BADGE DE MATRIZ DE PAGOS -->
+                <div style="display: flex; gap: 8px; align-items: center;" alt="Valores de pagos">
+                  <div class="story-matrix-badge" alt="Reglas de pagos de Teoría de Juegos">
+                    Mutua: (+3/+3) | Traición: (+5/0) | Conflicto: (+1/+1)
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- JUGADOR 2 (ROJO) - AVATAR GIGANTE CON EMOCIÓN -->
+              <div class="story-actor" id="mp-actor-p2" alt="Jugador 2: El Retador Rojo">
+                <div class="actor-emotion-bubble" id="mp-p2-emotion" role="status" aria-label="Emoción de Jugador 2" alt="Estado Emocional Jugador 2">✨ Listo</div>
+                <div class="story-actor-avatar" id="mp-p2-avatar" style="border-color: #ff2d55; --actor-glow: rgba(255, 45, 85, 0.7); animation-delay: -1.4s;" role="img" aria-label="Avatar Jugador 2" alt="Avatar Jugador 2">
+                  <svg viewBox="0 0 100 100" alt="Avatar Jugador 2 (Rival Rojo)" role="img" aria-label="Avatar Jugador 2">
+  <circle cx="50" cy="50" r="45" fill="#ff2d55"/>
+  <path d="M 22 34 Q 50 12 78 34 L 88 36 Q 50 22 12 36 Z" fill="#1e293b"/>
+  <circle cx="50" cy="22" r="9" fill="#ffd700"/>
+  <text x="50" y="26" font-family="Fredoka" font-size="11" font-weight="900" fill="#07080c" text-anchor="middle">R</text>
+  <rect x="6" y="40" width="8" height="20" rx="4" fill="#00d2ff"/>
+  <rect x="86" y="40" width="8" height="20" rx="4" fill="#00d2ff"/>
+  <path d="M 10 40 Q 50 8 90 40" stroke="#00d2ff" stroke-width="4" fill="none"/>
+  <path d="M 24 44 Q 50 38 76 44 L 74 54 Q 50 60 26 54 Z" fill="#0f172a" stroke="#ffd700" stroke-width="2"/>
+  <line x1="28" y1="46" x2="44" y2="48" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56" y1="48" x2="72" y2="46" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 42 66 Q 54 74 62 64" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <circle cx="28" cy="62" r="4" fill="rgba(255, 255, 255, 0.3)"/>
+  <circle cx="72" cy="62" r="4" fill="rgba(255, 255, 255, 0.3)"/>
+</svg>
+                </div>
+                <h4 class="story-actor-name" style="font-size: 1.05rem; margin-top: 4px; color: #ff2d55;">JUGADOR 2</h4>
+                <p class="story-actor-role">Joy-Con Rojo (R) · Teclas [I / K]</p>
+              </div>
+
+            </div>
+
+            <!-- CAJA DE COMENTARIOS RPG NINTENDO -->
+            <div class="story-rpg-dialogue-box mp-dialogue-box" alt="Comentarios del Árbitro de la Consola">
+              <span class="story-speaker-tag" id="mp-speaker-name" alt="Comentarista">ÁRBITRO DE LA CONSOLA</span>
+              <p class="story-dialogue-text" id="mp-dialogue-text">
+                "¡Duelo Multijugador iniciado! Ambos jugadores eligen su estrategia: cooperar para prosperar juntos (+3/+3) o atacar a traición para llevarse el botín (+5/0)."
+              </p>
+              <p class="story-lesson-hint" id="mp-dialogue-hint" alt="Pista táctica">
+                💡 P1 usa botones azules en pantalla o teclas [W/S]. P2 usa botones rojos en pantalla o teclas [I/K].
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
 
         <!-- =========================================================
              MODO ARCADE (DUELO LIBRE DE 1 MINUTO)
@@ -5129,6 +5343,298 @@
       });
     }
 
+
+    /* =========================================================
+       MOTOR DEL MODO MULTIJUGADOR LOCAL (IDÉNTICO AL MODO 1P)
+       ========================================================= */
+    const MultiplayerDuelEngine = {
+      currentRound: 1,
+      totalRounds: 5,
+      p1Score: 0,
+      p2Score: 0,
+      p1Choice: null,
+      p2Choice: null,
+      isRoundLocked: false,
+      isMatchOver: false,
+      p1Stats: { coop: 0, cheat: 0 },
+      p2Stats: { coop: 0, cheat: 0 },
+      history: [],
+
+      init() {
+        this.currentRound = 1;
+        this.totalRounds = 5;
+        this.p1Score = 0;
+        this.p2Score = 0;
+        this.p1Choice = null;
+        this.p2Choice = null;
+        this.isRoundLocked = false;
+        this.isMatchOver = false;
+        this.p1Stats = { coop: 0, cheat: 0 };
+        this.p2Stats = { coop: 0, cheat: 0 };
+        this.history = [];
+        this.updateUI();
+        this.setActorEmotion('p1', 'idle', '✨ Listo');
+        this.setActorEmotion('p2', 'idle', '✨ Listo');
+        
+        const nextBtn = document.getElementById('btn-mp-next-round');
+        if (nextBtn) nextBtn.style.display = 'none';
+        const choices = document.getElementById('mp-choices-container');
+        if (choices) choices.style.display = 'flex';
+        
+        const headline = document.getElementById('mp-status-headline');
+        if (headline) headline.textContent = '¡ELIGE TU JUGADA EN LA CONSOLA!';
+        const l1 = document.getElementById('mp-p1-lock-status');
+        if (l1) { l1.textContent = 'P1: Esperando jugada...'; l1.style.color = '#38bdf8'; }
+        const l2 = document.getElementById('mp-p2-lock-status');
+        if (l2) { l2.textContent = 'P2: Esperando jugada...'; l2.style.color = '#fb7185'; }
+        
+        const dText = document.getElementById('mp-dialogue-text');
+        if (dText) dText.textContent = '¡Duelo iniciado! Ambos jugadores pueden cooperar para sumar puntos juntos (+3/+3) o traicionar (+5/0).';
+        const dHint = document.getElementById('mp-dialogue-hint');
+        if (dHint) dHint.textContent = '💡 Controles: P1 usa [W] / [S] o botones en pantalla. P2 usa [I] / [K] o botones en pantalla.';
+      },
+
+      makeChoice(player, choice) {
+        if (this.isRoundLocked || this.isMatchOver) return;
+
+        NinAudio.playClick();
+        if (player === 'p1') {
+          this.p1Choice = choice;
+          const statusEl = document.getElementById('mp-p1-lock-status');
+          if (statusEl) {
+            statusEl.textContent = 'P1: ¡Jugada lista! 🔒';
+            statusEl.style.color = '#00e676';
+          }
+        } else if (player === 'p2') {
+          this.p2Choice = choice;
+          const statusEl = document.getElementById('mp-p2-lock-status');
+          if (statusEl) {
+            statusEl.textContent = 'P2: ¡Jugada lista! 🔒';
+            statusEl.style.color = '#00e676';
+          }
+        }
+
+        // Si ambos ya seleccionaron, resolver el choque
+        if (this.p1Choice && this.p2Choice) {
+          this.resolveRound();
+        }
+      },
+
+      resolveRound() {
+        this.isRoundLocked = true;
+        const c1 = this.p1Choice;
+        const c2 = this.p2Choice;
+
+        let p1Earned = 0;
+        let p2Earned = 0;
+        let commentary = '';
+
+        if (c1 === 'C' && c2 === 'C') {
+          p1Earned = 3;
+          p2Earned = 3;
+          commentary = '¡Ambos han cooperado! (+3 pts cada uno). La confianza mutua genera prosperidad compartida.';
+          NinAudio.playCoin();
+          LiveBalanceHUD.add('coop');
+          LiveBalanceHUD.add('coop');
+          this.p1Stats.coop++;
+          this.p2Stats.coop++;
+          this.setActorEmotion('p1', 'happy', '😄 ¡Pacto mutuo! +3');
+          this.setActorEmotion('p2', 'happy', '😄 ¡Pacto mutuo! +3');
+        } else if (c1 === 'T' && c2 === 'C') {
+          p1Earned = 5;
+          p2Earned = 0;
+          commentary = '¡Jugador 1 atacó a traición mientras Jugador 2 cooperaba! P1 gana +5 pts y P2 queda con 0.';
+          NinAudio.playCheat();
+          LiveBalanceHUD.add('cheat');
+          LiveBalanceHUD.add('coop');
+          this.p1Stats.cheat++;
+          this.p2Stats.coop++;
+          this.setActorEmotion('p1', 'happy', '😎 ¡Ataque exitoso! +5');
+          this.setActorEmotion('p2', 'sad', '😢 ¡Traicionado! 0');
+        } else if (c1 === 'C' && c2 === 'T') {
+          p1Earned = 0;
+          p2Earned = 5;
+          commentary = '¡Jugador 2 atacó a traición mientras Jugador 1 cooperaba! P2 gana +5 pts y P1 queda con 0.';
+          NinAudio.playCheat();
+          LiveBalanceHUD.add('coop');
+          LiveBalanceHUD.add('cheat');
+          this.p1Stats.coop++;
+          this.p2Stats.cheat++;
+          this.setActorEmotion('p1', 'sad', '😢 ¡Traicionado! 0');
+          this.setActorEmotion('p2', 'happy', '😎 ¡Ataque exitoso! +5');
+        } else {
+          p1Earned = 1;
+          p2Earned = 1;
+          commentary = '¡Ataque y conflicto mutuo! Ambos se traicionaron, recibiendo únicamente el castigo mínimo (+1 pt cada uno).';
+          NinAudio.playTone(180, 'triangle', 0.15);
+          LiveBalanceHUD.add('cheat');
+          LiveBalanceHUD.add('cheat');
+          this.p1Stats.cheat++;
+          this.p2Stats.cheat++;
+          this.setActorEmotion('p1', 'sad', '💢 ¡Ataque mutuo! +1');
+          this.setActorEmotion('p2', 'sad', '💢 ¡Ataque mutuo! +1');
+        }
+
+        this.p1Score += p1Earned;
+        this.p2Score += p2Earned;
+        this.history.push({ round: this.currentRound, c1, c2, p1Earned, p2Earned });
+
+        this.updateUI();
+
+        const headline = document.getElementById('mp-status-headline');
+        if (headline) headline.textContent = `RONDA ${this.currentRound}: P1 [${c1 === 'C' ? '🤝 Cooperó' : '🗡️ Atacó'}] vs P2 [${c2 === 'C' ? '🤝 Cooperó' : '🗡️ Atacó'}]`;
+        const dText = document.getElementById('mp-dialogue-text');
+        if (dText) dText.textContent = commentary;
+        const dHint = document.getElementById('mp-dialogue-hint');
+        if (dHint) dHint.textContent = `Marcador: P1 (${this.p1Score} pts) - P2 (${this.p2Score} pts)`;
+
+        const choices = document.getElementById('mp-choices-container');
+        if (choices) choices.style.display = 'none';
+        const nextBtn = document.getElementById('btn-mp-next-round');
+        if (nextBtn) {
+          nextBtn.style.display = 'inline-flex';
+          nextBtn.textContent = this.currentRound < this.totalRounds ? '⚔️ SIGUIENTE RONDA ➔' : '🏆 VER REPORTE Y ESTADÍSTICAS FINALES ➔';
+        }
+      },
+
+      nextRound() {
+        if (this.currentRound >= this.totalRounds) {
+          this.finishMatch();
+          return;
+        }
+
+        this.currentRound++;
+        this.p1Choice = null;
+        this.p2Choice = null;
+        this.isRoundLocked = false;
+
+        this.updateUI();
+        this.setActorEmotion('p1', 'idle', '✨ Listo');
+        this.setActorEmotion('p2', 'idle', '✨ Listo');
+
+        const nextBtn = document.getElementById('btn-mp-next-round');
+        if (nextBtn) nextBtn.style.display = 'none';
+        const choices = document.getElementById('mp-choices-container');
+        if (choices) choices.style.display = 'flex';
+        
+        const headline = document.getElementById('mp-status-headline');
+        if (headline) headline.textContent = '¡ELIGE TU JUGADA EN LA CONSOLA!';
+        const l1 = document.getElementById('mp-p1-lock-status');
+        if (l1) { l1.textContent = 'P1: Esperando jugada...'; l1.style.color = '#38bdf8'; }
+        const l2 = document.getElementById('mp-p2-lock-status');
+        if (l2) { l2.textContent = 'P2: Esperando jugada...'; l2.style.color = '#fb7185'; }
+      },
+
+      finishMatch() {
+        this.isMatchOver = true;
+        NinAudio.playWin();
+
+        // Mostrar gran pantalla de estadísticas finales
+        this.showFinalStatsModal();
+      },
+
+      showFinalStatsModal() {
+        const totalCoops = this.p1Stats.coop + this.p2Stats.coop;
+        const totalCheats = this.p1Stats.cheat + this.p2Stats.cheat;
+        const totalActions = totalCoops + totalCheats || 1;
+        const coopPct = Math.round((totalCoops / totalActions) * 100);
+        const cheatPct = 100 - coopPct;
+
+        const coopLbl = document.getElementById('mp-final-coop-label');
+        const cheatLbl = document.getElementById('mp-final-cheat-label');
+        const coopBar = document.getElementById('mp-final-coop-bar');
+        const cheatBar = document.getElementById('mp-final-cheat-bar');
+
+        if (coopLbl) coopLbl.textContent = `🤝 Cooperaciones Totales: ${totalCoops} (${coopPct}%)`;
+        if (cheatLbl) cheatLbl.textContent = `🗡️ Ataques/Traición: ${totalCheats} (${cheatPct}%)`;
+        if (coopBar) coopBar.style.width = `${coopPct}%`;
+        if (cheatBar) cheatBar.style.width = `${cheatPct}%`;
+
+        const winner = this.p1Score > this.p2Score ? 1 : this.p1Score < this.p2Score ? 2 : 0;
+        const victoryTitle = document.getElementById('victory-title');
+        if (victoryTitle) {
+          victoryTitle.textContent = winner === 1 ? '👑 ¡VICTORIA DE JUGADOR 1 (AZUL)!' : winner === 2 ? '👑 ¡VICTORIA DE JUGADOR 2 (ROJO)!' : '🤝 ¡EMPATE TÁCTICO ENTRE JUGADORES!';
+        }
+
+        const grid = document.getElementById('mp-analytics-players-grid');
+        if (grid) {
+          const players = [
+            { id: 1, name: 'Jugador 1 (Azul)', color: '#00d2ff', coops: this.p1Stats.coop, cheats: this.p1Stats.cheat, pts: this.p1Score },
+            { id: 2, name: 'Jugador 2 (Rojo)', color: '#ff2d55', coops: this.p2Stats.coop, cheats: this.p2Stats.cheat, pts: this.p2Score }
+          ];
+
+          grid.innerHTML = players.map(p => {
+            let profile = '⚖️ Estratega Equilibrado';
+            let profileColor = '#38bdf8';
+            if (p.cheats > p.coops * 1.5 && p.cheats > 1) {
+              profile = '🗡️ Conquistador Traidor';
+              profileColor = '#ff2d55';
+            } else if (p.coops > p.cheats * 1.5 && p.coops > 1) {
+              profile = '🕊️ Pacifista Constructor';
+              profileColor = '#00e676';
+            } else if (p.coops === p.cheats) {
+              profile = '💎 Guardián Ojo por Ojo';
+              profileColor = '#00d2ff';
+            }
+
+            return `
+              <div class="mp-player-stat-card" style="border-left-color: ${p.color};" alt="Ficha estadística de ${p.name}">
+                <div class="mp-player-stat-header">
+                  <span class="mp-player-stat-name" style="color: ${p.color};">${p.name} ${p.id === winner ? '👑' : ''}</span>
+                  <span class="mp-player-badge" style="color: ${profileColor};">${profile}</span>
+                </div>
+                <div class="mp-stat-row">
+                  <span>🤝 Cooperaciones Cumplidas:</span>
+                  <span style="color: #00e676;">${p.coops}</span>
+                </div>
+                <div class="mp-stat-row">
+                  <span>🗡️ Ataques / Traiciones:</span>
+                  <span style="color: #ff2d55;">${p.cheats}</span>
+                </div>
+                <div class="mp-stat-row" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.1);">
+                  <span>🏆 Puntos Totales Acumulados:</span>
+                  <span style="color: #ffcc00; font-weight: 800; font-size: 1rem;">${p.pts} pts</span>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        const victoryModal = document.getElementById('victory-modal');
+        if (victoryModal) victoryModal.style.display = 'flex';
+      },
+
+      setActorEmotion(who, emotionState, text) {
+        const av = document.getElementById(who === 'p1' ? 'mp-p1-avatar' : 'mp-p2-avatar');
+        const bubble = document.getElementById(who === 'p1' ? 'mp-p1-emotion' : 'mp-p2-emotion');
+        if (!av || !bubble) return;
+
+        av.classList.remove('actor-state-happy', 'actor-state-sad');
+        bubble.classList.remove('bubble-happy', 'bubble-sad');
+
+        if (emotionState === 'happy') {
+          void av.offsetWidth;
+          av.classList.add('actor-state-happy');
+          bubble.classList.add('bubble-happy');
+        } else if (emotionState === 'sad') {
+          void av.offsetWidth;
+          av.classList.add('actor-state-sad');
+          bubble.classList.add('bubble-sad');
+        }
+
+        bubble.textContent = text;
+      },
+
+      updateUI() {
+        const s1 = document.getElementById('mp-p1-score');
+        const s2 = document.getElementById('mp-p2-score');
+        const rInd = document.getElementById('mp-round-indicator');
+        if (s1) s1.textContent = `${this.p1Score} pts`;
+        if (s2) s2.textContent = `${this.p2Score} pts`;
+        if (rInd) rInd.textContent = `${this.currentRound} / ${this.totalRounds}`;
+      }
+    };
+
     function initStoryModeAndConsole() {
       StoryEngine.init();
       renderOpponentsGallery();
@@ -5195,54 +5701,58 @@
 
       // Pestañas Switch OS
       const tabStory = document.getElementById('switch-tab-story');
+      const tabMp = document.getElementById('switch-tab-multiplayer');
       const tabArcade = document.getElementById('switch-tab-arcade');
       const tabOpp = document.getElementById('switch-tab-opponents');
       const tabSim = document.getElementById('switch-tab-sim');
       const btnBackFromSim = document.getElementById('btn-back-from-sim');
 
       const screenStory = document.getElementById('switch-screen-story');
+      const screenMultiplayer = document.getElementById('switch-screen-multiplayer');
       const screenArcade = document.getElementById('nin-switch-main-stage');
       const screenOpp = document.getElementById('switch-screen-opponents');
       const screenSim = document.getElementById('switch-screen-spatial');
 
       function switchMode(mode) {
         NinAudio.playClick();
-        tabStory.classList.remove('active');
-        tabArcade.classList.remove('active');
-        tabOpp.classList.remove('active');
-        tabSim.classList.remove('active');
+        if (tabStory) tabStory.classList.remove('active');
+        if (tabMp) tabMp.classList.remove('active');
+        if (tabArcade) tabArcade.classList.remove('active');
+        if (tabOpp) tabOpp.classList.remove('active');
+        if (tabSim) tabSim.classList.remove('active');
 
-        screenStory.style.display = 'none';
-        screenArcade.style.display = 'none';
-        screenOpp.style.display = 'none';
-        screenSim.style.display = 'none';
+        if (screenStory) screenStory.style.display = 'none';
+        if (screenMultiplayer) screenMultiplayer.style.display = 'none';
+        if (screenArcade) screenArcade.style.display = 'none';
+        if (screenOpp) screenOpp.style.display = 'none';
+        if (screenSim) screenSim.style.display = 'none';
 
         if (mode === 'story') {
-          tabStory.classList.add('active');
-          screenStory.style.display = 'flex';
+          if (tabStory) tabStory.classList.add('active');
+          if (screenStory) screenStory.style.display = 'flex';
+        } else if (mode === 'multiplayer') {
+          if (tabMp) tabMp.classList.add('active');
+          if (screenMultiplayer) screenMultiplayer.style.display = 'flex';
+          MultiplayerDuelEngine.init();
         } else if (mode === 'arcade') {
-          tabArcade.classList.add('active');
-          screenArcade.style.display = 'flex';
+          if (tabArcade) tabArcade.classList.add('active');
+          if (screenArcade) screenArcade.style.display = 'flex';
         } else if (mode === 'opp') {
-          tabOpp.classList.add('active');
-          screenOpp.style.display = 'block';
+          if (tabOpp) tabOpp.classList.add('active');
+          if (screenOpp) screenOpp.style.display = 'flex';
         } else if (mode === 'sim') {
-          tabSim.classList.add('active');
-          screenSim.style.display = 'block';
+          if (tabSim) tabSim.classList.add('active');
+          if (screenSim) screenSim.style.display = 'block';
           if (typeof render === 'function') render();
         }
       }
-
-      // Pestaña Multijugador Directa en Switch OS
-      const tabMp = document.getElementById('switch-tab-multiplayer');
 
       if (tabStory) tabStory.addEventListener('click', () => {
         switchMode('story');
         LiveBalanceHUD.setCounts(StoryEngine.totalCoins > 0 ? 5 : 0, 0);
       });
       if (tabMp) tabMp.addEventListener('click', () => {
-        switchMode('sim');
-        tabMultiplayer.click();
+        switchMode('multiplayer');
         LiveBalanceHUD.setCounts(0, 0);
       });
       if (tabArcade) tabArcade.addEventListener('click', () => switchMode('arcade'));
@@ -5261,13 +5771,48 @@
         if (e.code === 'KeyH') LiveBalanceHUD.toggle();
       });
 
+
+      // Botones Multijugador (P1 y P2)
+      const btnMpP1Coop = document.getElementById('btn-mp-p1-coop');
+      const btnMpP1Cheat = document.getElementById('btn-mp-p1-cheat');
+      const btnMpP2Coop = document.getElementById('btn-mp-p2-coop');
+      const btnMpP2Cheat = document.getElementById('btn-mp-p2-cheat');
+      const btnMpNextRound = document.getElementById('btn-mp-next-round');
+
+      if (btnMpP1Coop) btnMpP1Coop.addEventListener('click', () => MultiplayerDuelEngine.makeChoice('p1', 'C'));
+      if (btnMpP1Cheat) btnMpP1Cheat.addEventListener('click', () => MultiplayerDuelEngine.makeChoice('p1', 'T'));
+      if (btnMpP2Coop) btnMpP2Coop.addEventListener('click', () => MultiplayerDuelEngine.makeChoice('p2', 'C'));
+      if (btnMpP2Cheat) btnMpP2Cheat.addEventListener('click', () => MultiplayerDuelEngine.makeChoice('p2', 'T'));
+      if (btnMpNextRound) btnMpNextRound.addEventListener('click', () => MultiplayerDuelEngine.nextRound());
+
+      // Atajos de teclado para Duelo Multijugador: P1 [W/S], P2 [I/K o Flechas]
+      window.addEventListener('keydown', (e) => {
+        const mpScreen = document.getElementById('switch-screen-multiplayer');
+        if (mpScreen && mpScreen.style.display !== 'none') {
+          if (e.code === 'KeyW') MultiplayerDuelEngine.makeChoice('p1', 'C');
+          if (e.code === 'KeyS') MultiplayerDuelEngine.makeChoice('p1', 'T');
+          if (e.code === 'KeyI' || e.code === 'ArrowUp') MultiplayerDuelEngine.makeChoice('p2', 'C');
+          if (e.code === 'KeyK' || e.code === 'ArrowDown') MultiplayerDuelEngine.makeChoice('p2', 'T');
+          if (e.code === 'Space' || e.code === 'Enter') {
+            const nextBtn = document.getElementById('btn-mp-next-round');
+            if (nextBtn && nextBtn.style.display !== 'none') nextBtn.click();
+          }
+        }
+      });
+
       // Botón revancha en modal de estadísticas multijugador
       const btnMpRematch = document.getElementById('btn-mp-rematch');
       if (btnMpRematch) {
         btnMpRematch.addEventListener('click', () => {
           NinAudio.playClick();
-          victoryModal.style.display = 'none';
-          setupMultiplayerMatch();
+          const victoryModal = document.getElementById('victory-modal');
+          if (victoryModal) victoryModal.style.display = 'none';
+          const mpScreen = document.getElementById('switch-screen-multiplayer');
+          if (mpScreen && mpScreen.style.display !== 'none') {
+            MultiplayerDuelEngine.init();
+          } else if (typeof setupMultiplayerMatch === 'function') {
+            setupMultiplayerMatch();
+          }
         });
       }
 

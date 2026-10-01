@@ -2,11 +2,34 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.5.0**: Actores gigantes (140px) ocupando el espacio escénico, Barra de Acciones en Medio de la Pantalla, Animación permanente de respiración/levitación y Animaciones reactivas diferenciadas de **Felicidad** (salto alegre, aura esmeralda) y **Tristeza** (estremecimiento, daño y desolación) según cooperen o ataquen.
+> **Versión 1.6.0**: Modo Multijugador (1 vs 1) idéntico al Modo 1 Player (actores gigantes de 140px, barra de acciones central para P1 y P2, animaciones de felicidad y tristeza, reporte final), Simulador Espacial 2D (Minecraft/Dwarf Fortress) independiente y alternativo, y cobertura total de atributos `alt` y accesibilidad en cada barra y elemento gráfico.
 
 ---
 
-## 🎮 1. Escenario Óptimo: Barra de Acciones Central, Actores Gigantes & Animaciones
+## ⚔️ 1. Modo Multijugador (1 vs 1) Idéntico al Modo 1 Player
+Accesible desde la pestaña principal `[ ⚔️ MULTIJUGADOR (2-4P) ]` del Switch OS:
+* **Misma Estructura Escénica:**
+  * **Jugador 1 (Azul - Joy-Con L):** Avatar gigante (140px), respiración permanente *idle*, burbuja emocional flotante (`#mp-p1-emotion`), marcador en vivo y controles `[ W ] 🤝 COOP` / `[ S ] 🗡️ ATACAR`.
+  * **Jugador 2 (Rojo - Joy-Con R):** Avatar gigante (140px), respiración permanente *idle*, burbuja emocional flotante (`#mp-p2-emotion`), marcador en vivo y controles `[ I ] 🤝 COOP` / `[ K ] 🗡️ ATACAR`.
+* **Barra de Acciones en Medio de la Pantalla:** Controles táctiles y teclado colocados en el centro neurálgico entre ambos jugadores, con confirmación de jugada lista y resolución simultánea del choque.
+* **Animaciones Reactivas Diferenciadas (Felicidad 😄 y Tristeza 😢):** Ambos jugadores celebran o sufren el desenlace de la ronda de forma simultánea e independiente según la matriz de Teoría de Juegos.
+* **Reporte Final Multijugador:** Al completar las rondas, se abre el modal analítico con balance global de cooperaciones vs ataques, perfiles psicológicos (*El Pacifista Constructor*, *El Conquistador Traidor*, *El Guardián Ojo por Ojo*, etc.) y botón de revancha instantánea.
+
+---
+
+## 🔬 2. Simulador Espacial 2D (Minecraft / Dwarf Fortress): Modo Independiente y Alternativo
+* Ubicado en su pestaña dedicada **`[ 🔬 SIMULADOR 2D ]`**, totalmente separado del duelo por turnos de la consola.
+* Autómata celular toroidal $60 \times 30$ con vecindad de Moore de 8 vecinos bajo las reglas de Nowak & May (1992).
+* Skins alternativas conmutables: Canvas Voxel 2D (Minecraft) o Terminal CRT en fósforo verde (Dwarf Fortress) con tecla `[M]`.
+
+---
+
+## ♿ 3. Cobertura Total de Atributos `alt` y Accesibilidad
+* Toda barra de progreso (Barra de balance en vivo, barra de balance final multijugador, indicador de batería), avatar, gráfico SVG de radar, botón de acción Joy-Con y caja narrativa cuenta con su atributo `alt="..."` descriptivo y etiquetas `aria-label`/`title`.
+
+---
+
+## 🎮 4. Escenario Óptimo: Barra de Acciones Central, Actores Gigantes & Animaciones (Modo 1P)
 * **Barra de Acciones en Medio de la Pantalla:** Los comandos de combate (`[🤝 CUMPLIR PACTO]` y `[🗡️ ATACAR / TRAICIONAR]`, junto con `[📜 ABRIR DIARIO]`) ahora se sitúan directamente en el centro neurálgico entre ambos contrincantes, ofreciendo una ergonomía arcade directa sin tener que mirar al pie de página.
 * **Actores Gigantes (140px) & Distribución Escénica:** Los personajes (El Viajero y los 5 arquetipos rivales) crecen hasta **140px** con ilustraciones vectoriales de **118px**, pedestales de batalla y ajuste perfecto sin scroll a 720p/1080p.
 * **Animación Permanente (Idle Breathing):** Ambos combatientes respiran y levitan suavemente de forma continua e independiente en su posición de guardia.
