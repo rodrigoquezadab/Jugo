@@ -3,16 +3,18 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.0.0` (Primera Versión Estable)
+> **Versión del Proyecto:** `1.1.0` (Handheld Nintendo Switch Console Experience · Zero-Scroll 720p/1080p Fit)
 
-1. **Juego de Aprendizaje en 1 Minuto (Modo Principal por Defecto):**
-   * **Estética Nintendo Moderna:** Fondo negro puro (`#07080c`) con iluminaciones circulares difusas, tipografías redondeadas ('Fredoka' y 'Outfit'), botones 3D ultra-táctiles y jugosos.
-   * **Gráficos Circulares:** Avatares circulares SVG expresivos con gestos animados, anillo circular SVG para progreso de ronda y tiempo, matriz de pagos en flor circular de 4 cuadrantes, y donut charts de porcentaje y podio.
-   * **Ritmo Ágil de 1 Minuto:** Partidas rápidas de 5 rondas (~10-12s por ronda, ~60s totales) contra 5 arquetipos clásicos de IA (Kopy, Sneaky, Buddy, Grumpy y Detective) con decisiones sencillas (🤝 COOPERAR vs 🗡️ ENGAÑAR), efectos de monedas flotantes, sonido de sintetizador retro sintetizado con Web Audio API y lecciones didácticas personalizadas al finalizar.
-   * **Simulador de Torneo Evolutivo:** Módulo que ejecuta una liga redonda de 100 rondas entre todos los personajes y demuestra gráficamente por qué la cooperación recíproca triunfa sobre la traición en la evolución.
+1. **Juego de Aprendizaje en Videoconsola Portátil Nintendo Switch (Por Defecto · ~1 Minuto):**
+   * **Chasis de Consola Portátil:** Marco ergonómico completo con Joy-Con izquierdo (Neon Blue) y Joy-Con derecho (Neon Red) interactivos.
+   * **Adaptación Perfecta a 720p y 1080p (Sin Scroll):** Todo el dashboard, telemetría, personajes, matriz circular de pagos y botones de decisión se visualizan simultáneamente dentro del viewport del navegador (incluso con la barra de tareas de Windows visible), eliminando la necesidad de scroll vertical.
+   * **Joy-Cons Totalmente Interactivos:** Botones ABXY físicos en el Joy-Con derecho ([Y] Cooperar, [X] Engañar, [A] Siguiente, [B] Revancha), D-Pad direccional en el Joy-Con izquierdo para ciclar rivales, sticks analógicos interactivos con relieve de agarre.
+   * **Switch OS Integrado:** Reloj del sistema en tiempo real, indicador de batería al 100%, conmutador de sonido y botón para alternar entre Vista Consola y Pantalla Completa.
+   * **Gráficos Circulares y Avatares Expresivos:** Caras dinámicas SVG con emociones animadas, dial circular de progreso de ronda y matriz de pagos interactiva en disco circular de 4 cuadrantes.
+   * **Simulador de Torneo Evolutivo:** Torneo cerrado de 100 rondas entre los 5 arquetipos clásicos (Kopy, Sneaky, Buddy, Grumpy y Detective) con podio y gráfico donut circular SVG.
 
 2. **Apartado Dedicado: Simulador Espacial 2D Toroidal (Minecraft & Dwarf Fortress):**
-   * Preservado íntegramente y accesible mediante el botón superior **`[ 🔬 SIMULADOR 2D (MINECRAFT/ASCII) ]`**.
+   * Preservado íntegramente y accesible mediante el botón superior **`[ 🔬 SIMULADOR 2D ]`** dentro del Switch OS.
    * Autómata celular toroidal $60 \times 30$ con vecindad de Moore (8 vecinos) y reglas de Nowak & May (1992).
    * Skins intercambiables: Pixel Art Minecraft en Canvas 2D y Terminal CRT ASCII retro Dwarf Fortress en bloque `<pre>` (atajo `[M]`).
    * Tres modalidades: Tutorial guiado en 4 lecciones, Laboratorio Sandbox con sliders en tiempo real y Modo Duelo Multijugador por turnos (2-4 jugadores).
