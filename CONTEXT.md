@@ -1,17 +1,17 @@
-# CONTEXTO DEL PROYECTO: EL DILEMA DEL PRISIONERO (APRENDIZAJE EN 1 MINUTO & SIMULADOR ESPACIAL 2D)
+# CONTEXTO DEL PROYECTO: EL DILEMA DEL PRISIONERO (CRÓNICAS DE LA CONFIANZA 1P & SIMULADOR ESPACIAL 2D)
 
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.1.0` (Handheld Nintendo Switch Console Experience · Zero-Scroll 720p/1080p Fit)
+> **Versión del Proyecto:** `1.2.0` (Modo Historia RPG para 1 Jugador · Nintendo Switch Handheld Experience · Zero-Scroll Fit)
 
-1. **Juego de Aprendizaje en Videoconsola Portátil Nintendo Switch (Por Defecto · ~1 Minuto):**
-   * **Chasis de Consola Portátil:** Marco ergonómico completo con Joy-Con izquierdo (Neon Blue) y Joy-Con derecho (Neon Red) interactivos.
-   * **Adaptación Perfecta a 720p y 1080p (Sin Scroll):** Todo el dashboard, telemetría, personajes, matriz circular de pagos y botones de decisión se visualizan simultáneamente dentro del viewport del navegador (incluso con la barra de tareas de Windows visible), eliminando la necesidad de scroll vertical.
-   * **Joy-Cons Totalmente Interactivos:** Botones ABXY físicos en el Joy-Con derecho ([Y] Cooperar, [X] Engañar, [A] Siguiente, [B] Revancha), D-Pad direccional en el Joy-Con izquierdo para ciclar rivales, sticks analógicos interactivos con relieve de agarre.
-   * **Switch OS Integrado:** Reloj del sistema en tiempo real, indicador de batería al 100%, conmutador de sonido y botón para alternar entre Vista Consola y Pantalla Completa.
-   * **Gráficos Circulares y Avatares Expresivos:** Caras dinámicas SVG con emociones animadas, dial circular de progreso de ronda y matriz de pagos interactiva en disco circular de 4 cuadrantes.
-   * **Simulador de Torneo Evolutivo:** Torneo cerrado de 100 rondas entre los 5 arquetipos clásicos (Kopy, Sneaky, Buddy, Grumpy y Detective) con podio y gráfico donut circular SVG.
+1. **Modo Historia para 1 Jugador: "Crónicas de la Confianza" (Por Defecto):**
+   * **Narrativa Guiada:** Campaña de 5 capítulos que sumerge al jugador en el papel de "El Viajero", enfrentando dilemas morales y económicos en el Valle de la Confianza.
+   * **Caja de Diálogo RPG con Retroalimentación Viva:** Cada elección (🤝 Cumplir Pacto vs 🗡️ Traicionar) genera una respuesta de diálogo contextual del personaje (Buddy, Sneaky, Kopy, Grumpy y Detective), impactando las monedas y el porcentaje de Confianza Social del pueblo.
+   * **El Diario del Sabio:** Al culminar cada capítulo, se desbloquea una página ilustrada con la explicación pedagógica del principio matemático y social que opera en ese escenario.
+   * **Chasis de Consola Portátil Nintendo Switch:** Marco físico con Joy-Con izquierdo (Neon Blue) y Joy-Con derecho (Neon Red) interactivos (botones ABXY [Y] y [X] funcionales, D-Pad para navegar y sticks analógicos).
+   * **Ajuste sin Scroll (720p / 1080p):** Toda la telemetría, diálogo, personajes y controles están diseñados para visualizarse simultáneamente dentro de la pantalla sin requerir scroll vertical.
+   * **Pestañas Adicionales:** Modo Arcade (Duelo libre de 1 minuto), Torneo Evolutivo de 100 rondas y Simulador 2D.
 
 2. **Apartado Dedicado: Simulador Espacial 2D Toroidal (Minecraft & Dwarf Fortress):**
    * Preservado íntegramente y accesible mediante el botón superior **`[ 🔬 SIMULADOR 2D ]`** dentro del Switch OS.

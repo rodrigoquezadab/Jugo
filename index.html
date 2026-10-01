@@ -4,11 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Nintendo Switch :: El Dilema del Prisionero (1 Minuto)</title>
+  <title>Nintendo Switch :: Crónicas de la Confianza (Modo Historia 1P)</title>
   <style>
-
-
-    /* =========================================================
+/* =========================================================
        VARIABLES Y PALETA DE COLORES - TEMA DWARF FORTRESS (ASCII)
        ========================================================= */
     :root {
@@ -724,13 +722,10 @@
       flex-wrap: wrap;
       gap: 6px;
     }
-  
-
-    
 
 
     /* =========================================================
-       ESTILOS DE VIDEOCONSOLA PORTÁTIL NINTENDO SWITCH (720p / 1080p FIT)
+       ESTILOS DE VIDEOCONSOLA PORTÁTIL NINTENDO SWITCH CON MODO HISTORIA
        ========================================================= */
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap');
 
@@ -745,8 +740,6 @@
       --joy-red: #ff3b56;
       --joy-red-dark: #c81e36;
       --joy-red-shadow: rgba(255, 59, 86, 0.4);
-      --btn-plastic: #2a2e3d;
-      --btn-plastic-active: #1c1f2b;
       --nin-coop: #00e676;
       --nin-coop-dark: #00a352;
       --nin-coop-glow: rgba(0, 230, 118, 0.4);
@@ -760,9 +753,7 @@
       --nin-text-dim: #94a3b8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -780,18 +771,17 @@
       user-select: none;
     }
 
-    /* FONDO DE MESA GAMER CON ILUMINACIÓN AMBIENTAL */
     .ambient-room-glow {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(0, 195, 227, 0.12) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 50%, rgba(255, 59, 86, 0.12) 0%, transparent 60%),
-                  radial-gradient(circle at 50% 20%, rgba(0, 230, 118, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle at 15% 50%, rgba(0, 195, 227, 0.14) 0%, transparent 60%),
+                  radial-gradient(circle at 85% 50%, rgba(255, 59, 86, 0.14) 0%, transparent 60%),
+                  radial-gradient(circle at 50% 15%, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
     }
 
-    /* CONTENEDOR PRINCIPAL DE LA VIDEOCONSOLA */
+    /* CHASIS PRINCIPAL SWITCH */
     .switch-console-chassis {
       position: relative;
       z-index: 10;
@@ -804,7 +794,6 @@
       transition: all 0.3s ease;
     }
 
-    /* MODO EXPANDIDO A PANTALLA COMPLETA (OPCIONAL) */
     .switch-console-chassis.maximized-mode {
       width: 100vw;
       height: 100vh;
@@ -819,12 +808,9 @@
     .switch-console-chassis.maximized-mode .console-screen-bezel {
       border-radius: 0;
       border: none;
-      padding: 6px 12px;
     }
 
-    /* =========================================================
-       JOY-CON IZQUIERDO (NEON BLUE)
-       ========================================================= */
+    /* JOY-CON IZQUIERDO */
     .joycon-left {
       width: 130px;
       min-width: 110px;
@@ -843,7 +829,6 @@
       border-right: 3px solid #111;
     }
 
-    /* GATILLO SUPERIOR L */
     .joycon-top-bumper-l {
       position: absolute;
       top: -10px;
@@ -856,7 +841,6 @@
       box-shadow: inset 0 2px 2px rgba(255,255,255,0.2);
     }
 
-    /* BOTÓN MENOS (-) */
     .joycon-btn-minus {
       width: 18px;
       height: 6px;
@@ -869,7 +853,6 @@
       cursor: pointer;
     }
 
-    /* STICK ANALÓGICO IZQUIERDO */
     .analog-stick-wrap {
       width: 68px;
       height: 68px;
@@ -909,7 +892,6 @@
     .analog-stick-cap::before { width: 3px; height: 16px; border-radius: 2px; }
     .analog-stick-cap::after { width: 16px; height: 3px; border-radius: 2px; }
 
-    /* D-PAD / BOTONES DIRECCIONALES IZQUIERDOS */
     .dpad-cluster {
       display: grid;
       grid-template-columns: repeat(3, 26px);
@@ -941,7 +923,6 @@
       background: #151820;
     }
 
-    /* BOTÓN CAPTURA CUADRADO */
     .joycon-btn-capture {
       width: 20px;
       height: 20px;
@@ -957,7 +938,6 @@
       margin-right: 12px;
       margin-bottom: 4px;
     }
-
     .joycon-btn-capture::after {
       content: '';
       width: 8px;
@@ -966,9 +946,7 @@
       background: #0d0e14;
     }
 
-    /* =========================================================
-       CHASIS CENTRAL & PANTALLA LCD (16:9 BEZEL)
-       ========================================================= */
+    /* PANTALLA BEZEL */
     .console-screen-bezel {
       flex: 1;
       background: var(--switch-bezel);
@@ -981,7 +959,6 @@
       position: relative;
     }
 
-    /* BARRA SUPERIOR SWITCH OS */
     .switch-os-top-bar {
       height: 42px;
       min-height: 42px;
@@ -1042,9 +1019,7 @@
       transition: all 0.2s;
     }
 
-    .switch-tab-btn:hover {
-      color: #fff;
-    }
+    .switch-tab-btn:hover { color: #fff; }
 
     .switch-tab-btn.active {
       background: linear-gradient(135deg, #00c3e3, #0077ff);
@@ -1074,7 +1049,6 @@
       align-items: center;
       padding: 1px;
     }
-
     .battery-icon-svg::after {
       content: '';
       position: absolute;
@@ -1084,7 +1058,6 @@
       background: #94a3b8;
       border-radius: 0 1px 1px 0;
     }
-
     .battery-level {
       height: 100%;
       width: 90%;
@@ -1111,7 +1084,6 @@
       color: #fff;
     }
 
-    /* CUERPO DE LA PANTALLA LCD (TODO ENTRA EN PANTALLA SIN SCROLL) */
     .switch-screen-viewport {
       flex: 1;
       background: var(--switch-screen-bg);
@@ -1122,425 +1094,300 @@
       flex-direction: column;
     }
 
-    /* PANTALLA DEL JUEGO DE 1 MINUTO (AJUSTE PRECISO DE PANTALLA) */
-    #nin-switch-main-stage {
+    /* =========================================================
+       MODO HISTORIA NARRATIVO PARA 1 JUGADOR (CRÓNICAS DE LA CONFIANZA)
+       ========================================================= */
+    #switch-screen-story {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 12px 18px 14px;
+      padding: 10px 16px 12px;
       gap: 8px;
       height: 100%;
+      position: relative;
     }
 
-    /* FILA SUPERIOR: RONDA & OPONENTES */
-    .switch-meta-row {
+    /* TRACKER NARRATIVO DE CAPÍTULO */
+    .story-header-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      flex-wrap: wrap;
+      background: rgba(20, 24, 36, 0.85);
+      border: 1px solid #2b334a;
+      border-radius: 16px;
+      padding: 6px 16px;
     }
 
-    .switch-round-gauge {
+    .story-chap-badge {
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(22, 26, 38, 0.75);
-      border: 1px solid #282f42;
-      border-radius: 999px;
-      padding: 4px 14px 4px 8px;
     }
 
-    .gauge-circle-mini {
-      position: relative;
-      width: 36px;
-      height: 36px;
+    .story-chap-icon {
+      font-size: 22px;
     }
 
-    .gauge-circle-mini svg {
-      width: 36px;
-      height: 36px;
-      transform: rotate(-90deg);
-    }
-
-    .gauge-bg {
-      fill: none;
-      stroke: #1c202d;
-      stroke-width: 5;
-    }
-
-    .gauge-bar {
-      fill: none;
-      stroke: var(--nin-player);
-      stroke-width: 5;
-      stroke-linecap: round;
-      stroke-dasharray: 94.24;
-      stroke-dashoffset: 75.39;
-      transition: stroke-dashoffset 0.4s ease;
-    }
-
-    .gauge-center-val {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .story-chap-title {
       font-size: 0.95rem;
       font-weight: 700;
       color: #fff;
-    }
-
-    .switch-round-text-title {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #fff;
       margin: 0;
-      line-height: 1.1;
     }
 
-    .switch-round-text-sub {
+    .story-chap-subtitle {
       font-size: 0.72rem;
-      color: var(--nin-text-dim);
+      color: #38bdf8;
       margin: 0;
+      font-weight: 600;
     }
 
-    /* SELECTOR DE CHIPS DE OPONENTES */
-    .switch-opp-selector {
+    .story-stats-pills {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
     }
 
-    .switch-opp-chip {
-      background: #141724;
-      border: 1.5px solid #282f42;
+    .story-stat-pill {
+      background: #11141e;
+      border: 1.5px solid #283044;
       border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.76rem;
+      padding: 3px 10px;
+      font-size: 0.78rem;
       font-weight: 700;
-      color: #94a3b8;
-      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 5px;
-      transition: all 0.2s;
     }
 
-    .switch-opp-chip:hover {
-      border-color: #fff;
-      color: #fff;
-    }
+    .story-stat-pill.coins { color: var(--nin-gold); border-color: rgba(255, 204, 0, 0.4); }
+    .story-stat-pill.trust { color: #00d2ff; border-color: rgba(0, 210, 255, 0.4); }
 
-    .switch-opp-chip.active {
-      background: #1e2638;
-      border-color: var(--nin-player);
-      color: #fff;
-      box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
-    }
-
-    /* ARENA CENTRAL TIPO NINTENDO (JUGADOR - MÁQUINA - RIVAL) */
-    .switch-duel-board {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr 1fr;
-      align-items: center;
-      gap: 14px;
-      background: radial-gradient(circle at 50% 30%, #151926 0%, #0a0c13 100%);
-      border: 2px solid #23293a;
-      border-radius: 24px;
-      padding: 14px 18px;
+    /* ESCENARIO RPG VISUAL & PERSONAJES */
+    .story-stage-scene {
       flex: 1;
-      max-height: 380px;
-      box-shadow: inset 0 0 25px rgba(0,0,0,0.6);
+      background: radial-gradient(circle at 50% 20%, #1c2235 0%, #0a0d16 100%);
+      border: 2px solid #273046;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px 16px;
       position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.8);
+      max-height: 400px;
     }
 
-    /* TARJETA CIRCULAR DE PERSONAJE */
-    .switch-char-block {
+    .story-actors-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .story-actor {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       text-align: center;
     }
 
-    .switch-char-avatar-ring {
-      width: 90px;
-      height: 90px;
+    .story-actor-avatar {
+      width: 78px;
+      height: 78px;
       border-radius: 50%;
-      background: #131722;
+      background: #111420;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      border: 3.5px solid #3b82f6;
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .switch-char-avatar-ring.bounce {
+    .story-actor-avatar.bounce {
       animation: avatarPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .avatar-ring-player {
-      border: 3.5px solid var(--nin-player);
-      box-shadow: 0 0 20px rgba(0, 210, 255, 0.4), inset 0 0 12px rgba(0, 210, 255, 0.2);
+    .story-actor-avatar svg {
+      width: 62px;
+      height: 62px;
     }
 
-    .avatar-ring-opp {
-      border: 3.5px solid var(--nin-cheat);
-      box-shadow: 0 0 20px rgba(255, 45, 85, 0.4), inset 0 0 12px rgba(255, 45, 85, 0.2);
-    }
-
-    .switch-char-avatar-ring svg {
-      width: 72px;
-      height: 72px;
-    }
-
-    .switch-char-title {
-      font-size: 1.05rem;
+    .story-actor-name {
+      font-size: 0.9rem;
       font-weight: 700;
       color: #fff;
       margin: 0;
-      line-height: 1.1;
     }
 
-    .switch-char-subtitle {
-      font-size: 0.72rem;
+    .story-actor-role {
+      font-size: 0.68rem;
       color: var(--nin-text-dim);
       margin: 0;
-      max-width: 140px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
-    .switch-score-badge {
-      background: #191e2b;
-      border: 1.5px solid var(--nin-gold);
+    /* CENTRO DE CHOQUE DE HISTORIA */
+    .story-center-clash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .story-matrix-badge {
+      background: rgba(14, 18, 28, 0.9);
+      border: 1.5px solid #333d56;
+      border-radius: 12px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      text-align: center;
+    }
+
+    /* CAJA DE DIÁLOGO RPG NINTENDO */
+    .story-rpg-dialogue-box {
+      background: rgba(13, 16, 25, 0.95);
+      border: 2px solid #384564;
+      border-radius: 16px;
+      padding: 10px 16px;
+      margin-top: 6px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      min-height: 88px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-speaker-tag {
+      position: absolute;
+      top: -12px;
+      left: 16px;
+      background: linear-gradient(135deg, #00c3e3, #0077ff);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 10px;
       border-radius: 999px;
-      padding: 3px 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 700;
-      color: var(--nin-gold);
-      font-size: 0.95rem;
-      box-shadow: 0 0 12px rgba(255, 204, 0, 0.3);
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0, 195, 227, 0.4);
     }
 
-    .switch-dots-row {
-      display: flex;
-      gap: 4px;
+    .story-dialogue-text {
+      margin: 4px 0 0;
+      font-size: 0.85rem;
+      color: #f1f5f9;
+      line-height: 1.35;
     }
 
-    .switch-h-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #232838;
-      border: 1px solid #333c52;
-      transition: all 0.3s;
+    .story-lesson-hint {
+      margin: 4px 0 0;
+      font-size: 0.74rem;
+      color: #38ef38;
+      font-weight: 600;
     }
 
-    .switch-h-dot.coop {
-      background: var(--nin-coop);
-      border-color: #fff;
-      box-shadow: 0 0 6px var(--nin-coop-glow);
-      transform: scale(1.2);
-    }
-
-    .switch-h-dot.cheat {
-      background: var(--nin-cheat);
-      border-color: #fff;
-      box-shadow: 0 0 6px var(--nin-cheat-glow);
-      transform: scale(1.2);
-    }
-
-    /* ZONA CENTRAL: MATRIZ Y BOCADILLO */
-    .switch-center-hud {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .switch-speech-bubble {
-      background: #ffffff;
-      color: #0b0d14;
-      border-radius: 14px;
-      padding: 8px 14px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-align: center;
-      max-width: 250px;
-      line-height: 1.25;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-      position: relative;
-    }
-
-    .switch-speech-bubble::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 6px 6px 0;
-      border-style: solid;
-      border-color: #ffffff transparent;
-      display: block;
-      width: 0;
-    }
-
-    /* MATRIZ CIRCULAR DE 4 CUADRANTES */
-    .switch-matrix-disk {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: #0d1017;
-      border: 2.5px solid #2b3347;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      padding: 4px;
-      gap: 4px;
-      position: relative;
-      box-shadow: 0 0 16px rgba(0,0,0,0.6);
-    }
-
-    .matrix-quad {
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-align: center;
-      transition: all 0.25s;
-    }
-
-    .m-quad-cc {
-      background: rgba(0, 230, 118, 0.15);
-      border: 1px solid rgba(0, 230, 118, 0.4);
-      color: var(--nin-coop);
-      border-top-left-radius: 50%;
-    }
-
-    .m-quad-tc {
-      background: rgba(255, 204, 0, 0.15);
-      border: 1px solid rgba(255, 204, 0, 0.4);
-      color: var(--nin-gold);
-      border-top-right-radius: 50%;
-    }
-
-    .m-quad-ct {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: var(--nin-purple);
-      border-bottom-left-radius: 50%;
-    }
-
-    .m-quad-tt {
-      background: rgba(255, 45, 85, 0.15);
-      border: 1px solid rgba(255, 45, 85, 0.4);
-      color: var(--nin-cheat);
-      border-bottom-right-radius: 50%;
-    }
-
-    .matrix-quad.active-quad {
-      transform: scale(1.15);
-      z-index: 10;
-      box-shadow: 0 0 16px currentColor;
-    }
-
-    .matrix-center-core {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #fff;
-      color: #000;
-      font-weight: 900;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px #fff;
-    }
-
-    /* BARRA INFERIOR DE DECISIÓN (BOTONES NINTENDO JUGOSOS) */
-    .switch-decision-bar {
+    /* BOTONES DE DECISIÓN DE LA HISTORIA */
+    .story-choices-bar {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
       align-items: center;
     }
 
-    .switch-btn-action {
+    .story-choice-btn {
       flex: 1;
-      max-width: 320px;
-      padding: 12px 20px;
+      max-width: 330px;
+      padding: 11px 18px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-family: 'Fredoka', cursive;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      position: relative;
       transition: all 0.12s ease-out;
       outline: none;
     }
 
-    .switch-btn-action .btn-key-badge {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 2px 7px;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .switch-btn-coop {
+    .story-btn-coop {
       background: linear-gradient(180deg, #10f480 0%, var(--nin-coop) 100%);
       color: #033616;
-      box-shadow: 0 6px 0 var(--nin-coop-dark), 0 10px 20px var(--nin-coop-glow);
+      box-shadow: 0 5px 0 var(--nin-coop-dark), 0 10px 18px var(--nin-coop-glow);
     }
 
-    .switch-btn-coop:hover {
+    .story-btn-coop:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 0 var(--nin-coop-dark), 0 14px 25px var(--nin-coop-glow);
+      box-shadow: 0 7px 0 var(--nin-coop-dark), 0 14px 22px var(--nin-coop-glow);
     }
 
-    .switch-btn-coop:active {
-      transform: translateY(4px);
+    .story-btn-coop:active {
+      transform: translateY(3px);
       box-shadow: 0 2px 0 var(--nin-coop-dark);
     }
 
-    .switch-btn-cheat {
+    .story-btn-cheat {
       background: linear-gradient(180deg, #ff4d6d 0%, var(--nin-cheat) 100%);
       color: #fff;
-      box-shadow: 0 6px 0 var(--nin-cheat-dark), 0 10px 20px var(--nin-cheat-glow);
+      box-shadow: 0 5px 0 var(--nin-cheat-dark), 0 10px 18px var(--nin-cheat-glow);
     }
 
-    .switch-btn-cheat:hover {
+    .story-btn-cheat:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 0 var(--nin-cheat-dark), 0 14px 25px var(--nin-cheat-glow);
+      box-shadow: 0 7px 0 var(--nin-cheat-dark), 0 14px 22px var(--nin-cheat-glow);
     }
 
-    .switch-btn-cheat:active {
-      transform: translateY(4px);
+    .story-btn-cheat:active {
+      transform: translateY(3px);
       box-shadow: 0 2px 0 var(--nin-cheat-dark);
     }
 
-    /* =========================================================
-       JOY-CON DERECHO (NEON RED)
-       ========================================================= */
+    .story-btn-advance {
+      background: linear-gradient(180deg, #ffd700 0%, #ff9900 100%);
+      color: #000;
+      box-shadow: 0 5px 0 #cc7a00, 0 10px 18px rgba(255, 204, 0, 0.4);
+    }
+
+    /* MODAL DE CAPÍTULO COMPLETADO (DIARIO DE LA CONFIANZA) */
+    .story-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .story-journal-sheet {
+      background: radial-gradient(circle at 50% 0%, #1e2436 0%, #0e111a 100%);
+      border: 2.5px solid #ffcc00;
+      border-radius: 26px;
+      max-width: 520px;
+      width: 100%;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 30px rgba(255, 204, 0, 0.25);
+      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* JOY-CON DERECHO */
     .joycon-right {
       width: 130px;
       min-width: 110px;
@@ -1559,7 +1406,6 @@
       border-left: 3px solid #111;
     }
 
-    /* GATILLO SUPERIOR R */
     .joycon-top-bumper-r {
       position: absolute;
       top: -10px;
@@ -1572,7 +1418,6 @@
       box-shadow: inset 0 2px 2px rgba(255,255,255,0.2);
     }
 
-    /* BOTÓN PLUS (+) */
     .joycon-btn-plus {
       width: 16px;
       height: 16px;
@@ -1591,7 +1436,6 @@
       top: 5px;
       left: 0;
       border-radius: 2px;
-      box-shadow: 0 1px 0 #0d0f14;
     }
     .joycon-btn-plus::after {
       content: '';
@@ -1602,10 +1446,8 @@
       top: 0;
       left: 5px;
       border-radius: 2px;
-      box-shadow: 0 1px 0 #0d0f14;
     }
 
-    /* CLÚSTER DIAMANTE BOTONES ABXY (INTERACTIVOS) */
     .abxy-cluster {
       display: grid;
       grid-template-columns: repeat(3, 28px);
@@ -1642,14 +1484,13 @@
     .btn-abxy-a { color: var(--nin-player); }
     .btn-abxy-b { color: var(--nin-gold); }
 
-    /* BOTÓN HOME CON ANILLO METÁLICO */
     .joycon-btn-home {
       width: 24px;
       height: 24px;
       border-radius: 50%;
       background: #232734;
       border: 2px solid #5a647d;
-      box-shadow: 0 2px 0 #0d0e14, 0 0 6px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 2px 0 #0d0e14;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1658,48 +1499,15 @@
       margin-left: 10px;
       margin-bottom: 4px;
     }
+    .joycon-btn-home svg { width: 12px; height: 12px; fill: #cbd5e1; }
 
-    .joycon-btn-home svg {
-      width: 12px;
-      height: 12px;
-      fill: #cbd5e1;
-    }
-
-    /* PANTALLA 2 Y 3 DENTRO DEL SWITCH VIEWPORT */
+    /* PANTALLAS ALTERNATIVAS */
+    #nin-switch-main-stage,
     #switch-screen-opponents,
     #switch-screen-spatial {
       display: none;
-      padding: 16px;
+      padding: 12px 16px;
       height: 100%;
-    }
-
-    /* MODAL DE RESULTADOS NINTENDO DENTRO DE LA CONSOLA */
-    .switch-modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-    }
-
-    .switch-modal-sheet {
-      background: radial-gradient(circle at 50% 0%, #1c2233 0%, #10131c 100%);
-      border: 2.5px solid #38425d;
-      border-radius: 28px;
-      max-width: 480px;
-      width: 100%;
-      padding: 22px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 12px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
-      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
   </style>
@@ -1707,57 +1515,51 @@
 
 <body>
 
-  <!-- FONDO DE MESA GAMER CON ILUMINACIÓN AMBIENTAL -->
   <div class="ambient-room-glow"></div>
 
   <!-- CHASIS DE VIDEOCONSOLA PORTÁTIL NINTENDO SWITCH -->
   <div class="switch-console-chassis" id="switch-chassis">
 
-    <!-- =========================================================
-         JOY-CON IZQUIERDO (NEON BLUE)
-         ========================================================= -->
+    <!-- JOY-CON IZQUIERDO (NEON BLUE) -->
     <aside class="joycon-left" id="joycon-l">
       <div class="joycon-top-bumper-l" title="Gatillo L"></div>
       <div class="joycon-btn-minus" id="joy-btn-minus" title="Botón Menos (-)"></div>
 
-      <!-- Stick Analógico Izquierdo Interactivo -->
-      <div class="analog-stick-wrap" id="joy-stick-l" title="Stick Analógico (Arrastra o haz clic)">
+      <div class="analog-stick-wrap" id="joy-stick-l" title="Stick Analógico">
         <div class="analog-stick-cap"></div>
       </div>
 
-      <!-- D-Pad Direccional (Navegar rivales) -->
       <div class="dpad-cluster">
         <div></div>
-        <div class="dpad-btn" id="dpad-up" title="Rival Anterior">▲</div>
+        <div class="dpad-btn" id="dpad-up" title="Capítulo Anterior">▲</div>
         <div></div>
-        <div class="dpad-btn" id="dpad-left" title="Navegar Izquierda">◀</div>
+        <div class="dpad-btn" id="dpad-left" title="Izquierda">◀</div>
         <div></div>
-        <div class="dpad-btn" id="dpad-right" title="Navegar Derecha">▶</div>
+        <div class="dpad-btn" id="dpad-right" title="Derecha">▶</div>
         <div></div>
-        <div class="dpad-btn" id="dpad-down" title="Rival Siguiente">▼</div>
+        <div class="dpad-btn" id="dpad-down" title="Capítulo Siguiente">▼</div>
         <div></div>
       </div>
 
-      <!-- Botón de Captura -->
-      <div class="joycon-btn-capture" id="joy-btn-capture" title="Captura de Pantalla"></div>
+      <div class="joycon-btn-capture" id="joy-btn-capture" title="Captura"></div>
     </aside>
 
-    <!-- =========================================================
-         CHASIS CENTRAL & PANTALLA LCD (16:9 BEZEL)
-         ========================================================= -->
+    <!-- CHASIS CENTRAL & PANTALLA LCD -->
     <main class="console-screen-bezel">
 
-      <!-- BARRA SUPERIOR SWITCH OS -->
+      <!-- BARRA SWITCH OS -->
       <header class="switch-os-top-bar">
         <div class="switch-user-pill">
-          <div class="user-avatar-small">😊</div>
-          <span>Jugador 1</span>
+          <div class="user-avatar-small">🤠</div>
+          <span>El Viajero (1P)</span>
         </div>
 
-        <!-- Pestañas Switch OS -->
         <nav class="switch-nav-tabs">
-          <button id="switch-tab-game" class="switch-tab-btn active">
-            <span>⚡</span> DUELO (1 MIN)
+          <button id="switch-tab-story" class="switch-tab-btn active">
+            <span>📖</span> HISTORIA (1P)
+          </button>
+          <button id="switch-tab-arcade" class="switch-tab-btn">
+            <span>⚡</span> DUELO RÁPIDO
           </button>
           <button id="switch-tab-opponents" class="switch-tab-btn">
             <span>👥</span> TORNEO
@@ -1767,44 +1569,167 @@
           </button>
         </nav>
 
-        <!-- Indicadores de Sistema -->
         <div class="switch-sys-status">
-          <button id="btn-sound-toggle" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Silenciar / Activar Sonido">🔊</button>
+          <button id="btn-sound-toggle" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Sonido">🔊</button>
           <span id="switch-clock">12:00</span>
           <div class="battery-icon-svg" title="Batería 100%"><div class="battery-level"></div></div>
-          <button class="btn-toggle-viewmode" id="btn-toggle-viewmode" title="Alternar entre Consola Portátil y Pantalla Completa">
+          <button class="btn-toggle-viewmode" id="btn-toggle-viewmode" title="Maximizar pantalla">
             <span id="viewmode-icon">🖥️</span> <span id="viewmode-text">Maximizar</span>
           </button>
         </div>
       </header>
 
-      <!-- VIEWPORT DE CONTENIDO DE LA PANTALLA LCD -->
+      <!-- VIEWPORT DE PANTALLA LCD -->
       <div class="switch-screen-viewport">
 
         <!-- =========================================================
-             PANTALLA 1: ARENA DE DUELO EN 1 MINUTO (DEFAULT)
+             MODO HISTORIA NARRATIVO PARA 1 JUGADOR (DEFAULT)
              ========================================================= -->
-        <div id="nin-switch-main-stage">
+        <div id="switch-screen-story">
 
-          <!-- FILA METADATOS: INDICADOR CIRCULAR & CHIPS RÁPIDOS -->
-          <div class="switch-meta-row">
-            <div class="switch-round-gauge">
-              <div class="gauge-circle-mini">
-                <svg viewBox="0 0 36 36">
-                  <circle class="gauge-bg" cx="18" cy="18" r="15"></circle>
-                  <circle id="switch-round-circle-bar" class="gauge-bar" cx="18" cy="18" r="15"></circle>
-                </svg>
-                <div class="gauge-center-val">
-                  <span id="switch-round-val">1</span>
-                </div>
-              </div>
+          <!-- BARRA DE SEGUIMIENTO DEL CAPÍTULO -->
+          <div class="story-header-bar">
+            <div class="story-chap-badge">
+              <div class="story-chap-icon" id="story-chap-icon">🌾</div>
               <div>
-                <h4 class="switch-round-text-title" id="switch-round-title">Ronda 1 de 5</h4>
-                <p class="switch-round-text-sub">Partida de 1 minuto · Toma tu decisión</p>
+                <h4 class="story-chap-title" id="story-chap-title">Capítulo 1: El Mercado de la Buena Fe</h4>
+                <p class="story-chap-subtitle" id="story-chap-subtitle">Aprende los fundamentos del intercambio y el beneficio mutuo</p>
               </div>
             </div>
 
-            <!-- CHIPS DE OPONENTES -->
+            <div class="story-stats-pills">
+              <div class="story-stat-pill coins">
+                <span>🪙</span> <span id="story-coins-val">0</span>
+              </div>
+              <div class="story-stat-pill trust">
+                <span>💙 Confianza:</span> <span id="story-trust-val">100%</span>
+              </div>
+              <div class="story-stat-pill" style="color: #ffcc00; border-color: rgba(255,204,0,0.3);">
+                <span>⭐ Cap:</span> <span id="story-step-indicator">1 / 5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ESCENARIO VISUAL RPG & PERSONAJES -->
+          <div class="story-stage-scene" id="story-scene-box">
+
+            <div class="story-actors-row">
+
+              <!-- JUGADOR (EL VIAJERO) -->
+              <div class="story-actor">
+                <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; box-shadow: 0 0 18px rgba(0, 210, 255, 0.4);">
+                  <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="44" fill="#00d2ff"/>
+                    <path d="M 22 36 Q 50 14 78 36 L 90 38 Q 65 30 20 38 Z" fill="#ff2d55"/>
+                    <circle cx="50" cy="26" r="8" fill="#ffffff"/>
+                    <text x="50" y="30" font-family="Fredoka" font-size="10" font-weight="bold" fill="#ff2d55" text-anchor="middle">T</text>
+                    <ellipse cx="38" cy="48" rx="5" ry="7" fill="#07080c"/>
+                    <ellipse cx="62" cy="48" rx="5" ry="7" fill="#07080c"/>
+                    <circle cx="40" cy="46" r="2" fill="#ffffff"/>
+                    <circle cx="64" cy="46" r="2" fill="#ffffff"/>
+                    <circle cx="30" cy="56" r="4" fill="rgba(255, 45, 85, 0.4)"/>
+                    <circle cx="70" cy="56" r="4" fill="rgba(255, 45, 85, 0.4)"/>
+                    <path d="M 42 60 Q 50 68 58 60" stroke="#07080c" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <h4 class="story-actor-name">TÚ (El Viajero)</h4>
+                <p class="story-actor-role">Reputación en juego</p>
+              </div>
+
+              <!-- CENTRO DE CHOQUE -->
+              <div class="story-center-clash">
+                <div class="story-matrix-badge" id="story-matrix-badge">
+                  Pacto: Cumplir (+3/+3) | Traición (+5/0)
+                </div>
+                <div style="font-size: 26px; animation: pulseBrand 2s infinite ease-in-out;">⚖️</div>
+                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;" id="story-encounter-round">
+                  Encuentro 1 de 4
+                </div>
+              </div>
+
+              <!-- NPC DE LA HISTORIA -->
+              <div class="story-actor">
+                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.4);">
+                  <!-- Inyectado dinámicamente -->
+                </div>
+                <h4 class="story-actor-name" id="story-npc-name">Buddy el Granjero</h4>
+                <p class="story-actor-role" id="story-npc-role">Comerciante bondadoso</p>
+              </div>
+
+            </div>
+
+            <!-- CAJA DE DIÁLOGO RPG NINTENDO -->
+            <div class="story-rpg-dialogue-box">
+              <span class="story-speaker-tag" id="story-speaker-name">BUDDY EL GRANJERO</span>
+              <p class="story-dialogue-text" id="story-text-body">
+                "¡Bienvenido a la aldea, forastero! Tengo un saco de trigo recién cosechado. Si me das tus manzanas, ambos prosperaremos (+3 monedas cada uno). ¿Cerramos el trato honestamente?"
+              </p>
+              <p class="story-lesson-hint" id="story-text-hint">
+                💡 Consejo: Si ambos cooperan, el beneficio mutuo crea riqueza de la nada.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- BOTONES DE ELECCIÓN NARRATIVA -->
+          <div class="story-choices-bar" id="story-choices-bar">
+            <button class="story-choice-btn story-btn-coop" id="btn-story-coop">
+              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.25); padding: 2px 7px; border-radius: 6px;">[ Y / C ]</span>
+              <span>🤝 CUMPLIR PACTO</span>
+            </button>
+
+            <button class="story-choice-btn story-btn-cheat" id="btn-story-cheat">
+              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.25); padding: 2px 7px; border-radius: 6px;">[ X / T ]</span>
+              <span>🗡️ TRAICIONAR Y QUEDARSE TODO</span>
+            </button>
+
+            <button class="story-choice-btn story-btn-advance" id="btn-story-advance" style="display: none;">
+              <span>📜 ABRIR DIARIO DEL SABIO & AVANZAR ➔ [ A ]</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- =========================================================
+             MODAL DEL DIARIO DE LA CONFIANZA (CAPÍTULO COMPLETADO)
+             ========================================================= -->
+        <div class="story-modal-backdrop" id="story-journal-modal">
+          <div class="story-journal-sheet">
+            <div style="font-size: 38px;" id="story-modal-icon">📜</div>
+            <h3 style="font-size: 1.45rem; color: #ffcc00; margin: 0;" id="story-modal-title">
+              ¡Capítulo 1 Superado!
+            </h3>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin: 0;" id="story-modal-subtitle">
+              Página desbloqueada en el Diario de la Teoría de Juegos
+            </p>
+
+            <div style="background: rgba(0, 210, 255, 0.08); border: 1.5px solid rgba(0, 210, 255, 0.3); border-radius: 16px; padding: 12px 16px; text-align: left; width: 100%;">
+              <h5 style="margin: 0 0 4px; color: #00d2ff; font-size: 0.9rem;" id="story-journal-heading">
+                🧠 Lección Aprendida: La Riqueza del Intercambio Honesto
+              </h5>
+              <p style="margin: 0; font-size: 0.78rem; color: #e2e8f0; line-height: 1.4;" id="story-journal-text">
+                Cuando ambas partes cooperan, el valor total aumenta más que con el conflicto. La honestidad no es solo moral; matemáticamente es la base de las sociedades prósperas.
+              </p>
+            </div>
+
+            <div style="display: flex; justify-content: space-around; width: 100%; font-size: 0.85rem; font-weight: 700; color: #fff;">
+              <div>🪙 Monedas: <span id="story-journal-coins" style="color: #ffcc00;">12</span></div>
+              <div>💙 Confianza: <span id="story-journal-trust" style="color: #00d2ff;">100%</span></div>
+              <div>⭐ Insignia: <span id="story-journal-badge" style="color: #00e676;">Honestidad</span></div>
+            </div>
+
+            <button class="story-choice-btn story-btn-advance" id="btn-story-next-chapter" style="width: 100%; justify-content: center;">
+              🚀 VIAJAR AL SIGUIENTE CAPÍTULO [ A ]
+            </button>
+          </div>
+        </div>
+
+        <!-- =========================================================
+             MODO ARCADE (DUELO LIBRE DE 1 MINUTO)
+             ========================================================= -->
+        <div id="nin-switch-main-stage">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <h4 style="margin: 0; color: #fff;">⚡ Duelo Libre Arcade (1 Minuto)</h4>
             <div class="switch-opp-selector">
               <button class="switch-opp-chip active" data-opp="kopy">🐱 Kopy</button>
               <button class="switch-opp-chip" data-opp="sneaky">🦊 Sneaky</button>
@@ -1813,169 +1738,61 @@
               <button class="switch-opp-chip" data-opp="detective">🦉 Detective</button>
             </div>
           </div>
-
-          <!-- ARENA DE DUELO: JUGADOR - MÁQUINA - RIVAL -->
-          <div class="switch-duel-board">
-
-            <!-- LADO JUGADOR (TÚ) -->
+          <!-- Tablero arcade -->
+          <div class="switch-duel-board" style="flex: 1;">
             <div class="switch-char-block">
               <div class="switch-char-avatar-ring avatar-ring-player" id="switch-p-ring">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="44" fill="#00d2ff"/>
-                  <path d="M 22 36 Q 50 14 78 36 L 90 38 Q 65 30 20 38 Z" fill="#ff2d55"/>
-                  <circle cx="50" cy="26" r="8" fill="#ffffff"/>
-                  <text x="50" y="30" font-family="Fredoka" font-size="10" font-weight="bold" fill="#ff2d55" text-anchor="middle">T</text>
-                  <ellipse cx="38" cy="48" rx="5" ry="7" fill="#07080c"/>
-                  <ellipse cx="62" cy="48" rx="5" ry="7" fill="#07080c"/>
-                  <circle cx="40" cy="46" r="2" fill="#ffffff"/>
-                  <circle cx="64" cy="46" r="2" fill="#ffffff"/>
-                  <circle cx="30" cy="56" r="4" fill="rgba(255, 45, 85, 0.4)"/>
-                  <circle cx="70" cy="56" r="4" fill="rgba(255, 45, 85, 0.4)"/>
-                  <path d="M 42 60 Q 50 68 58 60" stroke="#07080c" stroke-width="3" stroke-linecap="round" fill="none"/>
-                </svg>
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#00d2ff"/><ellipse cx="38" cy="48" rx="5" ry="7" fill="#000"/><ellipse cx="62" cy="48" rx="5" ry="7" fill="#000"/><circle cx="40" cy="46" r="2" fill="#fff"/><circle cx="64" cy="46" r="2" fill="#fff"/><path d="M 42 60 Q 50 68 58 60" stroke="#000" stroke-width="3" fill="none"/></svg>
               </div>
-              <h3 class="switch-char-title">TÚ <span style="font-size: 0.75rem; color: var(--nin-player);">(P1)</span></h3>
-              <div class="switch-score-badge">
-                <span>★</span> <span id="switch-player-score">0 pts</span>
-              </div>
-              <div class="switch-dots-row" id="switch-player-dots">
-                <div class="switch-h-dot"></div><div class="switch-h-dot"></div><div class="switch-h-dot"></div><div class="switch-h-dot"></div><div class="switch-h-dot"></div>
-              </div>
+              <h4 style="margin: 4px 0 0; color: #fff;">TÚ (P1)</h4>
+              <span id="switch-player-score" style="color: #ffcc00; font-weight: 700;">0 pts</span>
             </div>
-
-            <!-- ZONA CENTRAL: MATRIZ Y BOCADILLO -->
             <div class="switch-center-hud">
-              <div class="switch-speech-bubble" id="switch-dialog-bubble">
-                ¡Hola! Soy Kopy. Empezaré cooperando. ¡Seamos amigos!
-              </div>
-
-              <!-- Matriz circular de pagos -->
-              <div class="switch-matrix-disk">
-                <div class="matrix-quad m-quad-cc" id="s-quad-cc">
-                  <span style="font-size: 11px;">🤝 🤝</span>
-                  <span>+3 / +3</span>
-                </div>
-                <div class="matrix-quad m-quad-tc" id="s-quad-tc">
-                  <span style="font-size: 11px;">🗡️ 🤝</span>
-                  <span>+5 / 0</span>
-                </div>
-                <div class="matrix-quad m-quad-ct" id="s-quad-ct">
-                  <span style="font-size: 11px;">🤝 🗡️</span>
-                  <span>0 / +5</span>
-                </div>
-                <div class="matrix-quad m-quad-tt" id="s-quad-tt">
-                  <span style="font-size: 11px;">🗡️ 🗡️</span>
-                  <span>+1 / +1</span>
-                </div>
-                <div class="matrix-center-core">VS</div>
-              </div>
-
-              <span style="font-size: 0.72rem; color: var(--nin-text-dim);">
-                Máquina de Confianza: triplica si ambos colaboran
-              </span>
+              <div class="switch-speech-bubble" id="switch-dialog-bubble">¡Duelo arcade listo!</div>
+              <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 6px;">Pacto: +3/+3 | Traición: +5/0 | Conflicto: +1/+1</div>
             </div>
-
-            <!-- LADO OPONENTE -->
             <div class="switch-char-block">
               <div class="switch-char-avatar-ring avatar-ring-opp" id="switch-o-ring">
-                <svg viewBox="0 0 100 100" id="switch-opp-svg">
-                  <!-- Inyectado dinámicamente -->
-                </svg>
+                <svg viewBox="0 0 100 100" id="switch-opp-svg"></svg>
               </div>
-              <h3 class="switch-char-title" id="switch-opp-name">KOPY 🐱</h3>
-              <div class="switch-score-badge">
-                <span>★</span> <span id="switch-opp-score">0 pts</span>
-              </div>
-              <div class="switch-dots-row" id="switch-opp-dots">
-                <div class="switch-h-dot"></div><div class="switch-h-dot"></div><div class="switch-h-dot"></div><div class="switch-h-dot"></div><div class="switch-h-dot"></div>
-              </div>
+              <h4 style="margin: 4px 0 0; color: #fff;" id="switch-opp-name">KOPY 🐱</h4>
+              <span id="switch-opp-score" style="color: #ffcc00; font-weight: 700;">0 pts</span>
             </div>
-
           </div>
-
-          <!-- BOTONES DE DECISIÓN INFERIORES NINTENDO -->
-          <div class="switch-decision-bar">
-            <button class="switch-btn-action switch-btn-coop" id="btn-switch-coop">
-              <span class="btn-key-badge">[ Y / C ]</span>
-              <span>🤝 COOPERAR</span>
-            </button>
-
-            <button class="switch-btn-action switch-btn-cheat" id="btn-switch-cheat">
-              <span class="btn-key-badge">[ X / T ]</span>
-              <span>🗡️ ENGAÑAR</span>
-            </button>
+          <div class="switch-decision-bar" style="margin-top: 8px;">
+            <button class="switch-btn-action switch-btn-coop" id="btn-switch-coop">🤝 COOPERAR [ Y ]</button>
+            <button class="switch-btn-action switch-btn-cheat" id="btn-switch-cheat">🗡️ ENGAÑAR [ X ]</button>
           </div>
-
         </div>
 
         <!-- =========================================================
-             PANTALLA 2: OPONENTES & TORNEO CIRCULAR DENTRO DE SWITCH
+             MODO TORNEO EVOLUTIVO
              ========================================================= -->
-        <div id="switch-screen-opponents">
+        <div id="switch-screen-opponents" style="overflow-y: auto;">
           <div style="text-align: center; margin-bottom: 12px;">
-            <h2 style="font-size: 1.4rem; color: #fff; margin: 0;">Oponentes & Torneo de Teoría de Juegos</h2>
-            <p style="font-size: 0.8rem; color: var(--nin-text-dim); margin: 4px 0 0;">
-              Cada arquetipo matemático tiene una filosofía. Simula la liga evolutiva de 100 rondas.
-            </p>
+            <h3 style="margin: 0; color: #fff;">🏆 Liga Evolutiva de Teoría de Juegos</h3>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin: 4px 0 0;">Simula 100 rondas entre todas las estrategias en un torneo cerrado.</p>
           </div>
-
-          <div style="display: flex; justify-content: center; margin-bottom: 14px;">
-            <button class="switch-btn-action switch-btn-coop" id="btn-switch-run-tourney" style="max-width: 280px; padding: 10px 16px; font-size: 0.95rem;">
-              ⚔️ SIMULAR TORNEO EN VIVO
+          <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+            <button class="story-choice-btn story-btn-advance" id="btn-switch-run-tourney" style="max-width: 280px; font-size: 0.95rem;">
+              ⚔️ SIMULAR TORNEO (EN VIVO)
             </button>
           </div>
-
-          <div id="switch-tourney-results" style="display: none; background: #131722; border: 1.5px solid #282f42; border-radius: 18px; padding: 14px; margin-bottom: 14px;">
+          <div id="switch-tourney-results" style="display: none; background: #111420; border: 1.5px solid #283044; border-radius: 16px; padding: 14px;">
             <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
-              <div style="width: 110px; height: 110px;">
-                <svg viewBox="0 0 100 100" id="switch-tourney-donut" style="width: 110px; height: 110px; transform: rotate(-90deg);"></svg>
-              </div>
-              <div id="switch-tourney-board" style="flex: 1; min-width: 240px;"></div>
-            </div>
-          </div>
-
-          <!-- Cards de los 5 personajes en miniatura -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
-            <div style="background: #11141e; border: 1.5px solid #252b3d; border-radius: 16px; padding: 12px; text-align: center;">
-              <div style="font-size: 26px;">🐱</div>
-              <h4 style="margin: 4px 0; color: #00e676;">KOPY</h4>
-              <p style="font-size: 0.72rem; color: #94a3b8; margin: 0 0 8px;">Copia tu última jugada.</p>
-              <button class="switch-opp-chip" data-play-opp="kopy" style="width: 100%; justify-content: center;">Desafiar (1 min)</button>
-            </div>
-            <div style="background: #11141e; border: 1.5px solid #252b3d; border-radius: 16px; padding: 12px; text-align: center;">
-              <div style="font-size: 26px;">🦊</div>
-              <h4 style="margin: 4px 0; color: #ff2d55;">SNEAKY</h4>
-              <p style="font-size: 0.72rem; color: #94a3b8; margin: 0 0 8px;">Siempre traiciona.</p>
-              <button class="switch-opp-chip" data-play-opp="sneaky" style="width: 100%; justify-content: center;">Desafiar (1 min)</button>
-            </div>
-            <div style="background: #11141e; border: 1.5px solid #252b3d; border-radius: 16px; padding: 12px; text-align: center;">
-              <div style="font-size: 26px;">🐶</div>
-              <h4 style="margin: 4px 0; color: #ffcc00;">BUDDY</h4>
-              <p style="font-size: 0.72rem; color: #94a3b8; margin: 0 0 8px;">Siempre coopera.</p>
-              <button class="switch-opp-chip" data-play-opp="buddy" style="width: 100%; justify-content: center;">Desafiar (1 min)</button>
-            </div>
-            <div style="background: #11141e; border: 1.5px solid #252b3d; border-radius: 16px; padding: 12px; text-align: center;">
-              <div style="font-size: 26px;">🐻</div>
-              <h4 style="margin: 4px 0; color: #a855f7;">GRUMPY</h4>
-              <p style="font-size: 0.72rem; color: #94a3b8; margin: 0 0 8px;">Rencoroso implacable.</p>
-              <button class="switch-opp-chip" data-play-opp="grumpy" style="width: 100%; justify-content: center;">Desafiar (1 min)</button>
-            </div>
-            <div style="background: #11141e; border: 1.5px solid #252b3d; border-radius: 16px; padding: 12px; text-align: center;">
-              <div style="font-size: 26px;">🦉</div>
-              <h4 style="margin: 4px 0; color: #00d2ff;">DETECTIVE</h4>
-              <p style="font-size: 0.72rem; color: #94a3b8; margin: 0 0 8px;">Analiza tus límites.</p>
-              <button class="switch-opp-chip" data-play-opp="detective" style="width: 100%; justify-content: center;">Desafiar (1 min)</button>
+              <svg viewBox="0 0 100 100" id="switch-tourney-donut" style="width: 100px; height: 100px; transform: rotate(-90deg);"></svg>
+              <div id="switch-tourney-board" style="flex: 1; min-width: 220px;"></div>
             </div>
           </div>
         </div>
 
         <!-- =========================================================
-             PANTALLA 3: SIMULADOR ESPACIAL 2D CONSERVADO
+             PANTALLA 4: SIMULADOR ESPACIAL 2D CONSERVADO
              ========================================================= -->
         <div id="switch-screen-spatial" style="overflow-y: auto;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
             <span style="font-weight: 700; color: #00e676; font-size: 0.85rem;">🔬 SIMULADOR TOROIDAL 2D (MINECRAFT & ASCII)</span>
-            <button class="switch-opp-chip" id="btn-back-from-sim">⬅ Volver al Duelo (1 Min)</button>
+            <button class="switch-opp-chip" id="btn-back-from-sim">⬅ Volver a la Historia</button>
           </div>
 
 <div class="terminal-container">
@@ -2336,79 +2153,31 @@
 
       </div>
 
-      <!-- MODAL DE RESULTADOS DENTRO DE LA PANTALLA SWITCH -->
-      <div class="switch-modal-backdrop" id="switch-results-modal">
-        <div class="switch-modal-sheet">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #ffd700, #ff9900); display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);" id="sw-modal-trophy">
-            🏆
-          </div>
-          <h3 style="font-size: 1.4rem; color: #fff; margin: 0;" id="sw-modal-title">¡VICTORIA COOPERATIVA!</h3>
-          <p style="font-size: 0.8rem; color: #94a3b8; margin: 0;" id="sw-modal-sub">Partida de 1 minuto contra Kopy</p>
-
-          <!-- Donut comparativo de puntos -->
-          <div style="display: flex; align-items: center; justify-content: space-around; width: 100%; background: #151a26; border-radius: 16px; padding: 10px 14px; border: 1px solid #2a3348;">
-            <div style="width: 60px; height: 60px;">
-              <svg viewBox="0 0 80 80" style="transform: rotate(-90deg); width: 60px; height: 60px;">
-                <circle cx="40" cy="40" r="30" fill="none" stroke="#ff2d55" stroke-width="12"></circle>
-                <circle id="sw-modal-donut-arc" cx="40" cy="40" r="30" fill="none" stroke="#00e676" stroke-width="12"
-                        stroke-dasharray="188.4" stroke-dashoffset="94.2" stroke-linecap="round"></circle>
-              </svg>
-            </div>
-            <div style="text-align: left;">
-              <div style="font-weight: 700; color: #00e676; font-size: 0.95rem;" id="sw-modal-p-score">Tú: 15 pts (50%)</div>
-              <div style="font-weight: 700; color: #ff2d55; font-size: 0.95rem;" id="sw-modal-o-score">Rival: 15 pts (50%)</div>
-              <div style="font-size: 0.72rem; color: #94a3b8;" id="sw-modal-coop-rate">Cooperación mutua: 100%</div>
-            </div>
-          </div>
-
-          <!-- Caja de Lección -->
-          <div style="background: rgba(0, 230, 118, 0.08); border: 1px solid rgba(0, 230, 118, 0.25); border-radius: 14px; padding: 10px 14px; text-align: left;">
-            <h5 style="margin: 0 0 4px; color: #00e676; font-size: 0.85rem;" id="sw-modal-lesson-title">🧠 Conclusión</h5>
-            <p style="margin: 0; font-size: 0.76rem; color: #cbd5e1; line-height: 1.35;" id="sw-modal-lesson-text">
-              La cooperación mutua con Kopy genera el máximo beneficio. La reciprocidad es la clave en la naturaleza.
-            </p>
-          </div>
-
-          <div style="display: flex; gap: 8px; width: 100%;">
-            <button class="switch-btn-action switch-btn-coop" id="btn-sw-modal-next" style="padding: 8px 14px; font-size: 0.9rem;">
-              🚀 SIGUIENTE OPONENTE [ A ]
-            </button>
-            <button class="switch-btn-action switch-btn-cheat" id="btn-sw-modal-replay" style="padding: 8px 14px; font-size: 0.9rem; background: #232a3b; box-shadow: none; border: 1px solid #3d4964;">
-              ↺ OTRA VEZ [ B ]
-            </button>
-          </div>
-        </div>
-      </div>
-
     </main>
 
-    <!-- =========================================================
-         JOY-CON DERECHO (NEON RED)
-         ========================================================= -->
+    <!-- JOY-CON DERECHO (NEON RED) -->
     <aside class="joycon-right" id="joycon-r">
       <div class="joycon-top-bumper-r" title="Gatillo R"></div>
       <div class="joycon-btn-plus" id="joy-btn-plus" title="Botón Más (+)"></div>
 
-      <!-- Clúster Diamante ABXY (Interactivos para jugar) -->
+      <!-- Clúster Diamante ABXY Interactivos -->
       <div class="abxy-cluster">
         <div></div>
-        <div class="abxy-btn btn-abxy-x" id="joy-btn-x" title="Botón X: 🗡️ ENGAÑAR">X</div>
+        <div class="abxy-btn btn-abxy-x" id="joy-btn-x" title="Botón X: 🗡️ TRAICIONAR">X</div>
         <div></div>
-        <div class="abxy-btn btn-abxy-y" id="joy-btn-y" title="Botón Y: 🤝 COOPERAR">Y</div>
+        <div class="abxy-btn btn-abxy-y" id="joy-btn-y" title="Botón Y: 🤝 CONFIAR / COOPERAR">Y</div>
         <div></div>
-        <div class="abxy-btn btn-abxy-a" id="joy-btn-a" title="Botón A: 🚀 SIGUIENTE">A</div>
+        <div class="abxy-btn btn-abxy-a" id="joy-btn-a" title="Botón A: 🚀 AVANZAR">A</div>
         <div></div>
-        <div class="abxy-btn btn-abxy-b" id="joy-btn-b" title="Botón B: ↺ REVANCHA">B</div>
+        <div class="abxy-btn btn-abxy-b" id="joy-btn-b" title="Botón B: ↺ REPETIR">B</div>
         <div></div>
       </div>
 
-      <!-- Stick Analógico Derecho Interactivo -->
-      <div class="analog-stick-wrap" id="joy-stick-r" title="Stick Analógico (Arrastra o haz clic)">
+      <div class="analog-stick-wrap" id="joy-stick-r" title="Stick Analógico">
         <div class="analog-stick-cap"></div>
       </div>
 
-      <!-- Botón Home -->
-      <div class="joycon-btn-home" id="joy-btn-home" title="Botón Inicio (Home)">
+      <div class="joycon-btn-home" id="joy-btn-home" title="Inicio (Home)">
         <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       </div>
     </aside>
@@ -4270,429 +4039,431 @@
     
 
 
+    
+
+
     // =========================================================
-    // CONTROL DE VIDEOCONSOLA PORTÁTIL NINTENDO SWITCH
+    // MODO HISTORIA NARRATIVO PARA 1 JUGADOR ("CRÓNICAS DE LA CONFIANZA")
     // =========================================================
 
-    // Reloj digital en tiempo real para el Switch OS
-    function updateSwitchClock() {
-      const clockEl = document.getElementById('switch-clock');
-      if (!clockEl) return;
-      const now = new Date();
-      const hrs = String(now.getHours()).padStart(2, '0');
-      const mins = String(now.getMinutes()).padStart(2, '0');
-      clockEl.textContent = `${hrs}:${mins}`;
-    }
-    setInterval(updateSwitchClock, 1000);
-    updateSwitchClock();
+    const STORY_CHAPTERS = [
+      {
+        id: 1,
+        title: "Capítulo 1: El Mercado de la Buena Fe",
+        subtitle: "Aprende el valor del intercambio y la cooperación mutua",
+        icon: "🌾",
+        npcId: "buddy",
+        npcName: "Buddy el Granjero",
+        npcRole: "Comerciante honesto de la aldea",
+        roundsTotal: 3,
+        openingDialog: "¡Bienvenido a la aldea, forastero! Tengo un saco de trigo recién cosechado. Si me das tus manzanas, ambos prosperaremos (+3 monedas cada uno). ¿Cerramos el trato honestamente?",
+        hint: "💡 Principio 1: La cooperación mutua genera riqueza de la nada. Si ambos cumplen, la sociedad prospera.",
+        dialogues: {
+          coop: [
+            "¡Qué delicia de manzanas! Cumplí mi palabra y te di mi mejor trigo. ¡El pueblo celebra nuestro comercio honesto! (+3 monedas)",
+            "¡El mercado sigue floreciendo! La confianza mutua hace que los negocios sean rápidos y rentables para todos. (+3 monedas)",
+            "¡Fantástico pacto! Gracias a nuestra alianza, la aldea ha construido un nuevo granero. ¡Eres un ciudadano honorable!"
+          ],
+          cheat: [
+            "¡Ay caramba...! Te di mi trigo pero te fuiste corriendo con las manzanas. Me dejaste sin comer... (+5 monedas para ti, 0 para Buddy)",
+            "Confié en ti otra vez porque soy bondadoso... pero volviste a abusar de mi confianza. ¿Por qué haces esto?",
+            "Me he quedado en la ruina. Te llevaste todo el oro, pero ahora la aldea entera sabe que no cumples tu palabra..."
+          ]
+        },
+        journalHeading: "🧠 Lección 1: La Riqueza del Intercambio Honesto",
+        journalText: "Cuando dos partes cooperan, el valor total aumenta más que con el conflicto. La honestidad no es solo moral; matemáticamente es el fundamento de cualquier economía próspera.",
+        badge: "Insignia de la Honestidad ⭐"
+      },
+      {
+        id: 2,
+        title: "Capítulo 2: El Forastero de las Sombras",
+        subtitle: "Aprende el peligro de la ingenuidad frente a un estafador",
+        icon: "🦊",
+        npcId: "sneaky",
+        npcName: "Sneaky el Bribón",
+        npcRole: "Estafador de la taberna",
+        roundsTotal: 3,
+        openingDialog: "¡Pst, forastero! Tengo un negocio 'exclusivo' en el callejón. Dame tus monedas y te juro por mis bigotes que las multiplicaré por diez... ¡confía en mí!",
+        hint: "⚠️ Principio 2: La confianza ciega frente a un tramposo es suicidio. Si no te defiendes, te robarán todo.",
+        dialogues: {
+          coop: [
+            "¡Jajaja! ¡Qué ingenuo eres! Me diste tu moneda y yo me quedé con todo. ¡Gracias por el regalo, bobo! (+5 para Sneaky, 0 para ti)",
+            "¿En serio volviste a confiar en mí? ¡Eres la presa perfecta! ¡Más oro a mi bolsa!",
+            "¡Jajaja! Te dejé sin un centavo. En este mundo, los ingenuos financian a los pillos."
+          ],
+          cheat: [
+            "¡Maldición! ¡No caíste en mi trampa! Ambos intentamos engañarnos y nadie se llevó nada (+1 moneda de consolación).",
+            "¡Veo que tienes garras! No pude robarte nada. No te dejas pisotear tan fácil...",
+            "¡Me rindo! Ante alguien que no se deja estafar, mis trucos no funcionan. Me buscaré a otro más ingenuo."
+          ]
+        },
+        journalHeading: "🧠 Lección 2: La Paradoja de la Ingenuidad",
+        journalText: "Un mundo de bondad incondicional es vulnerable a los parásitos. Si nunca castigas la traición, los tramposos proliferan hasta destruir el sistema. Protegerse es un deber evolutivo.",
+        badge: "Insignia de la Prudencia 🛡️"
+      },
+      {
+        id: 3,
+        title: "Capítulo 3: El Centinela del Espejo",
+        subtitle: "Aprende la Regla de Oro: la reciprocidad Tit-for-Tat",
+        icon: "⚔️",
+        npcId: "kopy",
+        npcName: "Kopy el Guardián",
+        npcRole: "Centinela de la frontera",
+        roundsTotal: 3,
+        openingDialog: "Saludos, caminante. Soy el Centinela del Espejo. Mi ley es simple: seré tan noble contigo como tú lo seas conmigo. Si cooperas, cooperaré; si traicionas, te responderé de inmediato.",
+        hint: "💡 Principio 3: Sé amable primero, devuelve el golpe si te atacan, pero perdona si rectifican (Tit for Tat).",
+        dialogues: {
+          coop: [
+            "¡Excelente decisión! Ambos cooperamos y ganamos (+3 monedas). La reciprocidad crea un pacto inquebrantable.",
+            "¡El espejo refleja tu nobleza! Seguimos prosperando juntos. Esta es la alianza más estable de la naturaleza.",
+            "¡Misión cumplida! Demostraste que dos aliados recíprocos son invencibles juntos."
+          ],
+          cheat: [
+            "¡Traición detectada! Me traicionaste, así que mi reflejo te devolverá el golpe en el siguiente turno. ¡No me dejo pisar!",
+            "¡Ojo por ojo! Te respondí con tu propia medicina. ¿Ves lo destructiva que es la desconfianza mutua (+1/+1)?",
+            "Si quieres paz, debes volver a demostrar cooperación. El espejo nunca olvida pero está dispuesto a perdonar."
+          ]
+        },
+        journalHeading: "🧠 Lección 3: La Regla de Oro (Tit for Tat)",
+        journalText: "El torneo de Axelrod demostró que la mejor estrategia en la historia de la Teoría de Juegos es Tit for Tat: ser bondadoso al inicio, no tolerar abusos y estar dispuesto a perdonar.",
+        badge: "Insignia de la Firmeza ⚔️"
+      },
+      {
+        id: 4,
+        title: "Capítulo 4: El Fuego del Rencor",
+        subtitle: "Aprende sobre la reputación y las consecuencias del perdón",
+        icon: "🐻",
+        npcId: "grumpy",
+        npcName: "Grumpy el Herrero",
+        npcRole: "Viejo artesano rencoroso",
+        roundsTotal: 3,
+        openingDialog: "Llevo 40 años forjando en esta montaña. Coopero con los honestos, pero te advierto una cosa: si me fallas UNA sola vez, se acabó el trato para siempre. ¿Entendido?",
+        hint: "⚠️ Principio 4: La confianza tarda años en construirse y un segundo en destruirse. El rencor absoluto es costoso.",
+        dialogues: {
+          coop: [
+            "Bien hecho. Mantuviste tu palabra y forjamos una gran armadura (+3 monedas). La lealtad paga bien.",
+            "Seguimos en armonía. Eres un cliente de palabra.",
+            "Hemos terminado una obra maestra. Nunca me fallaste y te recompensé con mi mejor trabajo."
+          ],
+          cheat: [
+            "¡TRAIDOR! ¡Rompiste tu promesa! Jamás en mi vida volveré a forjar para ti. ¡Vete de mi taller!",
+            "¿Sigues aquí? Te lo advertí: una sola falta y nunca perdono. Ahora ambos perderemos siempre (+1/+1).",
+            "El rencor arde más que mi fragua. Destruiste nuestra alianza por unas miserables monedas."
+          ]
+        },
+        journalHeading: "🧠 Lección 4: La Fragilidad de la Reputación",
+        journalText: "Estrategias como Grim Trigger (El Rencoroso) disuaden la traición, pero ante el mínimo malentendido destruyen la cooperación para siempre. El perdón medido es indispensable.",
+        badge: "Insignia de la Lealtad 🛡️"
+      },
+      {
+        id: 5,
+        title: "Capítulo 5 (Clímax): El Gran Juicio del Sabio",
+        subtitle: "Demuestra tu maestría ante el examen final del Detective",
+        icon: "🦉",
+        npcId: "detective",
+        npcName: "El Sabio Detective",
+        npcRole: "Juez del Consejo Supremo",
+        roundsTotal: 4,
+        openingDialog: "Has recorrido todo el valle, Viajero. Ahora te someteré a mi prueba analítica. Probaré diferentes jugadas para ver si eres ingenuo, malicioso o un maestro de la reciprocidad.",
+        hint: "🎓 Examen Final: Responde con firmeza a sus provocaciones y coopera cuando busque la paz.",
+        dialogues: {
+          coop: [
+            "Interesante jugada... registré tu disposición a colaborar.",
+            "¡Excelente! Viste mi prueba y respondiste con sabiduría.",
+            "Has superado el juicio supremo del Consejo. Has entendido las leyes que gobiernan la vida social."
+          ],
+          cheat: [
+            "Detecté tu golpe. El que traiciona para ganar ventaja inmediata queda expuesto ante los sabios.",
+            "¡Te defendiste adecuadamente! Comprendí que no eres un ingenuo y mereces mi respeto mutuo.",
+            "Has demostrado discernimiento. Sabes cuándo protegerte y cuándo tender la mano."
+          ]
+        },
+        journalHeading: "🎓 Conclusión Suprema: El Triunfo de la Confianza",
+        journalText: "Has dominado la Teoría de Juegos. La cooperación no es debilidad; es la estrategia más sofisticada del universo cuando está respaldada por la firmeza y la reciprocidad.",
+        badge: "Diploma de Maestro de la Confianza 👑"
+      }
+    ];
 
-    // Estado del juego en consola Switch
-    const SwitchGame = {
-      maxRounds: 5,
-      currentRound: 1,
-      currentOppId: 'kopy',
-      playerScore: 0,
-      oppScore: 0,
-      history: [],
-      isLocked: false,
+    const StoryEngine = {
+      currentChapterIdx: 0,
+      currentStep: 0,
+      totalCoins: 0,
+      trustPercent: 100,
+      isResolved: false,
 
       init() {
-        this.selectOpponent('kopy');
-        this.resetMatch();
+        this.currentChapterIdx = 0;
+        this.totalCoins = 0;
+        this.trustPercent = 100;
+        this.loadChapter(0);
       },
 
-      selectOpponent(oppId) {
-        if (!NINTENDO_OPPONENTS[oppId]) return;
-        this.currentOppId = oppId;
-        const opp = NINTENDO_OPPONENTS[oppId];
+      loadChapter(idx) {
+        this.currentChapterIdx = idx;
+        this.currentStep = 0;
+        this.isResolved = false;
 
-        // Chips en la pantalla
-        document.querySelectorAll('.switch-opp-chip').forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-opp') === oppId);
-        });
+        const chap = STORY_CHAPTERS[idx];
+        const opp = NINTENDO_OPPONENTS[chap.npcId];
 
-        const oppSvg = document.getElementById('switch-opp-svg');
-        if (oppSvg) oppSvg.innerHTML = opp.svg;
+        // UI Header
+        document.getElementById('story-chap-icon').textContent = chap.icon;
+        document.getElementById('story-chap-title').textContent = chap.title;
+        document.getElementById('story-chap-subtitle').textContent = chap.subtitle;
+        document.getElementById('story-coins-val').textContent = this.totalCoins;
+        document.getElementById('story-trust-val').textContent = `${this.trustPercent}%`;
+        document.getElementById('story-step-indicator').textContent = `${idx + 1} / ${STORY_CHAPTERS.length}`;
 
-        const oppNameEl = document.getElementById('switch-opp-name');
-        if (oppNameEl) oppNameEl.textContent = `${opp.name} ${opp.icon}`;
-
-        const oppRing = document.getElementById('switch-o-ring');
-        if (oppRing) oppRing.style.borderColor = opp.color;
-
-        const dialog = document.getElementById('switch-dialog-bubble');
-        if (dialog) dialog.textContent = opp.greeting;
-
-        this.resetMatch();
-      },
-
-      resetMatch() {
-        this.currentRound = 1;
-        this.playerScore = 0;
-        this.oppScore = 0;
-        this.history = [];
-        this.isLocked = false;
-
-        document.getElementById('switch-player-score').textContent = '0 pts';
-        document.getElementById('switch-opp-score').textContent = '0 pts';
-        document.getElementById('switch-round-val').textContent = '1';
-        document.getElementById('switch-round-title').textContent = 'Ronda 1 de 5';
-
-        const circleBar = document.getElementById('switch-round-circle-bar');
-        if (circleBar) {
-          circleBar.style.strokeDashoffset = '75.39'; // r=15 -> circumf ~94.24
+        // Actors
+        const npcAvatar = document.getElementById('story-npc-avatar');
+        if (npcAvatar) {
+          npcAvatar.innerHTML = opp.svg;
+          npcAvatar.style.borderColor = opp.color;
         }
+        document.getElementById('story-npc-name').textContent = chap.npcName;
+        document.getElementById('story-npc-role').textContent = chap.npcRole;
 
-        const pDots = document.getElementById('switch-player-dots').children;
-        const oDots = document.getElementById('switch-opp-dots').children;
-        for (let i = 0; i < 5; i++) {
-          if (pDots[i]) pDots[i].className = 'switch-h-dot';
-          if (oDots[i]) oDots[i].className = 'switch-h-dot';
-        }
+        // Dialogue Box
+        document.getElementById('story-speaker-name').textContent = chap.npcName.toUpperCase();
+        document.getElementById('story-text-body').textContent = chap.openingDialog;
+        document.getElementById('story-text-hint').textContent = chap.hint;
+        document.getElementById('story-encounter-round').textContent = `Encuentro 1 de ${chap.roundsTotal}`;
 
-        document.querySelectorAll('.matrix-quad').forEach(q => q.classList.remove('active-quad'));
-
-        const opp = NINTENDO_OPPONENTS[this.currentOppId];
-        document.getElementById('switch-dialog-bubble').textContent = opp.greeting;
+        // Botones
+        document.getElementById('btn-story-coop').style.display = 'inline-flex';
+        document.getElementById('btn-story-cheat').style.display = 'inline-flex';
+        document.getElementById('btn-story-advance').style.display = 'none';
       },
 
-      playTurn(playerChoice) {
-        if (this.isLocked || this.currentRound > this.maxRounds) return;
-        this.isLocked = true;
+      playChoice(playerChoice) {
+        if (this.isResolved) return;
 
         NinAudio.playClick();
+        const chap = STORY_CHAPTERS[this.currentChapterIdx];
+        const opp = NINTENDO_OPPONENTS[chap.npcId];
 
-        const opp = NINTENDO_OPPONENTS[this.currentOppId];
-        const oppChoice = opp.getMove(this.history);
+        // Movimiento del rival en la historia
+        let oppChoice = 'C';
+        if (chap.npcId === 'sneaky') {
+          oppChoice = 'T';
+        } else if (chap.npcId === 'buddy') {
+          oppChoice = 'C';
+        } else if (chap.npcId === 'kopy') {
+          oppChoice = this.currentStep === 0 ? 'C' : playerChoice;
+        } else if (chap.npcId === 'grumpy') {
+          oppChoice = playerChoice === 'T' || this.trustPercent < 90 ? 'T' : 'C';
+        } else if (chap.npcId === 'detective') {
+          const pattern = ['C', 'T', 'C', 'C'];
+          oppChoice = pattern[this.currentStep % pattern.length];
+        }
 
-        let pPoints = 0, oPoints = 0, activeQuadId = '', comment = '';
+        // Puntos e impacto
+        let earned = 0;
+        let trustDelta = 0;
+        let dialogue = '';
 
         if (playerChoice === 'C' && oppChoice === 'C') {
-          pPoints = 3; oPoints = 3; activeQuadId = 's-quad-cc';
-          comment = '¡Genial! Ambos cooperaron (+3 / +3). Prosperidad mutua.';
+          earned = 3;
+          trustDelta = +5;
+          dialogue = chap.dialogues.coop[Math.min(this.currentStep, chap.dialogues.coop.length - 1)];
           NinAudio.playCoin();
         } else if (playerChoice === 'T' && oppChoice === 'C') {
-          pPoints = 5; oPoints = 0; activeQuadId = 's-quad-tc';
-          comment = `¡Tentación exitosa! Te llevas +5 pts y ${opp.name} queda con 0.`;
+          earned = 5;
+          trustDelta = -15;
+          dialogue = chap.dialogues.cheat[Math.min(this.currentStep, chap.dialogues.cheat.length - 1)];
           NinAudio.playCheat();
         } else if (playerChoice === 'C' && oppChoice === 'T') {
-          pPoints = 0; oPoints = 5; activeQuadId = 's-quad-ct';
-          comment = `¡Ouch! Confiabas en ${opp.name} pero te traicionó (+0 / +5).`;
+          earned = 0;
+          trustDelta = -5;
+          dialogue = chap.dialogues.coop[Math.min(this.currentStep, chap.dialogues.coop.length - 1)];
           NinAudio.playCheat();
         } else {
-          pPoints = 1; oPoints = 1; activeQuadId = 's-quad-tt';
-          comment = '¡Desconfianza mutua! Ambos se traicionaron (+1 / +1).';
+          earned = 1;
+          trustDelta = -5;
+          dialogue = chap.dialogues.cheat[Math.min(this.currentStep, chap.dialogues.cheat.length - 1)];
           NinAudio.playTone(180, 'triangle', 0.15);
         }
 
-        // Iluminar cuadrante en el disco
-        document.querySelectorAll('.matrix-quad').forEach(q => q.classList.remove('active-quad'));
-        const activeQuad = document.getElementById(activeQuadId);
-        if (activeQuad) activeQuad.classList.add('active-quad');
+        this.totalCoins += earned;
+        this.trustPercent = Math.max(0, Math.min(100, this.trustPercent + trustDelta));
+
+        document.getElementById('story-coins-val').textContent = this.totalCoins;
+        document.getElementById('story-trust-val').textContent = `${this.trustPercent}%`;
 
         // Botes elásticos de los avatares
-        const pRing = document.getElementById('switch-p-ring');
-        const oRing = document.getElementById('switch-o-ring');
-        pRing.classList.add('bounce');
-        oRing.classList.add('bounce');
-        setTimeout(() => {
-          pRing.classList.remove('bounce');
-          oRing.classList.remove('bounce');
-        }, 350);
+        const pAv = document.getElementById('story-p-avatar');
+        const nAv = document.getElementById('story-npc-avatar');
+        pAv.classList.add('bounce');
+        nAv.classList.add('bounce');
+        setTimeout(() => { pAv.classList.remove('bounce'); nAv.classList.remove('bounce'); }, 350);
 
-        document.getElementById('switch-dialog-bubble').textContent = comment;
+        // Actualizar caja de diálogo
+        document.getElementById('story-speaker-name').textContent = chap.npcName.toUpperCase();
+        document.getElementById('story-text-body').textContent = dialogue;
+        document.getElementById('story-text-hint').textContent = `Resultado: Ganaste +${earned} monedas | Confianza: ${trustDelta >= 0 ? '+' + trustDelta : trustDelta}%`;
 
-        this.playerScore += pPoints;
-        this.oppScore += oPoints;
-        document.getElementById('switch-player-score').textContent = `${this.playerScore} pts`;
-        document.getElementById('switch-opp-score').textContent = `${this.oppScore} pts`;
+        this.currentStep++;
+        document.getElementById('story-encounter-round').textContent = `Encuentro ${Math.min(this.currentStep + 1, chap.roundsTotal)} de ${chap.roundsTotal}`;
 
-        const roundIdx = this.currentRound - 1;
-        this.history.push({ player: playerChoice, opp: oppChoice });
-
-        const pDot = document.getElementById('switch-player-dots').children[roundIdx];
-        const oDot = document.getElementById('switch-opp-dots').children[roundIdx];
-        if (pDot) pDot.className = `switch-h-dot ${playerChoice === 'C' ? 'coop' : 'cheat'}`;
-        if (oDot) oDot.className = `switch-h-dot ${oppChoice === 'C' ? 'coop' : 'cheat'}`;
-
-        setTimeout(() => {
-          if (this.currentRound >= this.maxRounds) {
-            this.finishMatch();
-          } else {
-            this.currentRound++;
-            document.getElementById('switch-round-val').textContent = this.currentRound;
-            document.getElementById('switch-round-title').textContent = `Ronda ${this.currentRound} de ${this.maxRounds}`;
-
-            const circleBar = document.getElementById('switch-round-circle-bar');
-            if (circleBar) {
-              const offset = 94.24 * (1 - this.currentRound / this.maxRounds);
-              circleBar.style.strokeDashoffset = offset;
-            }
-            this.isLocked = false;
-          }
-        }, 1000);
+        // Si se completó el capítulo
+        if (this.currentStep >= chap.roundsTotal) {
+          this.isResolved = true;
+          document.getElementById('btn-story-coop').style.display = 'none';
+          document.getElementById('btn-story-cheat').style.display = 'none';
+          document.getElementById('btn-story-advance').style.display = 'inline-flex';
+          NinAudio.playWin();
+        }
       },
 
-      finishMatch() {
-        const opp = NINTENDO_OPPONENTS[this.currentOppId];
-        const modal = document.getElementById('switch-results-modal');
-        const trophy = document.getElementById('sw-modal-trophy');
-        const title = document.getElementById('sw-modal-title');
-        const sub = document.getElementById('sw-modal-sub');
-        const lessonTitle = document.getElementById('sw-modal-lesson-title');
-        const lessonText = document.getElementById('sw-modal-lesson-text');
+      openJournalModal() {
+        NinAudio.playWin();
+        const chap = STORY_CHAPTERS[this.currentChapterIdx];
+        const modal = document.getElementById('story-journal-modal');
 
-        sub.textContent = `Partida de 1 minuto contra ${opp.name} (${opp.role})`;
-
-        const totalCoins = Math.max(1, this.playerScore + this.oppScore);
-        const pPercent = Math.round((this.playerScore / totalCoins) * 100);
-        const oPercent = 100 - pPercent;
-
-        document.getElementById('sw-modal-p-score').textContent = `Tú: ${this.playerScore} pts (${pPercent}%)`;
-        document.getElementById('sw-modal-o-score').textContent = `${opp.name}: ${this.oppScore} pts (${oPercent}%)`;
-
-        const playerCoops = this.history.filter(h => h.player === 'C').length;
-        const oppCoops = this.history.filter(h => h.opp === 'C').length;
-        const mutualCoopRate = Math.round(((playerCoops + oppCoops) / (this.maxRounds * 2)) * 100);
-        document.getElementById('sw-modal-coop-rate').textContent = `Cooperación Global: ${mutualCoopRate}%`;
-
-        const donutArc = document.getElementById('sw-modal-donut-arc');
-        if (donutArc) {
-          const dashOffset = 188.4 * (1 - pPercent / 100);
-          donutArc.style.strokeDashoffset = dashOffset;
-        }
-
-        if (this.playerScore > this.oppScore) {
-          trophy.textContent = '🏆';
-          title.textContent = '¡VICTORIA ESTRATÉGICA!';
-          title.style.color = 'var(--nin-gold)';
-          NinAudio.playWin();
-        } else if (this.playerScore === this.oppScore) {
-          trophy.textContent = '🤝';
-          title.textContent = '¡EQUILIBRIO PERFECTO!';
-          title.style.color = 'var(--nin-coop)';
-          NinAudio.playWin();
-        } else {
-          trophy.textContent = '⚠️';
-          title.textContent = '¡FUISTE SUPERADO!';
-          title.style.color = 'var(--nin-cheat)';
-          NinAudio.playTone(150, 'sawtooth', 0.4);
-        }
-
-        if (this.currentOppId === 'kopy') {
-          lessonTitle.textContent = '🧠 Lección: Reciprocidad Tit for Tat';
-          lessonText.textContent = 'La cooperación mutua con Kopy es un círculo virtuoso (+15 pts). Responder a la cooperación con cooperación crea el resultado más estable.';
-        } else if (this.currentOppId === 'sneaky') {
-          lessonTitle.textContent = '🧠 Lección: La defensa ante el tramposo';
-          lessonText.textContent = 'Sneaky nunca coopera. Frente a un adversario egoísta, la bondad es castigada; devolver la traición es el único equilibrio protector.';
-        } else if (this.currentOppId === 'buddy') {
-          lessonTitle.textContent = '🧠 Lección: El peligro de la ingenuidad';
-          lessonText.textContent = 'Buddy confía siempre. Aunque puedes abusar de él por puntos, en una población real los cooperadores ingenuos desaparecen si no hay reciprocidad.';
-        } else if (this.currentOppId === 'grumpy') {
-          lessonTitle.textContent = '🧠 Lección: Reputación y rencor';
-          lessonText.textContent = 'Grumpy coopera hasta la primera falta y luego no perdona jamás. Mantener la confianza es más fácil que reconstruirla.';
-        } else {
-          lessonTitle.textContent = '🧠 Lección: Poner a prueba los límites';
-          lessonText.textContent = 'El Detective te tanteó en las primeras rondas. Al defenderte con firmeza, aprendió a cooperar contigo. El respeto mutuo se demuestra con límites claros.';
-        }
+        document.getElementById('story-modal-icon').textContent = chap.icon;
+        document.getElementById('story-modal-title').textContent = `¡${chap.title} Superado!`;
+        document.getElementById('story-journal-heading').textContent = chap.journalHeading;
+        document.getElementById('story-journal-text').textContent = chap.journalText;
+        document.getElementById('story-journal-coins').textContent = this.totalCoins;
+        document.getElementById('story-journal-trust').textContent = `${this.trustPercent}%`;
+        document.getElementById('story-journal-badge').textContent = chap.badge;
 
         modal.style.display = 'flex';
+      },
+
+      nextChapter() {
+        NinAudio.playClick();
+        document.getElementById('story-journal-modal').style.display = 'none';
+        if (this.currentChapterIdx + 1 < STORY_CHAPTERS.length) {
+          this.loadChapter(this.currentChapterIdx + 1);
+        } else {
+          // Final de la aventura
+          alert('¡Felicidades, Viajero! Has completado todos los capítulos de las Crónicas de la Confianza y dominas los secretos de la Teoría de Juegos.');
+          this.init();
+        }
       }
     };
 
-    // Inicialización y eventos de la consola Switch
-    function initSwitchHandheld() {
-      SwitchGame.init();
+    // Inicialización del Modo Historia y la consola
+    function initStoryModeAndConsole() {
+      StoryEngine.init();
 
-      // Botones de acción en la pantalla LCD
-      const btnCoop = document.getElementById('btn-switch-coop');
-      const btnCheat = document.getElementById('btn-switch-cheat');
-      if (btnCoop) btnCoop.addEventListener('click', () => SwitchGame.playTurn('C'));
-      if (btnCheat) btnCheat.addEventListener('click', () => SwitchGame.playTurn('T'));
+      // Botones de elección narrativa
+      const btnStoryCoop = document.getElementById('btn-story-coop');
+      const btnStoryCheat = document.getElementById('btn-story-cheat');
+      const btnStoryAdv = document.getElementById('btn-story-advance');
+      const btnJournalNext = document.getElementById('btn-story-next-chapter');
 
-      // Botones físicos del Joy-Con derecho (ABXY)
-      const btnJoyY = document.getElementById('joy-btn-y'); // Y = Cooperar
-      const btnJoyX = document.getElementById('joy-btn-x'); // X = Engañar
-      const btnJoyA = document.getElementById('joy-btn-a'); // A = Siguiente
-      const btnJoyB = document.getElementById('joy-btn-b'); // B = Revancha
+      if (btnStoryCoop) btnStoryCoop.addEventListener('click', () => StoryEngine.playChoice('C'));
+      if (btnStoryCheat) btnStoryCheat.addEventListener('click', () => StoryEngine.playChoice('T'));
+      if (btnStoryAdv) btnStoryAdv.addEventListener('click', () => StoryEngine.openJournalModal());
+      if (btnJournalNext) btnJournalNext.addEventListener('click', () => StoryEngine.nextChapter());
 
-      if (btnJoyY) btnJoyY.addEventListener('click', () => SwitchGame.playTurn('C'));
-      if (btnJoyX) btnJoyX.addEventListener('click', () => SwitchGame.playTurn('T'));
+      // Botones del Joy-Con derecho (ABXY)
+      const btnJoyY = document.getElementById('joy-btn-y');
+      const btnJoyX = document.getElementById('joy-btn-x');
+      const btnJoyA = document.getElementById('joy-btn-a');
+      const btnJoyB = document.getElementById('joy-btn-b');
 
-      if (btnJoyB) {
-        btnJoyB.addEventListener('click', () => {
-          NinAudio.playClick();
-          document.getElementById('switch-results-modal').style.display = 'none';
-          SwitchGame.resetMatch();
-        });
-      }
-
-      if (btnJoyA) {
-        btnJoyA.addEventListener('click', () => {
-          NinAudio.playClick();
-          document.getElementById('switch-results-modal').style.display = 'none';
-          const oppKeys = Object.keys(NINTENDO_OPPONENTS);
-          const nextIdx = (oppKeys.indexOf(SwitchGame.currentOppId) + 1) % oppKeys.length;
-          SwitchGame.selectOpponent(oppKeys[nextIdx]);
-        });
-      }
-
-      // D-Pad del Joy-Con izquierdo para cambiar de rival
-      const oppKeysList = Object.keys(NINTENDO_OPPONENTS);
-      function cycleOpp(delta) {
-        NinAudio.playClick();
-        const currIdx = oppKeysList.indexOf(SwitchGame.currentOppId);
-        const newIdx = (currIdx + delta + oppKeysList.length) % oppKeysList.length;
-        SwitchGame.selectOpponent(oppKeysList[newIdx]);
-      }
-      const dpadUp = document.getElementById('dpad-up');
-      const dpadDown = document.getElementById('dpad-down');
-      const dpadLeft = document.getElementById('dpad-left');
-      const dpadRight = document.getElementById('dpad-right');
-      if (dpadUp) dpadUp.addEventListener('click', () => cycleOpp(-1));
-      if (dpadDown) dpadDown.addEventListener('click', () => cycleOpp(1));
-      if (dpadLeft) dpadLeft.addEventListener('click', () => cycleOpp(-1));
-      if (dpadRight) dpadRight.addEventListener('click', () => cycleOpp(1));
-
-      // Chips de oponentes en pantalla
-      document.querySelectorAll('.switch-opp-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-          const oppId = chip.getAttribute('data-opp') || chip.getAttribute('data-play-opp');
-          if (oppId) {
-            NinAudio.playClick();
-            document.getElementById('switch-tab-game').click();
-            SwitchGame.selectOpponent(oppId);
-          }
-        });
+      if (btnJoyY) btnJoyY.addEventListener('click', () => {
+        const stageStory = document.getElementById('switch-screen-story');
+        if (stageStory.style.display !== 'none') {
+          StoryEngine.playChoice('C');
+        } else {
+          SwitchGame.playTurn('C');
+        }
       });
 
-      // Botón torneo en Switch
-      const btnRunTourney = document.getElementById('btn-switch-run-tourney');
-      if (btnRunTourney) {
-        btnRunTourney.addEventListener('click', () => {
-          NinAudio.playWin();
-          const oppKeys = Object.keys(NINTENDO_OPPONENTS);
-          const scores = { kopy: 0, sneaky: 0, buddy: 0, grumpy: 0, detective: 0 };
-          const roundsPerPair = 20;
+      if (btnJoyX) btnJoyX.addEventListener('click', () => {
+        const stageStory = document.getElementById('switch-screen-story');
+        if (stageStory.style.display !== 'none') {
+          StoryEngine.playChoice('T');
+        } else {
+          SwitchGame.playTurn('T');
+        }
+      });
 
-          for (let i = 0; i < oppKeys.length; i++) {
-            for (let j = 0; j < oppKeys.length; j++) {
-              const p1 = NINTENDO_OPPONENTS[oppKeys[i]];
-              const p2 = NINTENDO_OPPONENTS[oppKeys[j]];
-              const h1 = [], h2 = [];
-              for (let r = 0; r < roundsPerPair; r++) {
-                const m1 = p1.getMove(h1);
-                const m2 = p2.getMove(h2);
-                let s1 = 0, s2 = 0;
-                if (m1 === 'C' && m2 === 'C') { s1 = 3; s2 = 3; }
-                else if (m1 === 'T' && m2 === 'C') { s1 = 5; s2 = 0; }
-                else if (m1 === 'C' && m2 === 'T') { s1 = 0; s2 = 5; }
-                else { s1 = 1; s2 = 1; }
-                scores[oppKeys[i]] += s1;
-                scores[oppKeys[j]] += s2;
-                h1.push({ player: m1, opp: m2 });
-                h2.push({ player: m2, opp: m1 });
-              }
-            }
-          }
+      if (btnJoyA) btnJoyA.addEventListener('click', () => {
+        const modal = document.getElementById('story-journal-modal');
+        if (modal && modal.style.display === 'flex') {
+          StoryEngine.nextChapter();
+        } else {
+          const advBtn = document.getElementById('btn-story-advance');
+          if (advBtn && advBtn.style.display !== 'none') advBtn.click();
+        }
+      });
 
-          const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-          const totalPoints = Object.values(scores).reduce((a, b) => a + b, 0);
+      if (btnJoyB) btnJoyB.addEventListener('click', () => {
+        NinAudio.playClick();
+        StoryEngine.loadChapter(StoryEngine.currentChapterIdx);
+      });
 
-          document.getElementById('switch-tourney-results').style.display = 'block';
-          const medals = ['🥇 1º', '🥈 2º', '🥉 3º', '4º', '5º'];
-          document.getElementById('switch-tourney-board').innerHTML = sorted.map(([id, score], idx) => {
-            const opp = NINTENDO_OPPONENTS[id];
-            const pct = Math.round((score / totalPoints) * 100);
-            return `
-              <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; margin-bottom: 4px; background: #0c0e15; border-radius: 8px; border-left: 3px solid ${opp.color}; font-size: 0.8rem;">
-                <span style="font-weight: 700; color: #fff;">${medals[idx]} ${opp.icon} ${opp.name}</span>
-                <span style="font-weight: 700; color: #ffcc00;">${score} pts (${pct}%)</span>
-              </div>
-            `;
-          }).join('') + `
-            <div style="font-size: 0.72rem; color: #cbd5e1; margin-top: 6px;">
-              💡 <strong>Kopy (Tit for Tat) gana la liga evolutiva</strong>: la reciprocidad supera a la traición a largo plazo.
-            </div>
-          `;
-
-          let currentOffset = 0;
-          const circumference = 2 * Math.PI * 35;
-          document.getElementById('switch-tourney-donut').innerHTML = sorted.map(([id, score]) => {
-            const opp = NINTENDO_OPPONENTS[id];
-            const fraction = score / totalPoints;
-            const dash = fraction * circumference;
-            const offset = currentOffset;
-            currentOffset += dash;
-            return `
-              <circle cx="50" cy="50" r="35" fill="none" stroke="${opp.color}" stroke-width="15"
-                      stroke-dasharray="${dash} ${circumference - dash}"
-                      stroke-dashoffset="-${offset}">
-              </circle>
-            `;
-          }).join('');
-        });
-      }
-
-      // Modal de fin de ronda
-      const btnModalNext = document.getElementById('btn-sw-modal-next');
-      const btnModalReplay = document.getElementById('btn-sw-modal-replay');
-
-      if (btnModalReplay) {
-        btnModalReplay.addEventListener('click', () => {
-          NinAudio.playClick();
-          document.getElementById('switch-results-modal').style.display = 'none';
-          SwitchGame.resetMatch();
-        });
-      }
-
-      if (btnModalNext) {
-        btnModalNext.addEventListener('click', () => {
-          NinAudio.playClick();
-          document.getElementById('switch-results-modal').style.display = 'none';
-          const oppKeys = Object.keys(NINTENDO_OPPONENTS);
-          const nextIdx = (oppKeys.indexOf(SwitchGame.currentOppId) + 1) % oppKeys.length;
-          SwitchGame.selectOpponent(oppKeys[nextIdx]);
-        });
-      }
+      // D-Pad del Joy-Con izquierdo para navegar capítulos
+      const dpadUp = document.getElementById('dpad-up');
+      const dpadDown = document.getElementById('dpad-down');
+      if (dpadUp) dpadUp.addEventListener('click', () => {
+        if (StoryEngine.currentChapterIdx > 0) StoryEngine.loadChapter(StoryEngine.currentChapterIdx - 1);
+      });
+      if (dpadDown) dpadDown.addEventListener('click', () => {
+        if (StoryEngine.currentChapterIdx + 1 < STORY_CHAPTERS.length) StoryEngine.loadChapter(StoryEngine.currentChapterIdx + 1);
+      });
 
       // Pestañas Switch OS
-      const tabGame = document.getElementById('switch-tab-game');
+      const tabStory = document.getElementById('switch-tab-story');
+      const tabArcade = document.getElementById('switch-tab-arcade');
       const tabOpp = document.getElementById('switch-tab-opponents');
       const tabSim = document.getElementById('switch-tab-sim');
       const btnBackFromSim = document.getElementById('btn-back-from-sim');
 
-      const stageGame = document.getElementById('nin-switch-main-stage');
-      const stageOpp = document.getElementById('switch-screen-opponents');
-      const stageSim = document.getElementById('switch-screen-spatial');
+      const screenStory = document.getElementById('switch-screen-story');
+      const screenArcade = document.getElementById('nin-switch-main-stage');
+      const screenOpp = document.getElementById('switch-screen-opponents');
+      const screenSim = document.getElementById('switch-screen-spatial');
 
-      function switchScreen(view) {
+      function switchMode(mode) {
         NinAudio.playClick();
-        tabGame.classList.remove('active');
+        tabStory.classList.remove('active');
+        tabArcade.classList.remove('active');
         tabOpp.classList.remove('active');
         tabSim.classList.remove('active');
 
-        stageGame.style.display = 'none';
-        stageOpp.style.display = 'none';
-        stageSim.style.display = 'none';
+        screenStory.style.display = 'none';
+        screenArcade.style.display = 'none';
+        screenOpp.style.display = 'none';
+        screenSim.style.display = 'none';
 
-        if (view === 'game') {
-          tabGame.classList.add('active');
-          stageGame.style.display = 'flex';
-        } else if (view === 'opp') {
+        if (mode === 'story') {
+          tabStory.classList.add('active');
+          screenStory.style.display = 'flex';
+        } else if (mode === 'arcade') {
+          tabArcade.classList.add('active');
+          screenArcade.style.display = 'flex';
+        } else if (mode === 'opp') {
           tabOpp.classList.add('active');
-          stageOpp.style.display = 'block';
-        } else if (view === 'sim') {
+          screenOpp.style.display = 'block';
+        } else if (mode === 'sim') {
           tabSim.classList.add('active');
-          stageSim.style.display = 'block';
+          screenSim.style.display = 'block';
           if (typeof render === 'function') render();
         }
       }
 
-      if (tabGame) tabGame.addEventListener('click', () => switchScreen('game'));
-      if (tabOpp) tabOpp.addEventListener('click', () => switchScreen('opp'));
-      if (tabSim) tabSim.addEventListener('click', () => switchScreen('sim'));
-      if (btnBackFromSim) btnBackFromSim.addEventListener('click', () => switchScreen('game'));
+      if (tabStory) tabStory.addEventListener('click', () => switchMode('story'));
+      if (tabArcade) tabArcade.addEventListener('click', () => switchMode('arcade'));
+      if (tabOpp) tabOpp.addEventListener('click', () => switchMode('opp'));
+      if (tabSim) tabSim.addEventListener('click', () => switchMode('sim'));
+      if (btnBackFromSim) btnBackFromSim.addEventListener('click', () => switchMode('story'));
+      // Reloj digital en vivo para Switch OS
+      function updateSwitchClock() {
+        const clockEl = document.getElementById('switch-clock');
+        if (!clockEl) return;
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        clockEl.textContent = `${hrs}:${mins}`;
+      }
+      setInterval(updateSwitchClock, 1000);
+      updateSwitchClock();
 
       // Botón silenciar / sonido
       const btnSound = document.getElementById('btn-sound-toggle');
@@ -4718,33 +4489,27 @@
         });
       }
 
-      // Atajos de teclado estilo Nintendo
+      // Atajos de teclado en el juego
       window.addEventListener('keydown', (e) => {
-        if (stageGame.style.display === 'none') return;
-        if (e.code === 'KeyY' || e.code === 'KeyC') {
-          SwitchGame.playTurn('C');
-        } else if (e.code === 'KeyX' || e.code === 'KeyT' || e.code === 'KeyE') {
-          SwitchGame.playTurn('T');
-        } else if (e.code === 'KeyB') {
-          if (document.getElementById('switch-results-modal').style.display === 'flex') {
-            btnModalReplay.click();
+        if (screenStory.style.display !== 'none') {
+          if (e.code === 'KeyY' || e.code === 'KeyC') StoryEngine.playChoice('C');
+          else if (e.code === 'KeyX' || e.code === 'KeyT') StoryEngine.playChoice('T');
+          else if (e.code === 'KeyA') {
+            const modal = document.getElementById('story-journal-modal');
+            if (modal && modal.style.display === 'flex') StoryEngine.nextChapter();
+            else {
+              const adv = document.getElementById('btn-story-advance');
+              if (adv && adv.style.display !== 'none') adv.click();
+            }
           }
-        } else if (e.code === 'KeyA') {
-          if (document.getElementById('switch-results-modal').style.display === 'flex') {
-            btnModalNext.click();
-          }
-        } else if (e.code === 'ArrowRight' || e.code === 'ArrowDown') {
-          cycleOpp(1);
-        } else if (e.code === 'ArrowLeft' || e.code === 'ArrowUp') {
-          cycleOpp(-1);
         }
       });
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initSwitchHandheld);
+      document.addEventListener('DOMContentLoaded', initStoryModeAndConsole);
     } else {
-      initSwitchHandheld();
+      initStoryModeAndConsole();
     }
 
   </script>
