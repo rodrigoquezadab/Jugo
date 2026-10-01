@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dilema del Prisionero Iterado Evolutivo 2D | ASCII & Minecraft Skins</title>
+  <title>El Dilema del Prisionero | Juego de Aprendizaje en 1 Minuto</title>
   <style>
+
     /* =========================================================
        VARIABLES Y PALETA DE COLORES - TEMA DWARF FORTRESS (ASCII)
        ========================================================= */
@@ -722,12 +723,1375 @@
       flex-wrap: wrap;
       gap: 6px;
     }
+  
+
+    /* =========================================================
+       ESTILOS DEL JUEGO DE APRENDIZAJE NINTENDO (FONDO NEGRO Y CÍRCULOS)
+       ========================================================= */
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap');
+
+    :root {
+      --nin-bg: #07080c;
+      --nin-surface: #11131a;
+      --nin-surface-2: #191c26;
+      --nin-surface-glass: rgba(22, 26, 38, 0.75);
+      --nin-border: #262c3d;
+      --nin-border-glow: #38425d;
+      
+      --nin-coop: #00e676;
+      --nin-coop-dark: #00a352;
+      --nin-coop-glow: rgba(0, 230, 118, 0.35);
+
+      --nin-cheat: #ff2d55;
+      --nin-cheat-dark: #b81434;
+      --nin-cheat-glow: rgba(255, 45, 85, 0.35);
+
+      --nin-player: #00d2ff;
+      --nin-player-glow: rgba(0, 210, 255, 0.35);
+
+      --nin-gold: #ffcc00;
+      --nin-gold-dark: #c29b00;
+      --nin-gold-glow: rgba(255, 204, 0, 0.35);
+
+      --nin-purple: #a855f7;
+      --nin-text: #f8fafc;
+      --nin-text-dim: #94a3b8;
+      --nin-text-muted: #64748b;
+    }
+
+    body {
+      background-color: var(--nin-bg) !important;
+      color: var(--nin-text);
+      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* BARRA MAESTRA SUPERIOR */
+    .master-nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 8, 12, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 2px solid var(--nin-border);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-circle-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00d2ff, #00e676);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 16px var(--nin-player-glow);
+      animation: pulseBrand 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseBrand {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 16px var(--nin-player-glow); }
+      50% { transform: scale(1.06); box-shadow: 0 0 24px var(--nin-coop-glow); }
+    }
+
+    .brand-title-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--nin-text-dim);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .master-tabs {
+      display: flex;
+      gap: 8px;
+      background: var(--nin-surface);
+      padding: 5px;
+      border-radius: 999px;
+      border: 1px solid var(--nin-border);
+    }
+
+    .master-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--nin-text-dim);
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .master-tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .master-tab-btn.active {
+      background: linear-gradient(135deg, #00d2ff, #0077ff);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--nin-player-glow);
+      transform: translateY(-1px);
+    }
+
+    .master-tab-btn.sim-tab.active {
+      background: linear-gradient(135deg, #5ca43b, #2b7415);
+      box-shadow: 0 4px 14px rgba(92, 164, 59, 0.4);
+    }
+
+    /* CONTENEDOR PRINCIPAL DEL JUEGO NINTENDO */
+    #screen-nintendo-game {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* AMBIENTE OSCURO CON CÍRCULOS DE LUZ */
+    .ambient-circles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .ambient-circle-1 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
+      top: 10%;
+      left: 5%;
+      filter: blur(40px);
+    }
+
+    .ambient-circle-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 45, 85, 0.08) 0%, transparent 70%);
+      top: 20%;
+      right: 5%;
+      filter: blur(50px);
+    }
+
+    .ambient-circle-3 {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.06) 0%, transparent 70%);
+      bottom: -10%;
+      left: 30%;
+      filter: blur(60px);
+    }
+
+    /* BARRA DE ESTADO / RONDA DE 1 MINUTO */
+    .round-meta-card {
+      background: var(--nin-surface);
+      border: 1px solid var(--nin-border);
+      border-radius: 24px;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .round-dial-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .circular-progress-wrap {
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+
+    .circular-progress-wrap svg {
+      width: 64px;
+      height: 64px;
+      transform: rotate(-90deg);
+    }
+
+    .circle-bg {
+      fill: none;
+      stroke: var(--nin-surface-2);
+      stroke-width: 6;
+    }
+
+    .circle-bar {
+      fill: none;
+      stroke: var(--nin-player);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 163.36;
+      stroke-dashoffset: 130.68;
+      transition: stroke-dashoffset 0.4s ease;
+    }
+
+    .circle-text-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .round-info-text h3 {
+      margin: 0;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .round-info-text p {
+      margin: 4px 0 0;
+      font-size: 0.82rem;
+      color: var(--nin-text-dim);
+    }
+
+    /* SELECTOR RÁPIDO DE OPONENTE (CÍRCULOS CHIP) */
+    .opponent-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .opp-chip-btn {
+      background: var(--nin-surface-2);
+      border: 2px solid var(--nin-border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      color: var(--nin-text-dim);
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .opp-chip-btn:hover {
+      border-color: var(--nin-border-glow);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .opp-chip-btn.active {
+      background: #1e2536;
+      border-color: var(--nin-player);
+      color: #fff;
+      box-shadow: 0 0 14px var(--nin-player-glow);
+    }
+
+    .opp-chip-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* ARENA DE DUELO (TÚ VS OPONENTE) */
+    .duel-arena {
+      background: radial-gradient(circle at 50% 30%, #151924 0%, #0d0f17 100%);
+      border: 2px solid var(--nin-border);
+      border-radius: 32px;
+      padding: 32px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .duel-arena {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+    }
+
+    /* PERSONAJES CIRCULARES */
+    .character-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-circular-frame {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--nin-surface-2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .avatar-circular-frame.bounce {
+      animation: avatarPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes avatarPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+      100% { transform: scale(1); }
+    }
+
+    .avatar-player-border {
+      border: 4px solid var(--nin-player);
+      box-shadow: 0 0 24px var(--nin-player-glow), inset 0 0 15px rgba(0, 210, 255, 0.2);
+    }
+
+    .avatar-opponent-border {
+      border: 4px solid var(--nin-cheat);
+      box-shadow: 0 0 24px var(--nin-cheat-glow), inset 0 0 15px rgba(255, 45, 85, 0.2);
+    }
+
+    .avatar-svg {
+      width: 100px;
+      height: 100px;
+    }
+
+    .char-name {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .char-sub {
+      font-size: 0.8rem;
+      color: var(--nin-text-dim);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* MARCADOR CIRCULAR DE MONEDAS */
+    .coin-score-pill {
+      background: var(--nin-surface-2);
+      border: 2px solid var(--nin-gold);
+      border-radius: 999px;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 16px var(--nin-gold-glow);
+    }
+
+    .coin-icon-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffd700, #ff9900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #000;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .coin-score-val {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--nin-gold);
+    }
+
+    /* HISTORIAL DE BOLITAS CIRCULARES */
+    .round-history-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .h-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--nin-surface-2);
+      border: 1px solid var(--nin-border);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .h-dot.coop {
+      background: var(--nin-coop);
+      border-color: #fff;
+      box-shadow: 0 0 8px var(--nin-coop-glow);
+      transform: scale(1.15);
+    }
+
+    .h-dot.cheat {
+      background: var(--nin-cheat);
+      border-color: #fff;
+      box-shadow: 0 0 8px var(--nin-cheat-glow);
+      transform: scale(1.15);
+    }
+
+    /* ZONA CENTRAL: MATRIZ CIRCULAR Y CHOQUE DE DECISIONES */
+    .arena-center-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .circular-matrix-flower {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: var(--nin-surface);
+      border: 3px solid var(--nin-border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      padding: 6px;
+      gap: 6px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .matrix-quadrant {
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .quad-cc {
+      background: rgba(0, 230, 118, 0.15);
+      border: 1px solid rgba(0, 230, 118, 0.4);
+      color: var(--nin-coop);
+      border-top-left-radius: 50%;
+    }
+
+    .quad-tc {
+      background: rgba(255, 204, 0, 0.15);
+      border: 1px solid rgba(255, 204, 0, 0.4);
+      color: var(--nin-gold);
+      border-top-right-radius: 50%;
+    }
+
+    .quad-ct {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: var(--nin-purple);
+      border-bottom-left-radius: 50%;
+    }
+
+    .quad-tt {
+      background: rgba(255, 45, 85, 0.15);
+      border: 1px solid rgba(255, 45, 85, 0.4);
+      color: var(--nin-cheat);
+      border-bottom-right-radius: 50%;
+    }
+
+    .matrix-quadrant.active-highlight {
+      transform: scale(1.12);
+      z-index: 10;
+      box-shadow: 0 0 20px currentColor;
+    }
+
+    .center-vs-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+      z-index: 5;
+    }
+
+    /* BOCADILLO DE DIÁLOGO NINTENDO */
+    .comic-bubble {
+      background: #ffffff;
+      color: #11131a;
+      border-radius: 18px;
+      padding: 10px 18px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      position: relative;
+      max-width: 240px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      line-height: 1.3;
+      transition: all 0.3s;
+    }
+
+    .comic-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 8px 8px 0;
+      border-style: solid;
+      border-color: #ffffff transparent;
+      display: block;
+      width: 0;
+    }
+
+    /* BOTONES DE DECISIÓN ESTILO NINTENDO SWITCH JUGOSOS */
+    .decision-deck {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nin-action-btn {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      min-width: 220px;
+      position: relative;
+      transition: all 0.15s ease-out;
+      user-select: none;
+      outline: none;
+    }
+
+    .nin-action-btn .btn-main-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nin-action-btn .btn-sub-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+
+    /* BOTÓN COOPERAR (VERDE) */
+    .btn-coop-nin {
+      background: linear-gradient(180deg, #10f480 0%, var(--nin-coop) 100%);
+      color: #043818;
+      box-shadow: 0 8px 0 var(--nin-coop-dark), 0 15px 30px var(--nin-coop-glow);
+    }
+
+    .btn-coop-nin:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 11px 0 var(--nin-coop-dark), 0 20px 35px var(--nin-coop-glow);
+    }
+
+    .btn-coop-nin:active {
+      transform: translateY(5px);
+      box-shadow: 0 3px 0 var(--nin-coop-dark), 0 8px 15px var(--nin-coop-glow);
+    }
+
+    /* BOTÓN TRAICIONAR / ENGAÑAR (ROJO) */
+    .btn-cheat-nin {
+      background: linear-gradient(180deg, #ff4d6d 0%, var(--nin-cheat) 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 0 var(--nin-cheat-dark), 0 15px 30px var(--nin-cheat-glow);
+    }
+
+    .btn-cheat-nin:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 11px 0 var(--nin-cheat-dark), 0 20px 35px var(--nin-cheat-glow);
+    }
+
+    .btn-cheat-nin:active {
+      transform: translateY(5px);
+      box-shadow: 0 3px 0 var(--nin-cheat-dark), 0 8px 15px var(--nin-cheat-glow);
+    }
+
+    .btn-disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* EFECTO DE MONEDAS VOLADORAS */
+    .floating-coin {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      font-size: 26px;
+      font-weight: 900;
+      font-family: 'Fredoka', cursive;
+      color: #ffd700;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      animation: floatUpFade 1s forwards ease-out;
+    }
+
+    @keyframes floatUpFade {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      50% { transform: translateY(-35px) scale(1.3); }
+      100% { opacity: 0; transform: translateY(-70px) scale(0.9); }
+    }
+
+    /* MODAL DE RESULTADOS DE 1 MINUTO */
+    .nin-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .nin-modal-card {
+      background: radial-gradient(circle at 50% 0%, #1c2233 0%, #10131c 100%);
+      border: 3px solid var(--nin-border-glow);
+      border-radius: 36px;
+      max-width: 540px;
+      width: 100%;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 210, 255, 0.2);
+      animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes modalPop {
+      0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .modal-trophy-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffd700, #ff9900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      box-shadow: 0 0 30px var(--nin-gold-glow);
+      animation: trophySpin 1s ease-out;
+    }
+
+    @keyframes trophySpin {
+      0% { transform: scale(0) rotate(-180deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .modal-title {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* DONUT CIRCULAR COMPARATIVO */
+    .donut-comparison-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--nin-surface-2);
+      border-radius: 20px;
+      padding: 14px 20px;
+      border: 1px solid var(--nin-border);
+      width: 90%;
+      justify-content: space-around;
+    }
+
+    .donut-svg-wrap {
+      width: 80px;
+      height: 80px;
+    }
+
+    .donut-svg-wrap svg {
+      width: 80px;
+      height: 80px;
+      transform: rotate(-90deg);
+    }
+
+    .lesson-takeaway-box {
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      border-radius: 18px;
+      padding: 16px 20px;
+      text-align: left;
+    }
+
+    .lesson-takeaway-box h4 {
+      margin: 0 0 6px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      color: var(--nin-coop);
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lesson-takeaway-box p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .nin-btn-primary {
+      flex: 1;
+      background: linear-gradient(180deg, #00e5ff 0%, #0099ff 100%);
+      color: #032030;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #0066cc, 0 10px 20px rgba(0, 210, 255, 0.3);
+      transition: all 0.15s ease-out;
+      min-width: 180px;
+    }
+
+    .nin-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #0066cc, 0 15px 25px rgba(0, 210, 255, 0.4);
+    }
+
+    .nin-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #0066cc;
+    }
+
+    .nin-btn-secondary {
+      background: var(--nin-surface-2);
+      color: var(--nin-text);
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--nin-border);
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+    }
+
+    .nin-btn-secondary:hover {
+      background: #232838;
+      border-color: #fff;
+    }
+
+    /* PANTALLA 2: GALERÍA DE OPONENTES & TORNEO CIRCULAR */
+    #screen-opponents {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .opp-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .opp-card-nintendo {
+      background: var(--nin-surface);
+      border: 2px solid var(--nin-border);
+      border-radius: 28px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s;
+    }
+
+    .opp-card-nintendo:hover {
+      transform: translateY(-6px);
+      border-color: var(--nin-border-glow);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    .opp-card-avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--nin-surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+
+    .opp-card-title {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+
+    .opp-card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--nin-surface-2);
+      color: var(--nin-text-dim);
+    }
+
+    .opp-card-desc {
+      font-size: 0.85rem;
+      color: var(--nin-text-dim);
+      margin: 0;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .btn-play-opp {
+      width: 100%;
+      background: linear-gradient(180deg, #00d2ff 0%, #0077ff 100%);
+      color: #fff;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #0055bb;
+      transition: all 0.15s;
+    }
+
+    .btn-play-opp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #0055bb;
+    }
+
+    .btn-play-opp:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0055bb;
+    }
+
+    /* CARD DE SIMULADOR DE TORNEO */
+    .tournament-card {
+      background: radial-gradient(circle at 50% 10%, #1e2638 0%, #0e111a 100%);
+      border: 2px solid var(--nin-border-glow);
+      border-radius: 32px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
+    /* PANTALLA 3: SIMULADOR ESPACIAL 2D (ENVOLTORIO) */
+    #screen-spatial-sim {
+      display: none;
+      padding-top: 10px;
+    }
+
+    .back-to-nintendo-bar {
+      max-width: 960px;
+      margin: 0 auto 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--nin-surface);
+      border: 1px solid var(--nin-border);
+      border-radius: 16px;
+      padding: 10px 18px;
+    }
+
+    .btn-back-to-nin {
+      background: linear-gradient(135deg, #00d2ff, #0077ff);
+      color: #fff;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--nin-player-glow);
+      transition: all 0.2s;
+    }
+
+    .btn-back-to-nin:hover {
+      transform: scale(1.04);
+    }
+
   </style>
 </head>
 
-<body class="skin-minecraft">
+<body>
 
-  <div class="terminal-container">
+  <!-- FONDO CON CÍRCULOS DE LUZ AMBIENTAL -->
+  <div class="ambient-circles">
+    <div class="ambient-circle-1"></div>
+    <div class="ambient-circle-2"></div>
+    <div class="ambient-circle-3"></div>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN MAESTRA -->
+  <header class="master-nav-bar">
+    <div class="brand-wrap" id="brand-home-btn">
+      <div class="brand-circle-logo">🤝</div>
+      <div class="brand-title-box">
+        <span class="brand-title">EL DILEMA DEL PRISIONERO</span>
+        <span class="brand-sub">Aprende en 1 Minuto · Estilo Nintendo</span>
+      </div>
+    </div>
+
+    <nav class="master-tabs">
+      <button id="master-tab-game" class="master-tab-btn active">
+        <span>⚡</span> PARTIDA (1 MIN)
+      </button>
+      <button id="master-tab-opponents" class="master-tab-btn">
+        <span>👥</span> OPONENTES & TORNEO
+      </button>
+      <button id="master-tab-sim" class="master-tab-btn sim-tab">
+        <span>🔬</span> SIMULADOR 2D (MINECRAFT/ASCII)
+      </button>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       PANTALLA 1: JUEGO RÁPIDO NINTENDO EN 1 MINUTO (DEFAULT)
+       ========================================================= -->
+  <main id="screen-nintendo-game">
+
+    <!-- METADATOS DE LA RONDA & SELECTOR RÁPIDO DE OPONENTE -->
+    <div class="round-meta-card">
+      <div class="round-dial-group">
+        <div class="circular-progress-wrap">
+          <svg viewBox="0 0 64 64">
+            <circle class="circle-bg" cx="32" cy="32" r="26"></circle>
+            <circle id="nin-round-circle-bar" class="circle-bar" cx="32" cy="32" r="26"></circle>
+          </svg>
+          <div class="circle-text-center">
+            <span id="nin-round-num" style="font-size: 1.15rem; line-height: 1;">1</span>
+            <span style="font-size: 0.6rem; color: var(--nin-text-dim); text-transform: uppercase;">de 5</span>
+          </div>
+        </div>
+
+        <div class="round-info-text">
+          <h3 id="nin-round-title">Ronda 1: El Primer Encuentro</h3>
+          <p id="nin-round-subtitle">Partida rápida de 1 minuto · Toma tu decisión</p>
+        </div>
+      </div>
+
+      <div class="opponent-chips">
+        <button class="opp-chip-btn active" data-opp="kopy">
+          <span class="opp-chip-avatar">🐱</span> Kopy (Ojo x Ojo)
+        </button>
+        <button class="opp-chip-btn" data-opp="sneaky">
+          <span class="opp-chip-avatar">🦊</span> Sneaky (Tramposo)
+        </button>
+        <button class="opp-chip-btn" data-opp="buddy">
+          <span class="opp-chip-avatar">🐶</span> Buddy (Bondadoso)
+        </button>
+        <button class="opp-chip-btn" data-opp="grumpy">
+          <span class="opp-chip-avatar">🐻</span> Grumpy (Rencoroso)
+        </button>
+        <button class="opp-chip-btn" data-opp="detective">
+          <span class="opp-chip-avatar">🦉</span> Detective
+        </button>
+      </div>
+    </div>
+
+    <!-- ARENA DE DUELO TIPO NINTENDO -->
+    <div class="duel-arena">
+
+      <!-- LADO JUGADOR (TÚ) -->
+      <div class="character-card">
+        <div class="avatar-circular-frame avatar-player-border" id="player-avatar-frame">
+          <!-- SVG AVATAR CIRCULAR DEL JUGADOR -->
+          <svg class="avatar-svg" viewBox="0 0 100 100" id="player-avatar-svg">
+            <circle cx="50" cy="50" r="44" fill="#00d2ff"/>
+            <!-- Gorra Nintendo Gamer -->
+            <path d="M 22 36 Q 50 14 78 36 L 90 38 Q 65 30 20 38 Z" fill="#ff2d55"/>
+            <circle cx="50" cy="26" r="8" fill="#ffffff"/>
+            <text x="50" y="30" font-family="Fredoka" font-size="10" font-weight="bold" fill="#ff2d55" text-anchor="middle">T</text>
+            <!-- Ojos expresivos -->
+            <ellipse cx="38" cy="48" rx="5" ry="7" fill="#07080c" id="p-eye-l"/>
+            <ellipse cx="62" cy="48" rx="5" ry="7" fill="#07080c" id="p-eye-r"/>
+            <circle cx="40" cy="46" r="2" fill="#ffffff"/>
+            <circle cx="64" cy="46" r="2" fill="#ffffff"/>
+            <!-- Mejillas sonrojadas -->
+            <circle cx="30" cy="56" r="4" fill="rgba(255, 45, 85, 0.4)"/>
+            <circle cx="70" cy="56" r="4" fill="rgba(255, 45, 85, 0.4)"/>
+            <!-- Boca animable -->
+            <path d="M 42 60 Q 50 68 58 60" stroke="#07080c" stroke-width="3" stroke-linecap="round" fill="none" id="p-mouth"/>
+          </svg>
+        </div>
+
+        <h3 class="char-name">TÚ <span style="font-size: 0.8rem; color: var(--nin-player);">(Jugador)</span></h3>
+        <span class="char-sub">Tu estrategia en juego</span>
+
+        <div class="coin-score-pill">
+          <div class="coin-icon-circle">★</div>
+          <span class="coin-score-val" id="nin-player-score">0 pts</span>
+        </div>
+
+        <div class="round-history-dots" id="player-history-dots">
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+        </div>
+      </div>
+
+      <!-- ZONA CENTRAL: MATRIZ CIRCULAR & CHOQUE DE MONEDAS -->
+      <div class="arena-center-stage">
+        
+        <!-- Bocadillo de diálogo dinámico del rival -->
+        <div class="comic-bubble" id="nin-comic-bubble">
+          ¡Hola! Soy Kopy. Empezaré cooperando contigo. ¡Seamos amigos!
+        </div>
+
+        <!-- Matriz de Pagos Circular en 4 cuadrantes -->
+        <div class="circular-matrix-flower" title="Matriz de Pagos Circular">
+          <div class="matrix-quadrant quad-cc" id="quad-cc">
+            <span style="font-size: 13px;">🤝 🤝</span>
+            <span>+3 / +3</span>
+            <span style="font-size: 9px; opacity: 0.8;">Ambos Cooperan</span>
+          </div>
+          <div class="matrix-quadrant quad-tc" id="quad-tc">
+            <span style="font-size: 13px;">🗡️ 🤝</span>
+            <span>+5 / 0</span>
+            <span style="font-size: 9px; opacity: 0.8;">Tú Engañas</span>
+          </div>
+          <div class="matrix-quadrant quad-ct" id="quad-ct">
+            <span style="font-size: 13px;">🤝 🗡️</span>
+            <span>0 / +5</span>
+            <span style="font-size: 9px; opacity: 0.8;">Él Engaña</span>
+          </div>
+          <div class="matrix-quadrant quad-tt" id="quad-tt">
+            <span style="font-size: 13px;">🗡️ 🗡️</span>
+            <span>+1 / +1</span>
+            <span style="font-size: 9px; opacity: 0.8;">Ambos Engañan</span>
+          </div>
+          <div class="center-vs-badge">VS</div>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--nin-text-dim); font-weight: 600;">
+          Máquina de Confianza: Pones 1 moneda y produce 3 si cooperan.
+        </div>
+      </div>
+
+      <!-- LADO OPONENTE -->
+      <div class="character-card">
+        <div class="avatar-circular-frame avatar-opponent-border" id="opp-avatar-frame">
+          <!-- SVG AVATAR CIRCULAR DEL OPONENTE (DINÁMICO) -->
+          <svg class="avatar-svg" viewBox="0 0 100 100" id="opp-avatar-svg">
+            <!-- Renderizado dinámico vía JS -->
+          </svg>
+        </div>
+
+        <h3 class="char-name" id="opp-name-label">KOPY <span style="font-size: 0.85rem;" id="opp-icon-label">🐱</span></h3>
+        <span class="char-sub" id="opp-role-label">El Imitador (Copia tu última jugada)</span>
+
+        <div class="coin-score-pill">
+          <div class="coin-icon-circle">★</div>
+          <span class="coin-score-val" id="nin-opp-score">0 pts</span>
+        </div>
+
+        <div class="round-history-dots" id="opp-history-dots">
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+          <div class="h-dot"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTONES DE DECISIÓN ESTILO NINTENDO SWITCH -->
+    <div class="decision-deck">
+      <button class="nin-action-btn btn-coop-nin" id="btn-nin-coop">
+        <div class="btn-main-row">
+          <span>🤝</span>
+          <span>COOPERAR</span>
+        </div>
+        <span class="btn-sub-label">Poner 1 moneda en la máquina</span>
+      </button>
+
+      <button class="nin-action-btn btn-cheat-nin" id="btn-nin-cheat">
+        <div class="btn-main-row">
+          <span>🗡️</span>
+          <span>ENGAÑAR</span>
+        </div>
+        <span class="btn-sub-label">Quedarte la moneda e intentar robar</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- =========================================================
+       MODAL DE RESULTADOS DE 1 MINUTO (NINTENDO STYLE)
+       ========================================================= -->
+  <div class="nin-modal-backdrop" id="nin-results-modal">
+    <div class="nin-modal-card">
+      <div class="modal-trophy-circle" id="modal-trophy-icon">🏆</div>
+      <h2 class="modal-title" id="modal-result-title">¡VICTORIA COOPERATIVA!</h2>
+      <p id="modal-result-subtitle" style="margin: 0; color: var(--nin-text-dim); font-size: 0.95rem;">
+        Partida de 1 minuto completada contra Kopy
+      </p>
+
+      <!-- DONUT CIRCULAR COMPARATIVO DE PUNTOS -->
+      <div class="donut-comparison-wrap">
+        <div class="donut-svg-wrap">
+          <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="30" fill="none" stroke="#ff2d55" stroke-width="12"></circle>
+            <circle id="modal-donut-player-arc" cx="40" cy="40" r="30" fill="none" stroke="#00e676" stroke-width="12"
+                    stroke-dasharray="188.4" stroke-dashoffset="94.2" stroke-linecap="round"></circle>
+          </svg>
+        </div>
+        <div style="text-align: left;">
+          <div style="font-weight: 700; color: var(--nin-coop); font-size: 1.1rem;" id="modal-score-player">Tú: 15 pts (50%)</div>
+          <div style="font-weight: 700; color: var(--nin-cheat); font-size: 1.1rem;" id="modal-score-opp">Rival: 15 pts (50%)</div>
+          <div style="font-size: 0.8rem; color: var(--nin-text-dim);" id="modal-coop-rate">Cooperación mutua: 100%</div>
+        </div>
+      </div>
+
+      <!-- LECCIÓN DE TEORÍA DE JUEGOS -->
+      <div class="lesson-takeaway-box">
+        <h4 id="modal-lesson-title">🧠 ¿Qué nos enseña este resultado?</h4>
+        <p id="modal-lesson-text">
+          La cooperación mutua con Kopy es un bucle positivo infinito: ambos ganaron la máxima recompensa (+15 pts). Si hubieses traicionado, Kopy te habría castigado de inmediato.
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="nin-btn-primary" id="btn-modal-next-opp">
+          🚀 SIGUIENTE OPONENTE
+        </button>
+        <button class="nin-btn-secondary" id="btn-modal-replay">
+          ↺ REVANCHA (1 MIN)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PANTALLA 2: GALERÍA DE OPONENTES & TORNEO CIRCULAR
+       ========================================================= -->
+  <section id="screen-opponents">
+    <div style="text-align: center; margin-bottom: 8px;">
+      <h2 style="font-family: 'Fredoka', cursive; font-size: 2rem; color: #fff; margin: 0;">
+        Conoce a los Personajes
+      </h2>
+      <p style="color: var(--nin-text-dim); margin: 6px 0 0;">
+        Cada personaje representa una estrategia matemática real de Teoría de Juegos. Juega una partida de 1 minuto contra cada uno.
+      </p>
+    </div>
+
+    <!-- TARJETAS CIRCULARES DE PERSONAJES -->
+    <div class="opp-gallery-grid">
+      <!-- Kopy -->
+      <div class="opp-card-nintendo">
+        <div class="opp-card-avatar" style="border: 3px solid var(--nin-coop);">🐱</div>
+        <h3 class="opp-card-title">KOPY</h3>
+        <span class="opp-card-tag" style="color: var(--nin-coop); border: 1px solid var(--nin-coop);">Ojo por Ojo (Tit for Tat)</span>
+        <p class="opp-card-desc">
+          Empieza cooperando. En cada turno posterior, copia exactamente lo que tú hiciste en la ronda anterior. Amigable, pero no se deja pisotear.
+        </p>
+        <button class="btn-play-opp" data-play-opp="kopy">⚡ DESAFIAR (1 MIN)</button>
+      </div>
+
+      <!-- Sneaky -->
+      <div class="opp-card-nintendo">
+        <div class="opp-card-avatar" style="border: 3px solid var(--nin-cheat);">🦊</div>
+        <h3 class="opp-card-title">SNEAKY</h3>
+        <span class="opp-card-tag" style="color: var(--nin-cheat); border: 1px solid var(--nin-cheat);">Siempre Traiciona</span>
+        <p class="opp-card-desc">
+          Nunca coopera. Siempre busca quedarse con todo y explotar a los ingenuos. La única forma de protegerte es devolverle el golpe.
+        </p>
+        <button class="btn-play-opp" data-play-opp="sneaky">⚡ DESAFIAR (1 MIN)</button>
+      </div>
+
+      <!-- Buddy -->
+      <div class="opp-card-nintendo">
+        <div class="opp-card-avatar" style="border: 3px solid var(--nin-gold);">🐶</div>
+        <h3 class="opp-card-title">BUDDY</h3>
+        <span class="opp-card-tag" style="color: var(--nin-gold); border: 1px solid var(--nin-gold);">Siempre Coopera</span>
+        <p class="opp-card-desc">
+          Confía ciegamente en todos. Coopera incondicionalmente sin importar lo que hagas. Es el mejor aliado de Kopy, pero la presa favorita de Sneaky.
+        </p>
+        <button class="btn-play-opp" data-play-opp="buddy">⚡ DESAFIAR (1 MIN)</button>
+      </div>
+
+      <!-- Grumpy -->
+      <div class="opp-card-nintendo">
+        <div class="opp-card-avatar" style="border: 3px solid var(--nin-purple);">🐻</div>
+        <h3 class="opp-card-title">GRUMPY</h3>
+        <span class="opp-card-tag" style="color: var(--nin-purple); border: 1px solid var(--nin-purple);">El Rencoroso (Grim Trigger)</span>
+        <p class="opp-card-desc">
+          Coopera lealmente hasta que le fallas una sola vez. Si lo traicionas una vez, ¡jamás te volverá a perdonar por el resto de la partida!
+        </p>
+        <button class="btn-play-opp" data-play-opp="grumpy">⚡ DESAFIAR (1 MIN)</button>
+      </div>
+
+      <!-- Detective -->
+      <div class="opp-card-nintendo">
+        <div class="opp-card-avatar" style="border: 3px solid var(--nin-player);">🦉</div>
+        <h3 class="opp-card-title">DETECTIVE</h3>
+        <span class="opp-card-tag" style="color: var(--nin-player); border: 1px solid var(--nin-player);">El Analista (Tester)</span>
+        <p class="opp-card-desc">
+          Juega una secuencia de prueba: Coopera, Traiciona, Coopera, Coopera. Si ve que te dejas engañar, te explotará; si te defiendes, jugará como Kopy.
+        </p>
+        <button class="btn-play-opp" data-play-opp="detective">⚡ DESAFIAR (1 MIN)</button>
+      </div>
+    </div>
+
+    <!-- CARD DEL TORNEO COMPLETO -->
+    <div class="tournament-card">
+      <div style="font-size: 40px;">🏆</div>
+      <h3 style="font-family: 'Fredoka', cursive; font-size: 1.6rem; color: #fff; margin: 0;">
+        Simulador de Torneo Evolutivo de Teoría de Juegos
+      </h3>
+      <p style="color: var(--nin-text-dim); max-width: 650px; margin: 0; line-height: 1.5;">
+        ¿Qué ocurre cuando estas 5 estrategias se enfrentan entre sí en un torneo cerrado de 100 rondas? Comprueba cómo la reciprocidad derrota a la traición en un gráfico circular de podio.
+      </p>
+      <button class="nin-btn-primary" id="btn-run-tournament" style="max-width: 320px;">
+        ⚔️ SIMULAR TORNEO (EN VIVO)
+      </button>
+
+      <!-- RESULTADO DEL TORNEO -->
+      <div id="tournament-results-box" style="display: none; width: 100%; max-width: 700px; margin-top: 10px;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap;">
+          <div style="width: 140px; height: 140px;">
+            <svg viewBox="0 0 100 100" id="tourney-donut-svg" style="width: 140px; height: 140px; transform: rotate(-90deg);"></svg>
+          </div>
+          <div id="tourney-leaderboard" style="text-align: left; flex: 1; min-width: 240px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PANTALLA 3: SIMULADOR ESPACIAL 2D EXISTENTE (CONSERVADO INTACTO)
+       ========================================================= -->
+  <section id="screen-spatial-sim">
+    <div class="back-to-nintendo-bar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 20px;">🔬</span>
+        <span style="font-family: 'Fredoka', cursive; font-weight: 700; color: #fff;">
+          SIMULADOR ESPACIAL 2D (TOROIDAL · MINECRAFT & ASCII)
+        </span>
+      </div>
+      <button class="btn-back-to-nin" id="btn-back-to-game">
+        ⬅ VOLVER AL JUEGO DE 1 MINUTO
+      </button>
+    </div>
+
+<div class="terminal-container">
 
     <!-- CABECERA HUD CON ESTADÍSTICAS, MODOS Y SELECTOR DE SKIN -->
     <header class="ascii-box">
@@ -1080,7 +2444,10 @@
   </div>
 
   <!-- LÓGICA DE SIMULACIÓN, TEORÍA DE JUEGOS Y SKINS ES6 -->
+  </section>
+
   <script>
+
     /**
      * DILEMA DEL PRISIONERO ITERADO EVOLUTIVO EN ESPACIO TOROIDAL
      * Soporte Dual: Modo Laboratorio / Multijugador + Skin Dwarf Fortress / Minecraft
@@ -2369,6 +3736,688 @@
 
     // Iniciar con la configuración inicial
     initSimulation();
+  
+
+
+    // =========================================================
+    // MOTOR DEL JUEGO NINTENDO DE 1 MINUTO & NAVEGACIÓN MAESTRA
+    // =========================================================
+
+    // Sintetizador retro con Web Audio API nativo (sin dependencias)
+    const NinAudio = {
+      ctx: null,
+      muted: false,
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) this.ctx = new AudioContext();
+        }
+      },
+      playTone(freq, type = 'sine', duration = 0.1, gainVal = 0.15) {
+        if (this.muted) return;
+        try {
+          this.init();
+          if (!this.ctx) return;
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+          gain.gain.setValueAtTime(gainVal, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + duration);
+        } catch (e) {}
+      },
+      playCoin() {
+        this.playTone(987.77, 'triangle', 0.08, 0.2); // B5
+        setTimeout(() => this.playTone(1318.51, 'triangle', 0.18, 0.25), 60); // E6
+      },
+      playCheat() {
+        this.playTone(220, 'sawtooth', 0.15, 0.2); // A3
+        setTimeout(() => this.playTone(174.61, 'sawtooth', 0.22, 0.25), 80); // F3
+      },
+      playWin() {
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+          setTimeout(() => this.playTone(freq, 'triangle', 0.2, 0.25), i * 90);
+        });
+      },
+      playClick() {
+        this.playTone(440, 'sine', 0.04, 0.1);
+      }
+    };
+
+    // Definición de las personalidades de la Teoría de Juegos
+    const NINTENDO_OPPONENTS = {
+      kopy: {
+        id: 'kopy',
+        name: 'KOPY',
+        icon: '🐱',
+        role: 'El Imitador (Tit for Tat)',
+        color: '#00e676',
+        greeting: '¡Hola! Soy Kopy. Empezaré cooperando. ¡Trátame bien y seremos grandes amigos!',
+        getMove(history) {
+          if (history.length === 0) return 'C';
+          return history[history.length - 1].player;
+        },
+        svg: `
+          <circle cx="50" cy="50" r="44" fill="#00e676"/>
+          <!-- Orejitas de gato -->
+          <polygon points="20,24 34,4 40,24" fill="#00a352"/>
+          <polygon points="24,22 34,10 38,22" fill="#ff4d6d"/>
+          <polygon points="60,24 66,4 80,24" fill="#00a352"/>
+          <polygon points="62,22 66,10 76,22" fill="#ff4d6d"/>
+          <!-- Ojos amigables -->
+          <ellipse cx="36" cy="46" rx="6" ry="8" fill="#07080c" id="opp-eye-l"/>
+          <ellipse cx="64" cy="46" rx="6" ry="8" fill="#07080c" id="opp-eye-r"/>
+          <circle cx="38" cy="44" r="2.5" fill="#ffffff"/>
+          <circle cx="66" cy="44" r="2.5" fill="#ffffff"/>
+          <!-- Nariz y bigotes -->
+          <polygon points="47,54 53,54 50,58" fill="#07080c"/>
+          <line x1="26" y1="52" x2="14" y2="50" stroke="#07080c" stroke-width="2"/>
+          <line x1="26" y1="56" x2="14" y2="58" stroke="#07080c" stroke-width="2"/>
+          <line x1="74" y1="52" x2="86" y2="50" stroke="#07080c" stroke-width="2"/>
+          <line x1="74" y1="56" x2="86" y2="58" stroke="#07080c" stroke-width="2"/>
+          <!-- Boquita de gato -->
+          <path d="M 44 60 Q 50 64 56 60" stroke="#07080c" stroke-width="3" fill="none" stroke-linecap="round" id="opp-mouth"/>
+        `
+      },
+      sneaky: {
+        id: 'sneaky',
+        name: 'SNEAKY',
+        icon: '🦊',
+        role: 'El Tramposo (Siempre Traiciona)',
+        color: '#ff2d55',
+        greeting: '¡Jajaja! Me quedaré con tus monedas. ¡En este mundo gana el más pillo!',
+        getMove() {
+          return 'T';
+        },
+        svg: `
+          <circle cx="50" cy="50" r="44" fill="#ff2d55"/>
+          <!-- Antifaz bandido -->
+          <path d="M 16 46 Q 50 56 84 46 Q 84 36 50 42 Q 16 36 16 46 Z" fill="#11131a"/>
+          <!-- Ojos picaros -->
+          <polygon points="32,44 42,42 38,48" fill="#ffd700" id="opp-eye-l"/>
+          <polygon points="68,44 58,42 62,48" fill="#ffd700" id="opp-eye-r"/>
+          <!-- Dientito afilado -->
+          <path d="M 40 64 Q 50 68 60 62" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" id="opp-mouth"/>
+          <polygon points="48,64 52,64 50,70" fill="#ffffff"/>
+          <!-- Cuernitos / Orejas zorrunas -->
+          <polygon points="22,22 28,6 38,22" fill="#b81434"/>
+          <polygon points="62,22 72,6 78,22" fill="#b81434"/>
+        `
+      },
+      buddy: {
+        id: 'buddy',
+        name: 'BUDDY',
+        icon: '🐶',
+        role: 'El Bondadoso (Siempre Coopera)',
+        color: '#ffcc00',
+        greeting: '¡Hola amigo! ¡Confío plenamente en ti! ¡Compartir es vivir!',
+        getMove() {
+          return 'C';
+        },
+        svg: `
+          <circle cx="50" cy="50" r="44" fill="#ffcc00"/>
+          <!-- Orejas caídas de perro -->
+          <path d="M 14 30 Q 8 60 22 70 Q 28 60 24 36 Z" fill="#c29b00"/>
+          <path d="M 86 30 Q 92 60 78 70 Q 72 60 76 36 Z" fill="#c29b00"/>
+          <!-- Ojos brillantes de felicidad -->
+          <circle cx="38" cy="46" r="6" fill="#07080c" id="opp-eye-l"/>
+          <circle cx="62" cy="46" r="6" fill="#07080c" id="opp-eye-r"/>
+          <circle cx="40" cy="44" r="2.5" fill="#ffffff"/>
+          <circle cx="64" cy="44" r="2.5" fill="#ffffff"/>
+          <!-- Lengüita afuera -->
+          <ellipse cx="50" cy="54" rx="4" ry="3" fill="#07080c"/>
+          <path d="M 46 64 Q 50 74 54 64 Z" fill="#ff4d6d"/>
+          <path d="M 40 60 Q 50 66 60 60" stroke="#07080c" stroke-width="3" fill="none" id="opp-mouth"/>
+        `
+      },
+      grumpy: {
+        id: 'grumpy',
+        name: 'GRUMPY',
+        icon: '🐻',
+        role: 'El Rencoroso (Grim Trigger)',
+        color: '#a855f7',
+        greeting: 'Coopero mientras tú cooperes. Pero te advierto: ¡si me traicionas UNA vez, no hay vuelta atrás!',
+        getMove(history) {
+          const cheatedOnce = history.some(h => h.player === 'T');
+          return cheatedOnce ? 'T' : 'C';
+        },
+        svg: `
+          <circle cx="50" cy="50" r="44" fill="#a855f7"/>
+          <!-- Cejas fruncidas de enojo -->
+          <line x1="28" y1="36" x2="44" y2="44" stroke="#4a154b" stroke-width="5" stroke-linecap="round"/>
+          <line x1="72" y1="36" x2="56" y2="44" stroke="#4a154b" stroke-width="5" stroke-linecap="round"/>
+          <!-- Ojos serios -->
+          <circle cx="36" cy="48" r="5" fill="#07080c" id="opp-eye-l"/>
+          <circle cx="64" cy="48" r="5" fill="#07080c" id="opp-eye-r"/>
+          <!-- Boca severa recta o curva invertida -->
+          <path d="M 40 66 Q 50 58 60 66" stroke="#07080c" stroke-width="4" fill="none" stroke-linecap="round" id="opp-mouth"/>
+          <!-- Orejitas de oso -->
+          <circle cx="22" cy="18" r="10" fill="#7e22ce"/>
+          <circle cx="78" cy="18" r="10" fill="#7e22ce"/>
+        `
+      },
+      detective: {
+        id: 'detective',
+        name: 'DETECTIVE',
+        icon: '🦉',
+        role: 'El Analista (Tester)',
+        color: '#00d2ff',
+        greeting: 'Examinaré tus reacciones en los primeros turnos con una secuencia de calibración...',
+        getMove(history) {
+          const opening = ['C', 'T', 'C', 'C'];
+          if (history.length < 4) return opening[history.length];
+          const playerCheatedInOpening = history.slice(0, 4).some(h => h.player === 'T');
+          // Si el jugador nunca se defendió, detective lo explota; si se defendió, juega como Tit for Tat
+          return playerCheatedInOpening ? history[history.length - 1].player : 'T';
+        },
+        svg: `
+          <circle cx="50" cy="50" r="44" fill="#0284c7"/>
+          <!-- Monóculo en ojo derecho -->
+          <circle cx="64" cy="46" r="14" fill="rgba(255, 255, 255, 0.25)" stroke="#ffd700" stroke-width="3"/>
+          <line x1="74" y1="56" x2="86" y2="76" stroke="#ffd700" stroke-width="2"/>
+          <!-- Ojos analíticos -->
+          <ellipse cx="36" cy="46" rx="6" ry="7" fill="#07080c" id="opp-eye-l"/>
+          <ellipse cx="64" cy="46" rx="6" ry="7" fill="#07080c" id="opp-eye-r"/>
+          <circle cx="38" cy="44" r="2" fill="#ffffff"/>
+          <circle cx="66" cy="44" r="2" fill="#ffffff"/>
+          <!-- Pico de búho -->
+          <polygon points="46,52 54,52 50,60" fill="#f59e0b"/>
+          <path d="M 44 64 Q 50 67 56 64" stroke="#07080c" stroke-width="3" fill="none" id="opp-mouth"/>
+          <!-- Mechones de plumas superiores -->
+          <polygon points="26,18 34,6 40,20" fill="#0369a1"/>
+          <polygon points="60,20 66,6 74,18" fill="#0369a1"/>
+        `
+      }
+    };
+
+    // Estado de la partida de 1 minuto
+    const NinMatch = {
+      maxRounds: 5,
+      currentRound: 1,
+      currentOppId: 'kopy',
+      playerScore: 0,
+      oppScore: 0,
+      history: [],
+      isLocked: false,
+
+      init() {
+        this.selectOpponent('kopy');
+        this.resetMatch();
+      },
+
+      selectOpponent(oppId) {
+        if (!NINTENDO_OPPONENTS[oppId]) return;
+        this.currentOppId = oppId;
+        const opp = NINTENDO_OPPONENTS[oppId];
+
+        // Actualizar chips de la UI
+        document.querySelectorAll('.opp-chip-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-opp') === oppId);
+        });
+
+        // Actualizar avatar y textos
+        const oppSvg = document.getElementById('opp-avatar-svg');
+        if (oppSvg) oppSvg.innerHTML = opp.svg;
+
+        document.getElementById('opp-name-label').innerHTML = `${opp.name} <span style="font-size: 0.85rem;" id="opp-icon-label">${opp.icon}</span>`;
+        document.getElementById('opp-role-label').textContent = opp.role;
+        document.getElementById('opp-avatar-frame').style.borderColor = opp.color;
+        document.getElementById('nin-comic-bubble').textContent = opp.greeting;
+
+        this.resetMatch();
+      },
+
+      resetMatch() {
+        this.currentRound = 1;
+        this.playerScore = 0;
+        this.oppScore = 0;
+        this.history = [];
+        this.isLocked = false;
+
+        document.getElementById('nin-player-score').textContent = '0 pts';
+        document.getElementById('nin-opp-score').textContent = '0 pts';
+        document.getElementById('nin-round-num').textContent = '1';
+        document.getElementById('nin-round-title').textContent = 'Ronda 1: El Primer Encuentro';
+        document.getElementById('nin-round-subtitle').textContent = 'Partida rápida de 1 minuto · Toma tu decisión';
+
+        // Resetear círculo de progreso (perímetro r=26 es ~163.36)
+        const circleBar = document.getElementById('nin-round-circle-bar');
+        if (circleBar) {
+          circleBar.style.strokeDashoffset = '130.68'; // 1/5 completado
+        }
+
+        // Limpiar bolitas de historial
+        const pDots = document.getElementById('player-history-dots').children;
+        const oDots = document.getElementById('opp-history-dots').children;
+        for (let i = 0; i < 5; i++) {
+          if (pDots[i]) pDots[i].className = 'h-dot';
+          if (oDots[i]) oDots[i].className = 'h-dot';
+        }
+
+        // Resetear cuadrantes activos
+        document.querySelectorAll('.matrix-quadrant').forEach(q => q.classList.remove('active-highlight'));
+
+        // Desbloquear botones
+        document.getElementById('btn-nin-coop').classList.remove('btn-disabled');
+        document.getElementById('btn-nin-cheat').classList.remove('btn-disabled');
+
+        const opp = NINTENDO_OPPONENTS[this.currentOppId];
+        document.getElementById('nin-comic-bubble').textContent = opp.greeting;
+      },
+
+      playTurn(playerChoice) {
+        if (this.isLocked || this.currentRound > this.maxRounds) return;
+        this.isLocked = true;
+
+        NinAudio.playClick();
+
+        // Obtener jugada del oponente
+        const opp = NINTENDO_OPPONENTS[this.currentOppId];
+        const oppChoice = opp.getMove(this.history);
+
+        // Bloquear botones temporalmente para animar
+        document.getElementById('btn-nin-coop').classList.add('btn-disabled');
+        document.getElementById('btn-nin-cheat').classList.add('btn-disabled');
+
+        // Determinar puntos
+        let pPoints = 0;
+        let oPoints = 0;
+        let activeQuadId = '';
+        let comment = '';
+
+        if (playerChoice === 'C' && oppChoice === 'C') {
+          pPoints = 3;
+          oPoints = 3;
+          activeQuadId = 'quad-cc';
+          comment = '¡Excelente! Ambos cooperaron (+3 / +3). ¡La confianza crea prosperidad!';
+          NinAudio.playCoin();
+        } else if (playerChoice === 'T' && oppChoice === 'C') {
+          pPoints = 5;
+          oPoints = 0;
+          activeQuadId = 'quad-tc';
+          comment = `¡Tentación exitosa! Te llevas +5 pts y ${opp.name} queda con 0.`;
+          NinAudio.playCheat();
+        } else if (playerChoice === 'C' && oppChoice === 'T') {
+          pPoints = 0;
+          oPoints = 5;
+          activeQuadId = 'quad-ct';
+          comment = `¡Ouch! Confiabas en ${opp.name} pero te traicionó (+0 / +5).`;
+          NinAudio.playCheat();
+        } else {
+          pPoints = 1;
+          oPoints = 1;
+          activeQuadId = 'quad-tt';
+          comment = '¡Desconfianza mutua! Ambos se traicionaron (+1 / +1).';
+          NinAudio.playTone(180, 'triangle', 0.15);
+        }
+
+        // Iluminar cuadrante correspondiente en la matriz circular
+        document.querySelectorAll('.matrix-quadrant').forEach(q => q.classList.remove('active-highlight'));
+        const activeQuad = document.getElementById(activeQuadId);
+        if (activeQuad) activeQuad.classList.add('active-highlight');
+
+        // Animar avatares
+        const pFrame = document.getElementById('player-avatar-frame');
+        const oFrame = document.getElementById('opp-avatar-frame');
+        pFrame.classList.add('bounce');
+        oFrame.classList.add('bounce');
+        setTimeout(() => {
+          pFrame.classList.remove('bounce');
+          oFrame.classList.remove('bounce');
+        }, 400);
+
+        // Mostrar bocadillo
+        document.getElementById('nin-comic-bubble').textContent = comment;
+
+        // Crear monedas flotantes
+        this.spawnFloatingCoin(pPoints, '#player-avatar-frame');
+        this.spawnFloatingCoin(oPoints, '#opp-avatar-frame');
+
+        // Sumar puntos
+        this.playerScore += pPoints;
+        this.oppScore += oPoints;
+        document.getElementById('nin-player-score').textContent = `${this.playerScore} pts`;
+        document.getElementById('nin-opp-score').textContent = `${this.oppScore} pts`;
+
+        // Registrar en historial
+        const roundIdx = this.currentRound - 1;
+        this.history.push({ player: playerChoice, opp: oppChoice });
+
+        const pDot = document.getElementById('player-history-dots').children[roundIdx];
+        const oDot = document.getElementById('opp-history-dots').children[roundIdx];
+        if (pDot) pDot.className = `h-dot ${playerChoice === 'C' ? 'coop' : 'cheat'}`;
+        if (oDot) oDot.className = `h-dot ${oppChoice === 'C' ? 'coop' : 'cheat'}`;
+
+        // Transición a la siguiente ronda o a resultados
+        setTimeout(() => {
+          if (this.currentRound >= this.maxRounds) {
+            this.finishMatch();
+          } else {
+            this.currentRound++;
+            document.getElementById('nin-round-num').textContent = this.currentRound;
+            document.getElementById('nin-round-title').textContent = `Ronda ${this.currentRound} de ${this.maxRounds}`;
+
+            // Actualizar círculo de progreso
+            const circleBar = document.getElementById('nin-round-circle-bar');
+            if (circleBar) {
+              const offset = 163.36 * (1 - this.currentRound / this.maxRounds);
+              circleBar.style.strokeDashoffset = offset;
+            }
+
+            document.getElementById('btn-nin-coop').classList.remove('btn-disabled');
+            document.getElementById('btn-nin-cheat').classList.remove('btn-disabled');
+            this.isLocked = false;
+          }
+        }, 1100);
+      },
+
+      spawnFloatingCoin(amount, targetSelector) {
+        if (amount <= 0) return;
+        const target = document.querySelector(targetSelector);
+        if (!target) return;
+        const rect = target.getBoundingClientRect();
+        const coin = document.createElement('div');
+        coin.className = 'floating-coin';
+        coin.textContent = `+${amount} 🪙`;
+        coin.style.left = `${rect.left + rect.width / 2 - 20}px`;
+        coin.style.top = `${rect.top - 10}px`;
+        document.body.appendChild(coin);
+        setTimeout(() => coin.remove(), 1000);
+      },
+
+      finishMatch() {
+        const opp = NINTENDO_OPPONENTS[this.currentOppId];
+        const modal = document.getElementById('nin-results-modal');
+        const trophy = document.getElementById('modal-trophy-icon');
+        const title = document.getElementById('modal-result-title');
+        const sub = document.getElementById('modal-result-subtitle');
+        const lessonTitle = document.getElementById('modal-lesson-title');
+        const lessonText = document.getElementById('modal-lesson-text');
+
+        sub.textContent = `Partida de 1 minuto contra ${opp.name} (${opp.role})`;
+
+        // Puntuaciones y donut comparativo
+        const totalCoins = Math.max(1, this.playerScore + this.oppScore);
+        const pPercent = Math.round((this.playerScore / totalCoins) * 100);
+        const oPercent = 100 - pPercent;
+
+        document.getElementById('modal-score-player').textContent = `Tú: ${this.playerScore} pts (${pPercent}%)`;
+        document.getElementById('modal-score-opp').textContent = `${opp.name}: ${this.oppScore} pts (${oPercent}%)`;
+
+        const playerCoops = this.history.filter(h => h.player === 'C').length;
+        const oppCoops = this.history.filter(h => h.opp === 'C').length;
+        const mutualCoopRate = Math.round(((playerCoops + oppCoops) / (this.maxRounds * 2)) * 100);
+        document.getElementById('modal-coop-rate').textContent = `Nivel de Cooperación Global: ${mutualCoopRate}%`;
+
+        // Donut SVG circumference = 2 * PI * 30 = ~188.4
+        const donutArc = document.getElementById('modal-donut-player-arc');
+        if (donutArc) {
+          const dashOffset = 188.4 * (1 - pPercent / 100);
+          donutArc.style.strokeDashoffset = dashOffset;
+        }
+
+        // Evaluar resultado y lección
+        if (this.playerScore > this.oppScore) {
+          trophy.textContent = '🏆';
+          title.textContent = '¡VICTORIA ESTRATÉGICA!';
+          title.style.color = 'var(--nin-gold)';
+          NinAudio.playWin();
+        } else if (this.playerScore === this.oppScore) {
+          trophy.textContent = '🤝';
+          title.textContent = '¡EQUILIBRIO PERFECTO!';
+          title.style.color = 'var(--nin-coop)';
+          NinAudio.playWin();
+        } else {
+          trophy.textContent = '⚠️';
+          title.textContent = '¡FUISTE SUPERADO!';
+          title.style.color = 'var(--nin-cheat)';
+          NinAudio.playTone(150, 'sawtooth', 0.4);
+        }
+
+        // Lecciones didácticas específicas por oponente y elecciones
+        if (this.currentOppId === 'kopy') {
+          if (mutualCoopRate > 70) {
+            lessonTitle.textContent = '🧠 Lección: La magia de la Reciprocidad';
+            lessonText.textContent = 'Al cooperar continuamente con Kopy, desbloqueaste el máximo beneficio mutuo. Ojo por Ojo es la estrategia más famosa de la Teoría de Juegos: amable, leal y fácil de entender.';
+          } else {
+            lessonTitle.textContent = '🧠 Lección: La trampa de la venganza';
+            lessonText.textContent = 'Cuando traicionaste a Kopy, te respondió con otra traición. En juegos repetidos, la desconfianza destruye el valor para ambos bandos.';
+          }
+        } else if (this.currentOppId === 'sneaky') {
+          if (playerCoops === 0) {
+            lessonTitle.textContent = '🧠 Lección: Defensa impecable';
+            lessonText.textContent = 'Detectaste al tramposo y no le regalaste ni un solo punto. Contra un traidor puro, cooperar es ingenuidad; el único equilibrio de Nash es defenderse con traición.';
+          } else {
+            lessonTitle.textContent = '🧠 Lección: El costo de la ingenuidad';
+            lessonText.textContent = `Le diste ${playerCoops} oportunidades a Sneaky y las aprovechó todas (+5 para él, 0 para ti). Recuerda: la bondad ciega frente a depredadores no es sostenible.`;
+          }
+        } else if (this.currentOppId === 'buddy') {
+          lessonTitle.textContent = '🧠 Lección: La tentación del parásito';
+          lessonText.textContent = 'Buddy siempre coopera. Podrías haberlo explotado por puntos a corto plazo, pero en el mundo real, los sistemas sin reciprocidad colapsan rápidamente.';
+        } else if (this.currentOppId === 'grumpy') {
+          lessonTitle.textContent = '🧠 Lección: La fragilidad del rencor';
+          lessonText.textContent = 'Grumpy nunca olvida. Una sola traición rompe la alianza para siempre. En relaciones humanas y comerciales, la reputación cuesta años ganarla y segundos perderla.';
+        } else {
+          lessonTitle.textContent = '🧠 Lección: El valor de poner límites';
+          lessonText.textContent = 'El Detective te puso a prueba. Si respondiste con firmeza a sus ataques iniciales, aprendió a respetarte y a cooperar como Kopy. El respeto se gana con reciprocidad.';
+        }
+
+        modal.style.display = 'flex';
+      }
+    };
+
+    // =========================================================
+    // SIMULADOR DE TORNEO EVOLUTIVO
+    // =========================================================
+    function runTournamentSimulation() {
+      NinAudio.playWin();
+      const oppKeys = Object.keys(NINTENDO_OPPONENTS);
+      const scores = { kopy: 0, sneaky: 0, buddy: 0, grumpy: 0, detective: 0 };
+      const roundsPerPair = 20;
+
+      // Todos contra todos
+      for (let i = 0; i < oppKeys.length; i++) {
+        for (let j = 0; j < oppKeys.length; j++) {
+          const p1Key = oppKeys[i];
+          const p2Key = oppKeys[j];
+          const p1 = NINTENDO_OPPONENTS[p1Key];
+          const p2 = NINTENDO_OPPONENTS[p2Key];
+
+          const h1 = []; // desde la perspectiva de p1
+          const h2 = []; // desde la perspectiva de p2
+
+          for (let r = 0; r < roundsPerPair; r++) {
+            const m1 = p1.getMove(h1);
+            const m2 = p2.getMove(h2);
+
+            let s1 = 0, s2 = 0;
+            if (m1 === 'C' && m2 === 'C') { s1 = 3; s2 = 3; }
+            else if (m1 === 'T' && m2 === 'C') { s1 = 5; s2 = 0; }
+            else if (m1 === 'C' && m2 === 'T') { s1 = 0; s2 = 5; }
+            else { s1 = 1; s2 = 1; }
+
+            scores[p1Key] += s1;
+            scores[p2Key] += s2;
+
+            h1.push({ player: m1, opp: m2 });
+            h2.push({ player: m2, opp: m1 });
+          }
+        }
+      }
+
+      // Ordenar resultados
+      const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+      const totalPoints = Object.values(scores).reduce((a, b) => a + b, 0);
+
+      // Renderizar donut y leaderboard
+      const resultsBox = document.getElementById('tournament-results-box');
+      const leaderboard = document.getElementById('tourney-leaderboard');
+      const donutSvg = document.getElementById('tourney-donut-svg');
+      resultsBox.style.display = 'block';
+
+      // Leaderboard HTML
+      const medals = ['🥇 1º Puesto', '🥈 2º Puesto', '🥉 3º Puesto', '4º Puesto', '5º Puesto'];
+      leaderboard.innerHTML = sorted.map(([id, score], idx) => {
+        const opp = NINTENDO_OPPONENTS[id];
+        const pct = Math.round((score / totalPoints) * 100);
+        return `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; margin-bottom: 6px; background: var(--nin-surface); border-radius: 12px; border-left: 4px solid ${opp.color};">
+            <div>
+              <span style="font-weight: 700; color: #fff;">${medals[idx]} ${opp.icon} ${opp.name}</span>
+              <span style="font-size: 0.78rem; color: var(--nin-text-dim); margin-left: 8px;">${opp.role}</span>
+            </div>
+            <div style="font-family: 'Fredoka', cursive; font-weight: 700; color: var(--nin-gold);">
+              ${score} pts (${pct}%)
+            </div>
+          </div>
+        `;
+      }).join('') + `
+        <div style="margin-top: 12px; padding: 10px 14px; background: rgba(0, 230, 118, 0.1); border: 1px solid rgba(0, 230, 118, 0.3); border-radius: 12px; font-size: 0.85rem; color: #cbd5e1;">
+          💡 <strong>Conclusión Evolutiva:</strong> ¡Kopy (Tit for Tat) y las estrategias que premian la reciprocidad ganan la liga! La traición pura (Sneaky) obtiene victorias fáciles al inicio pero queda aislada al final, demostrando matemáticamente cómo la cooperación triunfa en la naturaleza.
+        </div>
+      `;
+
+      // Dibujar gráfico donut SVG
+      let currentOffset = 0;
+      const circumference = 2 * Math.PI * 35; // r=35 -> ~220
+      donutSvg.innerHTML = sorted.map(([id, score]) => {
+        const opp = NINTENDO_OPPONENTS[id];
+        const fraction = score / totalPoints;
+        const dash = fraction * circumference;
+        const offset = currentOffset;
+        currentOffset += dash;
+        return `
+          <circle cx="50" cy="50" r="35" fill="none" stroke="${opp.color}" stroke-width="15"
+                  stroke-dasharray="${dash} ${circumference - dash}"
+                  stroke-dashoffset="-${offset}">
+          </circle>
+        `;
+      }).join('');
+    }
+
+    // =========================================================
+    // ENLACE DE EVENTOS UI NINTENDO & ATAJOS
+    // =========================================================
+    function initNintendoUI() {
+      // Inicializar juego Nintendo
+      NinMatch.init();
+
+      // Botones de acción Nintendo
+      const btnCoop = document.getElementById('btn-nin-coop');
+      const btnCheat = document.getElementById('btn-nin-cheat');
+
+      if (btnCoop) btnCoop.addEventListener('click', () => NinMatch.playTurn('C'));
+      if (btnCheat) btnCheat.addEventListener('click', () => NinMatch.playTurn('T'));
+
+      // Chips de oponentes
+      document.querySelectorAll('.opp-chip-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          NinAudio.playClick();
+          NinMatch.selectOpponent(btn.getAttribute('data-opp'));
+        });
+      });
+
+      // Botones de desafiar en la galería
+      document.querySelectorAll('.btn-play-opp').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const oppId = btn.getAttribute('data-play-opp');
+          document.getElementById('master-tab-game').click();
+          NinMatch.selectOpponent(oppId);
+        });
+      });
+
+      // Modal de resultados
+      const btnReplay = document.getElementById('btn-modal-replay');
+      const btnNextOpp = document.getElementById('btn-modal-next-opp');
+
+      if (btnReplay) {
+        btnReplay.addEventListener('click', () => {
+          NinAudio.playClick();
+          document.getElementById('nin-results-modal').style.display = 'none';
+          NinMatch.resetMatch();
+        });
+      }
+
+      if (btnNextOpp) {
+        btnNextOpp.addEventListener('click', () => {
+          NinAudio.playClick();
+          document.getElementById('nin-results-modal').style.display = 'none';
+          const oppKeys = Object.keys(NINTENDO_OPPONENTS);
+          const nextIdx = (oppKeys.indexOf(NinMatch.currentOppId) + 1) % oppKeys.length;
+          NinMatch.selectOpponent(oppKeys[nextIdx]);
+        });
+      }
+
+      // Botón torneo
+      const btnTourney = document.getElementById('btn-run-tournament');
+      if (btnTourney) {
+        btnTourney.addEventListener('click', () => {
+          runTournamentSimulation();
+        });
+      }
+
+      // NAVEGACIÓN MAESTRA ENTRE PANTALLAS
+      const tabGame = document.getElementById('master-tab-game');
+      const tabOpponents = document.getElementById('master-tab-opponents');
+      const tabSim = document.getElementById('master-tab-sim');
+      const brandHomeBtn = document.getElementById('brand-home-btn');
+      const btnBackToGame = document.getElementById('btn-back-to-game');
+
+      const screenGame = document.getElementById('screen-nintendo-game');
+      const screenOpponents = document.getElementById('screen-opponents');
+      const screenSpatial = document.getElementById('screen-spatial-sim');
+
+      function switchMasterScreen(screenId) {
+        NinAudio.playClick();
+        if (tabGame) tabGame.classList.remove('active');
+        if (tabOpponents) tabOpponents.classList.remove('active');
+        if (tabSim) tabSim.classList.remove('active');
+
+        if (screenGame) screenGame.style.display = 'none';
+        if (screenOpponents) screenOpponents.style.display = 'none';
+        if (screenSpatial) screenSpatial.style.display = 'none';
+
+        if (screenId === 'game') {
+          if (tabGame) tabGame.classList.add('active');
+          if (screenGame) screenGame.style.display = 'flex';
+        } else if (screenId === 'opponents') {
+          if (tabOpponents) tabOpponents.classList.add('active');
+          if (screenOpponents) screenOpponents.style.display = 'flex';
+        } else if (screenId === 'sim') {
+          if (tabSim) tabSim.classList.add('active');
+          if (screenSpatial) screenSpatial.style.display = 'block';
+          if (typeof render === 'function') render();
+        }
+      }
+
+      if (tabGame) tabGame.addEventListener('click', () => switchMasterScreen('game'));
+      if (brandHomeBtn) brandHomeBtn.addEventListener('click', () => switchMasterScreen('game'));
+      if (tabOpponents) tabOpponents.addEventListener('click', () => switchMasterScreen('opponents'));
+      if (tabSim) tabSim.addEventListener('click', () => switchMasterScreen('sim'));
+      if (btnBackToGame) btnBackToGame.addEventListener('click', () => switchMasterScreen('game'));
+
+      // Atajos de teclado en el juego de 1 minuto
+      window.addEventListener('keydown', (e) => {
+        if (!screenGame || screenGame.style.display === 'none') return;
+        if (e.code === 'KeyC') {
+          NinMatch.playTurn('C');
+        } else if (e.code === 'KeyT' || e.code === 'KeyE') {
+          NinMatch.playTurn('T');
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNintendoUI);
+    } else {
+      initNintendoUI();
+    }
+
   </script>
 </body>
 

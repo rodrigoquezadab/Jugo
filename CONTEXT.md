@@ -1,27 +1,32 @@
-# CONTEXTO DEL PROYECTO: DILEMA DEL PRISIONERO EVOLUTIVO 2D (TOROIDAL)
+# CONTEXTO DEL PROYECTO: EL DILEMA DEL PRISIONERO (APRENDIZAJE EN 1 MINUTO & SIMULADOR ESPACIAL 2D)
 
 ## 1. Visión General
-Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) que implementa una simulación de **Teoría de Juegos Evolutiva Espacial** y **Autómatas Celulares**: el **Dilema del Prisionero Iterado en un Espacio Bidimensional Toroidal**.
+Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias:
 
-Presenta una arquitectura híbrida con soporte completo para:
-1. **Skins Visuales Intercambiables:**
-   * **Skin Dwarf Fortress / ASCII Retro:** Terminal CRT con fuente monoespaciada, texto verde fósforo (`#33ff33`), líneas de escaneo y renderizado en bloque `<pre>`.
-   * **Skin Minecraft / Voxel Pixel Art:** Texturas procedurales de 16x16 píxeles (Césped, Bloque de Esmeralda, Bloque de TNT, Bloque de Diamante) renderizadas en un `<canvas>` 2D acelerado, con interfaz de piedra labrada y botones biselados de Minecraft.
-2. **Modo Tutorial / Aprendizaje (Por Defecto):** Experiencia didáctica e interactiva paso a paso diseñada para aprender Teoría de Juegos desde cero, con 4 lecciones progresivas (Cooperación pura, Tentación de la Traición, El Guardián Ojo por Ojo y El Colapso de los Traidores), avances manuales explicados en tiempo real y transición fluida al laboratorio.
-3. **Modo Laboratorio / Sandbox:** Simulación continua, ejecución paso a paso, presets históricos y modificación interactiva de la matriz de pagos y parámetros biológicos.
-4. **Modo Duelo Multijugador por Turnos:** Competencia táctica local (*Hot-seat*) para 2 a 4 jugadores por turnos, con sistema de Puntos de Acción (PA), facciones, combate evolutivo y registro de combate en tiempo real.
+1. **Juego de Aprendizaje en 1 Minuto (Modo Principal por Defecto):**
+   * **Estética Nintendo Moderna:** Fondo negro puro (`#07080c`) con iluminaciones circulares difusas, tipografías redondeadas ('Fredoka' y 'Outfit'), botones 3D ultra-táctiles y jugosos.
+   * **Gráficos Circulares:** Avatares circulares SVG expresivos con gestos animados, anillo circular SVG para progreso de ronda y tiempo, matriz de pagos en flor circular de 4 cuadrantes, y donut charts de porcentaje y podio.
+   * **Ritmo Ágil de 1 Minuto:** Partidas rápidas de 5 rondas (~10-12s por ronda, ~60s totales) contra 5 arquetipos clásicos de IA (Kopy, Sneaky, Buddy, Grumpy y Detective) con decisiones sencillas (🤝 COOPERAR vs 🗡️ ENGAÑAR), efectos de monedas flotantes, sonido de sintetizador retro sintetizado con Web Audio API y lecciones didácticas personalizadas al finalizar.
+   * **Simulador de Torneo Evolutivo:** Módulo que ejecuta una liga redonda de 100 rondas entre todos los personajes y demuestra gráficamente por qué la cooperación recíproca triunfa sobre la traición en la evolución.
+
+2. **Apartado Dedicado: Simulador Espacial 2D Toroidal (Minecraft & Dwarf Fortress):**
+   * Preservado íntegramente y accesible mediante el botón superior **`[ 🔬 SIMULADOR 2D (MINECRAFT/ASCII) ]`**.
+   * Autómata celular toroidal $60 \times 30$ con vecindad de Moore (8 vecinos) y reglas de Nowak & May (1992).
+   * Skins intercambiables: Pixel Art Minecraft en Canvas 2D y Terminal CRT ASCII retro Dwarf Fortress en bloque `<pre>` (atajo `[M]`).
+   * Tres modalidades: Tutorial guiado en 4 lecciones, Laboratorio Sandbox con sliders en tiempo real y Modo Duelo Multijugador por turnos (2-4 jugadores).
 
 ---
 
 ## 2. Pila Tecnológica & Arquitectura
-* **HTML5 Estándar:** Estructura semántica sin dependencias externas ni frameworks pesados.
-* **CSS3 Embebido Dual:**
-  * Modo Terminal: Fondo `#050805`, verde fósforo `#33ff33`, scanlines CRT y bordes discontinuos tipo caja ASCII.
-  * Modo Minecraft: Fondo texturizado bedrock/piedra, botones con bisel 3D pixelado (`#4a423a`), sombras duras y renderizado de píxeles nítidos (`image-rendering: pixelated`).
-* **JavaScript ES6 Modular & Motor Gráfico Dual:**
-  * **Optimización de Rendimiento:** Uso de `Uint8Array` y `Float32Array` para almacenar estrategias, facciones y fitness.
-  * **Double Buffering:** Matrices dobles (`currentGrid`, `nextGrid`, `ownerGrid`, `nextOwnerGrid`) para transiciones libres de efectos de borde y sin recolección de basura (*GC thrashing*), garantizando 60 FPS estables.
-  * **Renderizador Dual:** Alternancia instantánea y reactiva entre un viewport `<pre>` (Dwarf Fortress) y un `<canvas>` de $960 \times 480$ px (Minecraft) manteniendo el estado exacto de la simulación.
+* **HTML5 Estándar:** Arquitectura de archivo plano sin dependencias externas obligatorias ni bundlers.
+* **CSS3 Embebido Multi-Tema:**
+  * Tema Nintendo Dark: `#07080c`, componentes con bordes circulares (`border-radius: 50%` y `999px`), elevaciones 3D (`box-shadow`), gradientes de alto contraste y animaciones de rebote elásticas.
+  * Tema Terminal ASCII: Verde fósforo `#33ff33`, scanlines CRT y caja monoespaciada.
+  * Tema Minecraft: Piedra labrada, biseles pixelados y renderizado pixelado `image-rendering: pixelated`.
+* **Audio Nativo Web Audio API:** Generación procedural de tonos sinusoidales, triangulares y diente de sierra para monedas, clics y fanfarrias sin archivos externos.
+* **JavaScript ES6 Modular:**
+  * Motor Nintendo de 1 minuto: ciclo de turnos, máquinas de estado de los oponentes, cálculo de recompensas, renderizado de gráficos circulares SVG y lecciones reflexivas.
+  * Motor Espacial 2D: matrices `Uint8Array` y `Float32Array` con *double buffering* para 60 FPS estables.
 
 ---
 
