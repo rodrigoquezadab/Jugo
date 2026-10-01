@@ -3,17 +3,27 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.2.0` (Modo Historia RPG para 1 Jugador · Nintendo Switch Handheld Experience · Zero-Scroll Fit)
+> **Versión del Proyecto:** `1.3.0` (Barra de Balance en Vivo Conmutable · Reporte Analítico Multijugador · Perfiles Psicológicos)
 
-1. **Modo Historia para 1 Jugador: "Crónicas de la Confianza" (Por Defecto):**
-   * **Narrativa Guiada:** Campaña de 5 capítulos que sumerge al jugador en el papel de "El Viajero", enfrentando dilemas morales y económicos en el Valle de la Confianza.
-   * **Caja de Diálogo RPG con Retroalimentación Viva:** Cada elección (🤝 Cumplir Pacto vs 🗡️ Traicionar) genera una respuesta de diálogo contextual del personaje (Buddy, Sneaky, Kopy, Grumpy y Detective), impactando las monedas y el porcentaje de Confianza Social del pueblo.
-   * **El Diario del Sabio:** Al culminar cada capítulo, se desbloquea una página ilustrada con la explicación pedagógica del principio matemático y social que opera en ese escenario.
-   * **Chasis de Consola Portátil Nintendo Switch:** Marco físico con Joy-Con izquierdo (Neon Blue) y Joy-Con derecho (Neon Red) interactivos (botones ABXY [Y] y [X] funcionales, D-Pad para navegar y sticks analógicos).
-   * **Ajuste sin Scroll (720p / 1080p):** Toda la telemetría, diálogo, personajes y controles están diseñados para visualizarse simultáneamente dentro de la pantalla sin requerir scroll vertical.
-   * **Pestañas Adicionales:** Modo Arcade (Duelo libre de 1 minuto), Torneo Evolutivo de 100 rondas y Simulador 2D.
+1. **Barra de Progreso / Balance en Vivo (Cooperaciones vs Ataques):**
+   * Indicador visual dinámico segmentado en verde (Cooperaciones 🤝) y rojo (Ataques/Traiciones 🗡️).
+   * **Conmutabilidad con 1 Clic (`[H]` / Botón):** Permite al jugador alternar instantáneamente entre jugar viendo la telemetría en vivo o jugar a ciegas sin verla para no condicionar sus decisiones, revelando el resultado al final.
+   * Funcional en Modo Historia, Duelo Arcade y Modo Multijugador.
 
-2. **Apartado Dedicado: Simulador Espacial 2D Toroidal (Minecraft & Dwarf Fortress):**
+2. **Modo Multijugador Táctico (2 a 4P) & Reporte Analítico Final:**
+   * Duelo local por turnos (Hot-seat) accesible desde la pestaña `[ ⚔️ MULTIJUGADOR (2-4P) ]`.
+   * Puntos de Acción (PA) para desplegar Cooperadores (Esmeralda), Traidores (TNT), Imitadores (Diamante) o Pulsos de Caos (Bomba).
+   * **Gran Pantalla de Estadísticas Finales Multijugador:**
+     * Balance global de agresividad vs cooperación.
+     * Tarjeta individual de cada jugador con conteo de jugadas, territorio conquistado y fitness acumulado.
+     * **Perfil Psicológico y Título Honorífico Automatizado:** Clasificación según conducta de juego (*El Pacifista Constructor*, *El Conquistador Traidor*, *El Guardián Ojo por Ojo*, *El Pirómano del Caos* o *El Estratega Equilibrado*).
+
+3. **Modo Historia para 1 Jugador: "Crónicas de la Confianza" (Por Defecto):**
+   * Campaña de 5 capítulos con narrativa visual RPG en pantalla (Buddy, Sneaky, Kopy, Grumpy y Detective).
+   * Diálogos en tiempo real y Diario del Sabio explicativo al superar cada lección.
+   * Chasis Nintendo Switch con Joy-Cons interactivos y ajuste 100% a 720p/1080p sin scroll vertical.
+
+4. **Apartado Dedicado: Simulador Espacial 2D Toroidal (Minecraft & Dwarf Fortress):**
    * Preservado íntegramente y accesible mediante el botón superior **`[ 🔬 SIMULADOR 2D ]`** dentro del Switch OS.
    * Autómata celular toroidal $60 \times 30$ con vecindad de Moore (8 vecinos) y reglas de Nowak & May (1992).
    * Skins intercambiables: Pixel Art Minecraft en Canvas 2D y Terminal CRT ASCII retro Dwarf Fortress en bloque `<pre>` (atajo `[M]`).

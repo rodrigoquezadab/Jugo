@@ -1510,6 +1510,162 @@
       height: 100%;
     }
 
+  
+    /* =========================================================
+       BARRA DE BALANCE EN VIVO (COOPERACIONES VS ATAQUES) & ESTADÍSTICAS FINALES
+       ========================================================= */
+    .live-balance-hud {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(14, 18, 28, 0.9);
+      border: 1.5px solid #283248;
+      border-radius: 999px;
+      padding: 4px 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .live-balance-hud.collapsed .live-balance-bar-wrap {
+      display: none;
+    }
+
+    .live-balance-hud.collapsed {
+      background: rgba(14, 18, 28, 0.6);
+      border-color: #1e2436;
+      padding: 3px 8px;
+    }
+
+    .live-balance-bar-wrap {
+      width: 170px;
+      height: 16px;
+      border-radius: 999px;
+      background: #090b10;
+      border: 1.5px solid #283044;
+      display: flex;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .live-bar-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #fff;
+      transition: width 0.3s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .live-bar-segment.coop {
+      background: linear-gradient(90deg, #00e676, #00b050);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+    }
+
+    .live-bar-segment.cheat {
+      background: linear-gradient(90deg, #ff2d55, #c2183a);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+    }
+
+    .live-balance-toggle-btn {
+      background: #1a2030;
+      border: 1px solid #333d56;
+      color: #cbd5e1;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .live-balance-toggle-btn:hover {
+      background: #252e46;
+      color: #fff;
+      border-color: #3b82f6;
+    }
+
+    /* PANTALLA DE ESTADÍSTICAS FINALES MULTIJUGADOR NINTENDO */
+    .mp-analytics-sheet {
+      background: radial-gradient(circle at 50% 0%, #1c2236 0%, #0d1017 100%);
+      border: 3px solid #ffcc00;
+      border-radius: 28px;
+      max-width: 680px;
+      width: 100%;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 204, 0, 0.3);
+      animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .mp-players-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .mp-player-stat-card {
+      background: rgba(18, 22, 33, 0.9);
+      border-radius: 16px;
+      padding: 10px 14px;
+      border-left: 5px solid #00ffff;
+      border-top: 1px solid #293246;
+      border-right: 1px solid #293246;
+      border-bottom: 1px solid #293246;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .mp-player-stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mp-player-stat-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .mp-player-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mp-stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      color: #94a3b8;
+    }
+
+    .mp-stat-row span:last-child {
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
   </style>
 </head>
 
@@ -1558,8 +1714,11 @@
           <button id="switch-tab-story" class="switch-tab-btn active">
             <span>📖</span> HISTORIA (1P)
           </button>
+          <button id="switch-tab-multiplayer" class="switch-tab-btn" style="color: #ffaa00;">
+            <span>⚔️</span> MULTIJUGADOR (2-4P)
+          </button>
           <button id="switch-tab-arcade" class="switch-tab-btn">
-            <span>⚡</span> DUELO RÁPIDO
+            <span>⚡</span> DUELO ARCADE
           </button>
           <button id="switch-tab-opponents" class="switch-tab-btn">
             <span>👥</span> TORNEO
@@ -1568,6 +1727,18 @@
             <span>🔬</span> SIMULADOR 2D
           </button>
         </nav>
+
+        <!-- BARRA DE BALANCE EN VIVO (COOPERACIONES VS ATAQUES) CON 1 CLIC PARA VERLA U OCULTARLA -->
+        <div class="live-balance-hud" id="live-balance-hud" title="Clic para ver u ocultar la barra de cooperaciones vs ataques">
+          <div class="live-balance-bar-wrap" id="live-balance-bar-wrap">
+            <div class="live-bar-segment coop" id="live-bar-coop" style="width: 50%;">🤝 50%</div>
+            <div class="live-bar-segment cheat" id="live-bar-cheat" style="width: 50%;">🗡️ 50%</div>
+          </div>
+          <button class="live-balance-toggle-btn" id="btn-toggle-live-bar" type="button">
+            <span id="live-bar-toggle-icon">👁️</span>
+            <span id="live-bar-toggle-text">Ocultar Barra</span>
+          </button>
+        </div>
 
         <div class="switch-sys-status">
           <button id="btn-sound-toggle" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Sonido">🔊</button>
@@ -2129,12 +2300,38 @@
     </div>
 
     <!-- MODAL DE VICTORIA -->
-    <div id="victory-modal">
-      <div class="victory-box">
-        <h2 id="victory-title" style="color: #00ffff; margin-bottom: 12px; font-size: 18px;">¡VICTORIA EVOLUTIVA!</h2>
-        <pre id="victory-art" style="font-size: 11px; margin-bottom: 14px; color: var(--text-main);"></pre>
-        <p id="victory-desc" style="font-size: 13px; margin-bottom: 16px;"></p>
-        <button id="btn-close-victory" class="ascii-btn">[ CONTINUAR ]</button>
+    <div id="victory-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; padding: 14px;">
+      <div class="mp-analytics-sheet">
+        <div style="font-size: 40px; animation: trophySpin 0.8s ease-out;">🏆</div>
+        <h2 id="victory-title" style="color: #ffcc00; margin: 0; font-family: 'Fredoka', cursive; font-size: 1.7rem;">¡VICTORIA MULTIJUGADOR!</h2>
+        
+        <!-- Balance global de la partida -->
+        <div style="width: 100%; background: #131722; border: 1.5px solid #2b354c; border-radius: 16px; padding: 12px 16px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px;">
+            <span style="color: #00e676;" id="mp-final-coop-label">🤝 Cooperaciones Totales: 0</span>
+            <span style="color: #ff2d55;" id="mp-final-cheat-label">🗡️ Ataques/Traición: 0</span>
+          </div>
+          <div style="width: 100%; height: 16px; border-radius: 999px; background: #08090e; display: flex; overflow: hidden; border: 1px solid #333d56;">
+            <div id="mp-final-coop-bar" style="height: 100%; width: 50%; background: linear-gradient(90deg, #00e676, #00b050);"></div>
+            <div id="mp-final-cheat-bar" style="height: 100%; width: 50%; background: linear-gradient(90deg, #ff2d55, #c2183a);"></div>
+          </div>
+        </div>
+
+        <!-- Tarjetas analíticas individuales por jugador -->
+        <div class="mp-players-stats-grid" id="mp-analytics-players-grid">
+          <!-- Inyectado dinámicamente -->
+        </div>
+
+        <p id="victory-desc" style="font-size: 0.85rem; color: #cbd5e1; margin: 0; max-width: 600px; line-height: 1.4;"></p>
+
+        <div style="display: flex; gap: 10px; width: 100%; justify-content: center; margin-top: 4px;">
+          <button id="btn-mp-rematch" class="story-choice-btn story-btn-advance" style="padding: 10px 20px; font-size: 1rem;">
+            ↺ REVANCHA INMEDIATA
+          </button>
+          <button id="btn-close-victory" class="story-choice-btn story-btn-coop" style="padding: 10px 20px; font-size: 1rem; background: #232a3b; box-shadow: none; border: 1.5px solid #3d4964; color: #fff;">
+            ⬅ VOLVER A LA CONSOLA
+          </button>
+        </div>
       </div>
     </div>
 
@@ -2239,7 +2436,58 @@
       currentAP: 5,
       epochsPerRound: 2,
       scores: [0, 0, 0, 0, 0],
+      // Estadísticas detalladas de combate y diplomacia por jugador:
+      coopActions: [0, 0, 0, 0, 0],
+      cheatActions: [0, 0, 0, 0, 0],
+      tftActions: [0, 0, 0, 0, 0],
+      bombActions: [0, 0, 0, 0, 0],
       gameOver: false
+    };
+
+    // Administrador de la Barra de Balance en Vivo
+    const LiveBalanceHUD = {
+      visible: true,
+      coopTotal: 0,
+      cheatTotal: 0,
+
+      setCounts(coops, cheats) {
+        this.coopTotal = Math.max(0, coops);
+        this.cheatTotal = Math.max(0, cheats);
+        this.render();
+      },
+
+      add(type) {
+        if (type === 'coop') this.coopTotal++;
+        else if (type === 'cheat') this.cheatTotal++;
+        this.render();
+      },
+
+      toggle() {
+        this.visible = !this.visible;
+        const hud = document.getElementById('live-balance-hud');
+        const icon = document.getElementById('live-bar-toggle-icon');
+        const text = document.getElementById('live-bar-toggle-text');
+        if (hud) hud.classList.toggle('collapsed', !this.visible);
+        if (icon) icon.textContent = this.visible ? '👁️' : '🙈';
+        if (text) text.textContent = this.visible ? 'Ocultar Barra' : 'Ver Barra';
+      },
+
+      render() {
+        const total = this.coopTotal + this.cheatTotal;
+        const coopPct = total > 0 ? Math.round((this.coopTotal / total) * 100) : 50;
+        const cheatPct = total > 0 ? 100 - coopPct : 50;
+
+        const coopBar = document.getElementById('live-bar-coop');
+        const cheatBar = document.getElementById('live-bar-cheat');
+        if (coopBar) {
+          coopBar.style.width = `${coopPct}%`;
+          coopBar.textContent = `🤝 ${coopPct}%`;
+        }
+        if (cheatBar) {
+          cheatBar.style.width = `${cheatPct}%`;
+          cheatBar.textContent = `🗡️ ${cheatPct}%`;
+        }
+      }
     };
 
     // Estructuras de Datos de la Simulación
@@ -3007,6 +3255,7 @@
     function triggerVictory(pCounts) {
       mpState.gameOver = true;
       pauseSimulation();
+      NinAudio.playWin();
 
       let winner = 1;
       let maxScore = -1;
@@ -3018,25 +3267,93 @@
         }
       }
 
-      const winTitle = `¡VICTORIA PARA ${PLAYER_NAMES[winner]}!`;
-      const winDesc = `El ${PLAYER_NAMES[winner]} ha conquistado el espacio toroidal con ${pCounts[winner]} celdas y ${Math.round(mpState.scores[winner])} pts de fitness tras ${mpState.currentRound} rondas.`;
-
-      const asciiTrophy =
-        `         ._______/\_______.
-         |                 |
-         |  VICTORIA TOTAL |
-         |   FAVOR P${winner}     |
-         \   ___________   /
-          \ /           \ /
-           |  (★ ★ ★)    |
-          /               \
-         /_________________\
-`;
+      const winTitle = `🏆 ¡VICTORIA PARA ${PLAYER_NAMES[winner]}!`;
+      const winDesc = `El ${PLAYER_NAMES[winner]} conquistó el espacio con ${pCounts[winner]} celdas activas y ${Math.round(mpState.scores[winner])} pts de fitness evolutivo tras ${mpState.currentRound} rondas de combate táctico.`;
 
       document.getElementById('victory-title').textContent = winTitle;
-      document.getElementById('victory-title').className = PLAYER_COLORS[winner];
-      document.getElementById('victory-art').textContent = asciiTrophy;
       document.getElementById('victory-desc').textContent = winDesc;
+
+      // Calcular balance global de cooperaciones vs ataques
+      let totalCoops = 0, totalCheats = 0;
+      for (let p = 1; p <= mpState.numPlayers; p++) {
+        totalCoops += (mpState.coopActions[p] || 0) + (mpState.tftActions[p] || 0);
+        totalCheats += (mpState.cheatActions[p] || 0) + (mpState.bombActions[p] || 0);
+      }
+      const allActions = totalCoops + totalCheats;
+      const coopPct = allActions > 0 ? Math.round((totalCoops / allActions) * 100) : 50;
+      const cheatPct = 100 - coopPct;
+
+      const coopLbl = document.getElementById('mp-final-coop-label');
+      const cheatLbl = document.getElementById('mp-final-cheat-label');
+      const coopBar = document.getElementById('mp-final-coop-bar');
+      const cheatBar = document.getElementById('mp-final-cheat-bar');
+
+      if (coopLbl) coopLbl.textContent = `🤝 Cooperaciones Totales: ${totalCoops} (${coopPct}%)`;
+      if (cheatLbl) cheatLbl.textContent = `🗡️ Ataques/Traición: ${totalCheats} (${cheatPct}%)`;
+      if (coopBar) coopBar.style.width = `${coopPct}%`;
+      if (cheatBar) cheatBar.style.width = `${cheatPct}%`;
+
+      // Tarjetas individuales de los jugadores con Perfil Psicológico
+      const grid = document.getElementById('mp-analytics-players-grid');
+      if (grid) {
+        const borderColors = ['#00ffff', '#ffaa00', '#d946ef', '#f1f5f9'];
+        grid.innerHTML = Array.from({ length: mpState.numPlayers }, (_, i) => {
+          const p = i + 1;
+          const coops = mpState.coopActions[p] || 0;
+          const cheats = mpState.cheatActions[p] || 0;
+          const tfts = mpState.tftActions[p] || 0;
+          const bombs = mpState.bombActions[p] || 0;
+          const cells = pCounts[p] || 0;
+          const pts = Math.round(mpState.scores[p] || 0);
+
+          // Determinar perfil psicológico / título honorífico
+          let profile = '⚖️ Estratega Equilibrado';
+          let profileColor = '#38bdf8';
+          if (bombs >= 2) {
+            profile = '💥 Pirómano del Caos';
+            profileColor = '#f97316';
+          } else if (cheats >= (coops + tfts) * 1.5 && cheats > 2) {
+            profile = '🗡️ Conquistador Traidor';
+            profileColor = '#ff2d55';
+          } else if (coops >= (cheats + bombs) * 1.5 && coops > 2) {
+            profile = '🕊️ Pacifista Constructor';
+            profileColor = '#00e676';
+          } else if (tfts >= coops && tfts >= cheats && tfts > 1) {
+            profile = '💎 Guardián Ojo por Ojo';
+            profileColor = '#00d2ff';
+          }
+
+          return `
+            <div class="mp-player-stat-card" style="border-left-color: ${borderColors[i]};">
+              <div class="mp-player-stat-header">
+                <span class="mp-player-stat-name" style="color: ${borderColors[i]};">${PLAYER_NAMES[p]} ${p === winner ? '👑' : ''}</span>
+                <span class="mp-player-badge" style="color: ${profileColor};">${profile}</span>
+              </div>
+              <div class="mp-stat-row">
+                <span>🤝 Cooperaciones (Esmeralda):</span>
+                <span>${coops}</span>
+              </div>
+              <div class="mp-stat-row">
+                <span>🗡️ Infiltraciones TNT:</span>
+                <span>${cheats}</span>
+              </div>
+              <div class="mp-stat-row">
+                <span>💎 Centinelas TFT (Diamante):</span>
+                <span>${tfts}</span>
+              </div>
+              <div class="mp-stat-row">
+                <span>💥 Pulsos de Caos:</span>
+                <span>${bombs}</span>
+              </div>
+              <div class="mp-stat-row" style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <span>🏰 Territorio Conquistado:</span>
+                <span style="color: #ffcc00;">${cells} celdas (${pts} pts)</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
       victoryModal.style.display = 'flex';
       addLogEntry(`¡FIN DEL DUELO! Ganador: ${PLAYER_NAMES[winner]}`, 'important');
     }
@@ -3146,6 +3463,8 @@
             return;
           }
           mpState.currentAP -= 2;
+          mpState.bombActions[mpState.activePlayer]++;
+          LiveBalanceHUD.add('cheat');
 
           const cx = idx % WIDTH;
           const cy = Math.floor(idx / WIDTH);
@@ -3171,6 +3490,18 @@
         currentGrid[idx] = selectedBrush;
         ownerGrid[idx] = mpState.activePlayer;
         lastActionGrid[idx] = (selectedBrush === TRAITOR) ? TRAITOR : COOP;
+
+        // Registrar estadísticas tácticas
+        if (selectedBrush === COOP) {
+          mpState.coopActions[mpState.activePlayer]++;
+          LiveBalanceHUD.add('coop');
+        } else if (selectedBrush === TRAITOR) {
+          mpState.cheatActions[mpState.activePlayer]++;
+          LiveBalanceHUD.add('cheat');
+        } else if (selectedBrush === IMITATOR) {
+          mpState.tftActions[mpState.activePlayer]++;
+          LiveBalanceHUD.add('coop');
+        }
 
         updateMpBannerUI();
         render();
@@ -4267,21 +4598,29 @@
           trustDelta = +5;
           dialogue = chap.dialogues.coop[Math.min(this.currentStep, chap.dialogues.coop.length - 1)];
           NinAudio.playCoin();
+          LiveBalanceHUD.add('coop');
+          LiveBalanceHUD.add('coop');
         } else if (playerChoice === 'T' && oppChoice === 'C') {
           earned = 5;
           trustDelta = -15;
           dialogue = chap.dialogues.cheat[Math.min(this.currentStep, chap.dialogues.cheat.length - 1)];
           NinAudio.playCheat();
+          LiveBalanceHUD.add('cheat');
+          LiveBalanceHUD.add('coop');
         } else if (playerChoice === 'C' && oppChoice === 'T') {
           earned = 0;
           trustDelta = -5;
           dialogue = chap.dialogues.coop[Math.min(this.currentStep, chap.dialogues.coop.length - 1)];
           NinAudio.playCheat();
+          LiveBalanceHUD.add('coop');
+          LiveBalanceHUD.add('cheat');
         } else {
           earned = 1;
           trustDelta = -5;
           dialogue = chap.dialogues.cheat[Math.min(this.currentStep, chap.dialogues.cheat.length - 1)];
           NinAudio.playTone(180, 'triangle', 0.15);
+          LiveBalanceHUD.add('cheat');
+          LiveBalanceHUD.add('cheat');
         }
 
         this.totalCoins += earned;
@@ -4448,11 +4787,51 @@
         }
       }
 
-      if (tabStory) tabStory.addEventListener('click', () => switchMode('story'));
+      // Pestaña Multijugador Directa en Switch OS
+      const tabMp = document.getElementById('switch-tab-multiplayer');
+
+      if (tabStory) tabStory.addEventListener('click', () => {
+        switchMode('story');
+        LiveBalanceHUD.setCounts(StoryEngine.totalCoins > 0 ? 5 : 0, 0);
+      });
+      if (tabMp) tabMp.addEventListener('click', () => {
+        switchMode('sim');
+        tabMultiplayer.click();
+        LiveBalanceHUD.setCounts(0, 0);
+      });
       if (tabArcade) tabArcade.addEventListener('click', () => switchMode('arcade'));
       if (tabOpp) tabOpp.addEventListener('click', () => switchMode('opp'));
       if (tabSim) tabSim.addEventListener('click', () => switchMode('sim'));
       if (btnBackFromSim) btnBackFromSim.addEventListener('click', () => switchMode('story'));
+
+      // Evento de 1 Clic para Ver u Ocultar la Barra de Balance en Vivo
+      const btnToggleLiveBar = document.getElementById('btn-toggle-live-bar');
+      const liveBarWrap = document.getElementById('live-balance-bar-wrap');
+      if (btnToggleLiveBar) btnToggleLiveBar.addEventListener('click', () => LiveBalanceHUD.toggle());
+      if (liveBarWrap) liveBarWrap.addEventListener('click', () => LiveBalanceHUD.toggle());
+
+      // Atajo de teclado 'H' para alternar barra
+      window.addEventListener('keydown', (e) => {
+        if (e.code === 'KeyH') LiveBalanceHUD.toggle();
+      });
+
+      // Botón revancha en modal de estadísticas multijugador
+      const btnMpRematch = document.getElementById('btn-mp-rematch');
+      if (btnMpRematch) {
+        btnMpRematch.addEventListener('click', () => {
+          NinAudio.playClick();
+          victoryModal.style.display = 'none';
+          setupMultiplayerMatch();
+        });
+      }
+
+      const btnCloseVictoryModal = document.getElementById('btn-close-victory');
+      if (btnCloseVictoryModal) {
+        btnCloseVictoryModal.addEventListener('click', () => {
+          NinAudio.playClick();
+          victoryModal.style.display = 'none';
+        });
+      }
       // Reloj digital en vivo para Switch OS
       function updateSwitchClock() {
         const clockEl = document.getElementById('switch-clock');

@@ -2,11 +2,29 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.2.0**: Modo Historia para 1 jugador ("Crónicas de la Confianza") con diálogos RPG, seguimiento narrativo, Diario del Sabio, Joy-Cons interactivos y ajuste a pantallas 720p/1080p sin scroll.
+> **Versión 1.3.0**: Barra de balance en vivo (Cooperaciones vs Ataques) conmutable con 1 clic (o jugar a ciegas) y Pantalla de Estadísticas Finales Avanzadas en Multijugador con perfiles psicológicos y reporte táctico.
 
 ---
 
-## 📖 1. Modo Historia para 1 Jugador: "Crónicas de la Confianza" (Por Defecto)
+## 📊 1. Barra de Balance en Vivo (Cooperaciones vs Ataques)
+Ubicada en la barra de la consola Switch:
+* **Visualización Dinámica:** Muestra en tiempo real la proporción entre **🤝 Cooperaciones (Verde)** y **🗡️ Ataques/Traición (Rojo)**.
+* **Jugar con Barra o a Ciegas (1 Clic):** Puedes alternar la barra entre visible y oculta con el botón `[ 👁️ Ocultar / Ver Barra ]`, haciendo clic directamente en la barra o pulsando la tecla `[H]`. Esto permite jugar en modo inmersivo sin conocer el recuento hasta el final.
+
+---
+
+## ⚔️ 2. Modo Multijugador (2 a 4P) & Estadísticas Finales
+Accesible directamente desde la pestaña `[ ⚔️ MULTIJUGADOR (2-4P) ]` del Switch OS:
+* **Duelo Táctico Hot-Seat:** Los jugadores compiten por turnos distribuyendo Puntos de Acción (PA) para desplegar Cooperadores (Esmeralda), Traidores (TNT), Imitadores (Diamante) o Pulsos de Caos (Bomba).
+* **Pantalla de Estadísticas Finales:** Al concluir el duelo, se despliega un reporte analítico exhaustivo:
+  * **Balance Global:** Proporción total de cooperaciones vs agresiones en toda la partida.
+  * **Tarjetas de Jugadores (P1 a P4):** Conteo exacto de cooperaciones, infiltraciones TNT, centinelas TFT, bombas y celdas conquistadas.
+  * **Perfil Psicológico & Título Honorífico:** Clasifica a cada jugador automáticamente según su comportamiento (*El Pacifista Constructor*, *El Conquistador Traidor*, *El Guardián Ojo por Ojo*, *El Pirómano del Caos* o *El Estratega Equilibrado*).
+  * Botón de revancha inmediata.
+
+---
+
+## 📖 3. Modo Historia para 1 Jugador: "Crónicas de la Confianza" (Por Defecto)
 El jugador asume el papel de **El Viajero**, recorriendo el Valle de la Confianza a través de 5 capítulos con dilemas morales y económicos explicados con narrativa visual tipo RPG de Nintendo:
 * **Capítulo 1: El Mercado de la Buena Fe (con Buddy el Granjero):**
   * *Trama:* Aprende el valor del intercambio honesto de cosechas.
