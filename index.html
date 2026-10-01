@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
       --traitor-color: #ff3344;
       --imitator-color: #00e5ff;
       --empty-color: #1a301a;
-      
+
       /* Colores de Facciones Multijugador */
       --p1-color: #00ffff;
       --p2-color: #ffaa00;
@@ -42,7 +43,7 @@
       --text-muted: #5e544a;
       --accent-glow: rgba(92, 164, 59, 0.3);
       background-color: var(--bg-terminal);
-      background-image: 
+      background-image:
         radial-gradient(#26221f 15%, transparent 16%),
         radial-gradient(#221e1a 15%, transparent 16%);
       background-size: 16px 16px;
@@ -50,13 +51,14 @@
     }
 
     body.skin-minecraft::before {
-      display: none !important; /* Desactivar scanlines CRT en Minecraft */
+      display: none !important;
+      /* Desactivar scanlines CRT en Minecraft */
     }
 
     body.skin-minecraft .ascii-box {
       border: 3px solid #1a1612;
       background-color: #312c27;
-      box-shadow: inset 2px 2px 0px #524a42, inset -2px -2px 0px #1e1b17, 0 4px 10px rgba(0,0,0,0.7);
+      box-shadow: inset 2px 2px 0px #524a42, inset -2px -2px 0px #1e1b17, 0 4px 10px rgba(0, 0, 0, 0.7);
     }
 
     body.skin-minecraft .ascii-title {
@@ -131,9 +133,12 @@
       content: " ";
       display: block;
       position: fixed;
-      top: 0; left: 0; bottom: 0; right: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%),
-                  linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
       z-index: 100;
       background-size: 100% 3px, 6px 100%;
       pointer-events: none;
@@ -198,7 +203,8 @@
       gap: 6px;
     }
 
-    .mode-tab, .skin-tab {
+    .mode-tab,
+    .skin-tab {
       background: transparent;
       border: 1px dashed var(--text-dim);
       color: var(--text-dim);
@@ -211,12 +217,14 @@
       transition: all 0.2s;
     }
 
-    .mode-tab:hover, .skin-tab:hover {
+    .mode-tab:hover,
+    .skin-tab:hover {
       color: var(--text-main);
       border-color: var(--text-main);
     }
 
-    .mode-tab.active, .skin-tab.active {
+    .mode-tab.active,
+    .skin-tab.active {
       background-color: var(--text-dim);
       color: #000;
       border-color: var(--text-main);
@@ -270,15 +278,48 @@
     }
 
     /* Colores Estratégicos y Facciones */
-    .coop { color: var(--coop-color); text-shadow: 0 0 4px rgba(56, 239, 56, 0.4); }
-    .traitor { color: var(--traitor-color); text-shadow: 0 0 4px rgba(255, 51, 68, 0.4); }
-    .imitator { color: var(--imitator-color); text-shadow: 0 0 4px rgba(0, 229, 255, 0.4); }
-    .empty { color: var(--empty-color); }
+    .coop {
+      color: var(--coop-color);
+      text-shadow: 0 0 4px rgba(56, 239, 56, 0.4);
+    }
 
-    .p1-token { color: var(--p1-color); font-weight: bold; text-shadow: 0 0 5px rgba(0, 255, 255, 0.6); }
-    .p2-token { color: var(--p2-color); font-weight: bold; text-shadow: 0 0 5px rgba(255, 170, 0, 0.6); }
-    .p3-token { color: var(--p3-color); font-weight: bold; text-shadow: 0 0 5px rgba(217, 70, 239, 0.6); }
-    .p4-token { color: var(--p4-color); font-weight: bold; text-shadow: 0 0 5px rgba(241, 245, 249, 0.6); }
+    .traitor {
+      color: var(--traitor-color);
+      text-shadow: 0 0 4px rgba(255, 51, 68, 0.4);
+    }
+
+    .imitator {
+      color: var(--imitator-color);
+      text-shadow: 0 0 4px rgba(0, 229, 255, 0.4);
+    }
+
+    .empty {
+      color: var(--empty-color);
+    }
+
+    .p1-token {
+      color: var(--p1-color);
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+    }
+
+    .p2-token {
+      color: var(--p2-color);
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(255, 170, 0, 0.6);
+    }
+
+    .p3-token {
+      color: var(--p3-color);
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(217, 70, 239, 0.6);
+    }
+
+    .p4-token {
+      color: var(--p4-color);
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(241, 245, 249, 0.6);
+    }
 
     /* Barra de proporción ASCII */
     .ascii-bar-container {
@@ -312,6 +353,7 @@
       border-color: var(--p1-color);
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
     }
+
     .mp-banner.p2-turn {
       border-color: var(--p2-color);
       box-shadow: 0 0 10px rgba(255, 170, 0, 0.2);
@@ -340,7 +382,7 @@
       position: relative;
     }
 
-    /* Viewport ASCII Dwarf Fortress */
+    /* Viewport ASCII Dwarf Fortress (Activo con Skin DF) */
     #grid-viewport {
       font-family: var(--font-mono);
       font-size: 13.5px;
@@ -349,7 +391,7 @@
       white-space: pre;
       cursor: crosshair;
       user-select: none;
-      display: block;
+      display: none; /* Por defecto oculto para dar prioridad a Minecraft */
       margin: 0 auto;
       text-align: center;
     }
@@ -366,9 +408,9 @@
       outline: 1px dotted var(--text-main);
     }
 
-    /* Viewport Canvas Minecraft */
+    /* Viewport Canvas Minecraft (Activo por defecto) */
     #minecraft-canvas {
-      display: none;
+      display: block; /* Visible por defecto */
       image-rendering: pixelated;
       image-rendering: crisp-edges;
       cursor: crosshair;
@@ -389,6 +431,7 @@
       .control-deck {
         grid-template-columns: 1fr;
       }
+
       #grid-viewport {
         font-size: 10px;
         line-height: 11px;
@@ -440,6 +483,7 @@
       color: var(--p1-color);
       border-color: var(--p1-color);
     }
+
     button.ascii-btn.btn-p1:hover {
       background: var(--p1-color);
       color: #000;
@@ -450,6 +494,7 @@
       color: var(--p2-color);
       border-color: var(--p2-color);
     }
+
     button.ascii-btn.btn-p2:hover {
       background: var(--p2-color);
       color: #000;
@@ -572,9 +617,11 @@
     .log-entry {
       color: var(--text-dim);
     }
+
     .log-entry.important {
       color: #ffff66;
     }
+
     .log-entry.combat {
       color: #00ffff;
     }
@@ -583,7 +630,10 @@
     #victory-modal {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0, 0, 0, 0.85);
       z-index: 200;
       justify-content: center;
@@ -611,31 +661,32 @@
     }
   </style>
 </head>
-<body>
+
+<body class="skin-minecraft">
 
   <div class="terminal-container">
-    
+
     <!-- CABECERA HUD CON ESTADÍSTICAS, MODOS Y SELECTOR DE SKIN -->
     <header class="ascii-box">
       <span class="ascii-title">SISTEMA TOROIDAL :: DILEMA DEL PRISIONERO EVOLUTIVO</span>
-      
+
       <!-- Barra Superior: Selector de Modo de Juego & Selector de Skin Visual -->
       <div class="nav-bar-row">
         <div class="mode-nav">
           <button id="tab-sandbox" class="mode-tab active">[ 🧪 LABORATORIO / LIBRE ]</button>
           <button id="tab-multiplayer" class="mode-tab">[ ⚔️ DUELO MULTIJUGADOR ]</button>
         </div>
-        
+
         <div class="skin-nav">
           <span class="stat-label">SKIN VISUAL:</span>
-          <button id="skin-df" class="skin-tab active" data-skin="df">📜 DWARF FORTRESS</button>
-          <button id="skin-mc" class="skin-tab" data-skin="mc">⛏️ MINECRAFT</button>
+          <button id="skin-df" class="skin-tab" data-skin="df">📜 DWARF FORTRESS</button>
+          <button id="skin-mc" class="skin-tab active" data-skin="mc">⛏️ MINECRAFT</button>
         </div>
 
         <span id="hud-status" style="color: #ffaa00; font-weight: bold; font-size: 11px;">[ LIBRE: PAUSADO ]</span>
       </div>
 
-      <!-- HUD Modo Sandbox -->
+      <!-- HUD Modo Sandbox (Minecraft labels por defecto) -->
       <div id="hud-sandbox" class="hud-stats-grid">
         <div class="stat-badge">
           <span class="stat-label">GENERACIÓN / ÉPOCA</span>
@@ -646,19 +697,19 @@
           <span id="stat-pop" class="stat-val">0 / 0 (0%)</span>
         </div>
         <div class="stat-badge">
-          <span class="stat-label" id="label-coop">[C] COOPERADORES</span>
+          <span class="stat-label" id="label-coop">[C] BLOQUE ESMERALDA</span>
           <span id="stat-c" class="stat-val coop">0 (0.0%)</span>
         </div>
         <div class="stat-badge">
-          <span class="stat-label" id="label-traitor">[T] TRAIDORES</span>
+          <span class="stat-label" id="label-traitor">[T] BLOQUE TNT</span>
           <span id="stat-t" class="stat-val traitor">0 (0.0%)</span>
         </div>
         <div class="stat-badge">
-          <span class="stat-label" id="label-imitator">[I] IMITADORES (TFT)</span>
+          <span class="stat-label" id="label-imitator">[I] BLOQUE DIAMANTE</span>
           <span id="stat-i" class="stat-val imitator">0 (0.0%)</span>
         </div>
         <div class="stat-badge">
-          <span class="stat-label" id="label-empty">[.] ESPACIO VACÍO</span>
+          <span class="stat-label" id="label-empty">[.] CÉSPED / TIERRA</span>
           <span id="stat-empty" class="stat-val empty">0 (0.0%)</span>
         </div>
       </div>
@@ -707,33 +758,35 @@
 
     <!-- ÁREA DE VISUALIZACIÓN DUAL: PREFORMATADO ASCII (DF) / CANVAS 2D (MINECRAFT) -->
     <section class="ascii-box viewport-box">
-      <span id="viewport-title" class="ascii-title">ESPACIO TOROIDAL (60 x 30) - INTERACCIÓN ACTIVA</span>
-      
+      <span id="viewport-title" class="ascii-title">ESPACIO TOROIDAL (60 x 30) - MUNDO PIXEL MINECRAFT</span>
+
       <!-- 1. Renderizador Dwarf Fortress (ASCII Text) -->
       <pre id="grid-viewport"></pre>
 
       <!-- 2. Renderizador Minecraft (Canvas Pixel Art) -->
       <canvas id="minecraft-canvas" width="960" height="480"></canvas>
-      
+
       <!-- Selector de Pincel / Despliegue con etiquetas duales -->
       <div class="brush-tools">
         <span id="brush-header" class="param-label">HERRAMIENTA:</span>
-        <button class="brush-btn selected" data-brush="C"><span id="brush-c-label"><span class="coop">C</span> Coop</span></button>
-        <button class="brush-btn" data-brush="T"><span id="brush-t-label"><span class="traitor">T</span> Traidor</span></button>
-        <button class="brush-btn" data-brush="I"><span id="brush-i-label"><span class="imitator">I</span> Imitador</span></button>
-        <button id="brush-clear-btn" class="brush-btn" data-brush="."><span id="brush-empty-label"><span class="empty">.</span> Vacío</span></button>
-        <button id="brush-bomb-btn" class="brush-btn" data-brush="BOMB" style="display: none; border-color: #ff3344; color: #ff5566;">💥 Pulso Caos (2 PA)</button>
-        <span id="grid-action-hint" style="margin-left: auto; color: var(--text-dim); font-size: 10px;">Clic + Arrastrar sobre la cuadrícula</span>
+        <button class="brush-btn selected" data-brush="C"><span id="brush-c-label">🟩 Esmeralda</span></button>
+        <button class="brush-btn" data-brush="T"><span id="brush-t-label">🧨 TNT</span></button>
+        <button class="brush-btn" data-brush="I"><span id="brush-i-label">💎 Diamante</span></button>
+        <button id="brush-clear-btn" class="brush-btn" data-brush="."><span id="brush-empty-label">🌱 Césped</span></button>
+        <button id="brush-bomb-btn" class="brush-btn" data-brush="BOMB"
+          style="display: none; border-color: #ff3344; color: #ff5566;">💥 Pulso Caos (2 PA)</button>
+        <span id="grid-action-hint" style="margin-left: auto; color: var(--text-dim); font-size: 10px;">Clic + Arrastrar
+          sobre la cuadrícula</span>
       </div>
     </section>
 
     <!-- PANEL DE CONTROL Y PARÁMETROS -->
     <div class="control-deck">
-      
+
       <!-- Panel de Control Izquierdo: Comandos / Controles Multijugador -->
       <div class="ascii-box">
         <span id="left-box-title" class="ascii-title">COMANDOS DEL BUCLE & PRESETS</span>
-        
+
         <!-- Controles Modo Sandbox -->
         <div id="controls-sandbox">
           <div class="param-label" style="margin-bottom: 4px;">CONTROL DE SIMULACIÓN CONTINUA:</div>
@@ -745,7 +798,8 @@
             <button id="btn-clear" class="ascii-btn">[ ⌧ VACIAR ]</button>
           </div>
 
-          <div class="param-label" style="margin-top: 14px; margin-bottom: 4px;">ESCENARIOS HISTÓRICOS DE TEORÍA DE JUEGOS:</div>
+          <div class="param-label" style="margin-top: 14px; margin-bottom: 4px;">ESCENARIOS HISTÓRICOS DE TEORÍA DE
+            JUEGOS:</div>
           <div class="btn-group">
             <button class="ascii-btn preset-btn" data-preset="invasion">Invasión Traidora</button>
             <button class="ascii-btn preset-btn" data-preset="bastion">Bastión TFT</button>
@@ -770,7 +824,8 @@
           <div class="param-row">
             <span class="param-label">CANTIDAD DE JUGADORES:</span>
             <div class="param-control">
-              <select id="mp-select-players" style="background:#020502; color:var(--text-main); border:1px solid var(--text-dim); padding:2px 6px; font-family:var(--font-mono); font-size:11px;">
+              <select id="mp-select-players"
+                style="background:#020502; color:var(--text-main); border:1px solid var(--text-dim); padding:2px 6px; font-family:var(--font-mono); font-size:11px;">
                 <option value="2" selected>2 Jugadores (P1 vs P2)</option>
                 <option value="3">3 Jugadores (P1 vs P2 vs P3)</option>
                 <option value="4">4 Jugadores (P1 vs P2 vs P3 vs P4)</option>
@@ -819,7 +874,7 @@
       <!-- Panel de Parámetros Matemáticos y Evolutivos -->
       <div class="ascii-box">
         <span class="ascii-title">MATRIZ DE PAGOS & DINÁMICA EVOLUTIVA</span>
-        
+
         <div class="param-label" style="margin-bottom: 4px;">MATRIZ DE PAGOS DILEMA DEL PRISIONERO:</div>
         <div class="matrix-grid">
           <div class="param-row">
@@ -852,7 +907,8 @@
           </div>
         </div>
 
-        <div class="param-label" style="margin-top: 10px; margin-bottom: 4px;">OPERADORES EVOLUTIVOS & COLONIZACIÓN:</div>
+        <div class="param-label" style="margin-top: 10px; margin-bottom: 4px;">OPERADORES EVOLUTIVOS & COLONIZACIÓN:
+        </div>
         <div class="param-row">
           <span class="param-label">TASA MUTACIÓN ALEATORIA (&mu;):</span>
           <div class="param-control">
@@ -883,7 +939,8 @@
 
     <!-- PIE DE PÁGINA -->
     <footer class="ascii-box">
-      <span>ATAJOS: [Espacio] Play/Pausa/Fin Turno | [M] Alternar Skin DF/Minecraft | [N] Paso Adelante | [R] Aleatorizar</span>
+      <span>ATAJOS: [Espacio] Play/Pausa/Fin Turno | [M] Alternar Skin DF/Minecraft | [N] Paso Adelante | [R]
+        Aleatorizar</span>
       <span>MOTOR: Spatial Prisoner's Dilemma Best-Takes-All | Vecindad Toroidal de Moore (8-vecinos)</span>
     </footer>
 
@@ -917,8 +974,8 @@
     const BLOCK_PIXELS = 16; // 16x16 píxeles por bloque en el canvas de Minecraft
 
     // Desplazamientos Vecindad de Moore (8 vecinos)
-    const MOORE_DX = [-1,  0,  1, -1, 1, -1, 0, 1];
-    const MOORE_DY = [-1, -1, -1,  0, 0,  1, 1, 1];
+    const MOORE_DX = [-1, 0, 1, -1, 1, -1, 0, 1];
+    const MOORE_DY = [-1, -1, -1, 0, 0, 1, 1, 1];
 
     // Configuración y Parámetros
     const config = {
@@ -931,7 +988,7 @@
       speedMs: 80,
       isRunning: false,
       gameMode: 'sandbox', // 'sandbox' | 'multiplayer'
-      skin: 'df'           // 'df' (Dwarf Fortress ASCII) | 'mc' (Minecraft Voxel)
+      skin: 'mc'           // 'mc' (Minecraft Voxel por defecto) | 'df' (Dwarf Fortress ASCII)
     };
 
     // Estado del Modo Multijugador
@@ -1089,9 +1146,10 @@
 
     generateMinecraftTextures();
 
-    // Inicializar simulación con un escenario equilibrado
+    // Inicializar simulación con un escenario equilibrado y skin Minecraft por defecto
     function initSimulation() {
       applyPreset('equilibrado');
+      setVisualSkin('mc');
     }
 
     function getIndex(x, y) {
@@ -1181,7 +1239,7 @@
           const idx = y * WIDTH + x;
           const myStrategy = currentGrid[idx];
           const myOwner = ownerGrid[idx];
-          
+
           let bestFitness = -1;
           let bestStrategy = EMPTY;
           let bestOwner = myOwner;
@@ -1318,7 +1376,7 @@
       } else {
         // 2. Renderizado Minecraft Canvas Pixel Art (si está activo)
         mcCtx.clearRect(0, 0, mcCanvas.width, mcCanvas.height);
-        
+
         for (let y = 0; y < HEIGHT; y++) {
           for (let x = 0; x < WIDTH; x++) {
             const idx = y * WIDTH + x;
@@ -1379,16 +1437,16 @@
           const iChars = Math.max(0, barLen - cChars - tChars);
 
           const barString = `<span class="coop">${'█'.repeat(cChars)}</span>` +
-                            `<span class="traitor">${'█'.repeat(tChars)}</span>` +
-                            `<span class="imitator">${'█'.repeat(iChars)}</span>`;
-          
+            `<span class="traitor">${'█'.repeat(tChars)}</span>` +
+            `<span class="imitator">${'█'.repeat(iChars)}</span>`;
+
           asciiCensusBar.innerHTML = `[${barString}] C:${cPct}% | T:${tPct}% | I:${iPct}%`;
         }
       } else {
         document.getElementById('mp-stat-round').textContent = `${mpState.currentRound} / ${mpState.maxRounds}`;
         document.getElementById('mp-stat-p1').textContent = `${pCounts[1]} celdas (${Math.round(mpState.scores[1])} pts)`;
         document.getElementById('mp-stat-p2').textContent = `${pCounts[2]} celdas (${Math.round(mpState.scores[2])} pts)`;
-        
+
         if (mpState.numPlayers >= 3) {
           document.getElementById('mp-stat-p3').textContent = `${pCounts[3]} celdas (${Math.round(mpState.scores[3])} pts)`;
         }
@@ -1411,11 +1469,11 @@
           const p4Chars = Math.max(0, barLen - p1Chars - p2Chars - p3Chars);
 
           const barString = `<span class="p1-token">${'█'.repeat(p1Chars)}</span>` +
-                            `<span class="p2-token">${'█'.repeat(p2Chars)}</span>` +
-                            (mpState.numPlayers >= 3 ? `<span class="p3-token">${'█'.repeat(p3Chars)}</span>` : '') +
-                            (mpState.numPlayers >= 4 ? `<span class="p4-token">${'█'.repeat(p4Chars)}</span>` : '');
-          
-          asciiCensusBar.innerHTML = `[${barString}] P1:${Math.round((pCounts[1]/totalOwned)*100)}% | P2:${Math.round((pCounts[2]/totalOwned)*100)}%`;
+            `<span class="p2-token">${'█'.repeat(p2Chars)}</span>` +
+            (mpState.numPlayers >= 3 ? `<span class="p3-token">${'█'.repeat(p3Chars)}</span>` : '') +
+            (mpState.numPlayers >= 4 ? `<span class="p4-token">${'█'.repeat(p4Chars)}</span>` : '');
+
+          asciiCensusBar.innerHTML = `[${barString}] P1:${Math.round((pCounts[1] / totalOwned) * 100)}% | P2:${Math.round((pCounts[2] / totalOwned) * 100)}%`;
         }
       }
     }
@@ -1432,7 +1490,7 @@
         viewportElem.style.display = 'none';
         mcCanvas.style.display = 'block';
         document.getElementById('viewport-title').textContent = 'ESPACIO TOROIDAL (60 x 30) - MUNDO PIXEL MINECRAFT';
-        
+
         // Actualizar etiquetas para Minecraft
         document.getElementById('label-coop').textContent = '[C] BLOQUE ESMERALDA';
         document.getElementById('label-traitor').textContent = '[T] BLOQUE TNT';
@@ -1485,7 +1543,7 @@
 
       colonizePlayerBase(1, 15, 15);
       colonizePlayerBase(2, 45, 15);
-      
+
       if (mpState.numPlayers >= 3) {
         colonizePlayerBase(3, 30, 6);
       }
@@ -1508,7 +1566,7 @@
           if (dist === 0) strat = IMITATOR;
           else if (dist === 1) strat = COOP;
           else strat = (Math.random() < 0.4) ? IMITATOR : COOP;
-          
+
           currentGrid[idx] = strat;
           ownerGrid[idx] = playerId;
           lastActionGrid[idx] = COOP;
@@ -1545,7 +1603,7 @@
 
     function executeRoundResolution() {
       addLogEntry(`--- RESOLUCIÓN EVOLUTIVA (RONDA ${mpState.currentRound}) ---`, 'combat');
-      
+
       for (let e = 0; e < mpState.epochsPerRound; e++) {
         runGamePhase();
         runEvolutionPhase();
@@ -1562,8 +1620,8 @@
       }
 
       addLogEntry(`[RESULTADO R${mpState.currentRound}]: P1: ${pCounts[1]} celdas | P2: ${pCounts[2]} celdas.` +
-                 (mpState.numPlayers >= 3 ? ` | P3: ${pCounts[3]}` : '') +
-                 (mpState.numPlayers >= 4 ? ` | P4: ${pCounts[4]}` : ''), 'important');
+        (mpState.numPlayers >= 3 ? ` | P3: ${pCounts[3]}` : '') +
+        (mpState.numPlayers >= 4 ? ` | P4: ${pCounts[4]}` : ''), 'important');
 
       if (mpState.currentRound >= mpState.maxRounds || pCounts[1] === 0 || pCounts[2] === 0) {
         triggerVictory(pCounts);
@@ -1595,8 +1653,8 @@
       const winTitle = `¡VICTORIA PARA ${PLAYER_NAMES[winner]}!`;
       const winDesc = `El ${PLAYER_NAMES[winner]} ha conquistado el espacio toroidal con ${pCounts[winner]} celdas y ${Math.round(mpState.scores[winner])} pts de fitness tras ${mpState.currentRound} rondas.`;
 
-      const asciiTrophy = 
-`         ._______/\_______.
+      const asciiTrophy =
+        `         ._______/\_______.
          |                 |
          |  VICTORIA TOTAL |
          |   FAVOR P${winner}     |
@@ -1635,8 +1693,8 @@
 
       if (presetName === 'invasion') {
         currentGrid.fill(COOP);
-        const foci = [{cx: 15, cy: 10}, {cx: 45, cy: 15}, {cx: 30, cy: 22}];
-        foci.forEach(({cx, cy}) => {
+        const foci = [{ cx: 15, cy: 10 }, { cx: 45, cy: 15 }, { cx: 30, cy: 22 }];
+        foci.forEach(({ cx, cy }) => {
           for (let dy = -1; dy <= 1; dy++) {
             for (let dx = -1; dx <= 1; dx++) {
               currentGrid[getIndex(cx + dx, cy + dy)] = TRAITOR;
@@ -1720,7 +1778,7 @@
             return;
           }
           mpState.currentAP -= 2;
-          
+
           const cx = idx % WIDTH;
           const cy = Math.floor(idx / WIDTH);
           for (let dy = -1; dy <= 1; dy++) {
@@ -1745,7 +1803,7 @@
         currentGrid[idx] = selectedBrush;
         ownerGrid[idx] = mpState.activePlayer;
         lastActionGrid[idx] = (selectedBrush === TRAITOR) ? TRAITOR : COOP;
-        
+
         updateMpBannerUI();
         render();
       }
@@ -1983,4 +2041,5 @@
     initSimulation();
   </script>
 </body>
+
 </html>
