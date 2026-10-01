@@ -3,9 +3,18 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.4.0` (Iconos de Personajes Ampliados · Gráficos de Radar Estratégico SVG · Barra de Balance Conmutable · Reporte Multijugador)
+> **Versión del Proyecto:** `1.5.0` (Barra de Acciones en Medio de la Pantalla · Actores Gigantes 140px · Animación Permanente Idle · Animaciones Reactivas Felicidad 😄 y Tristeza 😢)
 
-1. **Iconos de Personajes Ampliados (110px) & Gráficos de Radar Estratégico SVG:**
+1. **Aprovechamiento Integral del Escenario, Barra de Acciones Central & Animaciones:**
+   * **Barra de Acciones en Medio:** Reubicada en el choque central (`.story-center-clash`), flanqueada por ambos contrincantes, eliminando saltos visuales hacia el borde inferior.
+   * **Actores Gigantes (140px):** Mayor escala escénica con bordes luminosos y sombras dinámicas calculadas.
+   * **Animación Permanente (Idle):** Ciclo continuo de oscilación vertical y pulso de brillo para dotar de vida a la escena.
+   * **Máquina de Estados de Expresión Emocional:**
+     * **Felicidad:** Salto elástico con rotación dinámica, estallido lumínico esmeralda y burbuja de éxito (`😄 ¡Cooperamos! +3` / `😎 ¡Botín! +5`).
+     * **Tristeza:** Estremecimiento sísmico, viraje de saturación, destello escarlata y burbuja de dolor (`😢 ¡Atacado! 0` / `💢 ¡Conflicto! +1`).
+     * Transición y retorno automático a guardia pasiva a los 2.2 segundos.
+
+2. **Gráficos de Radar Estratégico SVG (ADN Estratégico):**
    * Diámetro de avatares aumentado de 78px a 110px tanto en Modo Historia como en la Galería de Contrincantes, con anillas de neón pulsantes.
    * **Gráfico de Radar Cuadridimensional (ADN Estratégico):**
      * Visualización matemática poligonal de los 4 pilares de Robert Axelrod:

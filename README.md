@@ -2,11 +2,21 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.4.0**: Iconos y avatares de personajes más grandes (110px) y Gráficos de Radar de ADN Estratégico SVG para cada contrincante (Bondad, Firmeza, Perdón, Provocación) tanto en Modo Historia como en la Galería de Rivales.
+> **Versión 1.5.0**: Actores gigantes (140px) ocupando el espacio escénico, Barra de Acciones en Medio de la Pantalla, Animación permanente de respiración/levitación y Animaciones reactivas diferenciadas de **Felicidad** (salto alegre, aura esmeralda) y **Tristeza** (estremecimiento, daño y desolación) según cooperen o ataquen.
 
 ---
 
-## 🧭 1. Gráficos de Radar de ADN Estratégico & Avatares Gigantes
+## 🎮 1. Escenario Óptimo: Barra de Acciones Central, Actores Gigantes & Animaciones
+* **Barra de Acciones en Medio de la Pantalla:** Los comandos de combate (`[🤝 CUMPLIR PACTO]` y `[🗡️ ATACAR / TRAICIONAR]`, junto con `[📜 ABRIR DIARIO]`) ahora se sitúan directamente en el centro neurálgico entre ambos contrincantes, ofreciendo una ergonomía arcade directa sin tener que mirar al pie de página.
+* **Actores Gigantes (140px) & Distribución Escénica:** Los personajes (El Viajero y los 5 arquetipos rivales) crecen hasta **140px** con ilustraciones vectoriales de **118px**, pedestales de batalla y ajuste perfecto sin scroll a 720p/1080p.
+* **Animación Permanente (Idle Breathing):** Ambos combatientes respiran y levitan suavemente de forma continua e independiente en su posición de guardia.
+* **Animaciones Reactivas: Felicidad 😄 vs Tristeza 😢:**
+  * **Felicidad (Cooperación o Ganancia Exitosa):** El personaje ejecuta un salto elástico triunfal (`actor-jump-happy`), destellos y un estallido de aura esmeralda/dorada, coronado por su burbuja flotante de satisfacción (`😄 ¡Cooperamos! +3` o `😎 ¡Botín! +5`).
+  * **Tristeza / Daño (Traicionado o Ataque Mutuo):** El personaje sufre un estremecimiento violento con distorsión de color, destello rojo de daño y decaimiento cabizbajo (`actor-shudder-sad`), acompañado de su burbuja de lamento (`😢 ¡Atacado! 0` o `💢 ¡Ataque mutuo! +1`).
+
+---
+
+## 🧭 2. Gráficos de Radar de ADN Estratégico para Cada Contrincante
 * **Avatares Ampliados (110px):** Los iconos de personajes y contrincantes cuentan con mayor escala visual, marcos de neón temáticos y animación de pulso interactivo para una lectura visual clara estilo Nintendo.
 * **Gráficos de Radar SVG Cuadridimensionales (ADN de Teoría de Juegos):**
   Cada contrincante posee su propia huella estratégica calculada y representada vectorialmente en 4 ejes:

@@ -1165,7 +1165,7 @@
     .story-stat-pill.coins { color: var(--nin-gold); border-color: rgba(255, 204, 0, 0.4); }
     .story-stat-pill.trust { color: #00d2ff; border-color: rgba(0, 210, 255, 0.4); }
 
-    /* ESCENARIO RPG VISUAL & PERSONAJES */
+    /* ESCENARIO RPG VISUAL & PERSONAJES OCUPANDO BIEN EL ESPACIO */
     .story-stage-scene {
       flex: 1;
       background: radial-gradient(circle at 50% 20%, #1c2235 0%, #0a0d16 100%);
@@ -1174,19 +1174,20 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 10px 16px;
+      padding: 12px 18px;
       position: relative;
       overflow: hidden;
-      box-shadow: inset 0 0 25px rgba(0,0,0,0.8);
-      max-height: 400px;
+      box-shadow: inset 0 0 35px rgba(0,0,0,0.85);
+      min-height: 0;
     }
 
     .story-actors-row {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      gap: 16px;
-      margin-top: 4px;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 2px;
+      flex: 1;
     }
 
     .story-actor {
@@ -1294,30 +1295,52 @@
       font-weight: 600;
     }
 
-    /* BOTONES DE DECISIÓN DE LA HISTORIA */
+    /* CENTRO DE CHOQUE Y BARRA DE ACCIONES EN MEDIO DE LA PANTALLA */
+    .story-center-clash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 1;
+      max-width: 440px;
+      padding: 0 8px;
+    }
+
+    /* BARRA DE ACCIONES EN MEDIO DE LA PANTALLA */
     .story-choices-bar {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 10px;
       align-items: center;
+      width: 100%;
+      margin: 4px 0;
     }
 
     .story-choice-btn {
       flex: 1;
-      max-width: 330px;
-      padding: 11px 18px;
+      padding: 12px 14px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-family: 'Fredoka', cursive;
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: all 0.12s ease-out;
+      gap: 8px;
+      transition: all 0.15s ease-out;
       outline: none;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-key-badge {
+      font-size: 0.72rem;
+      background: rgba(0,0,0,0.3);
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .story-btn-coop {
@@ -1668,25 +1691,136 @@
 
   
     /* =========================================================
-       AVATARES MÁS GRANDES & GRÁFICOS DE LOS CONTRINCANTES (RADAR DE CONDUCTA)
+       ACTORES GIGANTES (140PX), ANIMACIÓN PERMANENTE Y EMOCIONES (FELICIDAD/TRISTEZA)
        ========================================================= */
+    .story-actor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-align: center;
+      min-width: 145px;
+      position: relative;
+    }
+
+    /* BURBUJAS FLOTANTES DE EMOCIÓN DE LOS PERSONAJES */
+    .actor-emotion-bubble {
+      background: rgba(15, 20, 32, 0.95);
+      border: 2px solid #3b82f6;
+      border-radius: 999px;
+      padding: 3px 14px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+      margin-bottom: 2px;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      z-index: 5;
+    }
+
+    .actor-emotion-bubble.bubble-happy {
+      border-color: #00e676;
+      background: rgba(4, 35, 20, 0.96);
+      color: #a7f3d0;
+      box-shadow: 0 0 20px rgba(0, 230, 118, 0.7);
+      transform: scale(1.1);
+      animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .actor-emotion-bubble.bubble-sad {
+      border-color: #ff2d55;
+      background: rgba(40, 10, 18, 0.96);
+      color: #fecdd3;
+      box-shadow: 0 0 20px rgba(255, 45, 85, 0.75);
+      transform: scale(1.08);
+      animation: bubbleShake 0.4s ease-in-out;
+    }
+
+    @keyframes bubblePop {
+      0% { transform: scale(0.7) translateY(4px); opacity: 0.3; }
+      50% { transform: scale(1.2) translateY(-2px); }
+      100% { transform: scale(1.1) translateY(0); opacity: 1; }
+    }
+
+    @keyframes bubbleShake {
+      0%, 100% { transform: translateX(0) scale(1.08); }
+      20%, 60% { transform: translateX(-4px) scale(1.08); }
+      40%, 80% { transform: translateX(4px) scale(1.08); }
+    }
+
+    /* AVATAR GIGANTE CON ANIMACIÓN PERMANENTE IDLE */
     .story-actor-avatar {
-      width: 110px !important;
-      height: 110px !important;
+      width: 140px !important;
+      height: 140px !important;
       border-radius: 50%;
       background: #111420;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 4px solid #3b82f6;
-      box-shadow: 0 0 24px rgba(59, 130, 246, 0.5), inset 0 0 15px rgba(0,0,0,0.6);
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 4.5px solid #3b82f6;
+      box-shadow: 0 0 26px var(--actor-glow, rgba(59, 130, 246, 0.55)), inset 0 0 20px rgba(0,0,0,0.7);
       position: relative;
+      animation: actor-idle-breathe 2.8s ease-in-out infinite;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      transform-origin: center bottom;
     }
 
     .story-actor-avatar svg {
-      width: 92px !important;
-      height: 92px !important;
+      width: 118px !important;
+      height: 118px !important;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+      pointer-events: none;
+    }
+
+    /* ANIMACIÓN PERMANENTE: RESPIRACIÓN Y LEVITACIÓN CONTINUA */
+    @keyframes actor-idle-breathe {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+        box-shadow: 0 0 24px var(--actor-glow, rgba(59, 130, 246, 0.5)), inset 0 0 16px rgba(0,0,0,0.6);
+      }
+      50% {
+        transform: translateY(-9px) scale(1.03);
+        box-shadow: 0 0 40px var(--actor-glow, rgba(59, 130, 246, 0.85)), inset 0 0 22px rgba(0,0,0,0.4);
+      }
+    }
+
+    /* ANIMACIÓN DE FELICIDAD: SALTO TRIUNFAL Y AURA DORADA / ESMERALDA */
+    @keyframes actor-jump-happy {
+      0% { transform: translateY(0) scale(1) rotate(0deg); }
+      20% { transform: translateY(-28px) scale(1.18, 0.9) rotate(-4deg); }
+      40% { transform: translateY(0) scale(0.92, 1.1); }
+      60% { transform: translateY(-16px) scale(1.1, 0.95) rotate(4deg); }
+      80% { transform: translateY(-4px) scale(1.03); }
+      100% { transform: translateY(0) scale(1) rotate(0deg); }
+    }
+
+    .story-actor-avatar.actor-state-happy {
+      animation: actor-jump-happy 0.95s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      border-color: #00e676 !important;
+      box-shadow: 0 0 50px #00e676, 0 0 85px rgba(0, 230, 118, 0.75) !important;
+    }
+
+    /* ANIMACIÓN DE TRISTEZA / DAÑO: ESTREMECIMIENTO Y DESOLACIÓN */
+    @keyframes actor-shudder-sad {
+      0% { transform: translate(0, 0) scale(1); filter: brightness(1); }
+      12% { transform: translate(-14px, 3px) rotate(-8deg) scale(0.95); filter: brightness(1.7) saturate(2.2) hue-rotate(-25deg); }
+      25% { transform: translate(14px, -3px) rotate(7deg) scale(0.92); }
+      40% { transform: translate(-10px, 8px) rotate(-5deg); }
+      55% { transform: translate(7px, 12px) rotate(3deg) scale(0.88, 0.85); }
+      75% { transform: translate(0, 14px) scale(0.9, 0.88); }
+      100% { transform: translate(0, 8px) scale(0.92, 0.9); filter: brightness(0.82) grayscale(0.25); }
+    }
+
+    .story-actor-avatar.actor-state-sad {
+      animation: actor-shudder-sad 1s ease-in-out !important;
+      border-color: #ff2d55 !important;
+      box-shadow: 0 0 45px #ff2d55, 0 0 70px rgba(255, 45, 85, 0.85) !important;
     }
 
     .switch-char-avatar-ring {
@@ -1900,9 +2034,10 @@
 
             <div class="story-actors-row">
 
-              <!-- JUGADOR (EL VIAJERO) CON AVATAR MÁS GRANDE -->
-              <div class="story-actor">
-                <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; box-shadow: 0 0 24px rgba(0, 210, 255, 0.6);">
+              <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON EMOCIÓN -->
+              <div class="story-actor" id="story-actor-player">
+                <div class="actor-emotion-bubble" id="story-p-emotion">✨ Listo</div>
+                <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);">
                   <svg viewBox="0 0 100 100">
                     <!-- Sombra y Base -->
                     <circle cx="50" cy="50" r="45" fill="#00d2ff"/>
@@ -1926,38 +2061,62 @@
                     <path d="M 40 62 Q 50 72 60 62" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
                   </svg>
                 </div>
-                <h4 class="story-actor-name" style="font-size: 1rem; margin-top: 4px;">TÚ (El Viajero)</h4>
+                <h4 class="story-actor-name" style="font-size: 1.05rem; margin-top: 4px;">TÚ (El Viajero)</h4>
                 <p class="story-actor-role">Jugador Estratega</p>
               </div>
 
-              <!-- CENTRO: GRÁFICO RADAR ESTRATÉGICO DEL CONTRINCANTE -->
+              <!-- CENTRO: BARRA DE ACCIONES EN MEDIO DE LA PANTALLA + RADAR ESTRATÉGICO -->
               <div class="story-center-clash">
+
+                <!-- TARJETA DEL RADAR ESTRATÉGICO DEL RIVAL -->
                 <div class="opp-dna-card" id="opp-dna-card" title="Radar de Conducta de Teoría de Juegos">
                   <div class="opp-radar-svg-box" id="story-radar-svg-box">
                     <!-- Inyectado dinámicamente -->
                   </div>
                   <div class="opp-dna-attributes" id="story-dna-attributes">
                     <div style="font-weight: 800; color: #ffcc00; font-size: 0.72rem; margin-bottom: 2px;" id="story-dna-title">ADN ESTRATÉGICO</div>
-                    <div class="opp-attr-line"><span>Amabilidad:</span> <span id="attr-kindness" style="color: #00e676;">100%</span></div>
+                    <div class="opp-attr-line"><span>Bondad:</span> <span id="attr-kindness" style="color: #00e676;">100%</span></div>
                     <div class="opp-attr-line"><span>Firmeza:</span> <span id="attr-retaliation" style="color: #38bdf8;">100%</span></div>
                     <div class="opp-attr-line"><span>Perdón:</span> <span id="attr-forgiveness" style="color: #a855f7;">100%</span></div>
                   </div>
                 </div>
 
-                <div class="story-matrix-badge" id="story-matrix-badge" style="margin-top: 4px;">
-                  Pacto: Cumplir (+3/+3) | Traición (+5/0)
+                <!-- BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
+                <div class="story-choices-bar" id="story-choices-bar">
+                  <button class="story-choice-btn story-btn-coop" id="btn-story-coop">
+                    <span class="btn-key-badge">[ Y / C ]</span>
+                    <span>🤝 CUMPLIR PACTO</span>
+                  </button>
+
+                  <button class="story-choice-btn story-btn-cheat" id="btn-story-cheat">
+                    <span class="btn-key-badge">[ X / T ]</span>
+                    <span>🗡️ ATACAR / TRAICIONAR</span>
+                  </button>
+
+                  <button class="story-choice-btn story-btn-advance" id="btn-story-advance" style="display: none;">
+                    <span>📜 ABRIR DIARIO & AVANZAR ➔ [ A ]</span>
+                  </button>
                 </div>
-                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700;" id="story-encounter-round">
-                  Encuentro 1 de 4
+
+                <!-- BADGE DE MATRIZ Y RONDA -->
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <div class="story-matrix-badge" id="story-matrix-badge">
+                    Pacto: Cumplir (+3/+3) | Traición (+5/0)
+                  </div>
+                  <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 700; background: rgba(0,0,0,0.4); padding: 3px 8px; border-radius: 8px;" id="story-encounter-round">
+                    Encuentro 1 de 4
+                  </div>
                 </div>
+
               </div>
 
-              <!-- NPC CONTRINCANTE CON AVATAR MÁS GRANDE -->
-              <div class="story-actor">
-                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; box-shadow: 0 0 24px rgba(255, 204, 0, 0.6);">
+              <!-- NPC CONTRINCANTE - AVATAR GIGANTE CON EMOCIÓN -->
+              <div class="story-actor" id="story-actor-npc">
+                <div class="actor-emotion-bubble" id="story-npc-emotion">🤝 Esperando trato</div>
+                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; --actor-glow: rgba(255, 204, 0, 0.7); animation-delay: -1.4s;">
                   <!-- Inyectado dinámicamente -->
                 </div>
-                <h4 class="story-actor-name" id="story-npc-name" style="font-size: 1rem; margin-top: 4px;">Buddy el Granjero</h4>
+                <h4 class="story-actor-name" id="story-npc-name" style="font-size: 1.05rem; margin-top: 4px;">Buddy el Granjero</h4>
                 <p class="story-actor-role" id="story-npc-role">Comerciante bondadoso</p>
               </div>
 
@@ -1974,23 +2133,6 @@
               </p>
             </div>
 
-          </div>
-
-          <!-- BOTONES DE ELECCIÓN NARRATIVA -->
-          <div class="story-choices-bar" id="story-choices-bar">
-            <button class="story-choice-btn story-btn-coop" id="btn-story-coop">
-              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.25); padding: 2px 7px; border-radius: 6px;">[ Y / C ]</span>
-              <span>🤝 CUMPLIR PACTO</span>
-            </button>
-
-            <button class="story-choice-btn story-btn-cheat" id="btn-story-cheat">
-              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.25); padding: 2px 7px; border-radius: 6px;">[ X / T ]</span>
-              <span>🗡️ TRAICIONAR Y QUEDARSE TODO</span>
-            </button>
-
-            <button class="story-choice-btn story-btn-advance" id="btn-story-advance" style="display: none;">
-              <span>📜 ABRIR DIARIO DEL SABIO & AVANZAR ➔ [ A ]</span>
-            </button>
           </div>
 
         </div>
@@ -4724,15 +4866,25 @@
         document.getElementById('story-trust-val').textContent = `${this.trustPercent}%`;
         document.getElementById('story-step-indicator').textContent = `${idx + 1} / ${STORY_CHAPTERS.length}`;
 
-        // Actors
+        // Configurar avatares y resetear emociones
         const npcAvatar = document.getElementById('story-npc-avatar');
         if (npcAvatar) {
           npcAvatar.innerHTML = opp.svg;
           npcAvatar.style.borderColor = opp.color;
-          npcAvatar.style.boxShadow = `0 0 26px ${opp.color}88`;
+          npcAvatar.style.setProperty('--actor-glow', `${opp.color}99`);
         }
         document.getElementById('story-npc-name').textContent = chap.npcName;
         document.getElementById('story-npc-role').textContent = chap.npcRole;
+
+        const npcPreloadStatus = [
+          "🤝 Busco trato honesto",
+          "😈 Prometo multiplicar oro",
+          "🤖 Copiaré lo que hagas",
+          "🌋 Cuidado con fallar...",
+          "🕵️ Analizando tu táctica"
+        ];
+        this.setActorEmotion('player', 'idle', '✨ Listo');
+        this.setActorEmotion('npc', 'idle', npcPreloadStatus[idx] || '⚔️ En guardia');
 
         // Renderizar Radar de Conducta del Contrincante
         const radarBox = document.getElementById('story-radar-svg-box');
@@ -4763,6 +4915,28 @@
         document.getElementById('btn-story-coop').style.display = 'inline-flex';
         document.getElementById('btn-story-cheat').style.display = 'inline-flex';
         document.getElementById('btn-story-advance').style.display = 'none';
+      },
+
+      setActorEmotion(who, emotionState, text) {
+        const av = document.getElementById(who === 'player' ? 'story-p-avatar' : 'story-npc-avatar');
+        const bubble = document.getElementById(who === 'player' ? 'story-p-emotion' : 'story-npc-emotion');
+        if (!av || !bubble) return;
+
+        // Limpiar animaciones de emoción previas
+        av.classList.remove('actor-state-happy', 'actor-state-sad');
+        bubble.classList.remove('bubble-happy', 'bubble-sad');
+
+        if (emotionState === 'happy') {
+          void av.offsetWidth; // forzar reflujo de renderizado
+          av.classList.add('actor-state-happy');
+          bubble.classList.add('bubble-happy');
+        } else if (emotionState === 'sad') {
+          void av.offsetWidth;
+          av.classList.add('actor-state-sad');
+          bubble.classList.add('bubble-sad');
+        }
+
+        bubble.textContent = text;
       },
 
       playChoice(playerChoice) {
@@ -4828,12 +5002,32 @@
         document.getElementById('story-coins-val').textContent = this.totalCoins;
         document.getElementById('story-trust-val').textContent = `${this.trustPercent}%`;
 
-        // Botes elásticos de los avatares
-        const pAv = document.getElementById('story-p-avatar');
-        const nAv = document.getElementById('story-npc-avatar');
-        pAv.classList.add('bounce');
-        nAv.classList.add('bounce');
-        setTimeout(() => { pAv.classList.remove('bounce'); nAv.classList.remove('bounce'); }, 350);
+        // ANIMACIONES DIFERENCIADAS DE FELICIDAD Y TRISTEZA
+        if (playerChoice === 'C' && oppChoice === 'C') {
+          // Ambos cooperaron: ¡Felicidad mutua!
+          this.setActorEmotion('player', 'happy', '😄 ¡Cooperamos! +3');
+          this.setActorEmotion('npc', 'happy', '🤝 ¡Amigos! +3');
+        } else if (playerChoice === 'T' && oppChoice === 'C') {
+          // Jugador traiciona/ataca con éxito: Jugador feliz con botín, Oponente triste y herido
+          this.setActorEmotion('player', 'happy', '😎 ¡Botín! +5');
+          this.setActorEmotion('npc', 'sad', '😢 ¡Traicionado! 0');
+        } else if (playerChoice === 'C' && oppChoice === 'T') {
+          // Oponente traiciona/ataca: Jugador triste/atacado, Oponente feliz con ganancia
+          this.setActorEmotion('player', 'sad', '😢 ¡Atacado! 0');
+          this.setActorEmotion('npc', 'happy', '😈 ¡Me quedo todo! +5');
+        } else {
+          // Ambos atacaron: Ambos sufren daño y tristeza/frustración
+          this.setActorEmotion('player', 'sad', '💢 ¡Ataque mutuo! +1');
+          this.setActorEmotion('npc', 'sad', '💢 ¡Conflicto! +1');
+        }
+
+        // Regresar suavemente a respiración idle después de 2.2 segundos
+        setTimeout(() => {
+          const pAv = document.getElementById('story-p-avatar');
+          const nAv = document.getElementById('story-npc-avatar');
+          if (pAv) pAv.classList.remove('actor-state-happy', 'actor-state-sad');
+          if (nAv) nAv.classList.remove('actor-state-happy', 'actor-state-sad');
+        }, 2200);
 
         // Actualizar caja de diálogo
         document.getElementById('story-speaker-name').textContent = chap.npcName.toUpperCase();
