@@ -2,11 +2,31 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.6.0**: Modo Multijugador (1 vs 1) idéntico al Modo 1 Player (actores gigantes de 140px, barra de acciones central para P1 y P2, animaciones de felicidad y tristeza, reporte final), Simulador Espacial 2D (Minecraft/Dwarf Fortress) independiente y alternativo, y cobertura total de atributos `alt` y accesibilidad en cada barra y elemento gráfico.
+> **Versión 1.7.0**: Roster de 6 personajes por defecto con selector visual en pantalla (`[ 👤 Cambiar Personaje ]`) tanto para jugar en 1P contra la computadora (pudiendo elegir tanto tu avatar como el rival CPU) como en Multijugador local (para que cada usuario real elija su personaje favorito), con avatares gigantes, paletas cromáticas y estrategias vivas.
 
 ---
 
-## ⚔️ 1. Modo Multijugador (1 vs 1) Idéntico al Modo 1 Player
+## 👥 1. Roster Oficial de 6 Personajes & Selector Visual (1P vs CPU & 2P vs Usuario Real)
+Cualquier jugador puede elegir entre los **6 arquetipos de Teoría de Juegos por defecto**:
+1. **🤠 El Viajero (Gamer Azul):** Estratega noble y curioso. Inicia cooperando y busca la reciprocidad mutua.
+2. **🐱 Kopy el Guardián (Tit for Tat):** La regla del espejo. Noble al inicio, castiga las agresiones y perdona de inmediato si vuelves a cooperar.
+3. **🦊 Sneaky el Bribón (Traidor Permanente):** Depredador y estafador. Nunca coopera y busca robar los 5 puntos explotando a los inocentes.
+4. **🐶 Buddy el Granjero (Cooperador Incondicional):** Amigo pacífico. Coopera siempre sin importar lo que haga el rival.
+5. **🐻 Grumpy el Herrero (Grim Trigger):** El rencoroso implacable. Justo de entrada, pero si lo traicionas una sola vez, nunca jamás te perdonará.
+6. **🦉 Detective Búho (Analista Táctico):** Sonda tus intenciones al inicio; si te dejas abusar te explota, pero si te defiendes con firmeza, coopera.
+
+* **¿Cómo se seleccionan?**
+  * **En Modo 1P (vs Computadora):**
+    * Puedes cambiar a tu personaje con `[ 👤 Cambiar Personaje ]`.
+    * Puedes cambiar al rival de la computadora con `[ 🤖 Cambiar Rival CPU ]`, adoptando de inmediato su avatar, radar estratégico e inteligencia artificial.
+  * **En Modo Multijugador (vs Usuario Real 1v1):**
+    * El Jugador 1 (Azul) elige su personaje con `[ 👤 Elegir Personaje P1 ]`.
+    * El Jugador 2 (Rojo) elige su personaje con `[ 👤 Elegir Personaje P2 ]`.
+  * **Modal Roster:** Despliega una cuadrícula interactiva con las 6 fichas completas, retratos vectoriales iluminados y asignación inmediata en 1 clic.
+
+---
+
+## ⚔️ 2. Modo Multijugador (1 vs 1) Idéntico al Modo 1 Player
 Accesible desde la pestaña principal `[ ⚔️ MULTIJUGADOR (2-4P) ]` del Switch OS:
 * **Misma Estructura Escénica:**
   * **Jugador 1 (Azul - Joy-Con L):** Avatar gigante (140px), respiración permanente *idle*, burbuja emocional flotante (`#mp-p1-emotion`), marcador en vivo y controles `[ W ] 🤝 COOP` / `[ S ] 🗡️ ATACAR`.

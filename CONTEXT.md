@@ -3,9 +3,22 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.6.0` (Modo Multijugador Idéntico al Modo 1P · Simulador 2D Independiente y Alternativo · Atributos `alt` en Todas las Barras y Elementos)
+> **Versión del Proyecto:** `1.7.0` (Roster Oficial de 6 Personajes por Defecto · Selector Visual para 1P vs CPU y 2P vs Usuario Real · Multijugador Idéntico a 1P · Simulador 2D Independiente · Atributos `alt` Universales)
 
-1. **Modo Multijugador (1 vs 1) Idéntico al Modo 1 Player:**
+1. **Roster Oficial de 6 Personajes por Defecto & Selector Visual:**
+   * Elenco canónico de 6 arquetipos:
+     1. `traveler` (El Viajero): Reciprocidad noble y constructiva.
+     2. `kopy` (Kopy el Guardián): Tit for Tat (amable, justiciero y compasivo).
+     3. `sneaky` (Sneaky el Bribón): Traidor egoísta permanente (+5 ptos).
+     4. `buddy` (Buddy el Granjero): Cooperador incondicional.
+     5. `grumpy` (Grumpy el Herrero): Grim Trigger (rencor absoluto tras 1 fallo).
+     6. `detective` (Detective Búho): Sondeador táctico y analista de límites.
+   * **Selector Visual Dinámico en Pantalla (`[ 👤 Cambiar Personaje ]`):**
+     * En 1P vs Computadora: Permite elegir tanto al protagonista como al rival CPU (adaptando la IA en vivo).
+     * En Multijugador vs Usuario Real: Permite que el Jugador 1 y el Jugador 2 elijan sus personajes respectivos independientemente.
+     * Modal Roster con vista previa de avatares gigantes, paletas de color y filosofías.
+
+2. **Modo Multijugador (1 vs 1) Idéntico al Modo 1 Player:**
    * Misma interfaz de videoconsola con dos combatientes cara a cara: Jugador 1 (Azul) y Jugador 2 (Rojo).
    * Avatares gigantes (140px) con animación permanente *idle* de respiración y pulsación de neón desincronizada.
    * Barra de acciones en medio de la pantalla con botones dedicados para P1 (`[W] COOP` / `[S] ATACAR`) y P2 (`[I] COOP` / `[K] ATACAR`).

@@ -1969,6 +1969,153 @@
       flex: 1;
     }
 
+
+    /* =========================================================
+       SISTEMA DE ROSTER DE 6 PERSONAJES Y SELECTOR VISUAL
+       ========================================================= */
+    .btn-change-char {
+      background: rgba(14, 20, 32, 0.88);
+      border: 1.5px solid #384564;
+      color: #cbd5e1;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      margin-bottom: 4px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      outline: none;
+      z-index: 6;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .btn-change-char:hover {
+      background: #1e293b;
+      border-color: #00d2ff;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 210, 255, 0.4);
+    }
+
+    .roster-modal-sheet {
+      background: radial-gradient(circle at 50% 0%, #1a2236 0%, #0d111c 100%);
+      border: 2.5px solid #00d2ff;
+      border-radius: 24px;
+      max-width: 660px;
+      width: 95%;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 35px rgba(0, 210, 255, 0.3);
+      max-height: 88vh;
+      overflow-y: auto;
+      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-roster-close {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-roster-close:hover {
+      background: rgba(255, 45, 85, 0.8);
+    }
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+
+    .roster-card {
+      background: #101522;
+      border: 2px solid #263248;
+      border-radius: 16px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .roster-card:hover {
+      border-color: var(--card-color, #00d2ff);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.8), 0 0 20px var(--card-color, #00d2ff);
+    }
+
+    .roster-card-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 3px solid var(--card-color, #00d2ff);
+      background: #090c14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px var(--card-color, #00d2ff);
+    }
+
+    .roster-card-avatar svg {
+      width: 56px;
+      height: 56px;
+    }
+
+    .roster-card-name {
+      font-family: 'Fredoka', cursive;
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin: 0;
+      color: #fff;
+    }
+
+    .roster-card-role {
+      font-size: 0.68rem;
+      color: var(--card-color, #38bdf8);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .roster-card-desc {
+      font-size: 0.64rem;
+      color: #94a3b8;
+      line-height: 1.25;
+      margin: 0;
+    }
+
+    .btn-select-roster-char {
+      width: 100%;
+      background: linear-gradient(135deg, var(--card-color, #00d2ff), #0077ff);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 0;
+      font-family: 'Fredoka', cursive;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 4px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      transition: filter 0.15s ease;
+    }
+    .btn-select-roster-char:hover {
+      filter: brightness(1.2);
+    }
+
   </style>
 </head>
 
@@ -2091,6 +2238,9 @@
 
               <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON EMOCIÓN -->
               <div class="story-actor" id="story-actor-player" alt="Personaje: El Viajero">
+                <button class="btn-change-char" id="btn-char-story-p" type="button" title="Elegir tu personaje de entre los 6 disponibles" alt="Cambiar tu personaje">
+                  <span>👤</span> Cambiar Personaje
+                </button>
                 <div class="actor-emotion-bubble" id="story-p-emotion" alt="Estado emocional de El Viajero">✨ Listo</div>
                 <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);">
                   <svg viewBox="0 0 100 100">
@@ -2167,6 +2317,9 @@
 
               <!-- NPC CONTRINCANTE - AVATAR GIGANTE CON EMOCIÓN -->
               <div class="story-actor" id="story-actor-npc" alt="Personaje: Contrincante">
+                <button class="btn-change-char" id="btn-char-story-cpu" type="button" title="Elegir el rival de la computadora de entre los 6 disponibles" alt="Cambiar rival de la computadora">
+                  <span>🤖</span> Cambiar Rival CPU
+                </button>
                 <div class="actor-emotion-bubble" id="story-npc-emotion" alt="Estado emocional del contrincante">🤝 Esperando trato</div>
                 <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; --actor-glow: rgba(255, 204, 0, 0.7); animation-delay: -1.4s;">
                   <!-- Inyectado dinámicamente -->
@@ -2260,7 +2413,10 @@
             <div class="story-actors-row" alt="Fila de combatientes multijugador">
 
               <!-- JUGADOR 1 (AZUL) - AVATAR GIGANTE CON EMOCIÓN -->
-              <div class="story-actor" id="mp-actor-p1" alt="Jugador 1: El Viajero Azul">
+              <div class="story-actor" id="mp-actor-p1" alt="Jugador 1">
+                <button class="btn-change-char" id="btn-char-mp-p1" type="button" title="Elegir personaje para Jugador 1" alt="Elegir personaje para Jugador 1">
+                  <span>👤</span> Elegir Personaje P1
+                </button>
                 <div class="actor-emotion-bubble" id="mp-p1-emotion" role="status" aria-label="Emoción de Jugador 1" alt="Estado Emocional Jugador 1">✨ Listo</div>
                 <div class="story-actor-avatar" id="mp-p1-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);" role="img" aria-label="Avatar Jugador 1" alt="Avatar Jugador 1">
                   <svg viewBox="0 0 100 100" alt="Ilustración Jugador 1" role="img" aria-label="Jugador 1">
@@ -2344,7 +2500,10 @@
               </div>
 
               <!-- JUGADOR 2 (ROJO) - AVATAR GIGANTE CON EMOCIÓN -->
-              <div class="story-actor" id="mp-actor-p2" alt="Jugador 2: El Retador Rojo">
+              <div class="story-actor" id="mp-actor-p2" alt="Jugador 2">
+                <button class="btn-change-char" id="btn-char-mp-p2" type="button" title="Elegir personaje para Jugador 2" alt="Elegir personaje para Jugador 2">
+                  <span>👤</span> Elegir Personaje P2
+                </button>
                 <div class="actor-emotion-bubble" id="mp-p2-emotion" role="status" aria-label="Emoción de Jugador 2" alt="Estado Emocional Jugador 2">✨ Listo</div>
                 <div class="story-actor-avatar" id="mp-p2-avatar" style="border-color: #ff2d55; --actor-glow: rgba(255, 45, 85, 0.7); animation-delay: -1.4s;" role="img" aria-label="Avatar Jugador 2" alt="Avatar Jugador 2">
                   <svg viewBox="0 0 100 100" alt="Avatar Jugador 2 (Rival Rojo)" role="img" aria-label="Avatar Jugador 2">
@@ -2788,6 +2947,31 @@
       </div>
 
     </div>
+
+
+        <!-- =========================================================
+             MODAL DE SELECCIÓN DE PERSONAJES (ROSTER DE 6 LUCHADORES)
+             ========================================================= -->
+        <div class="story-modal-backdrop" id="char-roster-modal" style="display: none;" alt="Modal de selección de personaje">
+          <div class="roster-modal-sheet" alt="Panel de selección de luchadores de Teoría de Juegos">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 1.5px solid #28334b; padding-bottom: 8px;">
+              <div>
+                <h3 style="margin: 0; color: #ffcc00; font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
+                  <span>🎮</span> <span id="roster-target-title">SELECCIÓN DE PERSONAJE</span>
+                </h3>
+                <p style="margin: 3px 0 0; color: #94a3b8; font-size: 0.76rem;" id="roster-target-subtitle">
+                  Elige entre los 6 personajes oficiales por defecto para jugar
+                </p>
+              </div>
+              <button class="btn-roster-close" id="btn-close-roster" title="Cerrar selección" alt="Cerrar selector">✖️</button>
+            </div>
+
+            <!-- CUADRÍCULA DE LOS 6 PERSONAJES -->
+            <div class="roster-grid" id="roster-grid" alt="Lista de los 6 personajes seleccionables">
+              <!-- Renderizado dinámicamente -->
+            </div>
+          </div>
+        </div>
 
     <!-- MODAL DE VICTORIA -->
     <div id="victory-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; padding: 14px;">
@@ -5635,6 +5819,308 @@
       }
     };
 
+
+    /* =========================================================
+       ROSTER DE 6 PERSONAJES POR DEFECTO Y GESTOR DE SELECCIÓN
+       ========================================================= */
+    const ROSTER_CHARACTERS = {
+      traveler: {
+        id: 'traveler',
+        name: 'El Viajero',
+        icon: '🤠',
+        role: 'Estratega Noble (Balanceado)',
+        color: '#00d2ff',
+        attributes: { kindness: 100, retaliation: 85, forgiveness: 90, provocation: 0 },
+        tagline: 'Inicia cooperando y busca construir alianzas compartidas.',
+        svg: `<circle cx="50" cy="50" r="45" fill="#00d2ff"/>
+          <path d="M 18 36 Q 50 10 82 36 L 94 38 Q 65 28 16 38 Z" fill="#ff2d55"/>
+          <circle cx="50" cy="24" r="9" fill="#ffffff"/>
+          <text x="50" y="28" font-family="Fredoka" font-size="11" font-weight="900" fill="#ff2d55" text-anchor="middle">T</text>
+          <rect x="6" y="40" width="8" height="20" rx="4" fill="#1e293b"/>
+          <rect x="86" y="40" width="8" height="20" rx="4" fill="#1e293b"/>
+          <path d="M 10 40 Q 50 8 90 40" stroke="#1e293b" stroke-width="4" fill="none"/>
+          <ellipse cx="37" cy="50" rx="6" ry="8" fill="#07080c"/>
+          <ellipse cx="63" cy="50" rx="6" ry="8" fill="#07080c"/>
+          <circle cx="39" cy="48" r="2.5" fill="#ffffff"/>
+          <circle cx="65" cy="48" r="2.5" fill="#ffffff"/>
+          <circle cx="28" cy="58" r="5" fill="rgba(255, 45, 85, 0.45)"/>
+          <circle cx="72" cy="58" r="5" fill="rgba(255, 45, 85, 0.45)"/>
+          <path d="M 40 62 Q 50 72 60 62" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>`,
+        getMove(history) {
+          if (history.length === 0) return 'C';
+          return history[history.length - 1].player;
+        }
+      },
+      kopy: {
+        id: 'kopy',
+        name: 'Kopy el Guardián',
+        icon: '🐱',
+        role: 'El Imitador (Tit for Tat)',
+        color: '#00e676',
+        attributes: { kindness: 100, retaliation: 100, forgiveness: 100, provocation: 0 },
+        tagline: 'La regla del espejo: amable de inicio, castiga si atacas y perdona si cooperas.',
+        svg: `<circle cx="50" cy="50" r="45" fill="#00e676"/>
+          <polygon points="16,26 34,2 42,26" fill="#00a352"/>
+          <polygon points="22,24 34,8 38,24" fill="#ff4d6d"/>
+          <polygon points="58,26 66,2 84,26" fill="#00a352"/>
+          <polygon points="62,24 66,8 78,24" fill="#ff4d6d"/>
+          <rect x="22" y="38" width="24" height="18" rx="6" fill="#111827" stroke="#ffffff" stroke-width="2"/>
+          <rect x="54" y="38" width="24" height="18" rx="6" fill="#111827" stroke="#ffffff" stroke-width="2"/>
+          <line x1="46" y1="46" x2="54" y2="46" stroke="#ffffff" stroke-width="2.5"/>
+          <line x1="26" y1="42" x2="34" y2="52" stroke="#00e676" stroke-width="2" stroke-linecap="round"/>
+          <line x1="58" y1="42" x2="66" y2="52" stroke="#00e676" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="47,60 53,60 50,64" fill="#07080c"/>
+          <line x1="24" y1="58" x2="10" y2="56" stroke="#07080c" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="24" y1="64" x2="10" y2="66" stroke="#07080c" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="76" y1="58" x2="90" y2="56" stroke="#07080c" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="76" y1="64" x2="90" y2="66" stroke="#07080c" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 42 66 Q 50 72 58 66" stroke="#07080c" stroke-width="3.5" fill="none" stroke-linecap="round"/>`,
+        getMove(history) {
+          if (history.length === 0) return 'C';
+          return history[history.length - 1].player;
+        }
+      },
+      sneaky: {
+        id: 'sneaky',
+        name: 'Sneaky el Bribón',
+        icon: '🦊',
+        role: 'El Tramposo (Siempre Traiciona)',
+        color: '#ff2d55',
+        attributes: { kindness: 0, retaliation: 100, forgiveness: 0, provocation: 100 },
+        tagline: 'Depredador codicioso: busca llevarse el botín de +5 atacando siempre.',
+        svg: `<circle cx="50" cy="50" r="44" fill="#ff2d55"/>
+          <path d="M 16 46 Q 50 56 84 46 Q 84 36 50 42 Q 16 36 16 46 Z" fill="#11131a"/>
+          <polygon points="32,44 42,42 38,48" fill="#ffd700"/>
+          <polygon points="68,44 58,42 62,48" fill="#ffd700"/>
+          <path d="M 40 64 Q 50 68 60 62" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <polygon points="48,64 52,64 50,70" fill="#ffffff"/>
+          <polygon points="22,22 28,6 38,22" fill="#b81434"/>
+          <polygon points="62,22 72,6 78,22" fill="#b81434"/>`,
+        getMove() {
+          return 'T';
+        }
+      },
+      buddy: {
+        id: 'buddy',
+        name: 'Buddy el Granjero',
+        icon: '🐶',
+        role: 'El Bondadoso (Siempre Coopera)',
+        color: '#ffcc00',
+        attributes: { kindness: 100, retaliation: 0, forgiveness: 100, provocation: 0 },
+        tagline: 'Amigo fiel y pacifista: jamás atacará primero ni segundo.',
+        svg: `<circle cx="50" cy="50" r="44" fill="#ffcc00"/>
+          <path d="M 14 30 Q 8 60 22 70 Q 28 60 24 36 Z" fill="#c29b00"/>
+          <path d="M 86 30 Q 92 60 78 70 Q 72 60 76 36 Z" fill="#c29b00"/>
+          <circle cx="38" cy="46" r="6" fill="#07080c"/>
+          <circle cx="62" cy="46" r="6" fill="#07080c"/>
+          <circle cx="40" cy="44" r="2.5" fill="#ffffff"/>
+          <circle cx="64" cy="44" r="2.5" fill="#ffffff"/>
+          <ellipse cx="50" cy="54" rx="4" ry="3" fill="#07080c"/>
+          <path d="M 46 64 Q 50 74 54 64 Z" fill="#ff4d6d"/>
+          <path d="M 40 60 Q 50 66 60 60" stroke="#07080c" stroke-width="3" fill="none"/>`,
+        getMove() {
+          return 'C';
+        }
+      },
+      grumpy: {
+        id: 'grumpy',
+        name: 'Grumpy el Herrero',
+        icon: '🐻',
+        role: 'El Rencoroso (Grim Trigger)',
+        color: '#a855f7',
+        attributes: { kindness: 90, retaliation: 100, forgiveness: 0, provocation: 0 },
+        tagline: 'Honesto hasta que le fallas una sola vez; luego nunca perdona.',
+        svg: `<circle cx="50" cy="50" r="44" fill="#a855f7"/>
+          <line x1="28" y1="36" x2="44" y2="44" stroke="#4a154b" stroke-width="5" stroke-linecap="round"/>
+          <line x1="72" y1="36" x2="56" y2="44" stroke="#4a154b" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="36" cy="48" r="5" fill="#07080c"/>
+          <circle cx="64" cy="48" r="5" fill="#07080c"/>
+          <path d="M 40 66 Q 50 58 60 66" stroke="#07080c" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="22" cy="18" r="10" fill="#7e22ce"/>
+          <circle cx="78" cy="18" r="10" fill="#7e22ce"/>`,
+        getMove(history) {
+          const cheatedOnce = history.some(h => h.player === 'T');
+          return cheatedOnce ? 'T' : 'C';
+        }
+      },
+      detective: {
+        id: 'detective',
+        name: 'Detective Búho',
+        icon: '🦉',
+        role: 'El Analista Táctico (Sonda)',
+        color: '#38bdf8',
+        attributes: { kindness: 75, retaliation: 85, forgiveness: 75, provocation: 35 },
+        tagline: 'Pone a prueba tus límites con calibraciones antes de decidir su trato.',
+        svg: `<circle cx="50" cy="50" r="44" fill="#38bdf8"/>
+          <polygon points="18,30 26,14 36,28" fill="#0284c7"/>
+          <polygon points="82,30 74,14 64,28" fill="#0284c7"/>
+          <circle cx="36" cy="46" r="14" fill="#0c4a6e" stroke="#f0f9ff" stroke-width="2"/>
+          <circle cx="64" cy="46" r="14" fill="#0c4a6e" stroke="#ffd700" stroke-width="2.5"/>
+          <circle cx="36" cy="46" r="6" fill="#ffd700"/>
+          <circle cx="64" cy="46" r="6" fill="#ffd700"/>
+          <circle cx="36" cy="46" r="2.5" fill="#000000"/>
+          <circle cx="64" cy="46" r="2.5" fill="#000000"/>
+          <line x1="76" y1="52" x2="88" y2="70" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="46,58 54,58 50,68" fill="#f59e0b"/>
+          <path d="M 40 72 Q 50 68 60 72" stroke="#0c4a6e" stroke-width="3" fill="none" stroke-linecap="round"/>`,
+        getMove(history) {
+          const opening = ['C', 'T', 'C', 'C'];
+          if (history.length < 4) return opening[history.length];
+          const playerCheated = history.slice(0, 4).some(h => h.player === 'T');
+          return playerCheated ? history[history.length - 1].player : 'T';
+        }
+      }
+    };
+
+    const RosterManager = {
+      currentTarget: null, // 'story-p', 'story-cpu', 'mp-p1', 'mp-p2'
+
+      openSelect(target) {
+        NinAudio.playClick();
+        this.currentTarget = target;
+        const modal = document.getElementById('char-roster-modal');
+        const titleEl = document.getElementById('roster-target-title');
+        const subtitleEl = document.getElementById('roster-target-subtitle');
+        const grid = document.getElementById('roster-grid');
+
+        if (!modal || !grid) return;
+
+        let title = 'SELECCIÓN DE PERSONAJE';
+        let sub = 'Elige uno de los 6 personajes oficiales';
+        if (target === 'story-p') {
+          title = 'ELIGE TU PERSONAJE (MODO 1P)';
+          sub = 'Selecciona al protagonista con el que deseas jugar';
+        } else if (target === 'story-cpu') {
+          title = 'ELIGE EL RIVAL DE LA COMPUTADORA (CPU)';
+          sub = 'Selecciona a qué arquetipo de IA te enfrentarás';
+        } else if (target === 'mp-p1') {
+          title = 'ELIGE PERSONAJE PARA JUGADOR 1 (AZUL)';
+          sub = 'Selecciona el arquetipo para el Jugador 1';
+        } else if (target === 'mp-p2') {
+          title = 'ELIGE PERSONAJE PARA JUGADOR 2 (ROJO)';
+          sub = 'Selecciona el arquetipo para el Jugador 2';
+        }
+
+        if (titleEl) titleEl.textContent = title;
+        if (subtitleEl) subtitleEl.textContent = sub;
+
+        // Renderizar cuadrícula con las 6 fichas
+        grid.innerHTML = Object.values(ROSTER_CHARACTERS).map(char => {
+          return `
+            <div class="roster-card" style="--card-color: ${char.color};" onclick="RosterManager.applySelection('${char.id}')" alt="Ficha del personaje ${char.name}">
+              <div class="roster-card-avatar" style="border-color: ${char.color};">
+                <svg viewBox="0 0 100 100" alt="Avatar de ${char.name}">
+                  ${char.svg}
+                </svg>
+              </div>
+              <h4 class="roster-card-name" style="color: #fff;">${char.icon} ${char.name}</h4>
+              <p class="roster-card-role">${char.role}</p>
+              <p class="roster-card-desc">${char.tagline}</p>
+              <button class="btn-select-roster-char" type="button" alt="Seleccionar a ${char.name}">
+                ELEGIR ESTE
+              </button>
+            </div>
+          `;
+        }).join('');
+
+        modal.style.display = 'flex';
+      },
+
+      close() {
+        NinAudio.playClick();
+        const modal = document.getElementById('char-roster-modal');
+        if (modal) modal.style.display = 'none';
+      },
+
+      applySelection(charId) {
+        NinAudio.playCoin();
+        const char = ROSTER_CHARACTERS[charId];
+        if (!char) return;
+
+        const target = this.currentTarget;
+        if (target === 'story-p') {
+          // Actualizar jugador en modo historia/1P
+          const pAv = document.getElementById('story-p-avatar');
+          if (pAv) {
+            pAv.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar de ${char.name}">${char.svg}</svg>`;
+            pAv.style.borderColor = char.color;
+            pAv.style.setProperty('--actor-glow', `${char.color}99`);
+          }
+          const pName = document.querySelector('#story-actor-player .story-actor-name');
+          const pRole = document.querySelector('#story-actor-player .story-actor-role');
+          if (pName) pName.textContent = `TÚ (${char.name})`;
+          if (pRole) pRole.textContent = char.role;
+
+        } else if (target === 'story-cpu') {
+          // Actualizar contrincante CPU en modo 1P
+          const nAv = document.getElementById('story-npc-avatar');
+          if (nAv) {
+            nAv.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar de ${char.name}">${char.svg}</svg>`;
+            nAv.style.borderColor = char.color;
+            nAv.style.setProperty('--actor-glow', `${char.color}99`);
+          }
+          const nName = document.getElementById('story-npc-name');
+          const nRole = document.getElementById('story-npc-role');
+          if (nName) nName.textContent = char.name;
+          if (nRole) nRole.textContent = char.role;
+
+          // Actualizar radar SVG
+          const radarBox = document.getElementById('story-radar-svg-box');
+          if (radarBox && typeof generateOpponentRadarSVG === 'function') {
+            radarBox.innerHTML = generateOpponentRadarSVG(
+              char.attributes.kindness,
+              char.attributes.retaliation,
+              char.attributes.forgiveness,
+              char.attributes.provocation,
+              char.color
+            );
+          }
+          const attrK = document.getElementById('attr-kindness');
+          const attrR = document.getElementById('attr-retaliation');
+          const attrF = document.getElementById('attr-forgiveness');
+          if (attrK) attrK.textContent = `${char.attributes.kindness}%`;
+          if (attrR) attrR.textContent = `${char.attributes.retaliation}%`;
+          if (attrF) attrF.textContent = `${char.attributes.forgiveness}%`;
+
+          // Asignar al capítulo actual de StoryEngine para adoptar su IA
+          const chap = STORY_CHAPTERS[StoryEngine.currentChapterIdx];
+          if (chap) {
+            chap.npcId = charId;
+            chap.npcName = char.name;
+            chap.npcRole = char.role;
+          }
+
+        } else if (target === 'mp-p1') {
+          // Actualizar Jugador 1 en Multijugador
+          const av = document.getElementById('mp-p1-avatar');
+          if (av) {
+            av.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar P1: ${char.name}">${char.svg}</svg>`;
+            av.style.borderColor = char.color;
+            av.style.setProperty('--actor-glow', `${char.color}99`);
+          }
+          const nameEl = document.querySelector('#mp-actor-p1 .story-actor-name');
+          const roleEl = document.querySelector('#mp-actor-p1 .story-actor-role');
+          if (nameEl) { nameEl.textContent = `P1: ${char.name}`; nameEl.style.color = char.color; }
+          if (roleEl) roleEl.textContent = char.role;
+
+        } else if (target === 'mp-p2') {
+          // Actualizar Jugador 2 en Multijugador
+          const av = document.getElementById('mp-p2-avatar');
+          if (av) {
+            av.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar P2: ${char.name}">${char.svg}</svg>`;
+            av.style.borderColor = char.color;
+            av.style.setProperty('--actor-glow', `${char.color}99`);
+          }
+          const nameEl = document.querySelector('#mp-actor-p2 .story-actor-name');
+          const roleEl = document.querySelector('#mp-actor-p2 .story-actor-role');
+          if (nameEl) { nameEl.textContent = `P2: ${char.name}`; nameEl.style.color = char.color; }
+          if (roleEl) roleEl.textContent = char.role;
+        }
+
+        this.close();
+      }
+    };
+
     function initStoryModeAndConsole() {
       StoryEngine.init();
       renderOpponentsGallery();
@@ -5771,6 +6257,20 @@
         if (e.code === 'KeyH') LiveBalanceHUD.toggle();
       });
 
+
+
+      // Botones de Selección de Personajes (Modo 1P vs CPU y Multijugador)
+      const btnCharStoryP = document.getElementById('btn-char-story-p');
+      const btnCharStoryCpu = document.getElementById('btn-char-story-cpu');
+      const btnCharMpP1 = document.getElementById('btn-char-mp-p1');
+      const btnCharMpP2 = document.getElementById('btn-char-mp-p2');
+      const btnCloseRoster = document.getElementById('btn-close-roster');
+
+      if (btnCharStoryP) btnCharStoryP.addEventListener('click', () => RosterManager.openSelect('story-p'));
+      if (btnCharStoryCpu) btnCharStoryCpu.addEventListener('click', () => RosterManager.openSelect('story-cpu'));
+      if (btnCharMpP1) btnCharMpP1.addEventListener('click', () => RosterManager.openSelect('mp-p1'));
+      if (btnCharMpP2) btnCharMpP2.addEventListener('click', () => RosterManager.openSelect('mp-p2'));
+      if (btnCloseRoster) btnCloseRoster.addEventListener('click', () => RosterManager.close());
 
       // Botones Multijugador (P1 y P2)
       const btnMpP1Coop = document.getElementById('btn-mp-p1-coop');
