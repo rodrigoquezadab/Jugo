@@ -1561,8 +1561,8 @@
     }
 
     .live-balance-bar-wrap {
-      width: 170px;
-      height: 16px;
+      width: 210px;
+      height: 18px;
       border-radius: 999px;
       background: #090b10;
       border: 1.5px solid #283044;
@@ -2245,17 +2245,7 @@
           </button>
         </nav>
 
-        <!-- BARRA DE BALANCE EN VIVO (COOPERACIONES VS ATAQUES) CON 1 CLIC PARA VERLA U OCULTARLA -->
-        <div class="live-balance-hud" id="live-balance-hud" alt="Barra de balance en vivo entre cooperaciones y ataques" title="Clic para ver u ocultar la barra de cooperaciones vs ataques">
-          <div class="live-balance-bar-wrap" id="live-balance-bar-wrap" alt="Barra de proporción visual">
-            <div class="live-bar-segment coop" id="live-bar-coop" alt="Porcentaje de Cooperaciones" style="width: 50%;">🤝 50%</div>
-            <div class="live-bar-segment cheat" id="live-bar-cheat" alt="Porcentaje de Ataques y Traiciones" style="width: 50%;">🗡️ 50%</div>
-          </div>
-          <button class="live-balance-toggle-btn" id="btn-toggle-live-bar" alt="Alternar visibilidad de la barra de balance" type="button">
-            <span id="live-bar-toggle-icon">👁️</span>
-            <span id="live-bar-toggle-text">Ocultar Barra</span>
-          </button>
-        </div>
+
 
         <div class="switch-sys-status" id="switch-sys-status">
           <button id="btn-sound-toggle" alt="Botón silenciar o activar efectos de sonido" style="background: none; border: none; color: #cbd5e1; cursor: pointer; font-size: 14px;" title="Sonido">🔊</button>
@@ -2363,6 +2353,18 @@
                     <div class="opp-attr-line" id="story-attr-line-retaliation"><span>Firmeza:</span> <span id="attr-retaliation" style="color: #38bdf8;">100%</span></div>
                     <div class="opp-attr-line" id="story-attr-line-forgiveness"><span>Perdón:</span> <span id="attr-forgiveness" style="color: #a855f7;">100%</span></div>
                   </div>
+                </div>
+
+                <!-- BARRA DE BALANCE EN VIVO (COOPERACIONES VS ATAQUES) EN EL CENTRO DE LA PANTALLA -->
+                <div class="live-balance-hud" id="story-live-balance-hud" alt="Barra de balance en vivo entre cooperaciones y ataques en el centro de la pantalla" title="Barra de balance de cooperaciones en el centro">
+                  <div class="live-balance-bar-wrap" id="story-live-balance-wrap" alt="Barra de proporción visual">
+                    <div class="live-bar-segment coop" id="story-live-bar-coop" alt="Porcentaje de Cooperaciones" style="width: 50%;">🤝 50%</div>
+                    <div class="live-bar-segment cheat" id="story-live-bar-cheat" alt="Porcentaje de Ataques y Traiciones" style="width: 50%;">🗡️ 50%</div>
+                  </div>
+                  <button class="live-balance-toggle-btn" id="btn-toggle-story-live-bar" alt="Alternar visibilidad de la barra de balance" type="button" title="Ocultar o ver balance [H]">
+                    <span class="live-bar-toggle-icon" id="story-live-toggle-icon">👁️</span>
+                    <span class="live-bar-toggle-text" id="story-live-toggle-text">Ocultar Barra</span>
+                  </button>
                 </div>
 
                 <!-- BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
@@ -2557,6 +2559,18 @@
                   </div>
                 </div>
 
+                <!-- BARRA DE BALANCE EN VIVO (COOPERACIONES VS ATAQUES) EN EL CENTRO DE LA PANTALLA MULTIJUGADOR -->
+                <div class="live-balance-hud" id="mp-live-balance-hud" alt="Barra de balance en vivo entre cooperaciones y ataques en el centro de la pantalla" title="Barra de balance de cooperaciones en el centro">
+                  <div class="live-balance-bar-wrap" id="mp-live-balance-wrap" alt="Barra de proporción visual">
+                    <div class="live-bar-segment coop" id="mp-live-bar-coop" alt="Porcentaje de Cooperaciones" style="width: 50%;">🤝 50%</div>
+                    <div class="live-bar-segment cheat" id="mp-live-bar-cheat" alt="Porcentaje de Ataques y Traiciones" style="width: 50%;">🗡️ 50%</div>
+                  </div>
+                  <button class="live-balance-toggle-btn" id="btn-toggle-mp-live-bar" alt="Alternar visibilidad de la barra de balance" type="button" title="Ocultar o ver balance [H]">
+                    <span class="live-bar-toggle-icon" id="mp-live-toggle-icon">👁️</span>
+                    <span class="live-bar-toggle-text" id="mp-live-toggle-text">Ocultar Barra</span>
+                  </button>
+                </div>
+
                 <!-- BARRA DE ACCIONES CENTRAL PARA P1 Y P2 -->
                 <div class="mp-choices-container" id="mp-choices-container" alt="Controles de acción multijugador">
                   <!-- Controles P1 -->
@@ -2662,7 +2676,18 @@
             </div>
             <div class="switch-center-hud" id="switch-center-hud">
               <div class="switch-speech-bubble" id="switch-dialog-bubble">¡Duelo arcade listo!</div>
-              <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 6px;">Pacto: +3/+3 | Traición: +5/0 | Conflicto: +1/+1</div>
+              <!-- BARRA DE BALANCE EN VIVO EN EL CENTRO DEL HUD ARCADE -->
+              <div class="live-balance-hud" id="arcade-live-balance-hud" alt="Barra de balance en vivo entre cooperaciones y ataques" style="margin: 4px auto;" title="Barra de balance de cooperaciones en el centro">
+                <div class="live-balance-bar-wrap" id="arcade-live-balance-wrap" alt="Barra de proporción visual">
+                  <div class="live-bar-segment coop" id="arcade-live-bar-coop" alt="Porcentaje de Cooperaciones" style="width: 50%;">🤝 50%</div>
+                  <div class="live-bar-segment cheat" id="arcade-live-bar-cheat" alt="Porcentaje de Ataques y Traiciones" style="width: 50%;">🗡️ 50%</div>
+                </div>
+                <button class="live-balance-toggle-btn" id="btn-toggle-arcade-live-bar" alt="Alternar visibilidad de la barra de balance" type="button" title="Ocultar o ver balance [H]">
+                  <span class="live-bar-toggle-icon" id="arcade-live-toggle-icon">👁️</span>
+                  <span class="live-bar-toggle-text" id="arcade-live-toggle-text">Ocultar Barra</span>
+                </button>
+              </div>
+              <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 4px;">Pacto: +3/+3 | Traición: +5/0 | Conflicto: +1/+1</div>
             </div>
             <div class="switch-char-block" id="switch-char-block-opp">
               <div class="switch-char-avatar-ring avatar-ring-opp" id="switch-o-ring">
@@ -3231,12 +3256,15 @@
 
       toggle() {
         this.visible = !this.visible;
-        const hud = document.getElementById('live-balance-hud');
-        const icon = document.getElementById('live-bar-toggle-icon');
-        const text = document.getElementById('live-bar-toggle-text');
-        if (hud) hud.classList.toggle('collapsed', !this.visible);
-        if (icon) icon.textContent = this.visible ? '👁️' : '🙈';
-        if (text) text.textContent = this.visible ? 'Ocultar Barra' : 'Ver Barra';
+        document.querySelectorAll('.live-balance-hud').forEach(hud => {
+          hud.classList.toggle('collapsed', !this.visible);
+        });
+        document.querySelectorAll('.live-bar-toggle-icon').forEach(icon => {
+          icon.textContent = this.visible ? '👁️' : '🙈';
+        });
+        document.querySelectorAll('.live-bar-toggle-text').forEach(text => {
+          text.textContent = this.visible ? 'Ocultar Barra' : 'Ver Barra';
+        });
       },
 
       render() {
@@ -3244,16 +3272,14 @@
         const coopPct = total > 0 ? Math.round((this.coopTotal / total) * 100) : 50;
         const cheatPct = total > 0 ? 100 - coopPct : 50;
 
-        const coopBar = document.getElementById('live-bar-coop');
-        const cheatBar = document.getElementById('live-bar-cheat');
-        if (coopBar) {
+        document.querySelectorAll('.live-bar-segment.coop').forEach(coopBar => {
           coopBar.style.width = `${coopPct}%`;
           coopBar.textContent = `🤝 ${coopPct}%`;
-        }
-        if (cheatBar) {
+        });
+        document.querySelectorAll('.live-bar-segment.cheat').forEach(cheatBar => {
           cheatBar.style.width = `${cheatPct}%`;
           cheatBar.textContent = `🗡️ ${cheatPct}%`;
-        }
+        });
       }
     };
 
@@ -6374,11 +6400,13 @@
       if (tabSim) tabSim.addEventListener('click', () => switchMode('sim'));
       if (btnBackFromSim) btnBackFromSim.addEventListener('click', () => switchMode('story'));
 
-      // Evento de 1 Clic para Ver u Ocultar la Barra de Balance en Vivo
-      const btnToggleLiveBar = document.getElementById('btn-toggle-live-bar');
-      const liveBarWrap = document.getElementById('live-balance-bar-wrap');
-      if (btnToggleLiveBar) btnToggleLiveBar.addEventListener('click', () => LiveBalanceHUD.toggle());
-      if (liveBarWrap) liveBarWrap.addEventListener('click', () => LiveBalanceHUD.toggle());
+      // Evento de 1 Clic para Ver u Ocultar la Barra de Cooperaciones en el Centro
+      document.querySelectorAll('.live-balance-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => LiveBalanceHUD.toggle());
+      });
+      document.querySelectorAll('.live-balance-bar-wrap').forEach(wrap => {
+        wrap.addEventListener('click', () => LiveBalanceHUD.toggle());
+      });
 
       // Atajo de teclado 'H' para alternar barra
       window.addEventListener('keydown', (e) => {

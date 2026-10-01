@@ -3,12 +3,19 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.8.3` (100% Cobertura de Identificadores Únicos en Elementos de Clase · Texto Narrativo de la Historia Ubicado Arriba de Personajes y Botones · Renderizado de Avatar CPU con SVG · Placas de Identidad & Nombres · Roster de 6 Personajes · Multijugador Idéntico a 1P)
+> **Versión del Proyecto:** `1.8.4` (Barra de Cooperaciones en el Centro de la Pantalla · 100% Cobertura de Identificadores Únicos · Texto Narrativo Arriba · Renderizado de Avatar CPU con SVG · Placas de Identidad & Nombres · Roster de 6 Personajes · Multijugador Idéntico a 1P)
 
-1. **Identificadores Únicos (`id="..."`) en el 100% de Elementos de Clase (458 IDs únicos, 0 duplicados):**
-   * Todos los 367 elementos con clase cuentan con un `id="..."` descriptivo y unívoco.
+1. **Barra de Cooperaciones en Vivo Ubicada en el Centro de la Pantalla:**
+   * La barra de balance interactivo (`.live-balance-hud`) se traslada desde la barra superior hacia el **centro de la pantalla** en todos los modos principales:
+     * Modo Historia: `#story-live-balance-hud` dentro de `#story-center-clash`, entre el radar de ADN y los botones de acción.
+     * Modo Multijugador: `#mp-live-balance-hud` dentro de `#mp-center-clash`, entre el estado del choque y los controles de P1/P2.
+     * Modo Duelo Arcade: `#arcade-live-balance-hud` dentro de `#switch-center-hud`.
+   * Proporciona retroalimentación visual directa de la proporción entre Cooperaciones (🤝) y Ataques/Traición (🗡️) en el punto focal de la mirada.
+   * Conmutable con 1 clic (`[👁️ Ocultar Barra]`) o tecla `[H]`.
+
+2. **Identificadores Únicos (`id="..."`) en el 100% de Elementos de Clase (472 IDs únicos, 0 duplicados):**
+   * Todos los 383 elementos con clase cuentan con un `id="..."` descriptivo y unívoco.
    * Facilita referenciar cualquier elemento de la interfaz de forma unívoca para solicitar y generar cambios directos.
-   * Incluye la estructura física de la consola Switch (`#switch-chassis`, `#joycon-l`, `#joycon-r`, `#dpad-cluster`, `#abxy-cluster`), modos de juego (`#story-dialogue-box`, `#story-actors-row`, `#story-center-clash`, `#mp-dialogue-box`, `#mp-action-group-p1`, `#mp-action-group-p2`), terminal toroidal (`#terminal-container`, `#ascii-control-deck`, `#tut-rules-table`, `#adv-matrix-grid`) y modales (`#roster-modal-sheet`, `#mp-analytics-sheet`).
 
 2. **Ubicación del Texto de la Historia y Comentarios Arriba de Botones y Personajes:**
    * La caja de diálogo RPG (`.story-rpg-dialogue-box`, `#story-dialogue-box`) en Modo Historia y la caja de comentarios (`.mp-dialogue-box`, `#mp-dialogue-box`) en Modo Multijugador se sitúan en la parte superior de cada escenario (`.story-stage-scene`).

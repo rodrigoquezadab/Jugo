@@ -2,11 +2,19 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.8.3**: Cobertura del 100% de identificadores únicos (`id="..."`) en todos los elementos con clase de la aplicación (458 IDs únicos, 0 duplicados), permitiendo referenciar, apuntar y modificar con total precisión cualquier componente en Modo Historia, Multijugador, Arcade, Simulador 2D y Modales.
+> **Versión 1.8.4**: Reubicación de la Barra de Balance de Cooperaciones en Vivo (`.live-balance-hud`) en el **centro neurálgico de la pantalla** (entre los personajes y junto a la barra de acciones), liberando la barra superior de la consola y permitiendo ver en tiempo real la proporción de cooperaciones vs ataques justo donde ocurren las decisiones.
 
 ---
 
-## 🎯 1. Identificadores Únicos (`id="..."`) en el 100% de Elementos de Clase
+## ⚖️ 1. Barra de Cooperaciones en el Centro de la Pantalla
+* **Ubicación Centralizada en el Choque Escénico:** La barra de balance interactivo (`#story-live-balance-hud` en Modo Historia, `#mp-live-balance-hud` en Multijugador y `#arcade-live-balance-hud` en Arcade) ahora se ubica en el centro de la pantalla, flanqueada por ambos combatientes e inmediatamente sobre los botones de acción.
+* **Telemetría Dinámica en Vivo:** Muestra el porcentaje acumulado de cooperaciones cumplidas (`🤝 50%`) y ataques/traiciones (`🗡️ 50%`), actualizándose al instante con cada jugada.
+* **Alternancia con 1 Clic o Tecla [H]:** Botón interactivo de ojo (`[👁️ Ocultar Barra]`) y atajo de teclado `[H]` para ocultar la barra y jugar a ciegas sin condicionamientos, o mostrarla para análisis táctico.
+* **Barra Superior Switch OS Despejada:** Al removerse de la cabecera superior, las pestañas de navegación y el perfil del usuario disponen de máxima amplitud sin compresión horizontal.
+
+---
+
+## 🎯 2. Identificadores Únicos (`id="..."`) en el 100% de Elementos de Clase
 Para facilitar la inspección, pruebas automatizadas y solicitudes de cambios puntuales sobre cualquier componente:
 * **Cobertura Total (367 de 367 elementos con clase en HTML estático y plantillas dinámicas):** Todos los contenedores, botones, tarjetas, badges, controles Joy-Con, etiquetas y filas cuentan ahora con su respectivo `id="..."` semántico único y descriptivo (458 IDs únicos sin duplicados en el DOM).
 * **Nomenclatura Semántica Predictiva:**
