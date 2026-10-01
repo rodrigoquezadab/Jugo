@@ -2116,6 +2116,72 @@
       filter: brightness(1.2);
     }
 
+
+    /* =========================================================
+       PLACAS DE IDENTIDAD Y NOMBRES DE PERSONAJES CON SUS IMÁGENES
+       ========================================================= */
+    .actor-nameplate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      margin-top: 5px;
+      width: 100%;
+      max-width: 170px;
+    }
+
+    .actor-user-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1.5px solid var(--actor-tag-color, #38bdf8);
+      color: var(--actor-tag-color, #38bdf8);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .actor-user-tag:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
+      box-shadow: 0 0 12px var(--actor-tag-color, #38bdf8);
+    }
+
+    .actor-char-name {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.85);
+      white-space: nowrap;
+    }
+
+    .actor-char-badge {
+      font-size: 0.64rem;
+      font-weight: 700;
+      color: var(--actor-badge-color, #94a3b8);
+      background: rgba(12, 17, 28, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 2px 9px;
+      white-space: nowrap;
+      max-width: 165px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
   </style>
 </head>
 
@@ -2236,38 +2302,38 @@
 
             <div class="story-actors-row">
 
-              <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON EMOCIÓN -->
+              <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON PLACA DE NOMBRE -->
               <div class="story-actor" id="story-actor-player" alt="Personaje: El Viajero">
                 <button class="btn-change-char" id="btn-char-story-p" type="button" title="Elegir tu personaje de entre los 6 disponibles" alt="Cambiar tu personaje">
                   <span>👤</span> Cambiar Personaje
                 </button>
                 <div class="actor-emotion-bubble" id="story-p-emotion" alt="Estado emocional de El Viajero">✨ Listo</div>
-                <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);">
-                  <svg viewBox="0 0 100 100">
-                    <!-- Sombra y Base -->
+                <div class="story-actor-avatar" id="story-p-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);" role="img" alt="Imagen del personaje El Viajero">
+                  <svg viewBox="0 0 100 100" alt="Avatar de El Viajero">
                     <circle cx="50" cy="50" r="45" fill="#00d2ff"/>
-                    <!-- Gorra Roja Nintendo Gamer -->
                     <path d="M 18 36 Q 50 10 82 36 L 94 38 Q 65 28 16 38 Z" fill="#ff2d55"/>
                     <circle cx="50" cy="24" r="9" fill="#ffffff"/>
                     <text x="50" y="28" font-family="Fredoka" font-size="11" font-weight="900" fill="#ff2d55" text-anchor="middle">T</text>
-                    <!-- Auriculares Gamer -->
                     <rect x="6" y="40" width="8" height="20" rx="4" fill="#1e293b"/>
                     <rect x="86" y="40" width="8" height="20" rx="4" fill="#1e293b"/>
                     <path d="M 10 40 Q 50 8 90 40" stroke="#1e293b" stroke-width="4" fill="none"/>
-                    <!-- Ojos Grandes Expresivos -->
                     <ellipse cx="37" cy="50" rx="6" ry="8" fill="#07080c"/>
                     <ellipse cx="63" cy="50" rx="6" ry="8" fill="#07080c"/>
                     <circle cx="39" cy="48" r="2.5" fill="#ffffff"/>
                     <circle cx="65" cy="48" r="2.5" fill="#ffffff"/>
-                    <!-- Sonrojo tierno -->
                     <circle cx="28" cy="58" r="5" fill="rgba(255, 45, 85, 0.45)"/>
                     <circle cx="72" cy="58" r="5" fill="rgba(255, 45, 85, 0.45)"/>
-                    <!-- Sonrisa -->
                     <path d="M 40 62 Q 50 72 60 62" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
                   </svg>
                 </div>
-                <h4 class="story-actor-name" style="font-size: 1.05rem; margin-top: 4px;">TÚ (El Viajero)</h4>
-                <p class="story-actor-role">Jugador Estratega</p>
+                <!-- PLACA CON NOMBRE DEL PERSONAJE Y SU IMAGEN -->
+                <div class="actor-nameplate" id="story-p-nameplate" alt="Placa de nombre del jugador">
+                  <div class="actor-user-tag" id="story-p-usertag" title="Haz clic para renombrar tu jugador" alt="Etiqueta editable de jugador" style="--actor-tag-color: #00d2ff;">
+                    <span>🎮 JUGADOR (TÚ)</span> ✎
+                  </div>
+                  <h4 class="actor-char-name" id="story-p-char-name">🤠 El Viajero</h4>
+                  <span class="actor-char-badge" id="story-p-char-badge" style="--actor-badge-color: #00d2ff;">Estratega Noble</span>
+                </div>
               </div>
 
               <!-- CENTRO: BARRA DE ACCIONES EN MEDIO DE LA PANTALLA + RADAR ESTRATÉGICO -->
@@ -2315,17 +2381,23 @@
 
               </div>
 
-              <!-- NPC CONTRINCANTE - AVATAR GIGANTE CON EMOCIÓN -->
+              <!-- NPC CONTRINCANTE - AVATAR GIGANTE CON PLACA DE NOMBRE -->
               <div class="story-actor" id="story-actor-npc" alt="Personaje: Contrincante">
                 <button class="btn-change-char" id="btn-char-story-cpu" type="button" title="Elegir el rival de la computadora de entre los 6 disponibles" alt="Cambiar rival de la computadora">
                   <span>🤖</span> Cambiar Rival CPU
                 </button>
                 <div class="actor-emotion-bubble" id="story-npc-emotion" alt="Estado emocional del contrincante">🤝 Esperando trato</div>
-                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; --actor-glow: rgba(255, 204, 0, 0.7); animation-delay: -1.4s;">
+                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; box-shadow: 0 0 24px rgba(255, 204, 0, 0.6);" role="img" alt="Imagen del contrincante CPU">
                   <!-- Inyectado dinámicamente -->
                 </div>
-                <h4 class="story-actor-name" id="story-npc-name" style="font-size: 1.05rem; margin-top: 4px;">Buddy el Granjero</h4>
-                <p class="story-actor-role" id="story-npc-role">Comerciante bondadoso</p>
+                <!-- PLACA CON NOMBRE DEL PERSONAJE CPU -->
+                <div class="actor-nameplate" id="story-npc-nameplate" alt="Placa de nombre del contrincante">
+                  <div class="actor-user-tag" id="story-npc-usertag" alt="Etiqueta Computadora" style="--actor-tag-color: #ffcc00;">
+                    <span>🤖 COMPUTADORA (CPU)</span>
+                  </div>
+                  <h4 class="actor-char-name" id="story-npc-char-name">🐶 Buddy el Granjero</h4>
+                  <span class="actor-char-badge" id="story-npc-char-badge" style="--actor-badge-color: #ffcc00;">Comerciante bondadoso</span>
+                </div>
               </div>
 
             </div>
@@ -2412,14 +2484,14 @@
 
             <div class="story-actors-row" alt="Fila de combatientes multijugador">
 
-              <!-- JUGADOR 1 (AZUL) - AVATAR GIGANTE CON EMOCIÓN -->
+              <!-- JUGADOR 1 (AZUL) - AVATAR GIGANTE CON PLACA DE NOMBRE -->
               <div class="story-actor" id="mp-actor-p1" alt="Jugador 1">
                 <button class="btn-change-char" id="btn-char-mp-p1" type="button" title="Elegir personaje para Jugador 1" alt="Elegir personaje para Jugador 1">
-                  <span>👤</span> Elegir Personaje P1
+                  <span>👤</span> Elegir Personaje
                 </button>
                 <div class="actor-emotion-bubble" id="mp-p1-emotion" role="status" aria-label="Emoción de Jugador 1" alt="Estado Emocional Jugador 1">✨ Listo</div>
                 <div class="story-actor-avatar" id="mp-p1-avatar" style="border-color: #00d2ff; --actor-glow: rgba(0, 210, 255, 0.7);" role="img" aria-label="Avatar Jugador 1" alt="Avatar Jugador 1">
-                  <svg viewBox="0 0 100 100" alt="Ilustración Jugador 1" role="img" aria-label="Jugador 1">
+                  <svg viewBox="0 0 100 100" alt="Avatar de El Viajero">
                     <circle cx="50" cy="50" r="45" fill="#00d2ff"/>
                     <path d="M 18 36 Q 50 10 82 36 L 94 38 Q 65 28 16 38 Z" fill="#ff2d55"/>
                     <circle cx="50" cy="24" r="9" fill="#ffffff"/>
@@ -2436,8 +2508,14 @@
                     <path d="M 40 62 Q 50 72 60 62" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
                   </svg>
                 </div>
-                <h4 class="story-actor-name" style="font-size: 1.05rem; margin-top: 4px; color: #00d2ff;">JUGADOR 1</h4>
-                <p class="story-actor-role">Joy-Con Azul (L) · Teclas [W / S]</p>
+                <!-- PLACA CON NOMBRE DEL PERSONAJE JUGADOR 1 -->
+                <div class="actor-nameplate" id="mp-p1-nameplate" alt="Placa de nombre de Jugador 1">
+                  <div class="actor-user-tag" id="mp-p1-usertag" title="Haz clic para renombrar a Jugador 1" alt="Nombre editable P1" style="--actor-tag-color: #00d2ff;">
+                    <span>🟦 <span id="mp-p1-userlabel">JUGADOR 1</span></span> ✎
+                  </div>
+                  <h4 class="actor-char-name" id="mp-p1-char-name">🤠 El Viajero</h4>
+                  <span class="actor-char-badge" id="mp-p1-char-badge" style="--actor-badge-color: #00d2ff;">Joy-Con Azul [W / S]</span>
+                </div>
               </div>
 
               <!-- CENTRO: BARRA DE ACCIONES EN MEDIO DE LA PANTALLA -->
@@ -2499,31 +2577,32 @@
 
               </div>
 
-              <!-- JUGADOR 2 (ROJO) - AVATAR GIGANTE CON EMOCIÓN -->
+              <!-- JUGADOR 2 (ROJO) - AVATAR GIGANTE CON PLACA DE NOMBRE -->
               <div class="story-actor" id="mp-actor-p2" alt="Jugador 2">
                 <button class="btn-change-char" id="btn-char-mp-p2" type="button" title="Elegir personaje para Jugador 2" alt="Elegir personaje para Jugador 2">
-                  <span>👤</span> Elegir Personaje P2
+                  <span>👤</span> Elegir Personaje
                 </button>
                 <div class="actor-emotion-bubble" id="mp-p2-emotion" role="status" aria-label="Emoción de Jugador 2" alt="Estado Emocional Jugador 2">✨ Listo</div>
                 <div class="story-actor-avatar" id="mp-p2-avatar" style="border-color: #ff2d55; --actor-glow: rgba(255, 45, 85, 0.7); animation-delay: -1.4s;" role="img" aria-label="Avatar Jugador 2" alt="Avatar Jugador 2">
-                  <svg viewBox="0 0 100 100" alt="Avatar Jugador 2 (Rival Rojo)" role="img" aria-label="Avatar Jugador 2">
-  <circle cx="50" cy="50" r="45" fill="#ff2d55"/>
-  <path d="M 22 34 Q 50 12 78 34 L 88 36 Q 50 22 12 36 Z" fill="#1e293b"/>
-  <circle cx="50" cy="22" r="9" fill="#ffd700"/>
-  <text x="50" y="26" font-family="Fredoka" font-size="11" font-weight="900" fill="#07080c" text-anchor="middle">R</text>
-  <rect x="6" y="40" width="8" height="20" rx="4" fill="#00d2ff"/>
-  <rect x="86" y="40" width="8" height="20" rx="4" fill="#00d2ff"/>
-  <path d="M 10 40 Q 50 8 90 40" stroke="#00d2ff" stroke-width="4" fill="none"/>
-  <path d="M 24 44 Q 50 38 76 44 L 74 54 Q 50 60 26 54 Z" fill="#0f172a" stroke="#ffd700" stroke-width="2"/>
-  <line x1="28" y1="46" x2="44" y2="48" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-  <line x1="56" y1="48" x2="72" y2="46" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-  <path d="M 42 66 Q 54 74 62 64" stroke="#07080c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-  <circle cx="28" cy="62" r="4" fill="rgba(255, 255, 255, 0.3)"/>
-  <circle cx="72" cy="62" r="4" fill="rgba(255, 255, 255, 0.3)"/>
-</svg>
+                  <svg viewBox="0 0 100 100" alt="Avatar de Sneaky">
+                    <circle cx="50" cy="50" r="44" fill="#ff2d55"/>
+                    <path d="M 16 46 Q 50 56 84 46 Q 84 36 50 42 Q 16 36 16 46 Z" fill="#11131a"/>
+                    <polygon points="32,44 42,42 38,48" fill="#ffd700"/>
+                    <polygon points="68,44 58,42 62,48" fill="#ffd700"/>
+                    <path d="M 40 64 Q 50 68 60 62" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <polygon points="48,64 52,64 50,70" fill="#ffffff"/>
+                    <polygon points="22,22 28,6 38,22" fill="#b81434"/>
+                    <polygon points="62,22 72,6 78,22" fill="#b81434"/>
+                  </svg>
                 </div>
-                <h4 class="story-actor-name" style="font-size: 1.05rem; margin-top: 4px; color: #ff2d55;">JUGADOR 2</h4>
-                <p class="story-actor-role">Joy-Con Rojo (R) · Teclas [I / K]</p>
+                <!-- PLACA CON NOMBRE DEL PERSONAJE JUGADOR 2 -->
+                <div class="actor-nameplate" id="mp-p2-nameplate" alt="Placa de nombre de Jugador 2">
+                  <div class="actor-user-tag" id="mp-p2-usertag" title="Haz clic para renombrar a Jugador 2" alt="Nombre editable P2" style="--actor-tag-color: #ff2d55;">
+                    <span>🟥 <span id="mp-p2-userlabel">JUGADOR 2</span></span> ✎
+                  </div>
+                  <h4 class="actor-char-name" id="mp-p2-char-name">🦊 Sneaky el Bribón</h4>
+                  <span class="actor-char-badge" id="mp-p2-char-badge" style="--actor-badge-color: #ff2d55;">Joy-Con Rojo [I / K]</span>
+                </div>
               </div>
 
             </div>
@@ -6039,32 +6118,45 @@
 
         const target = this.currentTarget;
         if (target === 'story-p') {
-          // Actualizar jugador en modo historia/1P
+          // 1P: Jugador Humano
           const pAv = document.getElementById('story-p-avatar');
           if (pAv) {
             pAv.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar de ${char.name}">${char.svg}</svg>`;
             pAv.style.borderColor = char.color;
             pAv.style.setProperty('--actor-glow', `${char.color}99`);
           }
-          const pName = document.querySelector('#story-actor-player .story-actor-name');
-          const pRole = document.querySelector('#story-actor-player .story-actor-role');
-          if (pName) pName.textContent = `TÚ (${char.name})`;
-          if (pRole) pRole.textContent = char.role;
+          const cName = document.getElementById('story-p-char-name');
+          const cBadge = document.getElementById('story-p-char-badge');
+          if (cName) cName.textContent = `${char.icon} ${char.name}`;
+          if (cBadge) {
+            cBadge.textContent = char.role;
+            cBadge.style.setProperty('--actor-badge-color', char.color);
+          }
+          // Actualizar píldora de Switch OS superior
+          const topAvatar = document.querySelector('.user-avatar-small');
+          const topName = document.querySelector('.switch-user-pill span');
+          if (topAvatar) topAvatar.textContent = char.icon;
+          if (topName) topName.textContent = `${char.name} (1P)`;
 
         } else if (target === 'story-cpu') {
-          // Actualizar contrincante CPU en modo 1P
+          // 1P: Contrincante CPU
           const nAv = document.getElementById('story-npc-avatar');
           if (nAv) {
             nAv.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar de ${char.name}">${char.svg}</svg>`;
             nAv.style.borderColor = char.color;
             nAv.style.setProperty('--actor-glow', `${char.color}99`);
           }
-          const nName = document.getElementById('story-npc-name');
-          const nRole = document.getElementById('story-npc-role');
-          if (nName) nName.textContent = char.name;
-          if (nRole) nRole.textContent = char.role;
+          const cName = document.getElementById('story-npc-char-name');
+          const cBadge = document.getElementById('story-npc-char-badge');
+          const uTag = document.getElementById('story-npc-usertag');
+          if (cName) cName.textContent = `${char.icon} ${char.name}`;
+          if (cBadge) {
+            cBadge.textContent = char.role;
+            cBadge.style.setProperty('--actor-badge-color', char.color);
+          }
+          if (uTag) uTag.style.setProperty('--actor-tag-color', char.color);
 
-          // Actualizar radar SVG
+          // Actualizar radar SVG de Teoría de Juegos
           const radarBox = document.getElementById('story-radar-svg-box');
           if (radarBox && typeof generateOpponentRadarSVG === 'function') {
             radarBox.innerHTML = generateOpponentRadarSVG(
@@ -6082,39 +6174,51 @@
           if (attrR) attrR.textContent = `${char.attributes.retaliation}%`;
           if (attrF) attrF.textContent = `${char.attributes.forgiveness}%`;
 
-          // Asignar al capítulo actual de StoryEngine para adoptar su IA
+          // Adoptar IA en StoryEngine
           const chap = STORY_CHAPTERS[StoryEngine.currentChapterIdx];
           if (chap) {
             chap.npcId = charId;
             chap.npcName = char.name;
             chap.npcRole = char.role;
           }
+          const speakerName = document.getElementById('story-speaker-name');
+          if (speakerName) speakerName.textContent = char.name.toUpperCase();
 
         } else if (target === 'mp-p1') {
-          // Actualizar Jugador 1 en Multijugador
+          // Multijugador P1
           const av = document.getElementById('mp-p1-avatar');
           if (av) {
             av.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar P1: ${char.name}">${char.svg}</svg>`;
             av.style.borderColor = char.color;
             av.style.setProperty('--actor-glow', `${char.color}99`);
           }
-          const nameEl = document.querySelector('#mp-actor-p1 .story-actor-name');
-          const roleEl = document.querySelector('#mp-actor-p1 .story-actor-role');
-          if (nameEl) { nameEl.textContent = `P1: ${char.name}`; nameEl.style.color = char.color; }
-          if (roleEl) roleEl.textContent = char.role;
+          const cName = document.getElementById('mp-p1-char-name');
+          const cBadge = document.getElementById('mp-p1-char-badge');
+          const uTag = document.getElementById('mp-p1-usertag');
+          if (cName) cName.textContent = `${char.icon} ${char.name}`;
+          if (cBadge) {
+            cBadge.textContent = `${char.role} · Joy-Con L [W/S]`;
+            cBadge.style.setProperty('--actor-badge-color', char.color);
+          }
+          if (uTag) uTag.style.setProperty('--actor-tag-color', char.color);
 
         } else if (target === 'mp-p2') {
-          // Actualizar Jugador 2 en Multijugador
+          // Multijugador P2
           const av = document.getElementById('mp-p2-avatar');
           if (av) {
             av.innerHTML = `<svg viewBox="0 0 100 100" alt="Avatar P2: ${char.name}">${char.svg}</svg>`;
             av.style.borderColor = char.color;
             av.style.setProperty('--actor-glow', `${char.color}99`);
           }
-          const nameEl = document.querySelector('#mp-actor-p2 .story-actor-name');
-          const roleEl = document.querySelector('#mp-actor-p2 .story-actor-role');
-          if (nameEl) { nameEl.textContent = `P2: ${char.name}`; nameEl.style.color = char.color; }
-          if (roleEl) roleEl.textContent = char.role;
+          const cName = document.getElementById('mp-p2-char-name');
+          const cBadge = document.getElementById('mp-p2-char-badge');
+          const uTag = document.getElementById('mp-p2-usertag');
+          if (cName) cName.textContent = `${char.icon} ${char.name}`;
+          if (cBadge) {
+            cBadge.textContent = `${char.role} · Joy-Con R [I/K]`;
+            cBadge.style.setProperty('--actor-badge-color', char.color);
+          }
+          if (uTag) uTag.style.setProperty('--actor-tag-color', char.color);
         }
 
         this.close();
@@ -6271,6 +6375,37 @@
       if (btnCharMpP1) btnCharMpP1.addEventListener('click', () => RosterManager.openSelect('mp-p1'));
       if (btnCharMpP2) btnCharMpP2.addEventListener('click', () => RosterManager.openSelect('mp-p2'));
       if (btnCloseRoster) btnCloseRoster.addEventListener('click', () => RosterManager.close());
+
+
+      // Función para personalizar nombres de jugadores al hacer clic en su etiqueta
+      ['story-p-usertag', 'mp-p1-usertag', 'mp-p2-usertag'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('click', () => {
+          const currentText = el.textContent.replace('✎', '').replace('🟦', '').replace('🟥', '').replace('🎮', '').trim();
+          const newName = prompt('Ingresa tu nombre de jugador para la partida:', currentText);
+          if (newName && newName.trim()) {
+            NinAudio.playClick();
+            if (id === 'story-p-usertag') {
+              el.innerHTML = `<span>🎮 ${newName.trim()}</span> ✎`;
+              const topName = document.querySelector('.switch-user-pill span');
+              if (topName) topName.textContent = `${newName.trim()} (1P)`;
+            } else if (id === 'mp-p1-usertag') {
+              el.innerHTML = `<span>🟦 ${newName.trim()}</span> ✎`;
+              const scoreP1 = document.getElementById('mp-p1-score');
+              if (scoreP1 && scoreP1.parentElement) {
+                scoreP1.previousElementSibling.textContent = `🟦 ${newName.trim()}:`;
+              }
+            } else if (id === 'mp-p2-usertag') {
+              el.innerHTML = `<span>🟥 ${newName.trim()}</span> ✎`;
+              const scoreP2 = document.getElementById('mp-p2-score');
+              if (scoreP2 && scoreP2.parentElement) {
+                scoreP2.previousElementSibling.textContent = `🟥 ${newName.trim()}:`;
+              }
+            }
+          }
+        });
+      });
 
       // Botones Multijugador (P1 y P2)
       const btnMpP1Coop = document.getElementById('btn-mp-p1-coop');

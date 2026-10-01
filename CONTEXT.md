@@ -3,9 +3,16 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.7.0` (Roster Oficial de 6 Personajes por Defecto · Selector Visual para 1P vs CPU y 2P vs Usuario Real · Multijugador Idéntico a 1P · Simulador 2D Independiente · Atributos `alt` Universales)
+> **Versión del Proyecto:** `1.8.0` (Placas de Identidad & Nombres de Personajes Junto a sus Imágenes · Personalización de Nombres de Usuarios Reales · Roster Oficial de 6 Personajes · Multijugador Idéntico a 1P)
 
-1. **Roster Oficial de 6 Personajes por Defecto & Selector Visual:**
+1. **Placas de Identidad & Nombres de Personajes Junto a sus Imágenes de Jugadores:**
+   * Módulo visual `.actor-nameplate` acoplado al pie de cada pedestal de 140px.
+   * **Nombre e Icono del Personaje:** Tipografía Fredoka de alto contraste, icono temático (`🤠`, `🐱`, `🦊`, `🐶`, `🐻`, `🦉`) y sombras 3D.
+   * **Insignia de Rol / Arquetipo:** Filosofía de Teoría de Juegos y controles en colores HSL reactivos.
+   * **Etiqueta Personalizable de Usuario (`✎ Renombrar`):** Permite a los usuarios reales hacer clic y escribir su nombre (ej. "Rodrigo", "Camila"), actualizándose en el Switch OS y marcadores en vivo.
+   * Actualización instantánea en cascada al utilizar el selector de personajes Roster.
+
+2. **Roster Oficial de 6 Personajes por Defecto & Selector Visual:**
    * Elenco canónico de 6 arquetipos:
      1. `traveler` (El Viajero): Reciprocidad noble y constructiva.
      2. `kopy` (Kopy el Guardián): Tit for Tat (amable, justiciero y compasivo).

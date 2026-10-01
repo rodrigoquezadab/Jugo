@@ -2,11 +2,20 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.7.0**: Roster de 6 personajes por defecto con selector visual en pantalla (`[ 👤 Cambiar Personaje ]`) tanto para jugar en 1P contra la computadora (pudiendo elegir tanto tu avatar como el rival CPU) como en Multijugador local (para que cada usuario real elija su personaje favorito), con avatares gigantes, paletas cromáticas y estrategias vivas.
+> **Versión 1.8.0**: Placas de Identidad y Nombres de Personajes integradas directamente junto a sus imágenes de jugadores (tanto en 1P vs CPU como en Multijugador 1v1), con tipografía Nintendo, iconos oficiales, insignias de arquetipo y etiquetas editables con 1 clic para colocar nombres de usuarios reales.
 
 ---
 
-## 👥 1. Roster Oficial de 6 Personajes & Selector Visual (1P vs CPU & 2P vs Usuario Real)
+## 🏷️ 1. Placas de Identidad & Nombres de Personajes con sus Imágenes
+Cada luchador cuenta ahora con una **Placa de Identidad Nintendo (`.actor-nameplate`)** situada bajo su avatar gigante de 140px:
+* **Nombre Oficial e Icono del Personaje:** Muestra con claridad el nombre del arquetipo activo (`🤠 El Viajero`, `🐱 Kopy el Guardián`, `🦊 Sneaky el Bribón`, `🐶 Buddy el Granjero`, `🐻 Grumpy el Herrero`, `🦉 Detective Búho`).
+* **Insignia Temática de Arquetipo:** Detalla la filosofía de juego y controles asociados (`Estratega Noble`, `El Imitador (Tit for Tat)`, `Joy-Con Azul [W / S]`, `Joy-Con Rojo [I / K]`, etc.).
+* **Etiqueta Editable para Usuarios Reales (`✎ Renombrar`):** Al hacer clic en la etiqueta superior del jugador (`[ 🎮 JUGADOR (TÚ) ]`, `[ 🟦 JUGADOR 1 ]`, `[ 🟥 JUGADOR 2 ]`), puedes ingresar tu nombre real (ej. *Rodrigo*, *Lucas*, *Camila*) y se sincronizará automáticamente en la pantalla de batalla, en la barra superior de la consola y en los marcadores.
+* **Sincronización Total con el Roster:** Al cambiar de personaje en el selector, la placa de nombre, el icono, la paleta cromática y la ilustración se actualizan simultáneamente.
+
+---
+
+## 👥 2. Roster Oficial de 6 Personajes & Selector Visual (1P vs CPU & 2P vs Usuario Real)
 Cualquier jugador puede elegir entre los **6 arquetipos de Teoría de Juegos por defecto**:
 1. **🤠 El Viajero (Gamer Azul):** Estratega noble y curioso. Inicia cooperando y busca la reciprocidad mutua.
 2. **🐱 Kopy el Guardián (Tit for Tat):** La regla del espejo. Noble al inicio, castiga las agresiones y perdona de inmediato si vuelves a cooperar.
