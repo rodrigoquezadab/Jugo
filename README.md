@@ -2,15 +2,18 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.8.4**: Reubicación de la Barra de Balance de Cooperaciones en Vivo (`.live-balance-hud`) en el **centro neurálgico de la pantalla** (entre los personajes y junto a la barra de acciones), liberando la barra superior de la consola y permitiendo ver en tiempo real la proporción de cooperaciones vs ataques justo donde ocurren las decisiones.
+> **Versión 1.8.5**: Eliminación de la tarjeta de ADN estratégico en el centro de combate y ampliación notable de la **Barra de Cooperaciones** (altura aumentada a 32px, ancho a 290px, tipografía en 0.82rem bold 900 con etiquetas dinámicas `[🤝 COOP / 🗡️ ATAQUE]`), creando un medidor de duelo arcade limpio, nítido y de máximo impacto visual.
 
 ---
 
-## ⚖️ 1. Barra de Cooperaciones en el Centro de la Pantalla
-* **Ubicación Centralizada en el Choque Escénico:** La barra de balance interactivo (`#story-live-balance-hud` en Modo Historia, `#mp-live-balance-hud` en Multijugador y `#arcade-live-balance-hud` en Arcade) ahora se ubica en el centro de la pantalla, flanqueada por ambos combatientes e inmediatamente sobre los botones de acción.
-* **Telemetría Dinámica en Vivo:** Muestra el porcentaje acumulado de cooperaciones cumplidas (`🤝 50%`) y ataques/traiciones (`🗡️ 50%`), actualizándose al instante con cada jugada.
-* **Alternancia con 1 Clic o Tecla [H]:** Botón interactivo de ojo (`[👁️ Ocultar Barra]`) y atajo de teclado `[H]` para ocultar la barra y jugar a ciegas sin condicionamientos, o mostrarla para análisis táctico.
-* **Barra Superior Switch OS Despejada:** Al removerse de la cabecera superior, las pestañas de navegación y el perfil del usuario disponen de máxima amplitud sin compresión horizontal.
+## ⚖️ 1. Barra de Cooperaciones Ampliada (Más Alta y Visible) sin ADN Estratégico
+* **Eliminación del ADN Estratégico en Escenario:** Se retiró la tarjeta de radar de ADN (`#opp-dna-card`) del choque central para descongestionar el espacio entre ambos combatientes, eliminando distracciones y permitiendo que la atención se concentre en el medidor de confianza y las decisiones inmediatas.
+* **Medidor de Mayor Altura y Visibilidad:**
+  * **Altura duplicada:** Pasa de 16px/18px a **32px de altura**.
+  * **Anchura expandida:** Pasa a **290px**, adaptándose con holgura a la barra de acciones inferior.
+  * **Tipografía e Indicadores:** Texto bold 900 en `0.82rem` con etiquetas enriquecidas (`🤝 XX% COOP` / `🗡️ XX% ATAQUE`), degradados esmeralda/carmesí con destellos de relieve e iluminación neón.
+* **Ubicación Centralizada Directa:** Flanqueada por los avatares gigantes de 140px tanto en Modo Historia (`#story-live-balance-hud`) como en Modo Multijugador (`#mp-live-balance-hud`) y Arcade (`#arcade-live-balance-hud`).
+* **Control con 1 Clic / Tecla [H]:** Botón interactivo de ojo y atajo de teclado para alternar visibilidad al instante.
 
 ---
 
