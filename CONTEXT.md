@@ -3,9 +3,14 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.8.1` (Corrección de Renderizado de Avatar de Computadora CPU con SVG · Placas de Identidad & Nombres de Personajes Junto a sus Imágenes · Roster de 6 Personajes · Multijugador Idéntico a 1P)
+> **Versión del Proyecto:** `1.8.2` (Texto Narrativo de la Historia Ubicado Arriba de Personajes y Botones · Renderizado de Avatar de Computadora CPU con SVG · Placas de Identidad & Nombres de Personajes Junto a sus Imágenes · Roster de 6 Personajes · Multijugador Idéntico a 1P)
 
-1. **Placas de Identidad & Nombres de Personajes Junto a sus Imágenes de Jugadores:**
+1. **Ubicación del Texto de la Historia y Comentarios Arriba de Botones y Personajes:**
+   * La caja de diálogo RPG (`.story-rpg-dialogue-box`) en Modo Historia y la caja de comentarios (`.mp-dialogue-box`) en Modo Multijugador se sitúan en la parte superior de cada escenario (`.story-stage-scene`).
+   * Permite una lectura natural y secuencial: primero la narrativa del capítulo y pistas pedagógicas, y abajo los avatares cara a cara con la barra de acciones centralizada.
+   * Total compatibilidad con la vista Switch a 720p/1080p sin scroll.
+
+2. **Placas de Identidad & Nombres de Personajes Junto a sus Imágenes de Jugadores:**
    * Módulo visual `.actor-nameplate` acoplado al pie de cada pedestal de 140px.
    * **Nombre e Icono del Personaje:** Tipografía Fredoka de alto contraste, icono temático (`🤠`, `🐱`, `🦊`, `🐶`, `🐻`, `🦉`) y sombras 3D.
    * **Insignia de Rol / Arquetipo:** Filosofía de Teoría de Juegos y controles en colores HSL reactivos.

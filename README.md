@@ -2,12 +2,21 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.8.1**: Corrección de renderizado del avatar de la Computadora (CPU) con SVG vectorial nativo visible en la carga inicial y en cada capítulo del Modo Historia, junto con placas de identidad completas para todos los personajes.
+> **Versión 1.8.2**: Reubicación de la caja narrativa de diálogo y comentarios en la parte superior del escenario (arriba de los personajes y de la barra de acciones central) para una lectura natural y óptima en la consola Nintendo Switch, junto con las placas de identidad de los 6 personajes y el soporte multijugador idéntico a 1P.
 
 ---
 
-## 🏷️ 1. Placas de Identidad & Nombres de Personajes con sus Imágenes
-Cada luchador cuenta ahora con una **Placa de Identidad Nintendo (`.actor-nameplate`)** situada bajo su avatar gigante de 140px:
+## 📜 1. Texto de la Historia Arriba de los Personajes y Botones
+* **Lectura Natural Tipo RPG / Novela Visual:** La caja de diálogo y narrativa (`.story-rpg-dialogue-box`) en el **Modo Historia (1P)** y la caja de comentarios del árbitro (`.mp-dialogue-box`) en el **Modo Multijugador (2P)** ahora se posicionan en la **zona superior del escenario**, inmediatamente encima de los personajes y de la barra de acciones central.
+* **Jerarquía Visual Clara:**
+  1. **Arriba:** Caja de diálogo con insignia de interlocutor (`.story-speaker-tag`), texto narrativo del capítulo y consejos estratégicos.
+  2. **Abajo:** Fila escénica con el Jugador a la izquierda, la barra de acciones y radar estratégico en medio, y el rival a la derecha.
+* **Espacio y Proporciones Preservadas:** Se mantiene la altura de 140px de los avatares gigantes y la escala completa sin scroll vertical en resoluciones 720p y 1080p.
+
+---
+
+## 🏷️ 2. Placas de Identidad & Nombres de Personajes con sus Imágenes
+Cada luchador cuenta con una **Placa de Identidad Nintendo (`.actor-nameplate`)** situada bajo su avatar gigante de 140px:
 * **Nombre Oficial e Icono del Personaje:** Muestra con claridad el nombre del arquetipo activo (`🤠 El Viajero`, `🐱 Kopy el Guardián`, `🦊 Sneaky el Bribón`, `🐶 Buddy el Granjero`, `🐻 Grumpy el Herrero`, `🦉 Detective Búho`).
 * **Insignia Temática de Arquetipo:** Detalla la filosofía de juego y controles asociados (`Estratega Noble`, `El Imitador (Tit for Tat)`, `Joy-Con Azul [W / S]`, `Joy-Con Rojo [I / K]`, etc.).
 * **Etiqueta Editable para Usuarios Reales (`✎ Renombrar`):** Al hacer clic en la etiqueta superior del jugador (`[ 🎮 JUGADOR (TÚ) ]`, `[ 🟦 JUGADOR 1 ]`, `[ 🟥 JUGADOR 2 ]`), puedes ingresar tu nombre real (ej. *Rodrigo*, *Lucas*, *Camila*) y se sincronizará automáticamente en la pantalla de batalla, en la barra superior de la consola y en los marcadores.

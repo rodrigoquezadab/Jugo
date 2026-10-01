@@ -1252,19 +1252,20 @@
       text-align: center;
     }
 
-    /* CAJA DE DIÁLOGO RPG NINTENDO */
+    /* CAJA DE DIÁLOGO RPG NINTENDO (UBICADA ARRIBA DE PERSONAJES Y BOTONES) */
     .story-rpg-dialogue-box {
       background: rgba(13, 16, 25, 0.95);
       border: 2px solid #384564;
       border-radius: 16px;
       padding: 10px 16px;
-      margin-top: 6px;
+      margin: 8px 0 8px 0;
       position: relative;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      min-height: 88px;
+      min-height: 76px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 5;
     }
 
     .story-speaker-tag {
@@ -2300,6 +2301,18 @@
           <!-- ESCENARIO VISUAL RPG & PERSONAJES -->
           <div class="story-stage-scene" id="story-scene-box">
 
+            
+            <!-- CAJA DE DIÁLOGO RPG NINTENDO -->
+            <div class="story-rpg-dialogue-box" alt="Caja de diálogo y narrativa de la historia">
+              <span class="story-speaker-tag" id="story-speaker-name">BUDDY EL GRANJERO</span>
+              <p class="story-dialogue-text" id="story-text-body">
+                "¡Bienvenido a la aldea, forastero! Tengo un saco de trigo recién cosechado. Si me das tus manzanas, ambos prosperaremos (+3 monedas cada uno). ¿Cerramos el trato honestamente?"
+              </p>
+              <p class="story-lesson-hint" id="story-text-hint">
+                💡 Consejo: Si ambos cooperan, el beneficio mutuo crea riqueza de la nada.
+              </p>
+            </div>
+
             <div class="story-actors-row">
 
               <!-- JUGADOR (EL VIAJERO) - AVATAR GIGANTE CON PLACA DE NOMBRE -->
@@ -2413,17 +2426,6 @@
 
             </div>
 
-            <!-- CAJA DE DIÁLOGO RPG NINTENDO -->
-            <div class="story-rpg-dialogue-box" alt="Caja de diálogo y narrativa de la historia">
-              <span class="story-speaker-tag" id="story-speaker-name">BUDDY EL GRANJERO</span>
-              <p class="story-dialogue-text" id="story-text-body">
-                "¡Bienvenido a la aldea, forastero! Tengo un saco de trigo recién cosechado. Si me das tus manzanas, ambos prosperaremos (+3 monedas cada uno). ¿Cerramos el trato honestamente?"
-              </p>
-              <p class="story-lesson-hint" id="story-text-hint">
-                💡 Consejo: Si ambos cooperan, el beneficio mutuo crea riqueza de la nada.
-              </p>
-            </div>
-
           </div>
 
         </div>
@@ -2492,6 +2494,18 @@
 
           <!-- ESCENARIO VISUAL RPG DE DUELO MULTIJUGADOR -->
           <div class="story-stage-scene" id="mp-scene-box" alt="Escenario de combate de duelo multijugador">
+
+            
+            <!-- CAJA DE COMENTARIOS RPG NINTENDO -->
+            <div class="story-rpg-dialogue-box mp-dialogue-box" alt="Comentarios del Árbitro de la Consola">
+              <span class="story-speaker-tag" id="mp-speaker-name" alt="Comentarista">ÁRBITRO DE LA CONSOLA</span>
+              <p class="story-dialogue-text" id="mp-dialogue-text">
+                "¡Duelo Multijugador iniciado! Ambos jugadores eligen su estrategia: cooperar para prosperar juntos (+3/+3) o atacar a traición para llevarse el botín (+5/0)."
+              </p>
+              <p class="story-lesson-hint" id="mp-dialogue-hint" alt="Pista táctica">
+                💡 P1 usa botones azules en pantalla o teclas [W/S]. P2 usa botones rojos en pantalla o teclas [I/K].
+              </p>
+            </div>
 
             <div class="story-actors-row" alt="Fila de combatientes multijugador">
 
@@ -2616,17 +2630,6 @@
                 </div>
               </div>
 
-            </div>
-
-            <!-- CAJA DE COMENTARIOS RPG NINTENDO -->
-            <div class="story-rpg-dialogue-box mp-dialogue-box" alt="Comentarios del Árbitro de la Consola">
-              <span class="story-speaker-tag" id="mp-speaker-name" alt="Comentarista">ÁRBITRO DE LA CONSOLA</span>
-              <p class="story-dialogue-text" id="mp-dialogue-text">
-                "¡Duelo Multijugador iniciado! Ambos jugadores eligen su estrategia: cooperar para prosperar juntos (+3/+3) o atacar a traición para llevarse el botín (+5/0)."
-              </p>
-              <p class="story-lesson-hint" id="mp-dialogue-hint" alt="Pista táctica">
-                💡 P1 usa botones azules en pantalla o teclas [W/S]. P2 usa botones rojos en pantalla o teclas [I/K].
-              </p>
             </div>
 
           </div>
