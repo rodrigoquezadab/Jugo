@@ -2,11 +2,25 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.3.0**: Barra de balance en vivo (Cooperaciones vs Ataques) conmutable con 1 clic (o jugar a ciegas) y Pantalla de Estadísticas Finales Avanzadas en Multijugador con perfiles psicológicos y reporte táctico.
+> **Versión 1.4.0**: Iconos y avatares de personajes más grandes (110px) y Gráficos de Radar de ADN Estratégico SVG para cada contrincante (Bondad, Firmeza, Perdón, Provocación) tanto en Modo Historia como en la Galería de Rivales.
 
 ---
 
-## 📊 1. Barra de Balance en Vivo (Cooperaciones vs Ataques)
+## 🧭 1. Gráficos de Radar de ADN Estratégico & Avatares Gigantes
+* **Avatares Ampliados (110px):** Los iconos de personajes y contrincantes cuentan con mayor escala visual, marcos de neón temáticos y animación de pulso interactivo para una lectura visual clara estilo Nintendo.
+* **Gráficos de Radar SVG Cuadridimensionales (ADN de Teoría de Juegos):**
+  Cada contrincante posee su propia huella estratégica calculada y representada vectorialmente en 4 ejes:
+  * **🤝 Bondad (Niceness):** Disposición a cooperar en la primera jugada y no iniciar hostilidades.
+  * **⚡ Firmeza (Retaliation):** Capacidad de castigar inmediatamente una traición o agresión.
+  * **🕊️ Perdón (Forgiveness):** Rapidez para restaurar la cooperación si el rival vuelve a cooperar.
+  * **😈 Provocación (Provocation):** Tendencia a tentar la suerte traicionando de improviso.
+* **Visualización en Vivo & Galería:**
+  * **En el Duelo de Historia:** Una tarjeta holográfica central muestra el radar táctico activo y la debilidad del contrincante.
+  * **En la Galería de Rivales:** Fichas técnicas completas con gráficos de radar de cada arquetipo (Kopy, Sneaky, Buddy, Grumpy y Detective).
+
+---
+
+## 📊 2. Barra de Balance en Vivo (Cooperaciones vs Ataques)
 Ubicada en la barra de la consola Switch:
 * **Visualización Dinámica:** Muestra en tiempo real la proporción entre **🤝 Cooperaciones (Verde)** y **🗡️ Ataques/Traición (Rojo)**.
 * **Jugar con Barra o a Ciegas (1 Clic):** Puedes alternar la barra entre visible y oculta con el botón `[ 👁️ Ocultar / Ver Barra ]`, haciendo clic directamente en la barra o pulsando la tecla `[H]`. Esto permite jugar en modo inmersivo sin conocer el recuento hasta el final.

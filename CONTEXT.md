@@ -3,9 +3,20 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.3.0` (Barra de Balance en Vivo Conmutable · Reporte Analítico Multijugador · Perfiles Psicológicos)
+> **Versión del Proyecto:** `1.4.0` (Iconos de Personajes Ampliados · Gráficos de Radar Estratégico SVG · Barra de Balance Conmutable · Reporte Multijugador)
 
-1. **Barra de Progreso / Balance en Vivo (Cooperaciones vs Ataques):**
+1. **Iconos de Personajes Ampliados (110px) & Gráficos de Radar Estratégico SVG:**
+   * Diámetro de avatares aumentado de 78px a 110px tanto en Modo Historia como en la Galería de Contrincantes, con anillas de neón pulsantes.
+   * **Gráfico de Radar Cuadridimensional (ADN Estratégico):**
+     * Visualización matemática poligonal de los 4 pilares de Robert Axelrod:
+       1. **Bondad (Niceness):** Inicia cooperando y no traiciona primero.
+       2. **Firmeza / Represalia (Retaliation):** Rapidez y severidad de respuesta tras ser traicionado.
+       3. **Perdón (Forgiveness):** Facilidad con la que restaura la cooperación si el rival se enmienda.
+       4. **Provocación (Provocation):** Tasa de agresiones unilaterales espontáneas.
+     * Tarjeta holográfica en tiempo real en el centro de la escena del duelo del Modo Historia.
+     * Fichas de inspección visual en la Galería de Rivales / Modo Libre.
+
+2. **Barra de Progreso / Balance en Vivo (Cooperaciones vs Ataques):**
    * Indicador visual dinámico segmentado en verde (Cooperaciones 🤝) y rojo (Ataques/Traiciones 🗡️).
    * **Conmutabilidad con 1 Clic (`[H]` / Botón):** Permite al jugador alternar instantáneamente entre jugar viendo la telemetría en vivo o jugar a ciegas sin verla para no condicionar sus decisiones, revelando el resultado al final.
    * Funcional en Modo Historia, Duelo Arcade y Modo Multijugador.
