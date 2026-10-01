@@ -7,8 +7,9 @@ Presenta una arquitectura híbrida con soporte completo para:
 1. **Skins Visuales Intercambiables:**
    * **Skin Dwarf Fortress / ASCII Retro:** Terminal CRT con fuente monoespaciada, texto verde fósforo (`#33ff33`), líneas de escaneo y renderizado en bloque `<pre>`.
    * **Skin Minecraft / Voxel Pixel Art:** Texturas procedurales de 16x16 píxeles (Césped, Bloque de Esmeralda, Bloque de TNT, Bloque de Diamante) renderizadas en un `<canvas>` 2D acelerado, con interfaz de piedra labrada y botones biselados de Minecraft.
-2. **Modo Laboratorio / Sandbox:** Simulación continua, ejecución paso a paso, presets históricos y modificación interactiva de la matriz de pagos y parámetros biológicos.
-3. **Modo Duelo Multijugador por Turnos:** Competencia táctica local (*Hot-seat*) para 2 a 4 jugadores por turnos, con sistema de Puntos de Acción (PA), facciones, combate evolutivo y registro de combate en tiempo real.
+2. **Modo Tutorial / Aprendizaje (Por Defecto):** Experiencia didáctica e interactiva paso a paso diseñada para aprender Teoría de Juegos desde cero, con 4 lecciones progresivas (Cooperación pura, Tentación de la Traición, El Guardián Ojo por Ojo y El Colapso de los Traidores), avances manuales explicados en tiempo real y transición fluida al laboratorio.
+3. **Modo Laboratorio / Sandbox:** Simulación continua, ejecución paso a paso, presets históricos y modificación interactiva de la matriz de pagos y parámetros biológicos.
+4. **Modo Duelo Multijugador por Turnos:** Competencia táctica local (*Hot-seat*) para 2 a 4 jugadores por turnos, con sistema de Puntos de Acción (PA), facciones, combate evolutivo y registro de combate en tiempo real.
 
 ---
 

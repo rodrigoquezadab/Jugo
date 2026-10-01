@@ -626,6 +626,69 @@
       color: #00ffff;
     }
 
+    /* Estilos del Modo Tutorial / Aprendizaje Didáctico */
+    .tutorial-card {
+      background: #020602;
+      border: 1px dashed var(--text-dim);
+      padding: 10px 12px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    body.skin-minecraft .tutorial-card {
+      background: #231f1c;
+      border: 2px solid #1a1612;
+      box-shadow: inset 1px 1px 0px #423b35;
+    }
+
+    .lesson-title {
+      color: #ffff55;
+      font-weight: bold;
+      font-size: 12px;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .lesson-desc {
+      font-size: 11.5px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .lesson-hint {
+      font-size: 11px;
+      color: #55ff55;
+      background: rgba(0, 50, 0, 0.4);
+      padding: 4px 8px;
+      border-left: 3px solid #38ef38;
+      margin-bottom: 8px;
+    }
+
+    body.skin-minecraft .lesson-hint {
+      background: rgba(60, 110, 38, 0.25);
+      border-left-color: #5ca43b;
+      color: #ffffaa;
+    }
+
+    .simple-rules-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .simple-rules-table td {
+      padding: 5px 6px;
+      border-bottom: 1px dashed var(--text-muted);
+    }
+
+    .rule-outcome {
+      font-weight: bold;
+      text-align: right;
+    }
+
     /* Modal de Victoria */
     #victory-modal {
       display: none;
@@ -673,8 +736,9 @@
       <!-- Barra Superior: Selector de Modo de Juego & Selector de Skin Visual -->
       <div class="nav-bar-row">
         <div class="mode-nav">
-          <button id="tab-sandbox" class="mode-tab active">[ 🧪 LABORATORIO / LIBRE ]</button>
-          <button id="tab-multiplayer" class="mode-tab">[ ⚔️ DUELO MULTIJUGADOR ]</button>
+          <button id="tab-tutorial" class="mode-tab active">[ 🎓 APRENDER / TUTORIAL ]</button>
+          <button id="tab-sandbox" class="mode-tab">[ 🧪 LABORATORIO ]</button>
+          <button id="tab-multiplayer" class="mode-tab">[ ⚔️ DUELO ]</button>
         </div>
 
         <div class="skin-nav">
@@ -683,7 +747,7 @@
           <button id="skin-mc" class="skin-tab active" data-skin="mc">⛏️ MINECRAFT</button>
         </div>
 
-        <span id="hud-status" style="color: #ffaa00; font-weight: bold; font-size: 11px;">[ LIBRE: PAUSADO ]</span>
+        <span id="hud-status" style="color: #ffaa00; font-weight: bold; font-size: 11px;">[ TUTORIAL: LECCIÓN 1 ]</span>
       </div>
 
       <!-- HUD Modo Sandbox (Minecraft labels por defecto) -->
@@ -783,12 +847,45 @@
     <!-- PANEL DE CONTROL Y PARÁMETROS -->
     <div class="control-deck">
 
-      <!-- Panel de Control Izquierdo: Comandos / Controles Multijugador -->
+      <!-- Panel de Control Izquierdo: Tutorial / Laboratorio / Multijugador -->
       <div class="ascii-box">
-        <span id="left-box-title" class="ascii-title">COMANDOS DEL BUCLE & PRESETS</span>
+        <span id="left-box-title" class="ascii-title">GUÍA DIDÁCTICA: PASO A PASO</span>
 
-        <!-- Controles Modo Sandbox -->
-        <div id="controls-sandbox">
+        <!-- 1. Controles Modo Tutorial / Aprendizaje (Por defecto) -->
+        <div id="controls-tutorial">
+          <div class="param-label" style="margin-bottom: 4px;">ELIGE UNA LECCIÓN INTERACTIVA:</div>
+          <div class="btn-group">
+            <button class="ascii-btn lesson-btn active" data-lesson="1">1. Cooperar</button>
+            <button class="ascii-btn lesson-btn" data-lesson="2">2. El Traidor</button>
+            <button class="ascii-btn lesson-btn" data-lesson="3">3. Tit for Tat</button>
+            <button class="ascii-btn lesson-btn" data-lesson="4">4. Colapso Traidor</button>
+          </div>
+
+          <div class="tutorial-card">
+            <div id="tut-lesson-title" class="lesson-title">📖 LECCIÓN 1: EL PODER DE LA COOPERACIÓN</div>
+            <div id="tut-lesson-desc" class="lesson-desc">
+              Cuando dos cooperadores (Esmeraldas 🟩) se tocan, ambos reciben 3 puntos de recompensa (R). Al vivir juntos en comunidad, todos obtienen puntuaciones altas y protegen su territorio.
+            </div>
+            <div id="tut-lesson-hint" class="lesson-hint">
+              💡 RETO: Presiona [ ⏭ AVANZAR UN PASO ] y observa cómo las esmeraldas mantienen su equilibrio y colonizan el césped vecino.
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button id="btn-tut-step" class="ascii-btn" style="background:#27ae60; color:#fff; border-color:#2ecc71; font-weight:bold;">[ ⏭ AVANZAR UN PASO ]</button>
+            <button id="btn-tut-auto" class="ascii-btn">[ ▶ AUTO-EVOLUCIÓN ]</button>
+            <button id="btn-tut-reset" class="ascii-btn">[ ↺ REINICIAR LECCIÓN ]</button>
+            <button id="btn-tut-goto-lab" class="ascii-btn" style="color:#00ffff; border-color:#00ffff;">[ 🔬 LABORATORIO AVANZADO ]</button>
+          </div>
+
+          <div class="param-label" style="margin-top: 10px;">ANÁLISIS DE LA JUGADA EN VIVO:</div>
+          <div id="tut-analysis-log" class="terminal-log">
+            <div class="log-entry">[EXPLICACIÓN]: Cuadrícula lista. Presiona "Avanzar un paso" para ver la interacción biológica.</div>
+          </div>
+        </div>
+
+        <!-- 2. Controles Modo Sandbox / Laboratorio -->
+        <div id="controls-sandbox" style="display: none;">
           <div class="param-label" style="margin-bottom: 4px;">CONTROL DE SIMULACIÓN CONTINUA:</div>
           <div class="btn-group">
             <button id="btn-toggle" class="ascii-btn">[ ▶ REANUDAR ]</button>
@@ -798,8 +895,7 @@
             <button id="btn-clear" class="ascii-btn">[ ⌧ VACIAR ]</button>
           </div>
 
-          <div class="param-label" style="margin-top: 14px; margin-bottom: 4px;">ESCENARIOS HISTÓRICOS DE TEORÍA DE
-            JUEGOS:</div>
+          <div class="param-label" style="margin-top: 14px; margin-bottom: 4px;">ESCENARIOS HISTÓRICOS DE TEORÍA DE JUEGOS:</div>
           <div class="btn-group">
             <button class="ascii-btn preset-btn" data-preset="invasion">Invasión Traidora</button>
             <button class="ascii-btn preset-btn" data-preset="bastion">Bastión TFT</button>
@@ -818,7 +914,7 @@
           </div>
         </div>
 
-        <!-- Controles Modo Multijugador por Turnos -->
+        <!-- 3. Controles Modo Multijugador por Turnos -->
         <div id="controls-multiplayer" style="display: none;">
           <div class="param-label" style="margin-bottom: 4px;">CONFIGURACIÓN DEL DUELO:</div>
           <div class="param-row">
@@ -873,54 +969,91 @@
 
       <!-- Panel de Parámetros Matemáticos y Evolutivos -->
       <div class="ascii-box">
-        <span class="ascii-title">MATRIZ DE PAGOS & DINÁMICA EVOLUTIVA</span>
+        <span id="right-box-title" class="ascii-title">TABLA DIDÁCTICA DE REGLAS</span>
 
-        <div class="param-label" style="margin-bottom: 4px;">MATRIZ DE PAGOS DILEMA DEL PRISIONERO:</div>
-        <div class="matrix-grid">
-          <div class="param-row">
-            <span class="param-label">T (Tentación / Traición):</span>
-            <div class="param-control">
-              <input type="range" id="input-t" min="1" max="10" step="0.5" value="5">
-              <span id="val-t" class="param-val-badge">5.0</span>
-            </div>
-          </div>
-          <div class="param-row">
-            <span class="param-label">R (Recompensa Cooperar):</span>
-            <div class="param-control">
-              <input type="range" id="input-r" min="1" max="10" step="0.5" value="3">
-              <span id="val-r" class="param-val-badge">3.0</span>
-            </div>
-          </div>
-          <div class="param-row">
-            <span class="param-label">P (Castigo Mutuo):</span>
-            <div class="param-control">
-              <input type="range" id="input-p" min="0" max="6" step="0.5" value="1">
-              <span id="val-p" class="param-val-badge">1.0</span>
-            </div>
-          </div>
-          <div class="param-row">
-            <span class="param-label">S (Pérdida Estafado):</span>
-            <div class="param-control">
-              <input type="range" id="input-s" min="0" max="5" step="0.5" value="0">
-              <span id="val-s" class="param-val-badge">0.0</span>
+        <!-- Guía Didáctica Simple de Pagos (Modo Tutorial por defecto) -->
+        <div id="params-tutorial">
+          <div class="param-label" style="margin-bottom: 4px;">PUNTUACIÓN POR CADA ENCUENTRO ENTRE VECINOS:</div>
+          <table class="simple-rules-table">
+            <tr>
+              <td>🟩 Esmeralda con 🟩 Esmeralda</td>
+              <td class="rule-outcome" style="color: #55ff55;">+3 pts c/u (Amistad Mutua)</td>
+            </tr>
+            <tr>
+              <td>🧨 TNT con 🟩 Esmeralda</td>
+              <td class="rule-outcome" style="color: #ff5555;">+5 pts para TNT | 0 para Esmeralda</td>
+            </tr>
+            <tr>
+              <td>🧨 TNT con 🧨 TNT</td>
+              <td class="rule-outcome" style="color: #ffaa55;">+1 pt c/u (Castigo Destructivo)</td>
+            </tr>
+            <tr>
+              <td>💎 Diamante con 🧨 TNT</td>
+              <td class="rule-outcome" style="color: #00ffff;">Replica traición (+1 pt y frena la plaga)</td>
+            </tr>
+            <tr>
+              <td>💎 Diamante con 🟩 Esmeralda</td>
+              <td class="rule-outcome" style="color: #55ff55;">+3 pts c/u (Cooperan en paz)</td>
+            </tr>
+          </table>
+
+          <div class="tutorial-card" style="margin-top: 6px;">
+            <div class="lesson-title" style="color: #ffff55;">⭐ ¿CÓMO FUNCIONA LA EVOLUCIÓN?</div>
+            <div style="font-size: 11px; line-height: 1.4; color: var(--text-main);">
+              1. <b>Fase de Juego:</b> Cada bloque juega contra sus vecinos y suma sus puntos.<br>
+              2. <b>Fase Evolutiva:</b> Cada celda adopta la estrategia del vecino con <b>mayor puntuación</b>.
             </div>
           </div>
         </div>
 
-        <div class="param-label" style="margin-top: 10px; margin-bottom: 4px;">OPERADORES EVOLUTIVOS & COLONIZACIÓN:
-        </div>
-        <div class="param-row">
-          <span class="param-label">TASA MUTACIÓN ALEATORIA (&mu;):</span>
-          <div class="param-control">
-            <input type="range" id="input-mutation" min="0" max="10" step="0.2" value="0.6">
-            <span id="val-mutation" class="param-val-badge">0.6%</span>
+        <!-- Parámetros Avanzados de Matriz y Operadores (Modo Laboratorio) -->
+        <div id="params-advanced" style="display: none;">
+          <div class="param-label" style="margin-bottom: 4px;">MATRIZ DE PAGOS DILEMA DEL PRISIONERO:</div>
+          <div class="matrix-grid">
+            <div class="param-row">
+              <span class="param-label">T (Tentación / Traición):</span>
+              <div class="param-control">
+                <input type="range" id="input-t" min="1" max="10" step="0.5" value="5">
+                <span id="val-t" class="param-val-badge">5.0</span>
+              </div>
+            </div>
+            <div class="param-row">
+              <span class="param-label">R (Recompensa Cooperar):</span>
+              <div class="param-control">
+                <input type="range" id="input-r" min="1" max="10" step="0.5" value="3">
+                <span id="val-r" class="param-val-badge">3.0</span>
+              </div>
+            </div>
+            <div class="param-row">
+              <span class="param-label">P (Castigo Mutuo):</span>
+              <div class="param-control">
+                <input type="range" id="input-p" min="0" max="6" step="0.5" value="1">
+                <span id="val-p" class="param-val-badge">1.0</span>
+              </div>
+            </div>
+            <div class="param-row">
+              <span class="param-label">S (Pérdida Estafado):</span>
+              <div class="param-control">
+                <input type="range" id="input-s" min="0" max="5" step="0.5" value="0">
+                <span id="val-s" class="param-val-badge">0.0</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="param-row">
-          <span class="param-label">COLONIZACIÓN TERRENO VACÍO:</span>
-          <div class="param-control">
-            <input type="range" id="input-colonize" min="5" max="100" step="5" value="65">
-            <span id="val-colonize" class="param-val-badge">65%</span>
+
+          <div class="param-label" style="margin-top: 10px; margin-bottom: 4px;">OPERADORES EVOLUTIVOS & COLONIZACIÓN:</div>
+          <div class="param-row">
+            <span class="param-label">TASA MUTACIÓN ALEATORIA (&mu;):</span>
+            <div class="param-control">
+              <input type="range" id="input-mutation" min="0" max="10" step="0.2" value="0.6">
+              <span id="val-mutation" class="param-val-badge">0.6%</span>
+            </div>
+          </div>
+          <div class="param-row">
+            <span class="param-label">COLONIZACIÓN TERRENO VACÍO:</span>
+            <div class="param-control">
+              <input type="range" id="input-colonize" min="5" max="100" step="5" value="65">
+              <span id="val-colonize" class="param-val-badge">65%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -987,7 +1120,7 @@
       colonizeChance: 0.65, // 65%
       speedMs: 80,
       isRunning: false,
-      gameMode: 'sandbox', // 'sandbox' | 'multiplayer'
+      gameMode: 'tutorial', // 'tutorial' (por defecto para aprender) | 'sandbox' | 'multiplayer'
       skin: 'mc'           // 'mc' (Minecraft Voxel por defecto) | 'df' (Dwarf Fortress ASCII)
     };
 
@@ -1035,13 +1168,17 @@
     const statEmpty = document.getElementById('stat-empty');
     const asciiCensusBar = document.getElementById('ascii-census-bar');
 
-    // Elementos Multijugador
+    // Elementos de Modos (Tutorial, Sandbox, Multijugador)
+    const tabTutorial = document.getElementById('tab-tutorial');
     const tabSandbox = document.getElementById('tab-sandbox');
     const tabMultiplayer = document.getElementById('tab-multiplayer');
-    const hudSandbox = document.getElementById('hud-sandbox');
-    const hudMultiplayer = document.getElementById('hud-multiplayer');
+    const controlsTutorial = document.getElementById('controls-tutorial');
     const controlsSandbox = document.getElementById('controls-sandbox');
     const controlsMultiplayer = document.getElementById('controls-multiplayer');
+    const paramsTutorial = document.getElementById('params-tutorial');
+    const paramsAdvanced = document.getElementById('params-advanced');
+    const hudSandbox = document.getElementById('hud-sandbox');
+    const hudMultiplayer = document.getElementById('hud-multiplayer');
     const mpTurnBanner = document.getElementById('mp-turn-banner');
     const mpTurnLabel = document.getElementById('mp-turn-label');
     const mpEnergyLabel = document.getElementById('mp-energy-label');
@@ -1146,10 +1283,121 @@
 
     generateMinecraftTextures();
 
-    // Inicializar simulación con un escenario equilibrado y skin Minecraft por defecto
+    // =========================================================
+    // LECCIONES DIDÁCTICAS DEL MODO TUTORIAL / APRENDIZAJE
+    // =========================================================
+    let currentLesson = 1;
+    const lessons = {
+      1: {
+        title: "📖 LECCIÓN 1: EL PODER DE LA COOPERACIÓN",
+        desc: "Cuando dos cooperadores (Esmeraldas 🟩) se tocan, ambos ganan 3 puntos de recompensa (R). Al vivir juntos en comunidad, todos obtienen puntuaciones altas y protegen su territorio.",
+        hint: "💡 RETO: Presiona [ ⏭ AVANZAR UN PASO ] y observa cómo las esmeraldas mantienen su armonía y colonizan el césped vecino.",
+        setup: () => {
+          currentGrid.fill(EMPTY);
+          const cx = Math.floor(WIDTH / 2);
+          const cy = Math.floor(HEIGHT / 2);
+          for (let dy = -1; dy <= 1; dy++) {
+            for (let dx = -1; dx <= 1; dx++) {
+              currentGrid[getIndex(cx + dx, cy + dy)] = COOP;
+            }
+          }
+        },
+        analysis: () => "Las Esmeraldas cooperaron pacíficamente (+3 pts c/u). Su alta sinergia les permite mantenerse unidas y expandirse."
+      },
+      2: {
+        title: "📖 LECCIÓN 2: LA TENTACIÓN DEL TRAIDOR",
+        desc: "Un traidor (TNT 🧨) se aprovecha de las Esmeraldas: obtiene 5 puntos (T) y deja a la Esmeralda con 0 (S). Al final del turno, la Esmeralda derrotada adopta la estrategia del Traidor.",
+        hint: "💡 RETO: Avanza un paso y observa cómo la TNT explota a las esmeraldas adyacentes y las convierte en traidores.",
+        setup: () => {
+          currentGrid.fill(EMPTY);
+          const cx = Math.floor(WIDTH / 2);
+          const cy = Math.floor(HEIGHT / 2);
+          for (let dx = -1; dx <= 2; dx++) {
+            currentGrid[getIndex(cx + dx, cy)] = COOP;
+          }
+          currentGrid[getIndex(cx - 2, cy)] = TRAITOR;
+        },
+        analysis: () => "¡La TNT traicionó a la Esmeralda vecina ganando 5 puntos! La Esmeralda sacó 0 puntos y se convirtió en TNT."
+      },
+      3: {
+        title: "📖 LECCIÓN 3: EL GUARDIÁN DIAMANTE (TIT FOR TAT)",
+        desc: "El Diamante 💎 es la estrategia más famosa de la Teoría de Juegos: coopera por defecto, pero si una TNT le traiciona, ¡le responde con traición de inmediato! Así frena a los abusadores.",
+        hint: "💡 RETO: Avanza varios pasos y observa cómo los Diamantes contienen el avance destructivo de las TNTs.",
+        setup: () => {
+          currentGrid.fill(EMPTY);
+          const cx = Math.floor(WIDTH / 2);
+          const cy = Math.floor(HEIGHT / 2);
+          currentGrid[getIndex(cx - 2, cy)] = TRAITOR;
+          currentGrid[getIndex(cx - 1, cy)] = IMITATOR;
+          currentGrid[getIndex(cx, cy)] = IMITATOR;
+          currentGrid[getIndex(cx + 1, cy)] = COOP;
+          currentGrid[getIndex(cx + 2, cy)] = COOP;
+        },
+        analysis: () => "El Diamante imitó la traición de la TNT (+1 pt) y cooperó con las Esmeraldas (+3 pts). ¡Defensa exitosa!"
+      },
+      4: {
+        title: "📖 LECCIÓN 4: EL COLAPSO DE LOS TRAIDORES",
+        desc: "Si todos son traidores (TNT 🧨), nadie coopera y todos reciben solo 1 punto (P, Castigo mutuo). Sin cooperadores a quienes explotar, su sociedad colapsa en la pobreza.",
+        hint: "💡 RETO: Avanza y comprueba cómo un grupo de solo traidores obtiene la puntuación más baja posible.",
+        setup: () => {
+          currentGrid.fill(EMPTY);
+          const cx = Math.floor(WIDTH / 2);
+          const cy = Math.floor(HEIGHT / 2);
+          for (let dy = -1; dy <= 1; dy++) {
+            for (let dx = -1; dx <= 1; dx++) {
+              currentGrid[getIndex(cx + dx, cy + dy)] = TRAITOR;
+            }
+          }
+        },
+        analysis: () => "Traición mutua generalizada: todos sacaron solo 1 punto. Una sociedad de puros traidores es pobre y vulnerable."
+      }
+    };
+
+    function applyLesson(lessonNum) {
+      pauseSimulation();
+      currentLesson = lessonNum;
+      const lesson = lessons[lessonNum];
+      if (!lesson) return;
+
+      document.querySelectorAll('.lesson-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.getAttribute('data-lesson'), 10) === lessonNum);
+      });
+
+      document.getElementById('tut-lesson-title').textContent = lesson.title;
+      document.getElementById('tut-lesson-desc').textContent = lesson.desc;
+      document.getElementById('tut-lesson-hint').textContent = lesson.hint;
+      hudStatus.textContent = `[ TUTORIAL: LECCIÓN ${lessonNum} ]`;
+      hudStatus.style.color = '#ffaa00';
+
+      generation = 0;
+      lesson.setup();
+      lastActionGrid.fill(COOP);
+      
+      const log = document.getElementById('tut-analysis-log');
+      if (log) {
+        log.innerHTML = `<div class="log-entry important">[LECCIÓN ${lessonNum} LISTA]: Cuadrícula configurada. Haz clic en "Avanzar un paso" para ver la dinámica.</div>`;
+      }
+
+      render();
+    }
+
+    function analyzeTutorialStep() {
+      const lesson = lessons[currentLesson];
+      const log = document.getElementById('tut-analysis-log');
+      if (!lesson || !log) return;
+
+      let msg = lesson.analysis();
+      const entry = document.createElement('div');
+      entry.className = 'log-entry combat';
+      entry.textContent = `[PASO ${generation}]: ${msg}`;
+      log.appendChild(entry);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    // Inicializar simulación: por defecto inicia en Modo Tutorial con Skin Minecraft
     function initSimulation() {
-      applyPreset('equilibrado');
       setVisualSkin('mc');
+      applyLesson(1);
     }
 
     function getIndex(x, y) {
@@ -1306,6 +1554,9 @@
       runGamePhase();
       runEvolutionPhase();
       render();
+      if (config.gameMode === 'tutorial') {
+        analyzeTutorialStep();
+      }
     }
 
     function loop() {
@@ -1317,7 +1568,13 @@
     function startSimulation() {
       if (config.isRunning) return;
       config.isRunning = true;
-      hudStatus.textContent = config.gameMode === 'sandbox' ? '[ LIBRE: EJECUTANDO ]' : '[ DUELO: EJECUTANDO ]';
+      if (config.gameMode === 'tutorial') {
+        hudStatus.textContent = `[ TUTORIAL: EJECUTANDO LECCIÓN ${currentLesson} ]`;
+      } else if (config.gameMode === 'sandbox') {
+        hudStatus.textContent = '[ LABORATORIO: EJECUTANDO ]';
+      } else {
+        hudStatus.textContent = '[ DUELO: EJECUTANDO ]';
+      }
       hudStatus.style.color = '#38ef38';
       btnToggle.textContent = '[ ⏸ PAUSAR ]';
       btnToggle.classList.add('active');
@@ -1327,7 +1584,13 @@
     function pauseSimulation() {
       config.isRunning = false;
       if (loopTimeoutId) clearTimeout(loopTimeoutId);
-      hudStatus.textContent = config.gameMode === 'sandbox' ? '[ LIBRE: PAUSADO ]' : '[ DUELO EN CURSO ]';
+      if (config.gameMode === 'tutorial') {
+        hudStatus.textContent = `[ TUTORIAL: LECCIÓN ${currentLesson} ]`;
+      } else if (config.gameMode === 'sandbox') {
+        hudStatus.textContent = '[ LABORATORIO: PAUSADO ]';
+      } else {
+        hudStatus.textContent = '[ DUELO EN CURSO ]';
+      }
       hudStatus.style.color = '#ffaa00';
       btnToggle.textContent = '[ ▶ REANUDAR ]';
       btnToggle.classList.remove('active');
@@ -1858,37 +2121,104 @@
       }
     });
 
-    // Pestañas Modo Sandbox / Multijugador
+    // =========================================================
+    // NAVEGACIÓN ENTRE MODOS: TUTORIAL / LABORATORIO / DUELO
+    // =========================================================
+    tabTutorial.addEventListener('click', () => {
+      tabTutorial.classList.add('active');
+      tabSandbox.classList.remove('active');
+      tabMultiplayer.classList.remove('active');
+      config.gameMode = 'tutorial';
+      hudSandbox.style.display = 'grid';
+      hudMultiplayer.style.display = 'none';
+      controlsTutorial.style.display = 'block';
+      controlsSandbox.style.display = 'none';
+      controlsMultiplayer.style.display = 'none';
+      paramsTutorial.style.display = 'block';
+      paramsAdvanced.style.display = 'none';
+      mpTurnBanner.style.display = 'none';
+      brushBombBtn.style.display = 'none';
+      brushClearBtn.style.display = 'inline-block';
+      document.getElementById('left-box-title').textContent = 'GUÍA DIDÁCTICA: PASO A PASO';
+      document.getElementById('right-box-title').textContent = 'TABLA DIDÁCTICA DE REGLAS';
+      document.getElementById('bar-label').textContent = 'CENSO DINÁMICO DE ESTRATEGIAS:';
+      pauseSimulation();
+      applyLesson(currentLesson);
+    });
+
     tabSandbox.addEventListener('click', () => {
       tabSandbox.classList.add('active');
+      tabTutorial.classList.remove('active');
       tabMultiplayer.classList.remove('active');
       config.gameMode = 'sandbox';
       hudSandbox.style.display = 'grid';
       hudMultiplayer.style.display = 'none';
+      controlsTutorial.style.display = 'none';
       controlsSandbox.style.display = 'block';
       controlsMultiplayer.style.display = 'none';
+      paramsTutorial.style.display = 'none';
+      paramsAdvanced.style.display = 'block';
       mpTurnBanner.style.display = 'none';
       brushBombBtn.style.display = 'none';
       brushClearBtn.style.display = 'inline-block';
       document.getElementById('left-box-title').textContent = 'COMANDOS DEL BUCLE & PRESETS';
+      document.getElementById('right-box-title').textContent = 'MATRIZ DE PAGOS & DINÁMICA EVOLUTIVA';
       document.getElementById('bar-label').textContent = 'CENSO DINÁMICO DE ESTRATEGIAS:';
+      hudStatus.textContent = '[ LABORATORIO: PAUSADO ]';
       pauseSimulation();
       render();
     });
 
     tabMultiplayer.addEventListener('click', () => {
       tabMultiplayer.classList.add('active');
+      tabTutorial.classList.remove('active');
       tabSandbox.classList.remove('active');
       config.gameMode = 'multiplayer';
       hudSandbox.style.display = 'none';
       hudMultiplayer.style.display = 'grid';
+      controlsTutorial.style.display = 'none';
       controlsSandbox.style.display = 'none';
       controlsMultiplayer.style.display = 'block';
+      paramsTutorial.style.display = 'none';
+      paramsAdvanced.style.display = 'block';
       brushBombBtn.style.display = 'inline-block';
       brushClearBtn.style.display = 'none';
       document.getElementById('left-box-title').textContent = 'PANEL TÁCTICO MULTIJUGADOR';
+      document.getElementById('right-box-title').textContent = 'MATRIZ DE PAGOS & DINÁMICA EVOLUTIVA';
       document.getElementById('bar-label').textContent = 'CONTROL TERRITORIAL ENTRE FACCIONES:';
       setupMultiplayerMatch();
+    });
+
+    // Botones de Lecciones del Modo Tutorial
+    document.querySelectorAll('.lesson-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lNum = parseInt(btn.getAttribute('data-lesson'), 10);
+        applyLesson(lNum);
+      });
+    });
+
+    document.getElementById('btn-tut-step').addEventListener('click', () => {
+      pauseSimulation();
+      tick();
+    });
+
+    document.getElementById('btn-tut-auto').addEventListener('click', () => {
+      if (config.isRunning) {
+        pauseSimulation();
+        document.getElementById('btn-tut-auto').textContent = '[ ▶ AUTO-EVOLUCIÓN ]';
+      } else {
+        config.speedMs = 300; // Velocidad pausada y cómoda para aprendizaje
+        startSimulation();
+        document.getElementById('btn-tut-auto').textContent = '[ ⏸ PAUSAR ]';
+      }
+    });
+
+    document.getElementById('btn-tut-reset').addEventListener('click', () => {
+      applyLesson(currentLesson);
+    });
+
+    document.getElementById('btn-tut-goto-lab').addEventListener('click', () => {
+      tabSandbox.click();
     });
 
     // Controles Multijugador

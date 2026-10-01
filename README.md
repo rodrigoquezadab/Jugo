@@ -8,8 +8,9 @@ Simulador interactivo espacial de Teoría de Juegos y Autómatas Celulares en un
 * *Atajo rápido:* Presiona `[M]` en cualquier momento para alternar de skin al instante sin reiniciar la simulación.
 
 ## Modos de Juego
-1. **🧪 Modo Laboratorio / Sandbox:** Simulación continua, control de parámetros en tiempo real, presets históricos y edición libre de la cuadrícula.
-2. **⚔️ Modo Duelo Multijugador por Turnos:** Juego táctico local (2 a 4 jugadores) con Puntos de Acción (PA), facciones, pulsos de caos y batalla evolutiva.
+1. **🎓 Modo Tutorial / Aprendizaje (Por Defecto):** Modo guiado interactivo paso a paso para aprender desde cero con 4 lecciones prácticas, explicaciones en tiempo real de cada jugada y transición al laboratorio.
+2. **🧪 Modo Laboratorio / Sandbox:** Simulación continua, control de parámetros en tiempo real, presets históricos y edición libre de la cuadrícula.
+3. **⚔️ Modo Duelo Multijugador por Turnos:** Juego táctico local (2 a 4 jugadores) con Puntos de Acción (PA), facciones, pulsos de caos y batalla evolutiva.
 
 ## Cómo Ejecutar
 Abre `index.html` en cualquier navegador web moderno. No requiere librerías externas ni servidores locales.
