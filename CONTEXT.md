@@ -1,28 +1,33 @@
 # CONTEXTO DEL PROYECTO: DILEMA DEL PRISIONERO EVOLUTIVO 2D (TOROIDAL)
 
 ## 1. Visión General
-Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) que implementa una simulación de **Teoría de Juegos Evolutiva Espacial** y **Autómatas Celulares**: el **Dilema del Prisionero Iterado en un Espacio Bidimensional Toroidal** con estética retro ASCII / terminal tipo *Dwarf Fortress*.
+Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) que implementa una simulación de **Teoría de Juegos Evolutiva Espacial** y **Autómatas Celulares**: el **Dilema del Prisionero Iterado en un Espacio Bidimensional Toroidal**.
 
-Incluye dos modos de operación integrados:
-1. **Modo Laboratorio / Sandbox:** Simulación continua, ejecución paso a paso, experimentación con presets clásicos y modificación interactiva de la matriz de pagos y parámetros biológicos.
-2. **Modo Duelo Multijugador por Turnos:** Competencia táctica local (*Hot-seat*) para 2 a 4 jugadores por turnos, con sistema de Puntos de Acción (PA), facciones con identidad visual, combate evolutivo y registro de combate en tiempo real.
+Presenta una arquitectura híbrida con soporte completo para:
+1. **Skins Visuales Intercambiables:**
+   * **Skin Dwarf Fortress / ASCII Retro:** Terminal CRT con fuente monoespaciada, texto verde fósforo (`#33ff33`), líneas de escaneo y renderizado en bloque `<pre>`.
+   * **Skin Minecraft / Voxel Pixel Art:** Texturas procedurales de 16x16 píxeles (Césped, Bloque de Esmeralda, Bloque de TNT, Bloque de Diamante) renderizadas en un `<canvas>` 2D acelerado, con interfaz de piedra labrada y botones biselados de Minecraft.
+2. **Modo Laboratorio / Sandbox:** Simulación continua, ejecución paso a paso, presets históricos y modificación interactiva de la matriz de pagos y parámetros biológicos.
+3. **Modo Duelo Multijugador por Turnos:** Competencia táctica local (*Hot-seat*) para 2 a 4 jugadores por turnos, con sistema de Puntos de Acción (PA), facciones, combate evolutivo y registro de combate en tiempo real.
 
 ---
 
 ## 2. Pila Tecnológica & Arquitectura
 * **HTML5 Estándar:** Estructura semántica sin dependencias externas ni frameworks pesados.
-* **CSS3 Embebido:** Paleta de terminal CRT retro (fondo `#050805`, verde fósforo `#33ff33`, efecto *scanlines* con gradientes puros, bordes ASCII discontinuos `border: 1px dashed`).
-* **JavaScript ES6 Modular:**
+* **CSS3 Embebido Dual:**
+  * Modo Terminal: Fondo `#050805`, verde fósforo `#33ff33`, scanlines CRT y bordes discontinuos tipo caja ASCII.
+  * Modo Minecraft: Fondo texturizado bedrock/piedra, botones con bisel 3D pixelado (`#4a423a`), sombras duras y renderizado de píxeles nítidos (`image-rendering: pixelated`).
+* **JavaScript ES6 Modular & Motor Gráfico Dual:**
   * **Optimización de Rendimiento:** Uso de `Uint8Array` y `Float32Array` para almacenar estrategias, facciones y fitness.
   * **Double Buffering:** Matrices dobles (`currentGrid`, `nextGrid`, `ownerGrid`, `nextOwnerGrid`) para transiciones libres de efectos de borde y sin recolección de basura (*GC thrashing*), garantizando 60 FPS estables.
-  * **Viewport Virtual Preformateado:** Renderizado en un bloque `<pre>` de caracteres monoespaciados alineados en una cuadrícula de $60 \times 30$ celdas ($1800$ agentes simultáneos).
+  * **Renderizador Dual:** Alternancia instantánea y reactiva entre un viewport `<pre>` (Dwarf Fortress) y un `<canvas>` de $960 \times 480$ px (Minecraft) manteniendo el estado exacto de la simulación.
 
 ---
 
 ## 3. Fundamento Matemático y Reglas de Teoría de Juegos
 
 ### A. Matriz de Pagos Canónica ($2 \times 2$)
-Cumple estrictamente con la desigualdad del Dilema del Prisionero:
+Cumple estrictamente con la desigualdad canónica del Dilema del Prisionero:
 $$T > R > P > S \quad \text{y} \quad 2R > T + S$$
 * **$T$ (Temptation / Éxito del Traidor):** 5.0 pts (Traidor vs Cooperador)
 * **$R$ (Reward / Cooperación Mutua):** 3.0 pts (Cooperador vs Cooperador)
@@ -32,20 +37,19 @@ $$T > R > P > S \quad \text{y} \quad 2R > T + S$$
 Todos los valores son ajustables dinámicamente en tiempo real mediante sliders.
 
 ### B. Geometría Toroidal & Vecindad de Moore
-* La cuadrícula tiene dimensiones $W = 60$, $H = 30$.
+* La cuadrícula tiene dimensiones $W = 60$, $H = 30$ ($1800$ celdas interactivas).
 * Condiciones periódicas de frontera (*Efecto Pac-Man*):
   $$x' = (x + dx + W) \pmod W$$
   $$y' = (y + dy + H) \pmod H$$
   donde $dx, dy \in \{-1, 0, 1\} \setminus \{(0,0)\}$ (8 vecinos adyacentes de Moore).
 
-### C. Estrategias Modeladas
-1. **`C` - Cooperador Puro (`#38ef38`):** Coopera incondicionalmente en todas las interacciones. Genera alta sinergia en clústeres homogéneos.
-2. **`T` - Traidor Puro / Defector (`#ff3344`):** Explota activamente a cooperadores adyacentes. Mortal contra colonias aisladas de cooperadores, pero autodestructivo frente a otros traidores ($P = 1.0$).
-3. **`I` - Imitador / Tit for Tat (`#00e5ff`):**
-   * Coopera en la primera interacción o contra agentes pacíficos.
-   * Si el vecino ejecutó una traición en el turno previo contra él, responde inmediatamente con traición en la siguiente ronda.
-   * Actúa como barrera defensiva contra la propagación de traidores.
-4. **`.` - Espacio Vacío (`#1a301a`):** Terreno no reclamado que no juega pero es susceptible a colonización.
+### C. Estrategias Modeladas y Equivalencias en Skins
+| Estrategia | Token DF (ASCII) | Bloque Minecraft | Comportamiento en el Dilema |
+| :--- | :--- | :--- | :--- |
+| **Cooperador Puro** | `'C'` (Verde Fósforo) | **Bloque de Esmeralda** | Coopera incondicionalmente; genera alta sinergia en grupos cerrados. |
+| **Traidor Puro** | `'T'` (Rojo Carmesí) | **Bloque de TNT** | Explota cooperadores ajenos; destructivo frente a otros traidores ($P = 1.0$). |
+| **Imitador (TFT)** | `'I'` (Cian Eléctrico) | **Bloque de Diamante** | Coopera inicialmente; replica de inmediato la traición si el rival traicionó. |
+| **Terreno Vacío** | `'.'` (Verde Atenuado) | **Bloque de Césped / Tierra** | Espacio no reclamado; colonizable por vecinos de alto fitness. |
 
 ### D. Algoritmo de Dos Fases por Generación
 1. **Fase de Juego:** Cada agente activo disputa 8 partidas simultáneas contra sus vecinos reales de Moore. Su puntuación acumulada se almacena en `fitnessGrid`.
@@ -59,16 +63,16 @@ Todos los valores son ajustables dinámicamente en tiempo real mediante sliders.
 ## 4. Modo Duelo Multijugador por Turnos (*Hot-Seat*)
 
 ### A. Facciones Disponibles (Mínimo 2, hasta 4 Jugadores)
-* **Jugador 1 [ALPHA]:** Token Cian Neón (`#00ffff`).
-* **Jugador 2 [OMEGA]:** Token Ámbar Dorado (`#ffaa00`).
-* **Jugador 3 [GAMMA]:** Token Violeta (`#d946ef`).
-* **Jugador 4 [DELTA]:** Token Plata / Blanco (`#f1f5f9`).
+* **Jugador 1 [ALPHA]:** Token / Borde Cian Neón (`#00ffff`).
+* **Jugador 2 [OMEGA]:** Token / Borde Ámbar Dorado (`#ffaa00`).
+* **Jugador 3 [GAMMA]:** Token / Borde Amatista (`#d946ef`).
+* **Jugador 4 [DELTA]:** Token / Borde Cuarzo / Blanco (`#f1f5f9`).
 
 ### B. Sistema de Puntos de Acción (PA)
 Cada jugador dispone de una reserva fija de PA por turno (ajustable de 3 a 10 PA, por defecto 5 PA):
-* **Desplegar Cooperador (`C`) [1 PA]:** Construcción de economías cooperativas densas.
-* **Desplegar Traidor (`T`) [1 PA]:** Misil táctico de infiltración en territorio enemigo.
-* **Desplegar Imitador (`I`) [1 PA]:** Centinela fronterizo *Tit for Tat*.
+* **Desplegar Cooperador (`C` / Esmeralda) [1 PA]:** Construcción de economías cooperativas densas.
+* **Desplegar Traidor (`T` / TNT) [1 PA]:** Misil táctico de infiltración en territorio enemigo.
+* **Desplegar Imitador (`I` / Diamante) [1 PA]:** Centinela fronterizo *Tit for Tat*.
 * **Pulso de Caos (`💥`) [2 PA]:** Bomba táctica que limpia un área de $3 \times 3$ neutralizando células enemigas.
 
 ### C. Ciclo del Turno y Resolución
@@ -89,7 +93,7 @@ El proyecto cuenta con un repositorio Git local configurado y compatibilidad dir
   ```bash
   tig
   ```
-* **Ver el log gráfico de commits en consola:**
+* **Ver el estado del repositorio:**
   ```bash
   tig status
   ```
@@ -102,12 +106,9 @@ El proyecto cuenta con un repositorio Git local configurado y compatibilidad dir
 
 ---
 
-## 6. Estructura del Repositorio
-```text
-Juego/
-├── .git/                 # Repositorio Git inicializado
-├── .gitignore            # Archivos ignorados por Git
-├── index.html            # Aplicación web monolítica completa
-├── CONTEXT.md            # Documento de contexto técnico y reglas
-└── README.md             # Guía rápida de uso y ejecución
-```
+## 6. Atajos de Teclado
+* `[Espacio]`: Play / Pausar en Sandbox, o Finalizar Turno en Multijugador.
+* `[M]`: Alternar instantáneamente entre Skin **Dwarf Fortress** y Skin **Minecraft**.
+* `[N]`: Avanzar un solo paso / generación evolutiva.
+* `[R]`: Reiniciar con mapa aleatorio o nueva partida.
+* `[C]`: Limpiar cuadrícula a terreno vacío.
