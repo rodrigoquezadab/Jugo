@@ -3,7 +3,7 @@
 ## 1. Visión General
 Este proyecto es una aplicación web interactiva en un solo archivo plano (`index.html`) construida con tecnologías web estándar (HTML5, CSS3, ES6 nativo, Web Audio API y Canvas 2D) estructurada en dos experiencias complementarias.
 
-> **Versión del Proyecto:** `1.8.0` (Placas de Identidad & Nombres de Personajes Junto a sus Imágenes · Personalización de Nombres de Usuarios Reales · Roster Oficial de 6 Personajes · Multijugador Idéntico a 1P)
+> **Versión del Proyecto:** `1.8.1` (Corrección de Renderizado de Avatar de Computadora CPU con SVG · Placas de Identidad & Nombres de Personajes Junto a sus Imágenes · Roster de 6 Personajes · Multijugador Idéntico a 1P)
 
 1. **Placas de Identidad & Nombres de Personajes Junto a sus Imágenes de Jugadores:**
    * Módulo visual `.actor-nameplate` acoplado al pie de cada pedestal de 140px.

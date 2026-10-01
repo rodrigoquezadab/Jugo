@@ -2,7 +2,7 @@
 
 Aplicación web interactiva que enseña los principios de la **Teoría de Juegos** a través de una **campaña narrativa para un jugador ("Crónicas de la Confianza")** ambientada en una **videoconsola portátil tipo Nintendo Switch**, con Joy-Cons interactivos, fondo negro, diálogos RPG, lecciones pedagógicas en pantalla y ajuste 100% a 720p y 1080p sin scroll, conservando además el **simulador espacial 2D toroidal** (con skins Minecraft y Dwarf Fortress) en su propio apartado dedicado.
 
-> **Versión 1.8.0**: Placas de Identidad y Nombres de Personajes integradas directamente junto a sus imágenes de jugadores (tanto en 1P vs CPU como en Multijugador 1v1), con tipografía Nintendo, iconos oficiales, insignias de arquetipo y etiquetas editables con 1 clic para colocar nombres de usuarios reales.
+> **Versión 1.8.1**: Corrección de renderizado del avatar de la Computadora (CPU) con SVG vectorial nativo visible en la carga inicial y en cada capítulo del Modo Historia, junto con placas de identidad completas para todos los personajes.
 
 ---
 

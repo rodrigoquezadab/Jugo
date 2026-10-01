@@ -2387,8 +2387,19 @@
                   <span>🤖</span> Cambiar Rival CPU
                 </button>
                 <div class="actor-emotion-bubble" id="story-npc-emotion" alt="Estado emocional del contrincante">🤝 Esperando trato</div>
-                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; box-shadow: 0 0 24px rgba(255, 204, 0, 0.6);" role="img" alt="Imagen del contrincante CPU">
-                  <!-- Inyectado dinámicamente -->
+                <div class="story-actor-avatar" id="story-npc-avatar" style="border-color: #ffcc00; --actor-glow: rgba(255, 204, 0, 0.7); animation-delay: -1.4s;" role="img" alt="Imagen del contrincante CPU">
+                  <svg viewBox="0 0 100 100" alt="Avatar de Buddy el Granjero">
+                    <circle cx="50" cy="50" r="44" fill="#ffcc00"/>
+                    <path d="M 14 30 Q 8 60 22 70 Q 28 60 24 36 Z" fill="#c29b00"/>
+                    <path d="M 86 30 Q 92 60 78 70 Q 72 60 76 36 Z" fill="#c29b00"/>
+                    <circle cx="38" cy="46" r="6" fill="#07080c"/>
+                    <circle cx="62" cy="46" r="6" fill="#07080c"/>
+                    <circle cx="40" cy="44" r="2.5" fill="#ffffff"/>
+                    <circle cx="64" cy="44" r="2.5" fill="#ffffff"/>
+                    <ellipse cx="50" cy="54" rx="4" ry="3" fill="#07080c"/>
+                    <path d="M 46 64 Q 50 74 54 64 Z" fill="#ff4d6d"/>
+                    <path d="M 40 60 Q 50 66 60 60" stroke="#07080c" stroke-width="3" fill="none"/>
+                  </svg>
                 </div>
                 <!-- PLACA CON NOMBRE DEL PERSONAJE CPU -->
                 <div class="actor-nameplate" id="story-npc-nameplate" alt="Placa de nombre del contrincante">
@@ -5346,12 +5357,20 @@
         // Configurar avatares y resetear emociones
         const npcAvatar = document.getElementById('story-npc-avatar');
         if (npcAvatar) {
-          npcAvatar.innerHTML = opp.svg;
+          const svgContent = opp.svg.includes('<svg') ? opp.svg : `<svg viewBox="0 0 100 100" alt="Avatar de ${opp.name}" role="img">${opp.svg}</svg>`;
+          npcAvatar.innerHTML = svgContent;
           npcAvatar.style.borderColor = opp.color;
           npcAvatar.style.setProperty('--actor-glow', `${opp.color}99`);
         }
-        document.getElementById('story-npc-name').textContent = chap.npcName;
-        document.getElementById('story-npc-role').textContent = chap.npcRole;
+        const npcCharName = document.getElementById('story-npc-char-name');
+        const npcCharBadge = document.getElementById('story-npc-char-badge');
+        const npcUserTag = document.getElementById('story-npc-usertag');
+        if (npcCharName) npcCharName.textContent = `${opp.icon || '🤖'} ${chap.npcName}`;
+        if (npcCharBadge) {
+          npcCharBadge.textContent = chap.npcRole;
+          npcCharBadge.style.setProperty('--actor-badge-color', opp.color);
+        }
+        if (npcUserTag) npcUserTag.style.setProperty('--actor-tag-color', opp.color);
 
         const npcPreloadStatus = [
           "🤝 Busco trato honesto",
@@ -5571,7 +5590,9 @@
         return `
           <div class="opp-gallery-full-card" style="border-color: ${opp.color}66;">
             <div class="opp-gallery-avatar-large" style="border-color: ${opp.color}; box-shadow: 0 0 20px ${opp.color}55;">
-              ${opp.svg}
+              <svg viewBox="0 0 100 100" alt="Avatar de ${opp.name}">
+                ${opp.svg}
+              </svg>
             </div>
             <h4 style="margin: 0; color: #fff; font-size: 1.15rem;">${opp.icon} ${opp.name}</h4>
             <span style="font-size: 0.72rem; color: ${opp.color}; font-weight: 700;">${opp.role}</span>
